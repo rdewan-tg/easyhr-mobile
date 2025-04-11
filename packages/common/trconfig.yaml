@@ -69,7 +69,7 @@ gsheets:
   
   ## Open your google sheet and copy the SHEET_ID from the url:
   ## https://docs.google.com/spreadsheets/d/{SHEET_ID}/edit#gid=0
-  spreadsheet_id: 1TTWCFByX2xTTkCjD80hEfHxkyxsDXxcXNh-YcSuBW-I
+  spreadsheet_id: 1ALPB_6t_aGdMUaLCyWrSqElKoC_WldUYK2F1eQpDpwQ
 
   ## The spreadsheet "table" where your translation will live.
   worksheet: Sheet1
