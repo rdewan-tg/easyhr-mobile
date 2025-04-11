@@ -1,0 +1,24 @@
+title: Setting
+theme: Theme
+darkMode: Dark Mode
+enableDarkMode: Enable / Disable dark mode
+language: Language
+selectYourLanguage: Select your language
+profile: Profile
+manageYourProfile: Manage your profile
+logout: Logout
+deviceSetting: Device Setting
+manageYourDevice: Manage your device
+deviceId: Device ID
+salesPersonCode: Sales Person Code
+orderNumberFormat: Order Number Format
+orderRunningNumberTitle: Order Running Number
+orderRunningNumberSubTitle: Order Running Number
+timeZone: Time Zone
+importSalesCustomer: Import Sales Customer
+importSalesCustomerSubTitle: Import Sales Customer from API
+importMerchandiserCustomer: Import Merchandiser Customer
+importMerchandiserCustomerSubTitle: Import Merchandiser Customer from API
+importProductAndPrice: Import Product and Price
+importProductAndPriceSubTitle: Import Product and Price from API
+save: Save
