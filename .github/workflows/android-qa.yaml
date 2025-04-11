@@ -1,5 +1,5 @@
 
-name: Flutter - Android Build QA
+name: Android Build - QA
 
 on:
   # Validate PR builds
