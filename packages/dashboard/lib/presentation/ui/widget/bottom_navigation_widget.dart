@@ -25,12 +25,7 @@ class _BottomNavigationWidgetState
           selectedIcon: const Icon(Icons.home_rounded),
           icon: const Icon(Icons.home_outlined),
           label: context.localizations('home.title'),
-        ),        
-        NavigationDestination(
-          selectedIcon: const Icon(Icons.account_circle_rounded),
-          icon: const Icon(Icons.account_circle_outlined),
-          label: "Notifications".hardcoded,
-        ),
+        ),         
         NavigationDestination(
           selectedIcon: const Icon(Icons.settings_rounded),
           icon: const Icon(Icons.settings_outlined),

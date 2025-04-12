@@ -7,8 +7,8 @@ import 'package:profile/presentation/state/profile_state.dart';
 
 final profileControllerProvider =
     AutoDisposeNotifierProvider<ProfileController, ProfileState>(
-  ProfileController.new,
-);
+      ProfileController.new,
+    );
 
 final class ProfileController extends AutoDisposeNotifier<ProfileState> {
   StreamSubscription<String>? _themeModeSubscription;
@@ -28,27 +28,36 @@ final class ProfileController extends AutoDisposeNotifier<ProfileState> {
   }
 
   Future<void> logout() async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
     // call api - logout
-    // await ref.read(authServiceProvider).logout();
-
-    // clear token - access token and refresh token
-    await ref.read(profileServiceProvider).clearToken();
-    // set auth state - false
-    ref.read(goRouterNotifierProvider).isLoggedIn = false;
+    final result = await ref.read(profileServiceProvider).logout();
+    result.when(
+      (success) {
+        // set auth state - false
+        ref.read(goRouterNotifierProvider).isLoggedIn = false;
+        state = state.copyWith(isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(isLoading: false, errorMsg: error.message);
+      },
+    );
   }
 
   Future<void> deleteMyAccount() async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
     // call api - delete account
     final result = await ref.read(profileServiceProvider).deleteMe();
 
-    result.when((success) {
-      // clear token - access token and refresh token
-      ref.read(profileServiceProvider).clearToken();
-      // set auth state - false
-      ref.read(goRouterNotifierProvider).isLoggedIn = false;
-    }, (error) {
-      state = state.copyWith(errorMsg: error.message);
-    });
+    result.when(
+      (success) {
+        // set auth state - false
+        ref.read(goRouterNotifierProvider).isLoggedIn = false;
+        state = state.copyWith(isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(isLoading: false, errorMsg: error.message);
+      },
+    );
   }
 
   Future<void> getAllSettings() async {

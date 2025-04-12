@@ -10,7 +10,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:home/home.dart';
-import 'package:merchandiser/merchandiser.dart';
 import 'package:profile/profile.dart';
 import 'package:report/report.dart';
 import 'package:setting/setting.dart';
@@ -93,7 +92,6 @@ class AppRouter {
       _signupRoute(),
       _dashboardRoute(),
       _todaySiteVisitReportRoute(),
-      _thisMonthSiteVisitReportRoute(),
     ];
   }
 
@@ -144,7 +142,6 @@ class AppRouter {
       },
       branches: [
         _homeBranch(),
-        _merchandiserBranch(),
         _settingBranch(),
       ],
     );
@@ -166,28 +163,6 @@ class AppRouter {
     );
   }
 
-
-
-  StatefulShellBranch _merchandiserBranch() {
-    return StatefulShellBranch(
-      routes: [
-        GoRoute(
-          path: '/$merchandiserRoute',
-          name: merchandiserRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const MerchandiserCustomerScreen(),
-          ),
-          routes: [
-            _captureImageRoute(),
-            _searchMerchandiserCustomerRoute(),
-            _merchandiserCustomerImportRoute(),
-          ],
-        ),
-      ],
-    );
-  }
 
   StatefulShellBranch _settingBranch() {
     return StatefulShellBranch(
@@ -212,17 +187,6 @@ class AppRouter {
   }
 
 
-
-  RouteBase _captureImageRoute() {
-    return GoRoute(
-      path: '/$captureImageRoute',
-      name: captureImageRoute,
-      builder: (context, state) {
-        final extras = state.extra as Map<String, dynamic>;
-        return CaptureImageScreen(extras: extras);
-      },
-    );
-  }
 
   RouteBase _themeRoute() {
     return GoRoute(
@@ -272,17 +236,7 @@ class AppRouter {
     );
   }
  
-  RouteBase _searchMerchandiserCustomerRoute() {
-    return GoRoute(
-      path: '/$searchMerchandiserCustomer',
-      name: searchMerchandiserCustomer,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const SearchMerchandiserCustomerScreen(),
-      ),
-    );
-  }
+
  
 
   RouteBase _todaySiteVisitReportRoute() {
@@ -296,31 +250,6 @@ class AppRouter {
       ),
     );
   }
-
-  RouteBase _thisMonthSiteVisitReportRoute() {
-    return GoRoute(
-      path: '/$thisMonthSiteVisitReportRoute',
-      name: thisMonthSiteVisitReportRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ThisMonthSiteVisitReportScreen(),
-      ),
-    );
-  }
-
-
-  RouteBase _merchandiserCustomerImportRoute() {
-    return GoRoute(
-      path: '/$merchandiserCustomerImportRoute',
-      name: merchandiserCustomerImportRoute,
-      builder: (context, state) {
-        return const MerchandiserCustomerImportScreen();
-      },
-    );
-  }
-
-
   // 4. Error Handling
   Widget _errorBuilder(BuildContext context, GoRouterState state) {
     return const NoRouteScreen();

@@ -19,5 +19,12 @@ class ProfileStorage implements IProfileStorage {
   Future<void> clearToken() async {
     await _secureStorage.delete(accessTokenKey);
     await _secureStorage.delete(refreshTokenKey);
+    await _secureStorage.delete(uuidKey);
+  }
+  
+  @override
+  Future<String?> readRefreshToken() async {
+     final refreshToken = await _secureStorage.read(refreshTokenKey);
+     return refreshToken;
   }
 }

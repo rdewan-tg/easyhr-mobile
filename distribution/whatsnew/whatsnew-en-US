@@ -1,2 +1,4 @@
-Added login feature
-User allowed to login from single device
+Test Case:
+1. User login
+2. Single Device login
+3. User Logout
