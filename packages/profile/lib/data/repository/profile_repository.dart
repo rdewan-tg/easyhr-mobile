@@ -1,5 +1,7 @@
 import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:profile/data/dto/delete_me_response.dart';
+import 'package:profile/data/dto/logout_request.dart';
+import 'package:profile/data/dto/logout_response.dart';
 import 'package:profile/data/repository/iprofile_repository.dart';
 import 'package:profile/data/source/local/iprofile_storage.dart';
 import 'package:profile/data/source/local/profile_storage.dart';
@@ -53,6 +55,30 @@ final class ProfileRepository
   Future<DeleteMeResponse> deleteMe() async {
     try {
       return await _profileApi.deleteMe();
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } catch (e, s) {
+      throw Failure(
+        message:
+            "An unexpected error occurred. Please try again later".hardcoded,
+        exception: e as Exception,
+        stackTrace: s,
+      );
+    }
+  }
+
+  @override
+  Future<LogoutResponse> logout() async{
+    try {
+      final refreshToken = await _profileStorage.readRefreshToken();
+      if (refreshToken == null) {
+        throw Failure(
+          message: "Refresh token not found".hardcoded,
+          exception: Exception("Refresh token not found"),
+        );
+      }
+      // Use the refresh token from storage           
+      return await _profileApi.logout(LogoutRequest(refreshToken: refreshToken));
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {
