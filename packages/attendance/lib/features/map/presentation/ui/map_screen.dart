@@ -31,7 +31,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     final isGranted = await Permission.location.isGranted;
 
     if (isGranted) {
-      final locationSettings = LocationSettings(
+      final locationSettings = const LocationSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 10, // meters to move before update
       );
@@ -116,20 +116,20 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(kLarge),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CurrentAddressWidget(),
-                  const SizedBox(height: kMedium),
+                  CurrentAddressWidget(),
+                  SizedBox(height: kMedium),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Flexible(flex: 8, child: ZoneWidget()),
-                      const SizedBox(width: kMedium),
-                      const CaptureImageButtonWidget(),
+                      Flexible(flex: 8, child: ZoneWidget()),
+                      SizedBox(width: kMedium),
+                      CaptureImageButtonWidget(),
                     ],
                   ),
-                  const SizedBox(height: kMedium),
+                  SizedBox(height: kMedium),
                 ],
               ),
             ),
