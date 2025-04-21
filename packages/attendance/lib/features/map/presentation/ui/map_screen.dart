@@ -14,6 +14,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      ref.read(mapControllerProvider.notifier).getAllSetting();
+    });
     _initLocation();
   }
 
@@ -146,7 +149,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             children: [
               const Icon(Icons.check, color: Colors.green),
               const SizedBox(width: kSmall),
-              Text('Success', style: context.textTheme.titleMedium),
+              Text('Success'.hardcoded, style: context.textTheme.titleMedium),
             ],
           ),
           scrollable: true,
@@ -164,7 +167,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                 const SizedBox(height: kMedium),
                 Text.rich(
                   TextSpan(
-                    text: 'You have successfully ',
+                    text: 'You have successfully '.hardcoded,
                     style: context.textTheme.bodyMedium,
                     children: [
                       TextSpan(
@@ -188,7 +191,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           ),
           actions: [
             TextButton.icon(
-              label: Text('Close'),
+              label: Text('Close'.hardcoded),
               icon: const Icon(Icons.close),
               onPressed: () => Navigator.of(context).pop(),
             ),
