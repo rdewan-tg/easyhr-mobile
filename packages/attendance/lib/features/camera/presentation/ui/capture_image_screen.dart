@@ -83,7 +83,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
                   onPressed: () {
                     context.pop();
                   },
-                  icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 ),
               ],
             ),
@@ -95,7 +95,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
                 stream: state.captureState$,
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return SizedBox(width: 72, height: 72);
+                    return const SizedBox(width: 72, height: 72);
                   }
                   return SizedBox(
                     width: 72,
@@ -123,7 +123,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
       );
 
   String _currentDateTime(String format) {
-    final timeZone = "Asia/Kolkata";
+    final timeZone = ref.read(mapControllerProvider.notifier).getTimeZone();
 
     // initialize Time Zone database from latest
     tz_latest.initializeTimeZones();
@@ -160,7 +160,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
 
     // Save the modified image to the original file path
     File(file.path).writeAsBytesSync(modifiedImageBytes);
-    
+
     // upload the image to the server
     await ref.read(mapControllerProvider.notifier).addAttendance({
       "date": dateTime,
@@ -169,7 +169,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
       "transYear": dateTime.split('/')[2].split(" ")[0],
       "file": File(file.path),
     });
-    
+
     // set isUploading to false
     ref.read(captureImageControllerProvider.notifier).setLoading(false);
 
@@ -241,9 +241,13 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
             widgetBuilder: (progress) {
               return Stack(
                 children: [
-                  // Semi-transparent background
-                  ModalBarrier(
-                    color: Color.fromRGBO(0, 0, 0, 0.8), // 80% transparent black
+                  const ModalBarrier(
+                    color: Color.fromRGBO(
+                      0,
+                      0,
+                      0,
+                      0.8,
+                    ), // 80% transparent black
                     dismissible: false,
                   ),
                   // Loading indicator

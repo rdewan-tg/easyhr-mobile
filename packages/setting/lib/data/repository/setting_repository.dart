@@ -19,11 +19,7 @@ ISettingRepository settingRepository(Ref ref) {
   final settingDao = ref.watch(settingDaoProvider);
   final settingStorage = ref.watch(settingStorageProvider);
 
-  return SettingRepositroy(
-    settingApi,
-    settingDao,
-    settingStorage,
-  );
+  return SettingRepositroy(settingApi, settingDao, settingStorage);
 }
 
 final class SettingRepositroy
@@ -33,12 +29,7 @@ final class SettingRepositroy
   final SettingDao _settingDao;
   final ISettingStorage _settingStorage;
 
-
-  SettingRepositroy(
-    this._settingApi,
-    this._settingDao,
-    this._settingStorage,
-  );
+  SettingRepositroy(this._settingApi, this._settingDao, this._settingStorage);
 
   @override
   Future<DeviceSettingResponse> getDeviceSetting(String deviceId) async {

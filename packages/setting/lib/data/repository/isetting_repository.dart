@@ -1,7 +1,6 @@
 import 'package:setting/data/dto/device_setting.dart';
 
 abstract interface class ISettingRepository {
-
   Future<DeviceSettingResponse> getDeviceSetting(String deviceId);
 
   Stream<String> watchThemeMode();

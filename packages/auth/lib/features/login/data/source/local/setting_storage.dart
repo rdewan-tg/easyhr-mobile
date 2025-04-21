@@ -21,5 +21,4 @@ class SettingStorage implements ISettingStorage {
       rethrow;
     }
   }
-  
 }

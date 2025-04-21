@@ -6,8 +6,8 @@ import 'package:common/common.dart';
 
 final loginControllerProvider =
     AutoDisposeNotifierProvider<LoginController, LoginState>(
-  LoginController.new,
-);
+      LoginController.new,
+    );
 
 class LoginController extends AutoDisposeNotifier<LoginState> {
   @override
@@ -15,12 +15,12 @@ class LoginController extends AutoDisposeNotifier<LoginState> {
     return LoginState();
   }
 
-
   Future<void> login() async {
     try {
       // update the state - isLoading = true and error = null
       state = state.copyWith(isLoading: true, error: null);
-      final uuid = await ref.read(loginServiceProvider).getUuidFromSecureStorage();
+      final uuid =
+          await ref.read(loginServiceProvider).getUuidFromSecureStorage();
 
       // setup the login request - email and password from the form
       final loginRequest = LoginRequest(

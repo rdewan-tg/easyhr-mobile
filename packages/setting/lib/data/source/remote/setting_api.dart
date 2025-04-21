@@ -1,4 +1,3 @@
-
 import 'package:core/data/remote/network_service.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';

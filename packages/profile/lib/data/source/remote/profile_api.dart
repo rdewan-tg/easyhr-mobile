@@ -23,7 +23,5 @@ abstract class ProfileApi {
   Future<DeleteMeResponse> deleteMe();
 
   @POST(logoutEndPoint)
-  Future<LogoutResponse> logout(
-    @Body() LogoutRequest logoutRequest,
-  );
+  Future<LogoutResponse> logout(@Body() LogoutRequest logoutRequest);
 }

@@ -10,4 +10,3 @@ const String themeRoute = 'theme';
 const String languageRoute = 'language';
 const String profileRoute = 'profile';
 const String deviceSettingRoute = 'device-setting';
-

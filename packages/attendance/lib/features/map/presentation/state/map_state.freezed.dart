@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MapState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isAttendanceAdded => throw _privateConstructorUsedError;
+  Map<String, String> get settings => throw _privateConstructorUsedError;
   AttendanceStatus? get status => throw _privateConstructorUsedError;
   LatLng? get currentPosition => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $MapStateCopyWith<$Res> {
   $Res call({
     bool isLoading,
     bool isAttendanceAdded,
+    Map<String, String> settings,
     AttendanceStatus? status,
     LatLng? currentPosition,
     String? imagePath,
@@ -67,6 +69,7 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
   $Res call({
     Object? isLoading = null,
     Object? isAttendanceAdded = null,
+    Object? settings = null,
     Object? status = freezed,
     Object? currentPosition = freezed,
     Object? imagePath = freezed,
@@ -86,6 +89,11 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
                     ? _value.isAttendanceAdded
                     : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
                         as bool,
+            settings:
+                null == settings
+                    ? _value.settings
+                    : settings // ignore: cast_nullable_to_non_nullable
+                        as Map<String, String>,
             status:
                 freezed == status
                     ? _value.status
@@ -134,6 +142,7 @@ abstract class _$$MapStateImplCopyWith<$Res>
   $Res call({
     bool isLoading,
     bool isAttendanceAdded,
+    Map<String, String> settings,
     AttendanceStatus? status,
     LatLng? currentPosition,
     String? imagePath,
@@ -159,6 +168,7 @@ class __$$MapStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? isAttendanceAdded = null,
+    Object? settings = null,
     Object? status = freezed,
     Object? currentPosition = freezed,
     Object? imagePath = freezed,
@@ -178,6 +188,11 @@ class __$$MapStateImplCopyWithImpl<$Res>
                 ? _value.isAttendanceAdded
                 : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
                     as bool,
+        settings:
+            null == settings
+                ? _value._settings
+                : settings // ignore: cast_nullable_to_non_nullable
+                    as Map<String, String>,
         status:
             freezed == status
                 ? _value.status
@@ -219,13 +234,14 @@ class _$MapStateImpl implements _MapState {
   _$MapStateImpl({
     this.isLoading = false,
     this.isAttendanceAdded = false,
+    final Map<String, String> settings = const {},
     this.status,
     this.currentPosition,
     this.imagePath,
     this.currentAddress,
     this.zone,
     this.errorMsg,
-  });
+  }) : _settings = settings;
 
   @override
   @JsonKey()
@@ -233,6 +249,15 @@ class _$MapStateImpl implements _MapState {
   @override
   @JsonKey()
   final bool isAttendanceAdded;
+  final Map<String, String> _settings;
+  @override
+  @JsonKey()
+  Map<String, String> get settings {
+    if (_settings is EqualUnmodifiableMapView) return _settings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_settings);
+  }
+
   @override
   final AttendanceStatus? status;
   @override
@@ -248,7 +273,7 @@ class _$MapStateImpl implements _MapState {
 
   @override
   String toString() {
-    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
+    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
   }
 
   @override
@@ -260,6 +285,7 @@ class _$MapStateImpl implements _MapState {
                 other.isLoading == isLoading) &&
             (identical(other.isAttendanceAdded, isAttendanceAdded) ||
                 other.isAttendanceAdded == isAttendanceAdded) &&
+            const DeepCollectionEquality().equals(other._settings, _settings) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.currentPosition, currentPosition) ||
                 other.currentPosition == currentPosition) &&
@@ -277,6 +303,7 @@ class _$MapStateImpl implements _MapState {
     runtimeType,
     isLoading,
     isAttendanceAdded,
+    const DeepCollectionEquality().hash(_settings),
     status,
     currentPosition,
     imagePath,
@@ -298,6 +325,7 @@ abstract class _MapState implements MapState {
   factory _MapState({
     final bool isLoading,
     final bool isAttendanceAdded,
+    final Map<String, String> settings,
     final AttendanceStatus? status,
     final LatLng? currentPosition,
     final String? imagePath,
@@ -310,6 +338,8 @@ abstract class _MapState implements MapState {
   bool get isLoading;
   @override
   bool get isAttendanceAdded;
+  @override
+  Map<String, String> get settings;
   @override
   AttendanceStatus? get status;
   @override

@@ -20,7 +20,7 @@ final networkServiceProvider = Provider<Dio>((ref) {
 
   dio.interceptors.addAll([
     HttpFormatter(
-      loggingFilter: (request, response, error) => kDebugMode ,
+      loggingFilter: (request, response, error) => kDebugMode,
     ),
     networkServiceInterceptor,
   ]);

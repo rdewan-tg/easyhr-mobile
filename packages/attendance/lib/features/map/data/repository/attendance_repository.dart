@@ -1,5 +1,3 @@
-
-
 import 'package:attendance/features/map/data/dto/add_attendance_response.dart';
 import 'package:attendance/features/map/data/dto/attendance_response.dart';
 import 'package:attendance/features/map/data/repository/iattendance_repository.dart';
@@ -14,13 +12,17 @@ final attendanceRepositoryProvider = Provider<IAttendanceRepository>((ref) {
   return AttendanceRepository(ref.watch(attendanceApiProvider));
 });
 
-final class AttendanceRepository with DioExceptionMapper implements IAttendanceRepository {
+final class AttendanceRepository
+    with DioExceptionMapper
+    implements IAttendanceRepository {
   final AttendanceApiService _attendanceApiService;
 
   AttendanceRepository(this._attendanceApiService);
 
   @override
-  Future<AddAttendanceResponse> addAttendance(CreateAttendanceModel data) async {
+  Future<AddAttendanceResponse> addAttendance(
+    CreateAttendanceModel data,
+  ) async {
     try {
       return await _attendanceApiService.addAttendance(
         file: data.file,
@@ -34,7 +36,7 @@ final class AttendanceRepository with DioExceptionMapper implements IAttendanceR
         transYear: data.transYear,
         date: data.date,
       );
-    } on DioException catch (e,s) {
+    } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {
       throw Failure(message: e.toString(), stackTrace: s);
@@ -45,11 +47,10 @@ final class AttendanceRepository with DioExceptionMapper implements IAttendanceR
   Future<AttendanceResponse> getAttendance() async {
     try {
       return await _attendanceApiService.getAttendance();
-    } on DioException catch (e,s) {
+    } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {
       throw Failure(message: e.toString(), stackTrace: s);
     }
   }
-  
 }

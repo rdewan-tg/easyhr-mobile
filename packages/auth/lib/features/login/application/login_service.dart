@@ -29,7 +29,7 @@ final class LoginService implements ILoginService {
         'companyId': result.data.user.company.id.toString(),
         'companyName': result.data.user.company.name,
         'companyCode': result.data.user.company.companyCode ?? '-',
-        'timeZone': result.data.user.company.timeZone,        
+        'timeZone': result.data.user.company.timeZone,
       });
 
       return const Success(true);
@@ -39,12 +39,11 @@ final class LoginService implements ILoginService {
       return Error(Failure(message: e.toString()));
     }
   }
-  
+
   @override
   Future<String?> getUuidFromSecureStorage() async {
     try {
-     return await _loginRepository.getUuidFromSecureStorage();
-      
+      return await _loginRepository.getUuidFromSecureStorage();
     } on Failure catch (_) {
       rethrow;
     } catch (e) {

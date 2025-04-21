@@ -16,12 +16,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         centerTitle: true,
         elevation: 8,
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            ],
-        ),
-      ),
+      body: const SingleChildScrollView(child: Column(children: [])),
     );
   }
 }

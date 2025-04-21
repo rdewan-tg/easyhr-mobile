@@ -25,12 +25,12 @@ class _BottomNavigationWidgetState
           selectedIcon: const Icon(Icons.home_rounded),
           icon: const Icon(Icons.home_outlined),
           label: context.localizations('home.title'),
-        ), 
+        ),
         NavigationDestination(
           selectedIcon: const Icon(Icons.punch_clock_rounded),
           icon: const Icon(Icons.punch_clock_outlined),
           label: context.localizations('attendance.title'),
-        ),         
+        ),
         NavigationDestination(
           selectedIcon: const Icon(Icons.settings_rounded),
           icon: const Icon(Icons.settings_outlined),

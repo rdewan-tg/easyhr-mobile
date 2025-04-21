@@ -2,7 +2,6 @@ import 'package:common/exception/failure.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 abstract interface class ISettingService {
-
   Future<Result<bool, Failure>> getDeviceSetting(String deviceId);
 
   Stream<String> watchThemeMode();

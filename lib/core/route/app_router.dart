@@ -35,8 +35,9 @@ class AppRouter {
   GoRouterNotifier notifier;
   NavigatorObserver navigatorObserver;
 
-  final GlobalKey<NavigatorState> rootNavigatorKey =
-      GlobalKey(debugLabel: 'root');
+  final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey(
+    debugLabel: 'root',
+  );
   bool isDuplicate = false;
 
   AppRouter({
@@ -87,26 +88,20 @@ class AppRouter {
 
   // 2. Routes Configuration
   List<RouteBase> _buildRoutes() {
-    return [
-      _loginRoute(),
-      _signupRoute(),
-      _dashboardRoute(),
-      _mapRoute(),
-    ];
+    return [_loginRoute(), _signupRoute(), _dashboardRoute(), _mapRoute()];
   }
 
   RouteBase _loginRoute() {
     return GoRoute(
       path: '/$loginRoute',
       name: loginRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const LoginScreen(),
-      ),
-      routes: [
-        _forgotPasswordRoute(),
-      ],
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const LoginScreen(),
+          ),
+      routes: [_forgotPasswordRoute()],
     );
   }
 
@@ -114,11 +109,12 @@ class AppRouter {
     return GoRoute(
       path: '/$signupRoute',
       name: signupRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const SignUpScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const SignUpScreen(),
+          ),
     );
   }
 
@@ -126,11 +122,12 @@ class AppRouter {
     return GoRoute(
       path: '/$forgotPasswordRoute',
       name: forgotPasswordRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ForgotPasswordScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ForgotPasswordScreen(),
+          ),
     );
   }
 
@@ -140,11 +137,7 @@ class AppRouter {
       builder: (context, state, navigationShell) {
         return DashboardScreen(navigationShell: navigationShell);
       },
-      branches: [
-        _homeBranch(),
-        _attendanceBranch(),
-        _settingBranch(),
-      ],
+      branches: [_homeBranch(), _attendanceBranch(), _settingBranch()],
     );
   }
 
@@ -153,9 +146,7 @@ class AppRouter {
       path: '/$mapRoute',
       name: mapRoute,
       builder: (context, state) => const MapScreen(),
-      routes: [
-        _cameraRoute(),
-      ],
+      routes: [_cameraRoute()],
     );
   }
 
@@ -163,7 +154,7 @@ class AppRouter {
     return GoRoute(
       path: '/$cameraRoute',
       name: cameraRoute,
-      builder: (context, state)  {
+      builder: (context, state) {
         final extras = state.extra as Map<String, dynamic>;
         return CaptureImageScreen(extras: extras);
       },
@@ -176,11 +167,12 @@ class AppRouter {
         GoRoute(
           path: '/',
           name: homeRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const HomeScreen(),
-          ),
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const HomeScreen(),
+              ),
         ),
       ],
     );
@@ -192,16 +184,16 @@ class AppRouter {
         GoRoute(
           path: '/$attendanceRoute',
           name: attendanceRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const AttendanceScreen(),
-          ),
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const AttendanceScreen(),
+              ),
         ),
       ],
     );
   }
-
 
   StatefulShellBranch _settingBranch() {
     return StatefulShellBranch(
@@ -209,11 +201,12 @@ class AppRouter {
         GoRoute(
           path: '/$settingRoute',
           name: settingRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const SettingScreen(),
-          ),
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const SettingScreen(),
+              ),
           routes: [
             _themeRoute(),
             _languageRoute(),
@@ -225,17 +218,16 @@ class AppRouter {
     );
   }
 
-
-
   RouteBase _themeRoute() {
     return GoRoute(
       path: '/$themeRoute',
       name: themeRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ThemePickerScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ThemePickerScreen(),
+          ),
     );
   }
 
@@ -243,11 +235,12 @@ class AppRouter {
     return GoRoute(
       path: '/$languageRoute',
       name: languageRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const LanguagePickerScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const LanguagePickerScreen(),
+          ),
     );
   }
 
@@ -255,11 +248,12 @@ class AppRouter {
     return GoRoute(
       path: '/$profileRoute',
       name: profileRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ProfileScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ProfileScreen(),
+          ),
     );
   }
 
@@ -267,11 +261,12 @@ class AppRouter {
     return GoRoute(
       path: '/$deviceSettingRoute',
       name: deviceSettingRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const DeviceSettingScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const DeviceSettingScreen(),
+          ),
     );
   }
 

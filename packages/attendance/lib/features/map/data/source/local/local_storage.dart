@@ -1,4 +1,3 @@
-
 import 'package:attendance/features/map/data/source/local/ilocal_storage.dart';
 import 'package:core/data/local/secure_storage/isecure_storage.dart';
 import 'package:core/data/local/secure_storage/secure_storage.dart';
@@ -24,7 +23,7 @@ final class LocalStorage implements ILocalStorage {
       rethrow;
     }
   }
-  
+
   @override
   Future<void> setAttendanceStatus(String status) async {
     try {
@@ -33,5 +32,4 @@ final class LocalStorage implements ILocalStorage {
       rethrow;
     }
   }
-  
 }

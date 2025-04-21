@@ -18,6 +18,12 @@ class MapController extends AutoDisposeNotifier<MapState> {
     return MapState();
   }
 
+  Future<void> getAllSetting() async {
+    final settings = await ref.read(mapServiceProvider).getAllSetting();
+
+    state = state.copyWith(settings: settings);
+  }
+
   Future<void> getAttendanceStatus() async {
     try {
       final result = await ref.read(mapServiceProvider).getAttendanceStatus();
@@ -37,7 +43,11 @@ class MapController extends AutoDisposeNotifier<MapState> {
 
   Future<void> addAttendance(Map<String, dynamic> data) async {
     if (data.isEmpty) return;
-    state = state.copyWith(isLoading: true, errorMsg: null, isAttendanceAdded: false);
+    state = state.copyWith(
+      isLoading: true,
+      errorMsg: null,
+      isAttendanceAdded: false,
+    );
     final file = data["file"] as File;
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
@@ -64,13 +74,13 @@ class MapController extends AutoDisposeNotifier<MapState> {
     final addAttendanceResult = await ref
         .read(attendanceServiceProvider)
         .addAttendance(body);
-    
+
     // upda the state
     addAttendanceResult.when(
       (success) async {
         // save the status to secure storage
         await mapService.setAttendanceStatus(status.name);
-        // set the image path        
+        // set the image path
         _setImagePath(file.path);
         // update the state
         state = state.copyWith(
@@ -83,12 +93,14 @@ class MapController extends AutoDisposeNotifier<MapState> {
       (error) {
         state = state.copyWith(
           imagePath: null,
-          errorMsg: error.message, 
+          errorMsg: error.message,
           isLoading: false,
         );
       },
     );
   }
+
+  String getTimeZone() => state.settings['timeZone'] ?? '-';
 
   String? getImagePath() => state.imagePath;
 

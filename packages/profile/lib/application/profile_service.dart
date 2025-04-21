@@ -16,8 +16,6 @@ final class ProfileService implements IProfileService {
 
   ProfileService(this._profileRepository);
 
-
-
   @override
   Future<Result<Map<String, String>, Failure>> getAllSetting() async {
     try {
@@ -42,7 +40,7 @@ final class ProfileService implements IProfileService {
     try {
       // delete account api call
       await _profileRepository.deleteMe();
-       // clear token from local storage
+      // clear token from local storage
       await _profileRepository.clearToken();
 
       return const Success(true);

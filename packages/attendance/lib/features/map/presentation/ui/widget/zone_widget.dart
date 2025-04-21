@@ -10,31 +10,11 @@ class ZoneWidget extends ConsumerStatefulWidget {
 class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
   final TextEditingController controller = TextEditingController();
   final zones = [
-    {
-      "name": "Zone 1",
-      "latitude": 12.9716,
-      "longitude": 77.5946,
-    },
-    {
-      "name": "Zone 2",
-      "latitude": 12.9716,
-      "longitude": 77.5946,
-    },
-    {
-      "name": "Zone 3",
-      "latitude": 12.9716,
-      "longitude": 77.5946,
-    },
-    {
-      "name": "Zone 4",
-      "latitude": 12.9716,
-      "longitude": 77.5946,
-    },
-    {
-      "name": "Zone 5",
-      "latitude": 12.9716,
-      "longitude": 77.5946,
-    },
+    {"name": "Zone 1", "latitude": 12.9716, "longitude": 77.5946},
+    {"name": "Zone 2", "latitude": 12.9716, "longitude": 77.5946},
+    {"name": "Zone 3", "latitude": 12.9716, "longitude": 77.5946},
+    {"name": "Zone 4", "latitude": 12.9716, "longitude": 77.5946},
+    {"name": "Zone 5", "latitude": 12.9716, "longitude": 77.5946},
   ];
 
   @override
@@ -47,24 +27,24 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
       onSelected: (value) {
         if (value == null) return;
         ref.read(mapControllerProvider.notifier).setZone(value);
-    
       },
       menuStyle: const MenuStyle(
-      padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
-    ),
-    inputDecorationTheme: const InputDecorationTheme(
-      isDense: true, // reduces vertical height
-      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      border: OutlineInputBorder(),
-    ),
-      dropdownMenuEntries: zones
-          .map(
-            (zone) => DropdownMenuEntry<String>(
-              value: zone["name"] as String,
-              label: zone["name"] as String,
-            ),
-          )
-          .toList(),
+        padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        isDense: true, // reduces vertical height
+        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        border: OutlineInputBorder(),
+      ),
+      dropdownMenuEntries:
+          zones
+              .map(
+                (zone) => DropdownMenuEntry<String>(
+                  value: zone["name"] as String,
+                  label: zone["name"] as String,
+                ),
+              )
+              .toList(),
     );
   }
 }

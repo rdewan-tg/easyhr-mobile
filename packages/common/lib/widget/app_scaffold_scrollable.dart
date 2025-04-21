@@ -31,11 +31,7 @@ class AppScaffoldScrollable extends StatelessWidget {
         elevation: elevation,
         actions: actions,
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: widget,
-        ),
-      ),
+      body: SafeArea(child: SingleChildScrollView(child: widget)),
       floatingActionButton: floatingActionButton,
       bottomNavigationBar: bottomNavigationBar,
     );

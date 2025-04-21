@@ -22,8 +22,8 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: Text("Attendance".hardcoded), centerTitle: true),
-      body: AttendanceList(),
+      appBar: AppBar(title: const Text("Attendance"), centerTitle: true),
+      body: const AttendanceList(),
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Add'.hardcoded),
         icon: const Icon(Icons.add),

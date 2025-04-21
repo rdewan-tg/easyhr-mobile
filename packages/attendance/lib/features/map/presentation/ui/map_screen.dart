@@ -74,7 +74,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Attendance'.hardcoded)),
+      appBar: AppBar(title: const Text('Attendance')),
       body: Consumer(
         builder: (context, ref, child) {
           final currentPosition = ref.watch(
@@ -83,7 +83,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           return SafeArea(
             child:
                 currentPosition == null
-                    ? Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : GoogleMap(
                       initialCameraPosition: CameraPosition(
                         target: currentPosition,
@@ -91,11 +91,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                       ),
                       markers: {
                         Marker(
-                          markerId: MarkerId('currentLocation'.hardcoded),
+                          markerId: const MarkerId('currentLocation'),
                           position: currentPosition,
-                          infoWindow: InfoWindow(
-                            title: 'You are here'.hardcoded,
-                          ),
+                          infoWindow: const InfoWindow(title: 'You are here'),
                         ),
                       },
                       onMapCreated: (controller) => _mapController = controller,
@@ -113,22 +111,21 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           if (currentPosition == null) return const SizedBox.shrink();
           return SafeArea(
             child: Container(
-              width: double.infinity, // Force full width
-              padding: EdgeInsets.all(kLarge),
+              width: double.infinity,
+              padding: const EdgeInsets.all(kLarge),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CurrentAddressWidget(),
+                  const CurrentAddressWidget(),
                   const SizedBox(height: kMedium),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Flexible(flex: 8, child: ZoneWidget()),
+                      const Flexible(flex: 8, child: ZoneWidget()),
                       const SizedBox(width: kMedium),
-                      CaptureImageButtonWidget(),
+                      const CaptureImageButtonWidget(),
                     ],
                   ),
-
                   const SizedBox(height: kMedium),
                 ],
               ),
@@ -149,7 +146,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             children: [
               const Icon(Icons.check, color: Colors.green),
               const SizedBox(width: kSmall),
-              Text('Success'.hardcoded, style: context.textTheme.titleMedium),
+              Text('Success', style: context.textTheme.titleMedium),
             ],
           ),
           scrollable: true,
@@ -191,7 +188,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           ),
           actions: [
             TextButton.icon(
-              label: Text('Close'.hardcoded),
+              label: Text('Close'),
               icon: const Icon(Icons.close),
               onPressed: () => Navigator.of(context).pop(),
             ),

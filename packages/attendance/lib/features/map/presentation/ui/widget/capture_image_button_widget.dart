@@ -36,11 +36,7 @@ class _CaptureImageButtonWidgetState
               : () async {
                 final currentAddress =
                     ref.read(mapControllerProvider).currentAddress;
-                context.push(
-                  "/map/camera",
-                  extra: {"address": currentAddress},
-                );
-                
+                context.push("/map/camera", extra: {"address": currentAddress});
               },
       label: Text(
         status == AttendanceStatus.checkedIn
@@ -63,6 +59,4 @@ class _CaptureImageButtonWidgetState
       ),
     );
   }
-
-  
 }

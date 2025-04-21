@@ -6,6 +6,3 @@ const String forgotPasswordEndPoint = '/v1/auth/forgot-password';
 const String meEndPoint = '/v1/me';
 const String createAttendanceEndPoint = '/v1/attendance';
 const String getAttendanceEndPoint = '/v1/attendance';
-
-
-

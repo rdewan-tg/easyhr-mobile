@@ -1,14 +1,9 @@
-
-
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 
 part 'attendance_model.freezed.dart';
 
-
 @freezed
 class AttendanceModel with _$AttendanceModel {
-
   factory AttendanceModel({
     required int id,
     required int userId,
@@ -21,7 +16,6 @@ class AttendanceModel with _$AttendanceModel {
     required int transDay,
     required int transMonth,
     required int transYear,
-    required String date,    
+    required String date,
   }) = _AttendanceModel;
-
 }

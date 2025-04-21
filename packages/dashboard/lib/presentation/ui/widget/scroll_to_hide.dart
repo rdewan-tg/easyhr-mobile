@@ -3,10 +3,7 @@ part of '../../../dashboard.dart';
 class ScrollToHide extends ConsumerStatefulWidget {
   final Widget child;
 
-  const ScrollToHide({
-    super.key,
-    required this.child,
-  });
+  const ScrollToHide({super.key, required this.child});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _ScrollToHideState();
@@ -71,9 +68,7 @@ class _ScrollToHideState extends ConsumerState<ScrollToHide> {
     return AnimatedContainer(
       duration: const Duration(seconds: 1),
       height: isVisible ? 80 + MediaQuery.viewPaddingOf(context).bottom : 0,
-      child: Wrap(
-        children: [widget.child],
-      ),
+      child: Wrap(children: [widget.child]),
     );
   }
 }

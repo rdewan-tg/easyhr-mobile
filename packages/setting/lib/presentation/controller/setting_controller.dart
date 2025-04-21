@@ -30,7 +30,6 @@ final class SettingController extends _$SettingController {
     return const SettingState();
   }
 
-
   Future<void> writeTheme(String key, String value) async {
     state = state.copyWith(errorMsg: null);
     final service = ref.read(settingServiceProvider);
@@ -67,38 +66,39 @@ final class SettingController extends _$SettingController {
     final service = ref.read(settingServiceProvider);
 
     final result = await service.getDeviceSetting('');
-    result.when(
-      (success) {},
-      (error) {
-        state = state.copyWith(errorMsg: error.message);
-      },
-    );
+    result.when((success) {}, (error) {
+      state = state.copyWith(errorMsg: error.message);
+    });
   }
 
   Future<void> watchTheme() async {
     // Start listening to the theme mode stream
-    _themeModeSubscription =
-        ref.watch(settingServiceProvider).watchThemeMode().listen(
-      (themeMode) {
-        state = state.copyWith(themeMode: themeMode);
-      },
-      onError: (error) {
-        state = state.copyWith(errorMsg: error);
-      },
-    );
+    _themeModeSubscription = ref
+        .watch(settingServiceProvider)
+        .watchThemeMode()
+        .listen(
+          (themeMode) {
+            state = state.copyWith(themeMode: themeMode);
+          },
+          onError: (error) {
+            state = state.copyWith(errorMsg: error);
+          },
+        );
   }
 
   Future<void> watchLanguage() async {
     // Start listening to the language mode stream
-    _themeModeSubscription =
-        ref.watch(settingServiceProvider).watchLanguage().listen(
-      (language) {
-        state = state.copyWith(language: language);
-      },
-      onError: (error) {
-        state = state.copyWith(errorMsg: error);
-      },
-    );
+    _themeModeSubscription = ref
+        .watch(settingServiceProvider)
+        .watchLanguage()
+        .listen(
+          (language) {
+            state = state.copyWith(language: language);
+          },
+          onError: (error) {
+            state = state.copyWith(errorMsg: error);
+          },
+        );
   }
 
   Future<void> logout() async {

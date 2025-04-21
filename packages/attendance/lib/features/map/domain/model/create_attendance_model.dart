@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -8,7 +7,6 @@ part 'create_attendance_model.freezed.dart';
 
 @freezed
 class CreateAttendanceModel with _$CreateAttendanceModel {
-
   factory CreateAttendanceModel({
     required File file,
     required String address,
@@ -20,8 +18,5 @@ class CreateAttendanceModel with _$CreateAttendanceModel {
     required int transMonth,
     required int transYear,
     required String date,
-
   }) = _CreateAttendanceModel;
-
-
 }

@@ -68,7 +68,7 @@ final class ProfileRepository
   }
 
   @override
-  Future<LogoutResponse> logout() async{
+  Future<LogoutResponse> logout() async {
     try {
       final refreshToken = await _profileStorage.readRefreshToken();
       if (refreshToken == null) {
@@ -77,8 +77,10 @@ final class ProfileRepository
           exception: Exception("Refresh token not found"),
         );
       }
-      // Use the refresh token from storage           
-      return await _profileApi.logout(LogoutRequest(refreshToken: refreshToken));
+      // Use the refresh token from storage
+      return await _profileApi.logout(
+        LogoutRequest(refreshToken: refreshToken),
+      );
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {
