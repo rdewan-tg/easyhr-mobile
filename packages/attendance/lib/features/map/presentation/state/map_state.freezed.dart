@@ -1,0 +1,332 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'map_state.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
+/// @nodoc
+mixin _$MapState {
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isAttendanceAdded => throw _privateConstructorUsedError;
+  AttendanceStatus? get status => throw _privateConstructorUsedError;
+  LatLng? get currentPosition => throw _privateConstructorUsedError;
+  String? get imagePath => throw _privateConstructorUsedError;
+  String? get currentAddress => throw _privateConstructorUsedError;
+  String? get zone => throw _privateConstructorUsedError;
+  String? get errorMsg => throw _privateConstructorUsedError;
+
+  /// Create a copy of MapState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MapStateCopyWith<MapState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MapStateCopyWith<$Res> {
+  factory $MapStateCopyWith(MapState value, $Res Function(MapState) then) =
+      _$MapStateCopyWithImpl<$Res, MapState>;
+  @useResult
+  $Res call({
+    bool isLoading,
+    bool isAttendanceAdded,
+    AttendanceStatus? status,
+    LatLng? currentPosition,
+    String? imagePath,
+    String? currentAddress,
+    String? zone,
+    String? errorMsg,
+  });
+}
+
+/// @nodoc
+class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
+    implements $MapStateCopyWith<$Res> {
+  _$MapStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of MapState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? isAttendanceAdded = null,
+    Object? status = freezed,
+    Object? currentPosition = freezed,
+    Object? imagePath = freezed,
+    Object? currentAddress = freezed,
+    Object? zone = freezed,
+    Object? errorMsg = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            isLoading:
+                null == isLoading
+                    ? _value.isLoading
+                    : isLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isAttendanceAdded:
+                null == isAttendanceAdded
+                    ? _value.isAttendanceAdded
+                    : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            status:
+                freezed == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as AttendanceStatus?,
+            currentPosition:
+                freezed == currentPosition
+                    ? _value.currentPosition
+                    : currentPosition // ignore: cast_nullable_to_non_nullable
+                        as LatLng?,
+            imagePath:
+                freezed == imagePath
+                    ? _value.imagePath
+                    : imagePath // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            currentAddress:
+                freezed == currentAddress
+                    ? _value.currentAddress
+                    : currentAddress // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            zone:
+                freezed == zone
+                    ? _value.zone
+                    : zone // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            errorMsg:
+                freezed == errorMsg
+                    ? _value.errorMsg
+                    : errorMsg // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$MapStateImplCopyWith<$Res>
+    implements $MapStateCopyWith<$Res> {
+  factory _$$MapStateImplCopyWith(
+    _$MapStateImpl value,
+    $Res Function(_$MapStateImpl) then,
+  ) = __$$MapStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    bool isLoading,
+    bool isAttendanceAdded,
+    AttendanceStatus? status,
+    LatLng? currentPosition,
+    String? imagePath,
+    String? currentAddress,
+    String? zone,
+    String? errorMsg,
+  });
+}
+
+/// @nodoc
+class __$$MapStateImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$MapStateImpl>
+    implements _$$MapStateImplCopyWith<$Res> {
+  __$$MapStateImplCopyWithImpl(
+    _$MapStateImpl _value,
+    $Res Function(_$MapStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MapState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? isAttendanceAdded = null,
+    Object? status = freezed,
+    Object? currentPosition = freezed,
+    Object? imagePath = freezed,
+    Object? currentAddress = freezed,
+    Object? zone = freezed,
+    Object? errorMsg = freezed,
+  }) {
+    return _then(
+      _$MapStateImpl(
+        isLoading:
+            null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isAttendanceAdded:
+            null == isAttendanceAdded
+                ? _value.isAttendanceAdded
+                : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        status:
+            freezed == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as AttendanceStatus?,
+        currentPosition:
+            freezed == currentPosition
+                ? _value.currentPosition
+                : currentPosition // ignore: cast_nullable_to_non_nullable
+                    as LatLng?,
+        imagePath:
+            freezed == imagePath
+                ? _value.imagePath
+                : imagePath // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        currentAddress:
+            freezed == currentAddress
+                ? _value.currentAddress
+                : currentAddress // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        zone:
+            freezed == zone
+                ? _value.zone
+                : zone // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        errorMsg:
+            freezed == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MapStateImpl implements _MapState {
+  _$MapStateImpl({
+    this.isLoading = false,
+    this.isAttendanceAdded = false,
+    this.status,
+    this.currentPosition,
+    this.imagePath,
+    this.currentAddress,
+    this.zone,
+    this.errorMsg,
+  });
+
+  @override
+  @JsonKey()
+  final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isAttendanceAdded;
+  @override
+  final AttendanceStatus? status;
+  @override
+  final LatLng? currentPosition;
+  @override
+  final String? imagePath;
+  @override
+  final String? currentAddress;
+  @override
+  final String? zone;
+  @override
+  final String? errorMsg;
+
+  @override
+  String toString() {
+    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isAttendanceAdded, isAttendanceAdded) ||
+                other.isAttendanceAdded == isAttendanceAdded) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.currentPosition, currentPosition) ||
+                other.currentPosition == currentPosition) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
+            (identical(other.currentAddress, currentAddress) ||
+                other.currentAddress == currentAddress) &&
+            (identical(other.zone, zone) || other.zone == zone) &&
+            (identical(other.errorMsg, errorMsg) ||
+                other.errorMsg == errorMsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    isAttendanceAdded,
+    status,
+    currentPosition,
+    imagePath,
+    currentAddress,
+    zone,
+    errorMsg,
+  );
+
+  /// Create a copy of MapState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapStateImplCopyWith<_$MapStateImpl> get copyWith =>
+      __$$MapStateImplCopyWithImpl<_$MapStateImpl>(this, _$identity);
+}
+
+abstract class _MapState implements MapState {
+  factory _MapState({
+    final bool isLoading,
+    final bool isAttendanceAdded,
+    final AttendanceStatus? status,
+    final LatLng? currentPosition,
+    final String? imagePath,
+    final String? currentAddress,
+    final String? zone,
+    final String? errorMsg,
+  }) = _$MapStateImpl;
+
+  @override
+  bool get isLoading;
+  @override
+  bool get isAttendanceAdded;
+  @override
+  AttendanceStatus? get status;
+  @override
+  LatLng? get currentPosition;
+  @override
+  String? get imagePath;
+  @override
+  String? get currentAddress;
+  @override
+  String? get zone;
+  @override
+  String? get errorMsg;
+
+  /// Create a copy of MapState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MapStateImplCopyWith<_$MapStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

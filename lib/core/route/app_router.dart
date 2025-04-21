@@ -1,3 +1,4 @@
+import 'package:attendance/attendance.dart';
 import 'package:auth/auth.dart';
 import 'package:common/common.dart';
 import 'package:core/core.dart';
@@ -11,7 +12,6 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:home/home.dart';
 import 'package:profile/profile.dart';
-import 'package:report/report.dart';
 import 'package:setting/setting.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -91,7 +91,7 @@ class AppRouter {
       _loginRoute(),
       _signupRoute(),
       _dashboardRoute(),
-      _todaySiteVisitReportRoute(),
+      _mapRoute(),
     ];
   }
 
@@ -142,8 +142,31 @@ class AppRouter {
       },
       branches: [
         _homeBranch(),
+        _attendanceBranch(),
         _settingBranch(),
       ],
+    );
+  }
+
+  RouteBase _mapRoute() {
+    return GoRoute(
+      path: '/$mapRoute',
+      name: mapRoute,
+      builder: (context, state) => const MapScreen(),
+      routes: [
+        _cameraRoute(),
+      ],
+    );
+  }
+
+  RouteBase _cameraRoute() {
+    return GoRoute(
+      path: '/$cameraRoute',
+      name: cameraRoute,
+      builder: (context, state)  {
+        final extras = state.extra as Map<String, dynamic>;
+        return CaptureImageScreen(extras: extras);
+      },
     );
   }
 
@@ -157,6 +180,22 @@ class AppRouter {
             key: state.pageKey,
             name: state.name,
             child: const HomeScreen(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  StatefulShellBranch _attendanceBranch() {
+    return StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/$attendanceRoute',
+          name: attendanceRoute,
+          pageBuilder: (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const AttendanceScreen(),
           ),
         ),
       ],
@@ -235,21 +274,7 @@ class AppRouter {
       ),
     );
   }
- 
 
- 
-
-  RouteBase _todaySiteVisitReportRoute() {
-    return GoRoute(
-      path: '/$todaySiteVisitReportRoute',
-      name: todaySiteVisitReportRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const TodaySiteVisitReportScreen(),
-      ),
-    );
-  }
   // 4. Error Handling
   Widget _errorBuilder(BuildContext context, GoRouterState state) {
     return const NoRouteScreen();

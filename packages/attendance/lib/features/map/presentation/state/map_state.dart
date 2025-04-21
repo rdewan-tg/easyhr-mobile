@@ -1,0 +1,22 @@
+
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:common/common.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+part 'map_state.freezed.dart';
+
+@freezed
+class MapState with _$MapState {
+
+  factory MapState({
+    @Default(false) bool isLoading,
+    @Default(false) bool isAttendanceAdded,
+    AttendanceStatus? status,
+    LatLng? currentPosition,
+    String? imagePath,
+    String? currentAddress,
+    String? zone,
+    String? errorMsg,
+  }) = _MapState;
+
+}

@@ -20,12 +20,12 @@ dependencies:
     path: packages/dashboard
   home:
     path: packages/home
+  attendance:
+    path: packages/attendance
   setting:
     path: packages/setting    
   profile:
     path: packages/profile
-  report:
-    path: packages/report
 
   flutter_riverpod: any
   go_router: any
