@@ -1,3 +1,4 @@
+import 'package:attendance/features/zone/domain/model/zone_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:common/common.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,6 +13,8 @@ class MapState with _$MapState {
     AttendanceStatus? status,
     LatLng? currentPosition,
     String? imagePath,
+    @Default([]) List<ZoneModel> zones,
+    @Default([]) List<ZoneModel> currentZones,
     String? currentAddress,
     String? zone,
     String? errorMsg,

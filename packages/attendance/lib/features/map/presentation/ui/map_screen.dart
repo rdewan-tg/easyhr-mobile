@@ -15,7 +15,10 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // get all the setting from local db
       ref.read(mapControllerProvider.notifier).getAllSetting();
+      // get the zone from api
+      ref.read(mapControllerProvider.notifier).getZones();
     });
     _initLocation();
   }
@@ -33,7 +36,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     if (isGranted) {
       final locationSettings = const LocationSettings(
         accuracy: LocationAccuracy.high,
-        distanceFilter: 10, // meters to move before update
+        distanceFilter: 0, // meters to move before update
       );
 
       _positionStreamSubscription = Geolocator.getPositionStream(
@@ -111,7 +114,18 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           final currentPosition = ref.watch(
             mapControllerProvider.select((value) => value.currentPosition),
           );
-          if (currentPosition == null) return const SizedBox.shrink();
+          final currentZones = ref.watch(
+            mapControllerProvider.select((value) => value.currentZones),
+          );
+          if (currentPosition == null || currentZones.isEmpty) {
+            return SafeArea(
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(kLarge),
+                child: const Center(child: CircularProgressIndicator()),
+              ),
+            );
+          }
           return SafeArea(
             child: Container(
               width: double.infinity,

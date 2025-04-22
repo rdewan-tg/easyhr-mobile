@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:attendance/features/map/application/attendance_service.dart';
 import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/map/domain/model/create_attendance_model.dart';
+import 'package:attendance/features/zone/application/zone_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:attendance/features/map/presentation/state/map_state.dart';
 import 'package:common/common.dart';
@@ -16,6 +17,19 @@ class MapController extends AutoDisposeNotifier<MapState> {
   @override
   MapState build() {
     return MapState();
+  }
+
+  Future<void> getZones() async {
+    final result = await ref.read(zoneServiceProvider).getZones();
+
+    result.when(
+      (success) {
+        state = state.copyWith(zones: success);
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message);
+      },
+    );
   }
 
   Future<void> getAllSetting() async {
@@ -114,8 +128,26 @@ class MapController extends AutoDisposeNotifier<MapState> {
     state = state.copyWith(imagePath: value);
   }
 
-  void setCurrentPosition(LatLng value) {
-    state = state.copyWith(currentPosition: value);
+  void setCurrentPosition(LatLng position) async {
+    if (state.zones.isEmpty) {
+      state = state.copyWith(currentPosition: position);
+      return;
+    }
+
+    // filter the zones
+    final filteredZones = await ref
+        .read(zoneServiceProvider)
+        .filterZones(position, 50, state.zones);
+
+    // update the state
+    filteredZones.when(
+      (success) =>
+          state = state.copyWith(
+            currentPosition: position,
+            currentZones: success,
+          ),
+      (error) => state = state.copyWith(errorMsg: error.message),
+    );
   }
 
   void setCurrentAddress(String value) {

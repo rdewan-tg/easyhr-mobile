@@ -23,6 +23,8 @@ mixin _$MapState {
   AttendanceStatus? get status => throw _privateConstructorUsedError;
   LatLng? get currentPosition => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
+  List<ZoneModel> get zones => throw _privateConstructorUsedError;
+  List<ZoneModel> get currentZones => throw _privateConstructorUsedError;
   String? get currentAddress => throw _privateConstructorUsedError;
   String? get zone => throw _privateConstructorUsedError;
   String? get errorMsg => throw _privateConstructorUsedError;
@@ -46,6 +48,8 @@ abstract class $MapStateCopyWith<$Res> {
     AttendanceStatus? status,
     LatLng? currentPosition,
     String? imagePath,
+    List<ZoneModel> zones,
+    List<ZoneModel> currentZones,
     String? currentAddress,
     String? zone,
     String? errorMsg,
@@ -73,6 +77,8 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
     Object? status = freezed,
     Object? currentPosition = freezed,
     Object? imagePath = freezed,
+    Object? zones = null,
+    Object? currentZones = null,
     Object? currentAddress = freezed,
     Object? zone = freezed,
     Object? errorMsg = freezed,
@@ -109,6 +115,16 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
                     ? _value.imagePath
                     : imagePath // ignore: cast_nullable_to_non_nullable
                         as String?,
+            zones:
+                null == zones
+                    ? _value.zones
+                    : zones // ignore: cast_nullable_to_non_nullable
+                        as List<ZoneModel>,
+            currentZones:
+                null == currentZones
+                    ? _value.currentZones
+                    : currentZones // ignore: cast_nullable_to_non_nullable
+                        as List<ZoneModel>,
             currentAddress:
                 freezed == currentAddress
                     ? _value.currentAddress
@@ -146,6 +162,8 @@ abstract class _$$MapStateImplCopyWith<$Res>
     AttendanceStatus? status,
     LatLng? currentPosition,
     String? imagePath,
+    List<ZoneModel> zones,
+    List<ZoneModel> currentZones,
     String? currentAddress,
     String? zone,
     String? errorMsg,
@@ -172,6 +190,8 @@ class __$$MapStateImplCopyWithImpl<$Res>
     Object? status = freezed,
     Object? currentPosition = freezed,
     Object? imagePath = freezed,
+    Object? zones = null,
+    Object? currentZones = null,
     Object? currentAddress = freezed,
     Object? zone = freezed,
     Object? errorMsg = freezed,
@@ -208,6 +228,16 @@ class __$$MapStateImplCopyWithImpl<$Res>
                 ? _value.imagePath
                 : imagePath // ignore: cast_nullable_to_non_nullable
                     as String?,
+        zones:
+            null == zones
+                ? _value._zones
+                : zones // ignore: cast_nullable_to_non_nullable
+                    as List<ZoneModel>,
+        currentZones:
+            null == currentZones
+                ? _value._currentZones
+                : currentZones // ignore: cast_nullable_to_non_nullable
+                    as List<ZoneModel>,
         currentAddress:
             freezed == currentAddress
                 ? _value.currentAddress
@@ -238,10 +268,14 @@ class _$MapStateImpl implements _MapState {
     this.status,
     this.currentPosition,
     this.imagePath,
+    final List<ZoneModel> zones = const [],
+    final List<ZoneModel> currentZones = const [],
     this.currentAddress,
     this.zone,
     this.errorMsg,
-  }) : _settings = settings;
+  }) : _settings = settings,
+       _zones = zones,
+       _currentZones = currentZones;
 
   @override
   @JsonKey()
@@ -264,6 +298,24 @@ class _$MapStateImpl implements _MapState {
   final LatLng? currentPosition;
   @override
   final String? imagePath;
+  final List<ZoneModel> _zones;
+  @override
+  @JsonKey()
+  List<ZoneModel> get zones {
+    if (_zones is EqualUnmodifiableListView) return _zones;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_zones);
+  }
+
+  final List<ZoneModel> _currentZones;
+  @override
+  @JsonKey()
+  List<ZoneModel> get currentZones {
+    if (_currentZones is EqualUnmodifiableListView) return _currentZones;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_currentZones);
+  }
+
   @override
   final String? currentAddress;
   @override
@@ -273,7 +325,7 @@ class _$MapStateImpl implements _MapState {
 
   @override
   String toString() {
-    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
+    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, zones: $zones, currentZones: $currentZones, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
   }
 
   @override
@@ -291,6 +343,11 @@ class _$MapStateImpl implements _MapState {
                 other.currentPosition == currentPosition) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
+            const DeepCollectionEquality().equals(other._zones, _zones) &&
+            const DeepCollectionEquality().equals(
+              other._currentZones,
+              _currentZones,
+            ) &&
             (identical(other.currentAddress, currentAddress) ||
                 other.currentAddress == currentAddress) &&
             (identical(other.zone, zone) || other.zone == zone) &&
@@ -307,6 +364,8 @@ class _$MapStateImpl implements _MapState {
     status,
     currentPosition,
     imagePath,
+    const DeepCollectionEquality().hash(_zones),
+    const DeepCollectionEquality().hash(_currentZones),
     currentAddress,
     zone,
     errorMsg,
@@ -329,6 +388,8 @@ abstract class _MapState implements MapState {
     final AttendanceStatus? status,
     final LatLng? currentPosition,
     final String? imagePath,
+    final List<ZoneModel> zones,
+    final List<ZoneModel> currentZones,
     final String? currentAddress,
     final String? zone,
     final String? errorMsg,
@@ -346,6 +407,10 @@ abstract class _MapState implements MapState {
   LatLng? get currentPosition;
   @override
   String? get imagePath;
+  @override
+  List<ZoneModel> get zones;
+  @override
+  List<ZoneModel> get currentZones;
   @override
   String? get currentAddress;
   @override

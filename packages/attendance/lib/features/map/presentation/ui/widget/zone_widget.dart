@@ -9,16 +9,13 @@ class ZoneWidget extends ConsumerStatefulWidget {
 
 class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
   final TextEditingController controller = TextEditingController();
-  final zones = [
-    {"name": "Zone 1", "latitude": 12.9716, "longitude": 77.5946},
-    {"name": "Zone 2", "latitude": 12.9716, "longitude": 77.5946},
-    {"name": "Zone 3", "latitude": 12.9716, "longitude": 77.5946},
-    {"name": "Zone 4", "latitude": 12.9716, "longitude": 77.5946},
-    {"name": "Zone 5", "latitude": 12.9716, "longitude": 77.5946},
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final zones = ref.watch(
+      mapControllerProvider.select((value) => value.currentZones),
+    );
+
     return DropdownMenu(
       width: MediaQuery.of(context).size.width * 0.8,
       controller: controller,
@@ -40,8 +37,8 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
           zones
               .map(
                 (zone) => DropdownMenuEntry<String>(
-                  value: zone["name"] as String,
-                  label: zone["name"] as String,
+                  value: zone.name,
+                  label: zone.name,
                 ),
               )
               .toList(),
