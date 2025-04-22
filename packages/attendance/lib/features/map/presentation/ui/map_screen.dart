@@ -34,7 +34,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     final isGranted = await Permission.location.isGranted;
 
     if (isGranted) {
-      final locationSettings = const LocationSettings(
+      const locationSettings = LocationSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 0, // meters to move before update
       );
@@ -80,7 +80,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Attendance')),
+      appBar: AppBar(title: const Text('Attendance'), centerTitle: true),
       body: Consumer(
         builder: (context, ref, child) {
           final currentPosition = ref.watch(
@@ -133,6 +133,8 @@ class _MapScreenState extends ConsumerState<MapScreen> {
               child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  CurrentLocationWidget(),
+                  SizedBox(height: kSmall),
                   CurrentAddressWidget(),
                   SizedBox(height: kMedium),
                   Row(

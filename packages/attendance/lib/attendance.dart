@@ -5,6 +5,7 @@ import 'package:attendance/features/attendance/presentation/controller/attendanc
 import 'package:attendance/features/camera/presentation/controller/capture_image_controller.dart';
 import 'package:attendance/features/map/presentation/controller/map_controller.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -34,3 +35,4 @@ part 'features/map/presentation/ui/widget/captured_image_widget.dart';
 part 'features/map/presentation/ui/widget/zone_widget.dart';
 part 'features/attendance/presentation/ui/attendance_screen.dart';
 part 'features/attendance/presentation/ui/widget/attendance_list.dart';
+part 'features/map/presentation/ui/widget/current_location_widget.dart';

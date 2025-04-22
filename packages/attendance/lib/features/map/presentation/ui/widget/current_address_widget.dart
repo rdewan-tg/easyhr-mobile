@@ -8,6 +8,6 @@ class CurrentAddressWidget extends ConsumerWidget {
     final currentAddress = ref.watch(
       mapControllerProvider.select((value) => value.currentAddress),
     );
-    return Text(currentAddress ?? "");
+    return Text(currentAddress ?? "", style: context.textTheme.labelLarge);
   }
 }
