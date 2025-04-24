@@ -10,7 +10,7 @@ credentials = service_account.Credentials.from_service_account_file('../google_p
 service = build('androidpublisher', 'v3', credentials=credentials)
 
 # Define your app's package name (update with your app's package ID)
-package_name = 'com.tonggarden.easysales'
+package_name = 'com.tonggarden.easyhr'
 
 # Step 1: Create a new edit session
 # Edit sessions allow you to perform multiple changes as a single transaction
@@ -36,7 +36,7 @@ for track in existing_tracks:
 track_request = service.edits().tracks().get(
     packageName=package_name,  # App's package name
     editId=edit_id,  # Edit session ID
-    track='production'  # Track to fetch information from (e.g., 'production', 'alpha', 'beta', 'internal' )
+    track='alpha'  # Track to fetch information from (e.g., 'production', 'alpha', 'beta', 'internal' )
 )
 track_response = track_request.execute()  # Execute the request and get the track details
 
