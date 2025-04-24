@@ -70,9 +70,10 @@ class CompanyDto with _$CompanyDto {
   const factory CompanyDto({
     @JsonKey(name: "id") required int id,
     @JsonKey(name: "name") required String name,
-    @JsonKey(name: "timeZone") required String timeZone,
     @JsonKey(name: "companyCode") String? companyCode,
     @JsonKey(name: "countryCode") String? countryCode,
+    @JsonKey(name: "gpsRadius") required int gpsRadius,
+    @JsonKey(name: "timeZone") required String timeZone,
   }) = _CompanyDto;
 
   factory CompanyDto.fromJson(Map<String, dynamic> json) =>

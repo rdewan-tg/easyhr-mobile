@@ -30,6 +30,7 @@ final class LoginService implements ILoginService {
         'companyName': result.data.user.company.name,
         'companyCode': result.data.user.company.companyCode ?? '-',
         'timeZone': result.data.user.company.timeZone,
+        'gpsRadius': result.data.user.company.gpsRadius.toString(),
       });
 
       return const Success(true);

@@ -34,10 +34,13 @@ final class ZoneService implements IZoneService {
   @override
   Future<Result<List<ZoneModel>, Failure>> filterZones(
     LatLng position,
-    double radius,
     List<ZoneModel> zones,
   ) async {
     try {
+      // Get all settings from local storage
+      final settings = await _repository.getAllSettings();
+      // extract gps radius from setting
+      final radius = double.parse(settings['gpsRadius'] ?? '0.0');
       // Filter stores within radius
       final filtered = await Isolate.run(
         () => _filterZones(position, radius, zones),

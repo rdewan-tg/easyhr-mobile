@@ -15,4 +15,8 @@ abstract interface class ISettingService {
   Future<void> clearToken();
 
   Future<Map<String, String>> getAllSetting();
+
+  Future<bool> getFirstRun();
+
+  Future<void> setFirstRun();
 }

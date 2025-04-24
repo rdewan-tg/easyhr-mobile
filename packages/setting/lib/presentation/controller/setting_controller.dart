@@ -129,5 +129,13 @@ final class SettingController extends _$SettingController {
     state = state.copyWith(settings: result);
   }
 
+  Future<bool> getFirstRun() async {
+    return await ref.read(settingServiceProvider).getFirstRun();
+  }
+
+  Future<void> setFirstRun() async {
+    await ref.read(settingServiceProvider).setFirstRun();
+  }
+
   String? getTimeZone() => state.settings['timeZone'];
 }

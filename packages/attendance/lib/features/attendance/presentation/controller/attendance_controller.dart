@@ -1,5 +1,5 @@
 import 'package:attendance/features/attendance/presentation/state/attendance_state.dart';
-import 'package:attendance/features/map/application/attendance_service.dart';
+import 'package:attendance/features/attendance/application/attendance_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final attendanceControllerProvider =
@@ -15,8 +15,7 @@ class AttendanceController extends AutoDisposeNotifier<AttendanceState> {
 
   Future<void> getAttendanceStatus() async {
     state = state.copyWith(isLoading: true, errorMsg: null);
-    final result =
-        await ref.read(attendanceServiceProvider).getAttendanceStatus();
+    final result = await ref.read(attendanceServiceProvider).getAttendances();
     result.when(
       (success) {
         state = state.copyWith(isLoading: false, attendanceList: success);

@@ -1,22 +1,27 @@
 import 'dart:io';
-import 'package:attendance/features/map/data/dto/add_attendance_response.dart';
-import 'package:attendance/features/map/data/dto/attendance_response.dart';
+
+import 'package:attendance/features/attendance/data/dto/response/add_attendance_response.dart';
+import 'package:attendance/features/attendance/data/dto/response/attendance_response.dart';
 import 'package:common/common.dart';
-import 'package:core/data/remote/endpoint.dart';
-import 'package:core/data/remote/network_service.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:attendance/features/attendance/data/dto/response/last_attendance_state_response.dart';
+import 'package:core/data/remote/endpoint.dart';
+import 'package:core/data/remote/network_service.dart';
 
 part 'attendance_api_service.g.dart';
 
-final attendanceApiProvider = Provider<AttendanceApiService>((ref) {
+final attendanceApiProvider = Provider.autoDispose<AttendanceApiService>((ref) {
   return AttendanceApiService(ref.watch(networkServiceProvider));
 });
 
 @RestApi()
 abstract class AttendanceApiService {
-  factory AttendanceApiService(Dio _dio) => _AttendanceApiService(_dio);
+  factory AttendanceApiService(Dio dio) => _AttendanceApiService(dio);
+
+  @GET(getLastAttendanceStateEndPoint)
+  Future<LastAttendanceStateResponse> getLastAttendanceState();
 
   @POST(createAttendanceEndPoint)
   @MultiPart()

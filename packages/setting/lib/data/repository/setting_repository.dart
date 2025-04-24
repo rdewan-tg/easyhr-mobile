@@ -87,4 +87,14 @@ final class SettingRepositroy
       );
     }
   }
+
+  @override
+  Future<bool> getFirstRun() async {
+    return await _settingStorage.getFirstRun();
+  }
+
+  @override
+  Future<void> setFirstRun() async {
+    await _settingStorage.setFirstRun();
+  }
 }

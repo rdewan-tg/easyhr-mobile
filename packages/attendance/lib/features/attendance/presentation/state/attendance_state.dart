@@ -1,4 +1,4 @@
-import 'package:attendance/features/map/domain/model/attendance_model.dart';
+import 'package:attendance/features/attendance/domain/model/attendance_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'attendance_state.freezed.dart';

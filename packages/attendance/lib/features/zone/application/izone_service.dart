@@ -7,7 +7,6 @@ abstract interface class IZoneService {
   Future<Result<List<ZoneModel>, Failure>> getZones();
   Future<Result<List<ZoneModel>, Failure>> filterZones(
     LatLng position,
-    double radius,
     List<ZoneModel> zones,
   );
 }

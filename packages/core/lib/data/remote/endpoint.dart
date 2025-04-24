@@ -7,3 +7,4 @@ const String meEndPoint = '/v1/me';
 const String createAttendanceEndPoint = '/v1/attendance';
 const String getAttendanceEndPoint = '/v1/attendance';
 const String getZonesEndPoint = '/v1/zones';
+const String getLastAttendanceStateEndPoint = '/v1/attendance/latest';
