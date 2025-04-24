@@ -16,9 +16,9 @@ analyzer:
     - ".github/workflows/**.yaml"
 
   language:
-    #strict-casts: true
-    #strict-inference: true
-    #strict-raw-types: true
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
 
   errors:
     todo: ignore
@@ -38,9 +38,10 @@ analyzer:
     sort_child_properties_last: warning
     no_leading_underscores_for_local_identifiers: info
     use_string_in_part_of_directives: ignore
-    
+    prefer_const_constructors: warning
+    prefer_const_declarations: warning
+    prefer_const_literals_to_create_immutables: warning
 
-   
 linter:
   rules:
     always_use_package_imports: true
@@ -58,3 +59,6 @@ linter:
     library_private_types_in_public_api: false
     no_leading_underscores_for_local_identifiers: false
     depend_on_referenced_packages: false
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true

@@ -12,14 +12,15 @@ String _$settingControllerHash() => r'afa2da984825b9852cc04a682f4ccd49dae2369b';
 @ProviderFor(SettingController)
 final settingControllerProvider =
     NotifierProvider<SettingController, SettingState>.internal(
-  SettingController.new,
-  name: r'settingControllerProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$settingControllerHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      SettingController.new,
+      name: r'settingControllerProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$settingControllerHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$SettingController = Notifier<SettingState>;
 // ignore_for_file: type=lint

@@ -26,8 +26,7 @@ class _DeviceSettingScreenState extends ConsumerState<DeviceSettingScreen> {
     return AppScaffoldScrollable(
       title: Text(context.localizations('setting.deviceSetting')),
       widget: Column(
-        children: [         
-          
+        children: [
           ListTile(
             title: Text(context.localizations('setting.timeZone')),
             subtitle: Text(settings['timeZone'] ?? ''),

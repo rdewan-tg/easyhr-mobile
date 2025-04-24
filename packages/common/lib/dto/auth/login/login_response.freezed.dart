@@ -1201,12 +1201,14 @@ mixin _$CompanyDto {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "timeZone")
-  String get timeZone => throw _privateConstructorUsedError;
   @JsonKey(name: "companyCode")
   String? get companyCode => throw _privateConstructorUsedError;
   @JsonKey(name: "countryCode")
   String? get countryCode => throw _privateConstructorUsedError;
+  @JsonKey(name: "gpsRadius")
+  int get gpsRadius => throw _privateConstructorUsedError;
+  @JsonKey(name: "timeZone")
+  String get timeZone => throw _privateConstructorUsedError;
 
   /// Serializes this CompanyDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1228,9 +1230,10 @@ abstract class $CompanyDtoCopyWith<$Res> {
   $Res call({
     @JsonKey(name: "id") int id,
     @JsonKey(name: "name") String name,
-    @JsonKey(name: "timeZone") String timeZone,
     @JsonKey(name: "companyCode") String? companyCode,
     @JsonKey(name: "countryCode") String? countryCode,
+    @JsonKey(name: "gpsRadius") int gpsRadius,
+    @JsonKey(name: "timeZone") String timeZone,
   });
 }
 
@@ -1251,9 +1254,10 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? timeZone = null,
     Object? companyCode = freezed,
     Object? countryCode = freezed,
+    Object? gpsRadius = null,
+    Object? timeZone = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1267,11 +1271,6 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
                         as String,
-            timeZone:
-                null == timeZone
-                    ? _value.timeZone
-                    : timeZone // ignore: cast_nullable_to_non_nullable
-                        as String,
             companyCode:
                 freezed == companyCode
                     ? _value.companyCode
@@ -1282,6 +1281,16 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
                     ? _value.countryCode
                     : countryCode // ignore: cast_nullable_to_non_nullable
                         as String?,
+            gpsRadius:
+                null == gpsRadius
+                    ? _value.gpsRadius
+                    : gpsRadius // ignore: cast_nullable_to_non_nullable
+                        as int,
+            timeZone:
+                null == timeZone
+                    ? _value.timeZone
+                    : timeZone // ignore: cast_nullable_to_non_nullable
+                        as String,
           )
           as $Val,
     );
@@ -1300,9 +1309,10 @@ abstract class _$$CompanyDtoImplCopyWith<$Res>
   $Res call({
     @JsonKey(name: "id") int id,
     @JsonKey(name: "name") String name,
-    @JsonKey(name: "timeZone") String timeZone,
     @JsonKey(name: "companyCode") String? companyCode,
     @JsonKey(name: "countryCode") String? countryCode,
+    @JsonKey(name: "gpsRadius") int gpsRadius,
+    @JsonKey(name: "timeZone") String timeZone,
   });
 }
 
@@ -1322,9 +1332,10 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? timeZone = null,
     Object? companyCode = freezed,
     Object? countryCode = freezed,
+    Object? gpsRadius = null,
+    Object? timeZone = null,
   }) {
     return _then(
       _$CompanyDtoImpl(
@@ -1338,11 +1349,6 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
                     as String,
-        timeZone:
-            null == timeZone
-                ? _value.timeZone
-                : timeZone // ignore: cast_nullable_to_non_nullable
-                    as String,
         companyCode:
             freezed == companyCode
                 ? _value.companyCode
@@ -1353,6 +1359,16 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
                 ? _value.countryCode
                 : countryCode // ignore: cast_nullable_to_non_nullable
                     as String?,
+        gpsRadius:
+            null == gpsRadius
+                ? _value.gpsRadius
+                : gpsRadius // ignore: cast_nullable_to_non_nullable
+                    as int,
+        timeZone:
+            null == timeZone
+                ? _value.timeZone
+                : timeZone // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }
@@ -1364,9 +1380,10 @@ class _$CompanyDtoImpl implements _CompanyDto {
   const _$CompanyDtoImpl({
     @JsonKey(name: "id") required this.id,
     @JsonKey(name: "name") required this.name,
-    @JsonKey(name: "timeZone") required this.timeZone,
     @JsonKey(name: "companyCode") this.companyCode,
     @JsonKey(name: "countryCode") this.countryCode,
+    @JsonKey(name: "gpsRadius") required this.gpsRadius,
+    @JsonKey(name: "timeZone") required this.timeZone,
   });
 
   factory _$CompanyDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -1379,18 +1396,21 @@ class _$CompanyDtoImpl implements _CompanyDto {
   @JsonKey(name: "name")
   final String name;
   @override
-  @JsonKey(name: "timeZone")
-  final String timeZone;
-  @override
   @JsonKey(name: "companyCode")
   final String? companyCode;
   @override
   @JsonKey(name: "countryCode")
   final String? countryCode;
+  @override
+  @JsonKey(name: "gpsRadius")
+  final int gpsRadius;
+  @override
+  @JsonKey(name: "timeZone")
+  final String timeZone;
 
   @override
   String toString() {
-    return 'CompanyDto(id: $id, name: $name, timeZone: $timeZone, companyCode: $companyCode, countryCode: $countryCode)';
+    return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone)';
   }
 
   @override
@@ -1400,18 +1420,27 @@ class _$CompanyDtoImpl implements _CompanyDto {
             other is _$CompanyDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.timeZone, timeZone) ||
-                other.timeZone == timeZone) &&
             (identical(other.companyCode, companyCode) ||
                 other.companyCode == companyCode) &&
             (identical(other.countryCode, countryCode) ||
-                other.countryCode == countryCode));
+                other.countryCode == countryCode) &&
+            (identical(other.gpsRadius, gpsRadius) ||
+                other.gpsRadius == gpsRadius) &&
+            (identical(other.timeZone, timeZone) ||
+                other.timeZone == timeZone));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, timeZone, companyCode, countryCode);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    name,
+    companyCode,
+    countryCode,
+    gpsRadius,
+    timeZone,
+  );
 
   /// Create a copy of CompanyDto
   /// with the given fields replaced by the non-null parameter values.
@@ -1431,9 +1460,10 @@ abstract class _CompanyDto implements CompanyDto {
   const factory _CompanyDto({
     @JsonKey(name: "id") required final int id,
     @JsonKey(name: "name") required final String name,
-    @JsonKey(name: "timeZone") required final String timeZone,
     @JsonKey(name: "companyCode") final String? companyCode,
     @JsonKey(name: "countryCode") final String? countryCode,
+    @JsonKey(name: "gpsRadius") required final int gpsRadius,
+    @JsonKey(name: "timeZone") required final String timeZone,
   }) = _$CompanyDtoImpl;
 
   factory _CompanyDto.fromJson(Map<String, dynamic> json) =
@@ -1446,14 +1476,17 @@ abstract class _CompanyDto implements CompanyDto {
   @JsonKey(name: "name")
   String get name;
   @override
-  @JsonKey(name: "timeZone")
-  String get timeZone;
-  @override
   @JsonKey(name: "companyCode")
   String? get companyCode;
   @override
   @JsonKey(name: "countryCode")
   String? get countryCode;
+  @override
+  @JsonKey(name: "gpsRadius")
+  int get gpsRadius;
+  @override
+  @JsonKey(name: "timeZone")
+  String get timeZone;
 
   /// Create a copy of CompanyDto
   /// with the given fields replaced by the non-null parameter values.

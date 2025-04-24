@@ -89,18 +89,20 @@ _$CompanyDtoImpl _$$CompanyDtoImplFromJson(Map<String, dynamic> json) =>
     _$CompanyDtoImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      timeZone: json['timeZone'] as String,
       companyCode: json['companyCode'] as String?,
       countryCode: json['countryCode'] as String?,
+      gpsRadius: (json['gpsRadius'] as num).toInt(),
+      timeZone: json['timeZone'] as String,
     );
 
 Map<String, dynamic> _$$CompanyDtoImplToJson(_$CompanyDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'timeZone': instance.timeZone,
       'companyCode': instance.companyCode,
       'countryCode': instance.countryCode,
+      'gpsRadius': instance.gpsRadius,
+      'timeZone': instance.timeZone,
     };
 
 _$DeviceSettingDtoImpl _$$DeviceSettingDtoImplFromJson(

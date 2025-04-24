@@ -52,7 +52,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.tonggarden.easyhr"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = flutterCompileSdkVersion.toInteger()
     ndkVersion = "27.0.12077973"
 
     compileOptions {
@@ -138,7 +138,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tonggarden.easysales"
+        applicationId = "com.tonggarden.easyhr"
         minSdkVersion flutterMinSdkVersion.toInteger()
         targetSdkVersion flutterTargetSdkVersion.toInteger()
         versionCode flutterVersionCode.toInteger()
@@ -152,7 +152,10 @@ android {
         debug {           
             signingConfig signingConfigs.debug
         }
-        release {           
+        release {       
+            minifyEnabled true
+            shrinkResources true    
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }

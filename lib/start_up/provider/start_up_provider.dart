@@ -1,7 +1,11 @@
 import 'dart:async';
 
+import 'package:attendance/features/attendance/application/attendance_service.dart';
 import 'package:core/core.dart';
 import 'package:core/data/local/db/app_database.dart';
+import 'package:core/data/local/secure_storage/secure_storage.dart';
+import 'package:core/data/local/secure_storage/secure_storage_const.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:setting/presentation/controller/setting_controller.dart';
@@ -21,6 +25,25 @@ Future<void> startUp(Ref ref, {required Flavor flavor}) async {
   // start trace
   // initialize database
   ref.read(appDatabaseProvider);
+
+  // get access token
+  final accessToken = await ref
+      // ignore: avoid_manual_providers_as_generated_provider_dependency
+      .read(secureStorageProvider)
+      .read(accessTokenKey);
+  if (accessToken != null) {
+    // get the last attendance state from api and store it in database
+    // ignore: avoid_manual_providers_as_generated_provider_dependency
+    await ref.read(attendanceServiceProvider).getLastAttendanceState();
+  }
+
+  // first run
+  final isFirstRun =
+      await ref.read(settingControllerProvider.notifier).getFirstRun();
+  debugPrint("isFirstRun: $isFirstRun");
+  if (isFirstRun) {
+    await ref.read(settingControllerProvider.notifier).setFirstRun();
+  }
 
   // get time zone
   await ref.read(settingControllerProvider.notifier).getAllSettings();

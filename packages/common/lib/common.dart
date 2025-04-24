@@ -41,6 +41,7 @@ part 'extension/string_hardcoded.dart';
 part 'extension/translations.dart';
 
 part 'enum/user_role.dart';
+part 'enum/attendance_status.dart';
 
 part 'provider/scroll_controller_povider.dart';
 part 'provider/auth_state_provider.dart';

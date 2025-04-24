@@ -37,10 +37,10 @@ Sales and Merchandiser App
 
 ```
 # install the flutter version using fvm
-fvm install 3.24.5
+fvm install 3.29.3
 
 # select the flutter version for current project
-fvm use 3.24.5
+fvm use 3.29.3
 
 # use fvm command to proxy your flutter command
 fvm flutter pub get
@@ -245,3 +245,28 @@ flutter create --template=package your-package-name
     2. fvm flutter pub get
     3. Quit the VS Code (Not close but quit)
     ```
+
+## Create service account to deploy app from CICD
+
+Follow these steps to enable automated app releases via GitHub Actions:
+
+1. **Enable API & create service account**
+   - In Google Cloud Console, create or select a project.
+   - Go to **APIs & Services > Library**, enable the **Google Play Android Developer API**.
+   - Navigate to **IAM & Admin > Service Accounts**, click **Create Service Account**, name it (e.g. `play-publisher-bot`).
+   
+
+2. **Generate and download JSON key**
+   - In the service account details, go to **Keys > Add Key > Create new key**, select **JSON**.
+   - Download the `play-publisher-bot-<id>.json` file.
+
+3. **Add to GitHub Secrets**
+   - Open your GitHub repo > **Settings > Secrets and variables > Actions**.
+   - Add a new secret named `SERVICE_ACCOUNT_JSON` and paste the **raw JSON** contents of the downloaded key.
+
+4. **Add the service account to Google Play Console**
+   - Open https://play.google.com/console and pick your developer account.
+   - Open Users and permissions.
+   - Click invite new user and add the email of the service account created in the previous step.
+   - Grant permissions to the app that you want the service account to deploy in app permissions.
+   

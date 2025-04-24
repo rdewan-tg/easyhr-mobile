@@ -109,4 +109,14 @@ final class SettingService implements ISettingService {
       );
     }
   }
+
+  @override
+  Future<bool> getFirstRun() async {
+    return await _settingRepository.getFirstRun();
+  }
+
+  @override
+  Future<void> setFirstRun() async {
+    await _settingRepository.setFirstRun();
+  }
 }

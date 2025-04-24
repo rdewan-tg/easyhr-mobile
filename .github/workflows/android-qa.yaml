@@ -1,5 +1,5 @@
 
-name: Flutter - Android Build QA
+name: Android Build - QA
 
 on:
   # Validate PR builds
@@ -113,12 +113,12 @@ jobs:
         # --output=none prints files which needs to be formatted
 
       # Checks for Symantic errors. Can be configured using analysis_options.yaml
-      - name: Analyze project source
+      - name: Analyze Project Source
         run: flutter analyze --fatal-warnings
         # optionally use --fatal-warnings to stop execution if any warnings are found
 
       # Runs unit test
-      - name: Run tests
+      - name: Run Flutter Test
         run: flutter test
 
       - name: Shorebird Android Build

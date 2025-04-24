@@ -1,3 +1,4 @@
+import 'package:attendance/attendance.dart';
 import 'package:auth/auth.dart';
 import 'package:common/common.dart';
 import 'package:core/core.dart';
@@ -10,9 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:home/home.dart';
-import 'package:merchandiser/merchandiser.dart';
 import 'package:profile/profile.dart';
-import 'package:report/report.dart';
 import 'package:setting/setting.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -36,8 +35,9 @@ class AppRouter {
   GoRouterNotifier notifier;
   NavigatorObserver navigatorObserver;
 
-  final GlobalKey<NavigatorState> rootNavigatorKey =
-      GlobalKey(debugLabel: 'root');
+  final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey(
+    debugLabel: 'root',
+  );
   bool isDuplicate = false;
 
   AppRouter({
@@ -88,27 +88,20 @@ class AppRouter {
 
   // 2. Routes Configuration
   List<RouteBase> _buildRoutes() {
-    return [
-      _loginRoute(),
-      _signupRoute(),
-      _dashboardRoute(),
-      _todaySiteVisitReportRoute(),
-      _thisMonthSiteVisitReportRoute(),
-    ];
+    return [_loginRoute(), _signupRoute(), _dashboardRoute(), _mapRoute()];
   }
 
   RouteBase _loginRoute() {
     return GoRoute(
       path: '/$loginRoute',
       name: loginRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const LoginScreen(),
-      ),
-      routes: [
-        _forgotPasswordRoute(),
-      ],
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const LoginScreen(),
+          ),
+      routes: [_forgotPasswordRoute()],
     );
   }
 
@@ -116,11 +109,12 @@ class AppRouter {
     return GoRoute(
       path: '/$signupRoute',
       name: signupRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const SignUpScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const SignUpScreen(),
+          ),
     );
   }
 
@@ -128,11 +122,12 @@ class AppRouter {
     return GoRoute(
       path: '/$forgotPasswordRoute',
       name: forgotPasswordRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ForgotPasswordScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ForgotPasswordScreen(),
+          ),
     );
   }
 
@@ -142,11 +137,27 @@ class AppRouter {
       builder: (context, state, navigationShell) {
         return DashboardScreen(navigationShell: navigationShell);
       },
-      branches: [
-        _homeBranch(),
-        _merchandiserBranch(),
-        _settingBranch(),
-      ],
+      branches: [_homeBranch(), _attendanceBranch(), _settingBranch()],
+    );
+  }
+
+  RouteBase _mapRoute() {
+    return GoRoute(
+      path: '/$mapRoute',
+      name: mapRoute,
+      builder: (context, state) => const MapScreen(),
+      routes: [_cameraRoute()],
+    );
+  }
+
+  RouteBase _cameraRoute() {
+    return GoRoute(
+      path: '/$cameraRoute',
+      name: cameraRoute,
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>;
+        return CaptureImageScreen(extras: extras);
+      },
     );
   }
 
@@ -156,34 +167,29 @@ class AppRouter {
         GoRoute(
           path: '/',
           name: homeRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const HomeScreen(),
-          ),
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const HomeScreen(),
+              ),
         ),
       ],
     );
   }
 
-
-
-  StatefulShellBranch _merchandiserBranch() {
+  StatefulShellBranch _attendanceBranch() {
     return StatefulShellBranch(
       routes: [
         GoRoute(
-          path: '/$merchandiserRoute',
-          name: merchandiserRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const MerchandiserCustomerScreen(),
-          ),
-          routes: [
-            _captureImageRoute(),
-            _searchMerchandiserCustomerRoute(),
-            _merchandiserCustomerImportRoute(),
-          ],
+          path: '/$attendanceRoute',
+          name: attendanceRoute,
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const AttendanceScreen(),
+              ),
         ),
       ],
     );
@@ -195,11 +201,12 @@ class AppRouter {
         GoRoute(
           path: '/$settingRoute',
           name: settingRoute,
-          pageBuilder: (context, state) => NoTransitionPage(
-            key: state.pageKey,
-            name: state.name,
-            child: const SettingScreen(),
-          ),
+          pageBuilder:
+              (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                name: state.name,
+                child: const SettingScreen(),
+              ),
           routes: [
             _themeRoute(),
             _languageRoute(),
@@ -211,28 +218,16 @@ class AppRouter {
     );
   }
 
-
-
-  RouteBase _captureImageRoute() {
-    return GoRoute(
-      path: '/$captureImageRoute',
-      name: captureImageRoute,
-      builder: (context, state) {
-        final extras = state.extra as Map<String, dynamic>;
-        return CaptureImageScreen(extras: extras);
-      },
-    );
-  }
-
   RouteBase _themeRoute() {
     return GoRoute(
       path: '/$themeRoute',
       name: themeRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ThemePickerScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ThemePickerScreen(),
+          ),
     );
   }
 
@@ -240,11 +235,12 @@ class AppRouter {
     return GoRoute(
       path: '/$languageRoute',
       name: languageRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const LanguagePickerScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const LanguagePickerScreen(),
+          ),
     );
   }
 
@@ -252,11 +248,12 @@ class AppRouter {
     return GoRoute(
       path: '/$profileRoute',
       name: profileRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ProfileScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const ProfileScreen(),
+          ),
     );
   }
 
@@ -264,62 +261,14 @@ class AppRouter {
     return GoRoute(
       path: '/$deviceSettingRoute',
       name: deviceSettingRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const DeviceSettingScreen(),
-      ),
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const DeviceSettingScreen(),
+          ),
     );
   }
- 
-  RouteBase _searchMerchandiserCustomerRoute() {
-    return GoRoute(
-      path: '/$searchMerchandiserCustomer',
-      name: searchMerchandiserCustomer,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const SearchMerchandiserCustomerScreen(),
-      ),
-    );
-  }
- 
-
-  RouteBase _todaySiteVisitReportRoute() {
-    return GoRoute(
-      path: '/$todaySiteVisitReportRoute',
-      name: todaySiteVisitReportRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const TodaySiteVisitReportScreen(),
-      ),
-    );
-  }
-
-  RouteBase _thisMonthSiteVisitReportRoute() {
-    return GoRoute(
-      path: '/$thisMonthSiteVisitReportRoute',
-      name: thisMonthSiteVisitReportRoute,
-      pageBuilder: (context, state) => NoTransitionPage(
-        key: state.pageKey,
-        name: state.name,
-        child: const ThisMonthSiteVisitReportScreen(),
-      ),
-    );
-  }
-
-
-  RouteBase _merchandiserCustomerImportRoute() {
-    return GoRoute(
-      path: '/$merchandiserCustomerImportRoute',
-      name: merchandiserCustomerImportRoute,
-      builder: (context, state) {
-        return const MerchandiserCustomerImportScreen();
-      },
-    );
-  }
-
 
   // 4. Error Handling
   Widget _errorBuilder(BuildContext context, GoRouterState state) {

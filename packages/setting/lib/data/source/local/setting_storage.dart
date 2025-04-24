@@ -20,4 +20,17 @@ class SetingStorage implements ISettingStorage {
     await _secureStorage.delete(accessTokenKey);
     await _secureStorage.delete(refreshTokenKey);
   }
+
+  @override
+  Future<bool> getFirstRun() async {
+    final result = await _secureStorage.read(firstRunKey);
+    // if result is null or 'true', return true; otherwise, return false
+    return result == null || result == 'true' ? true : false;
+  }
+
+  @override
+  Future<void> setFirstRun() async {
+    // after first run, set firstRunKey to 'false'
+    await _secureStorage.write(firstRunKey, 'false');
+  }
 }
