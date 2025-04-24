@@ -14,14 +14,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: AppBar(
         title: Text(context.localizations('home.title')),
         centerTitle: true,
-        elevation: 8,
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            ],
-        ),
-      ),
+      body: const SingleChildScrollView(child: Column(children: [])),
     );
   }
 }

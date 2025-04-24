@@ -1,7 +1,7 @@
 name: easy_hr
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.0
+version: 0.0.1
 
 environment:
   sdk: ^3.7.2
@@ -20,16 +20,12 @@ dependencies:
     path: packages/dashboard
   home:
     path: packages/home
+  attendance:
+    path: packages/attendance
   setting:
-    path: packages/setting
-  sales:
-     path: packages/sales
-  merchandiser:
-    path: packages/merchandiser    
+    path: packages/setting    
   profile:
     path: packages/profile
-  report:
-    path: packages/report
 
   flutter_riverpod: any
   go_router: any

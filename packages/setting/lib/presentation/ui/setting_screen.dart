@@ -46,8 +46,9 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
             ),
             ListTile(
               title: Text(context.localizations('setting.language')),
-              subtitle:
-                  Text(context.localizations('setting.selectYourLanguage')),
+              subtitle: Text(
+                context.localizations('setting.selectYourLanguage'),
+              ),
               trailing: IconButton(
                 onPressed: () {
                   context.go('/setting/language');
@@ -57,11 +58,12 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
               onTap: () {
                 context.go('/setting/language');
               },
-            ),            
+            ),
             ListTile(
               title: Text(context.localizations('setting.profile')),
-              subtitle:
-                  Text(context.localizations('setting.manageYourProfile')),
+              subtitle: Text(
+                context.localizations('setting.manageYourProfile'),
+              ),
               trailing: IconButton(
                 onPressed: () {
                   context.go('/setting/profile');
@@ -72,8 +74,6 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
                 context.go('/setting/profile');
               },
             ),
-            
-            
           ],
         ),
       ),

@@ -6,16 +6,17 @@ part of 'setting_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$settingRepositoryHash() => r'6f855347b8130292cb5931845cf74f5af86b68a3';
+String _$settingRepositoryHash() => r'9940192c8cb9cf9dff6320cebe0236cd0182a44c';
 
 /// See also [settingRepository].
 @ProviderFor(settingRepository)
 final settingRepositoryProvider = Provider<ISettingRepository>.internal(
   settingRepository,
   name: r'settingRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$settingRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$settingRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

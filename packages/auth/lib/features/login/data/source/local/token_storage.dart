@@ -16,13 +16,17 @@ final class TokenStorage implements ITokenStorage {
   TokenStorage(this._secureStorage);
 
   @override
-  Future<void> storeToken(String accessToken, String refreshToken, String uuid) async {
+  Future<void> storeToken(
+    String accessToken,
+    String refreshToken,
+    String uuid,
+  ) async {
     await _secureStorage.write(accessTokenKey, accessToken);
     await _secureStorage.write(refreshTokenKey, refreshToken);
     await _secureStorage.write(uuidKey, uuid);
   }
 
-    @override
+  @override
   Future<String?> getUuid() async {
     try {
       return await _secureStorage.read(uuidKey);
@@ -30,5 +34,4 @@ final class TokenStorage implements ITokenStorage {
       rethrow;
     }
   }
-  
 }

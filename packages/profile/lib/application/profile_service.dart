@@ -17,15 +17,6 @@ final class ProfileService implements IProfileService {
   ProfileService(this._profileRepository);
 
   @override
-  Future<void> clearToken() async {
-    try {
-      await _profileRepository.clearToken();
-    } catch (_) {
-      rethrow;
-    }
-  }
-
-  @override
   Future<Result<Map<String, String>, Failure>> getAllSetting() async {
     try {
       final result = await _profileRepository.getAllSettings();
@@ -47,7 +38,32 @@ final class ProfileService implements IProfileService {
   @override
   Future<Result<bool, Failure>> deleteMe() async {
     try {
+      // delete account api call
       await _profileRepository.deleteMe();
+      // clear token from local storage
+      await _profileRepository.clearToken();
+
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> logout() async {
+    try {
+      // logout api call
+      await _profileRepository.logout();
+      // clear token from local storage
+      await _profileRepository.clearToken();
 
       return const Success(true);
     } on Failure catch (e) {

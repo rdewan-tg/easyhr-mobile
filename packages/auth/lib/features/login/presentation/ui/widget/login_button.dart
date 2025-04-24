@@ -6,8 +6,9 @@ class LoginButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isLoading =
-        ref.watch(loginControllerProvider.select((value) => value.isLoading));
+    final isLoading = ref.watch(
+      loginControllerProvider.select((value) => value.isLoading),
+    );
 
     return SizedBox(
       width: double.infinity,
@@ -22,9 +23,10 @@ class LoginButton extends ConsumerWidget {
           'Login'.hardcoded,
           style: const TextStyle(fontSize: kMedium),
         ),
-        icon: isLoading
-            ? const CircularProgressIndicator.adaptive()
-            : const Icon(Icons.login),
+        icon:
+            isLoading
+                ? const CircularProgressIndicator.adaptive()
+                : const Icon(Icons.login),
         onPressed: isLoading ? null : onPressed,
       ),
     );

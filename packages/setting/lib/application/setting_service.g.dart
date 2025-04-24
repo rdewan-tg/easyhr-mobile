@@ -13,9 +13,10 @@ String _$settingServiceHash() => r'041c5db24f7c847cfdee1e284bedab02222be6cb';
 final settingServiceProvider = Provider<ISettingService>.internal(
   settingService,
   name: r'settingServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$settingServiceHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$settingServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
