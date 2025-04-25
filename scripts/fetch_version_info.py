@@ -1,6 +1,7 @@
 import json
 from googleapiclient.discovery import build  # type: ignore # Import the Google API client discovery library
 from google.oauth2 import service_account  # type: ignore # Import the service account credentials handling module
+import re
 
 # Authenticate with your service account JSON key
 # Replace '../google_playservice_account.json' with the path to your service account JSON file
@@ -54,7 +55,13 @@ if releases:
     version_code = current_version_code + 1
     version_name_parts = current_version_name.split('.')
     # version_name_parts[-1] access the last element of the list
-    version_name_parts[-1] = str(int(version_name_parts[-1]) + 1)  # Increment the last part of the version
+    # Safely extract digits from the last segment and increment
+    last = version_name_parts[-1]
+    match = re.search(r"\d+", last)
+    if match:
+        version_name_parts[-1] = str(int(match.group()) + 1)
+    else:
+        version_name_parts[-1] = '1'
     version_name = '.'.join(version_name_parts)
 
     # Print outputs for GitHub Actions
