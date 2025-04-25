@@ -45,9 +45,11 @@ releases = track_response.get('releases', [])  # Get the list of releases for th
 if releases:
     # If releases exist, get the latest release details
     latest_release = releases[0]
-    current_version_code = int(latest_release['versionCodes'][0])  # Get the first version code
+    # Safely get the first version code or default to 0 if missing
+    version_codes = latest_release.get('versionCodes', [])  # Get the first version code
+    current_version_code = int(version_codes[0]) if version_codes else 0  # Default to 0 when absent
     current_version_name = latest_release.get('name', '0.0.1')  # Default to '0.0.1' if name is missing
-
+    
     # Increment version code and version name
     version_code = current_version_code + 1
     version_name_parts = current_version_name.split('.')
