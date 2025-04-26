@@ -1,11 +1,10 @@
-import json
 from googleapiclient.discovery import build  # type: ignore # Import the Google API client discovery library
 from google.oauth2 import service_account  # type: ignore # Import the service account credentials handling module
 import re
 
 # Authenticate with your service account JSON key
 # Replace '../google_playservice_account.json' with the path to your service account JSON file
-credentials = service_account.Credentials.from_service_account_file('../google_playservice_account.json')
+credentials = service_account.Credentials.from_service_account_file('../easyhr-production-google-play-api.json')
 
 # Build the Android Publisher API client with authenticated credentials
 service = build('androidpublisher', 'v3', credentials=credentials)
@@ -57,11 +56,22 @@ if releases:
     # version_name_parts[-1] access the last element of the list
     # Safely extract digits from the last segment and increment
     last = version_name_parts[-1]
+    # print(last) - print the last segment of the version name
+    # Search for the last sequence of digits in the version name
+    # The regex \d+ matches any sequence of one or more digits (0-9)
     match = re.search(r"\d+", last)
     if match:
-        version_name_parts[-1] = str(int(match.group()) + 1)
+        # The int(match.group()) converts the matched substring to an integer
+        last_segment = int(match.group())
+        # The match.group() returns the matched substring       
+        # The +1 increments the version name by one
+        # Finally, the str(...) converts the integer back to a string
+        version_name_parts[-1] = str(last_segment + 1)
     else:
+        # If the last segment of the version name does not contain a sequence of digits
+        # (i.e., it is not a number), set the last segment to '1' to indicate the first version.
         version_name_parts[-1] = '1'
+    # Join the segments back into a version name
     version_name = '.'.join(version_name_parts)
 
     # Print outputs for GitHub Actions

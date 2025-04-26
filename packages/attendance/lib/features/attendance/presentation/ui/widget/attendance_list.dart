@@ -159,12 +159,7 @@ class _AttendanceInfoTile extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(kMedium),
         decoration: BoxDecoration(
-          color: Color.fromARGB(
-            25, // 0.1 * 255
-            color.r.round(),
-            color.g.round(),
-            color.b.round(),
-          ),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(kMedium),
         ),
         child: Column(
@@ -177,11 +172,8 @@ class _AttendanceInfoTile extends StatelessWidget {
                 Text(
                   label,
                   style: context.textTheme.labelMedium?.copyWith(
-                    color: Color.fromARGB(
-                      178, // 0.7 * 255
-                      context.themeColor.colorScheme.onSurface.r.round(),
-                      context.themeColor.colorScheme.onSurface.g.round(),
-                      context.themeColor.colorScheme.onSurface.b.round(),
+                    color: context.themeColor.colorScheme.onSurface.withValues(
+                      alpha: 0.7,
                     ),
                   ),
                 ),
