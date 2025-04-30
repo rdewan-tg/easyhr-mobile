@@ -111,26 +111,12 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       ),
       bottomSheet: Consumer(
         builder: (context, ref, child) {
-          final currentPosition = ref.watch(
-            mapControllerProvider.select((value) => value.currentPosition),
-          );
-          final currentZones = ref.watch(
-            mapControllerProvider.select((value) => value.currentZones),
-          );
-          if (currentPosition == null || currentZones.isEmpty) {
-            return SafeArea(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(kLarge),
-                child: const Center(child: CircularProgressIndicator()),
-              ),
-            );
-          }
           return SafeArea(
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(kLarge),
               child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CurrentLocationWidget(),
