@@ -8,6 +8,7 @@ part 'map_state.freezed.dart';
 class MapState with _$MapState {
   factory MapState({
     @Default(false) bool isLoading,
+    @Default(true) bool isZoneEnabled,
     @Default(false) bool isAttendanceAdded,
     @Default({}) Map<String, String> settings,
     AttendanceStatus? status,

@@ -35,5 +35,11 @@
     "profile.btnYes": "ใช่",
     "profile.btnNo": "เลขที่",
     "common.noData": "ไม่มีข้อมูล",
-    "attendance.title": "การเข้าร่วม"
+    "attendance.title": "การเข้าร่วม",
+    "setting.isZonedEnabled": "เปิดใช้งานแบบโซนแล้ว",
+    "setting.gpsRadius": "รัศมีจีพีเอส",
+    "setting.currencyCode": "รหัสสกุลเงิน",
+    "setting.companyCode": "รหัสบริษัท",
+    "setting.companySetting": "การตั้งค่าบริษัท",
+    "setting.companySettingSubTitle": "จัดการการตั้งค่าบริษัทของคุณ"
 }
