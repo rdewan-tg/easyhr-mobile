@@ -34,8 +34,9 @@ class MapController extends AutoDisposeNotifier<MapState> {
 
   Future<void> getAllSetting() async {
     final settings = await ref.read(mapServiceProvider).getAllSetting();
+    final isZoneEnabled = settings['isZoneEnabled'] == 'true';
 
-    state = state.copyWith(settings: settings);
+    state = state.copyWith(settings: settings, isZoneEnabled: isZoneEnabled);
   }
 
   Future<void> getAttendanceStatus() async {
@@ -77,7 +78,7 @@ class MapController extends AutoDisposeNotifier<MapState> {
       address: state.currentAddress ?? "",
       latitude: state.currentPosition?.latitude ?? 0.0,
       longitude: state.currentPosition?.longitude ?? 0.0,
-      zone: state.zone ?? "",
+      zone: state.zone ?? "Not Enabled",
       status: status,
       transDay: int.tryParse(data["transDay"]) ?? 0,
       transMonth: int.tryParse(data["transMonth"]) ?? 0,

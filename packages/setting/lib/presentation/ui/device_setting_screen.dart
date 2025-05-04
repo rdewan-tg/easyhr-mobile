@@ -24,12 +24,25 @@ class _DeviceSettingScreenState extends ConsumerState<DeviceSettingScreen> {
     );
 
     return AppScaffoldScrollable(
-      title: Text(context.localizations('setting.deviceSetting')),
+      title: Text(context.localizations('setting.companySetting')),
       widget: Column(
         children: [
           ListTile(
+            title: Text(context.localizations('setting.companyCode')),
+            subtitle: Text(settings['companyCode'] ?? ''),
+          ),
+          ListTile(
+            title: Text(context.localizations('setting.gpsRadius')),
+            subtitle: Text(settings['gpsRadius'] ?? ''),
+          ),
+          ListTile(
             title: Text(context.localizations('setting.timeZone')),
             subtitle: Text(settings['timeZone'] ?? ''),
+          ),
+          SwitchListTile.adaptive(
+            title: Text(context.localizations('setting.isZonedEnabled')),
+            value: settings['isZoneEnabled'] == 'true',
+            onChanged: (value) {},
           ),
         ],
       ),

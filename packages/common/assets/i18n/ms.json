@@ -17,7 +17,7 @@
     "setting.orderNumberFormat": "Format Nombor Pesanan",
     "setting.orderRunningNumberTitle": "Nombor Berjalan Pesanan",
     "setting.orderRunningNumberSubTitle": "Nombor Berjalan Pesanan",
-    "setting.timeZone": "Zon Masa",
+    "setting.timeZone": "Zon Waktu",
     "setting.importSalesCustomer": "Pelanggan Jualan Import",
     "setting.importSalesCustomerSubTitle": "Import Pelanggan Jualan daripada API",
     "setting.importMerchandiserCustomer": "Pelanggan Import Merchandiser",
@@ -35,5 +35,11 @@
     "profile.btnYes": "ya",
     "profile.btnNo": "Tidak",
     "common.noData": "Tiada Data Tersedia",
-    "attendance.title": "Kehadiran"
+    "attendance.title": "Kehadiran",
+    "setting.isZonedEnabled": "Dizonkan Didayakan",
+    "setting.gpsRadius": "Jejari GPS",
+    "setting.currencyCode": "Kod Mata Wang",
+    "setting.companyCode": "Kod Syarikat",
+    "setting.companySetting": "Tetapan Syarikat",
+    "setting.companySettingSubTitle": "Urus tetapan syarikat anda"
 }

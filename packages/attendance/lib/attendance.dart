@@ -31,6 +31,7 @@ part 'features/camera/presentation/ui/capture_image_screen.dart';
 part 'features/map/presentation/ui/widget/bottom_sheet_widget.dart';
 part 'features/map/presentation/ui/widget/current_address_widget.dart';
 part 'features/map/presentation/ui/widget/capture_image_button_widget.dart';
+part 'features/map/presentation/ui/widget/capture_image_button_no_zone_widget.dart';
 part 'features/map/presentation/ui/widget/captured_image_widget.dart';
 part 'features/map/presentation/ui/widget/zone_widget.dart';
 part 'features/attendance/presentation/ui/attendance_screen.dart';

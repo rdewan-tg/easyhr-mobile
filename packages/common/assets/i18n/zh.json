@@ -35,5 +35,11 @@
     "profile.btnYes": "是的",
     "profile.btnNo": "不",
     "common.noData": "无可用数据",
-    "attendance.title": "出席率"
+    "attendance.title": "出席率",
+    "setting.isZonedEnabled": "已启用分区",
+    "setting.gpsRadius": "GPS半径",
+    "setting.currencyCode": "货币代码",
+    "setting.companyCode": "公司代码",
+    "setting.companySetting": "公司设置",
+    "setting.companySettingSubTitle": "管理您的公司设置"
 }

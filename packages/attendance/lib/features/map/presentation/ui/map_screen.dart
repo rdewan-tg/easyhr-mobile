@@ -111,27 +111,34 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       ),
       bottomSheet: Consumer(
         builder: (context, ref, child) {
+          final isZoneEnabled = ref.watch(
+            mapControllerProvider.select((value) => value.isZoneEnabled),
+          );
           return SafeArea(
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(kLarge),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CurrentLocationWidget(),
-                  SizedBox(height: kSmall),
-                  CurrentAddressWidget(),
-                  SizedBox(height: kMedium),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Flexible(flex: 8, child: ZoneWidget()),
-                      SizedBox(width: kMedium),
-                      CaptureImageButtonWidget(),
-                    ],
-                  ),
-                  SizedBox(height: kMedium),
+                  const CurrentLocationWidget(),
+                  const SizedBox(height: kSmall),
+                  const CurrentAddressWidget(),
+                  const SizedBox(height: kMedium),
+                  if (isZoneEnabled) ...[
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Flexible(flex: 8, child: ZoneWidget()),
+                        SizedBox(width: kMedium),
+                        CaptureImageButtonWidget(),
+                      ],
+                    ),
+                  ] else ...[
+                    const Center(child: CaptureImageButtonNoZoneWidget()),
+                  ],
+                  const SizedBox(height: kMedium),
                 ],
               ),
             ),
