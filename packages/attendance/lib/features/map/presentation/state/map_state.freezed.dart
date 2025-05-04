@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MapState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isZoneEnabled => throw _privateConstructorUsedError;
   bool get isAttendanceAdded => throw _privateConstructorUsedError;
   Map<String, String> get settings => throw _privateConstructorUsedError;
   AttendanceStatus? get status => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $MapStateCopyWith<$Res> {
   @useResult
   $Res call({
     bool isLoading,
+    bool isZoneEnabled,
     bool isAttendanceAdded,
     Map<String, String> settings,
     AttendanceStatus? status,
@@ -72,6 +74,7 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isZoneEnabled = null,
     Object? isAttendanceAdded = null,
     Object? settings = null,
     Object? status = freezed,
@@ -89,6 +92,11 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
                 null == isLoading
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isZoneEnabled:
+                null == isZoneEnabled
+                    ? _value.isZoneEnabled
+                    : isZoneEnabled // ignore: cast_nullable_to_non_nullable
                         as bool,
             isAttendanceAdded:
                 null == isAttendanceAdded
@@ -157,6 +165,7 @@ abstract class _$$MapStateImplCopyWith<$Res>
   @useResult
   $Res call({
     bool isLoading,
+    bool isZoneEnabled,
     bool isAttendanceAdded,
     Map<String, String> settings,
     AttendanceStatus? status,
@@ -185,6 +194,7 @@ class __$$MapStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isZoneEnabled = null,
     Object? isAttendanceAdded = null,
     Object? settings = null,
     Object? status = freezed,
@@ -202,6 +212,11 @@ class __$$MapStateImplCopyWithImpl<$Res>
             null == isLoading
                 ? _value.isLoading
                 : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isZoneEnabled:
+            null == isZoneEnabled
+                ? _value.isZoneEnabled
+                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
                     as bool,
         isAttendanceAdded:
             null == isAttendanceAdded
@@ -263,6 +278,7 @@ class __$$MapStateImplCopyWithImpl<$Res>
 class _$MapStateImpl implements _MapState {
   _$MapStateImpl({
     this.isLoading = false,
+    this.isZoneEnabled = true,
     this.isAttendanceAdded = false,
     final Map<String, String> settings = const {},
     this.status,
@@ -280,6 +296,9 @@ class _$MapStateImpl implements _MapState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isZoneEnabled;
   @override
   @JsonKey()
   final bool isAttendanceAdded;
@@ -325,7 +344,7 @@ class _$MapStateImpl implements _MapState {
 
   @override
   String toString() {
-    return 'MapState(isLoading: $isLoading, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, zones: $zones, currentZones: $currentZones, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
+    return 'MapState(isLoading: $isLoading, isZoneEnabled: $isZoneEnabled, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, zones: $zones, currentZones: $currentZones, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
   }
 
   @override
@@ -335,6 +354,8 @@ class _$MapStateImpl implements _MapState {
             other is _$MapStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isZoneEnabled, isZoneEnabled) ||
+                other.isZoneEnabled == isZoneEnabled) &&
             (identical(other.isAttendanceAdded, isAttendanceAdded) ||
                 other.isAttendanceAdded == isAttendanceAdded) &&
             const DeepCollectionEquality().equals(other._settings, _settings) &&
@@ -359,6 +380,7 @@ class _$MapStateImpl implements _MapState {
   int get hashCode => Object.hash(
     runtimeType,
     isLoading,
+    isZoneEnabled,
     isAttendanceAdded,
     const DeepCollectionEquality().hash(_settings),
     status,
@@ -383,6 +405,7 @@ class _$MapStateImpl implements _MapState {
 abstract class _MapState implements MapState {
   factory _MapState({
     final bool isLoading,
+    final bool isZoneEnabled,
     final bool isAttendanceAdded,
     final Map<String, String> settings,
     final AttendanceStatus? status,
@@ -397,6 +420,8 @@ abstract class _MapState implements MapState {
 
   @override
   bool get isLoading;
+  @override
+  bool get isZoneEnabled;
   @override
   bool get isAttendanceAdded;
   @override

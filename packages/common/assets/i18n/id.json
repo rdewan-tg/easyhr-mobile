@@ -35,5 +35,11 @@
     "profile.btnYes": "Ya",
     "profile.btnNo": "TIDAK",
     "common.noData": "Tidak Ada Data yang Tersedia",
-    "attendance.title": "Kehadiran"
+    "attendance.title": "Kehadiran",
+    "setting.isZonedEnabled": "Apakah Dizonasi Diaktifkan",
+    "setting.gpsRadius": "Radius GPS",
+    "setting.currencyCode": "Kode Mata Uang",
+    "setting.companyCode": "Kode Perusahaan",
+    "setting.companySetting": "Pengaturan Perusahaan",
+    "setting.companySettingSubTitle": "Kelola pengaturan perusahaan Anda"
 }

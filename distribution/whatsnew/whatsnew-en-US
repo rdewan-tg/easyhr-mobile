@@ -2,3 +2,9 @@ Test Case:
 1. User login
 2. Single Device login
 3. User Logout
+4. Check In/Out with Zone
+5. Check In/Out without Zone
+6. Attendance List
+7. Attendance Detail
+8. Capture Image in Check In/Out
+
