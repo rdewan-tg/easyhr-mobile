@@ -2,6 +2,7 @@ import 'package:core/data/remote/network_service.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod/riverpod.dart';
+import 'package:setting/data/dto/company_setting_response.dart';
 import 'package:setting/data/dto/device_setting.dart';
 import 'package:flutter/foundation.dart';
 
@@ -19,4 +20,7 @@ abstract class SettingApi {
 
   @GET("/setting/device/{deviceId}")
   Future<DeviceSettingResponse> findByDeviceId(@Path() String deviceId);
+
+  @GET("/v1/company-setting")
+  Future<CompanySettingResponse> getCompanySetting();
 }

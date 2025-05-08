@@ -4,6 +4,8 @@ import 'package:multiple_result/multiple_result.dart';
 abstract interface class ISettingService {
   Future<Result<bool, Failure>> getDeviceSetting(String deviceId);
 
+  Future<void> getCompanySetting();
+
   Stream<String> watchThemeMode();
 
   Stream<String> watchLanguage();

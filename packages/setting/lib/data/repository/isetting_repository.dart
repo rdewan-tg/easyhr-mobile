@@ -1,7 +1,12 @@
+import 'package:setting/data/dto/company_setting_response.dart';
 import 'package:setting/data/dto/device_setting.dart';
 
 abstract interface class ISettingRepository {
   Future<DeviceSettingResponse> getDeviceSetting(String deviceId);
+
+  Future<CompanySettingResponse> getCompanySetting();
+
+  Future<void> upsertMultipleSettings(Map<String, String> settings);
 
   Stream<String> watchThemeMode();
 
