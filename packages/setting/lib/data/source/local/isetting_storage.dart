@@ -4,4 +4,6 @@ abstract interface class ISettingStorage {
   Future<void> setFirstRun();
 
   Future<bool> getFirstRun();
+
+  Future<void> upsertMultipleSettings(Map<String, String> settings);
 }

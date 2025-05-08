@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SettingState {
-  dynamic get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get themeMode => throw _privateConstructorUsedError;
   String get timeZone => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $SettingStateCopyWith<$Res> {
   ) = _$SettingStateCopyWithImpl<$Res, SettingState>;
   @useResult
   $Res call({
-    dynamic isLoading,
+    bool isLoading,
     String language,
     String themeMode,
     String timeZone,
@@ -65,7 +65,7 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
+    Object? isLoading = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -76,10 +76,10 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
     return _then(
       _value.copyWith(
             isLoading:
-                freezed == isLoading
+                null == isLoading
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
+                        as bool,
             language:
                 null == language
                     ? _value.language
@@ -126,7 +126,7 @@ abstract class _$$SettingStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    dynamic isLoading,
+    bool isLoading,
     String language,
     String themeMode,
     String timeZone,
@@ -150,7 +150,7 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
+    Object? isLoading = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -160,7 +160,11 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SettingStateImpl(
-        isLoading: freezed == isLoading ? _value.isLoading! : isLoading,
+        isLoading:
+            null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
         language:
             null == language
                 ? _value.language
@@ -211,7 +215,7 @@ class _$SettingStateImpl implements _SettingState {
 
   @override
   @JsonKey()
-  final dynamic isLoading;
+  final bool isLoading;
   @override
   @JsonKey()
   final String language;
@@ -246,7 +250,8 @@ class _$SettingStateImpl implements _SettingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingStateImpl &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.themeMode, themeMode) ||
@@ -263,7 +268,7 @@ class _$SettingStateImpl implements _SettingState {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    const DeepCollectionEquality().hash(isLoading),
+    isLoading,
     language,
     themeMode,
     timeZone,
@@ -283,7 +288,7 @@ class _$SettingStateImpl implements _SettingState {
 
 abstract class _SettingState implements SettingState {
   const factory _SettingState({
-    final dynamic isLoading,
+    final bool isLoading,
     final String language,
     final String themeMode,
     final String timeZone,
@@ -293,7 +298,7 @@ abstract class _SettingState implements SettingState {
   }) = _$SettingStateImpl;
 
   @override
-  dynamic get isLoading;
+  bool get isLoading;
   @override
   String get language;
   @override

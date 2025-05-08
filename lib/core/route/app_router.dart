@@ -265,7 +265,7 @@ class AppRouter {
           (context, state) => NoTransitionPage(
             key: state.pageKey,
             name: state.name,
-            child: const DeviceSettingScreen(),
+            child: const CompanySettingScreen(),
           ),
     );
   }

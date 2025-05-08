@@ -129,6 +129,18 @@ final class SettingController extends _$SettingController {
     state = state.copyWith(settings: result);
   }
 
+  Future<void> getCompanySetting() async {
+    try {
+      state = state.copyWith(isLoading: true, errorMsg: null);
+      await ref.read(settingServiceProvider).getCompanySetting();
+      await getAllSettings();
+    } catch (e) {
+      state = state.copyWith(errorMsg: e.toString());
+    } finally {
+      state = state.copyWith(isLoading: false);
+    }
+  }
+
   Future<bool> getFirstRun() async {
     return await ref.read(settingServiceProvider).getFirstRun();
   }
