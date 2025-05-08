@@ -39,6 +39,27 @@ final class SettingService implements ISettingService {
   }
 
   @override
+  Future<void> getCompanySetting() async {
+    try {
+      final response = await _settingRepository.getCompanySetting();
+      await _settingRepository.upsertMultipleSettings({
+        'companyId': response.data.id.toString(),
+        'timeZone': response.data.timeZone,
+        'gpsRadius': response.data.gpsRadius.toString(),
+        'isZoneEnabled': response.data.isZoneEnabled.toString(),
+      });
+    } on Failure catch (_) {
+      rethrow;
+    } catch (e, s) {
+      throw Failure(
+        message: e.toString(),
+        exception: e as Exception,
+        stackTrace: s,
+      );
+    }
+  }
+
+  @override
   Stream<String> watchThemeMode() {
     return _settingRepository.watchThemeMode();
   }

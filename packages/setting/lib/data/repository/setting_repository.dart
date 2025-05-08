@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_manual_providers_as_generated_provider_dependency
 import 'package:core/data/local/db/dao/setting_dao.dart';
+import 'package:setting/data/dto/company_setting_response.dart';
 import 'package:setting/data/dto/device_setting.dart';
 import 'package:setting/data/repository/isetting_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -50,6 +51,24 @@ final class SettingRepositroy
   }
 
   @override
+  Future<CompanySettingResponse> getCompanySetting() async {
+    try {
+      final response = await _settingApi.getCompanySetting();
+
+      return response;
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } catch (e, s) {
+      throw Failure(
+        message:
+            "An unexpected error occurred. Please try again later".hardcoded,
+        exception: e as Exception,
+        stackTrace: s,
+      );
+    }
+  }
+
+  @override
   Stream<String> watchThemeMode() => _settingDao.watchThemeMode();
 
   @override
@@ -78,6 +97,20 @@ final class SettingRepositroy
   Future<Map<String, String>> getAllSettings() {
     try {
       return _settingDao.getAllSettings();
+    } catch (e, stackTrace) {
+      // Map unexpected exceptions to Failure
+      throw Failure(
+        message: 'An unexpected error occurred'.hardcoded,
+        exception: e as Exception,
+        stackTrace: stackTrace,
+      );
+    }
+  }
+
+  @override
+  Future<void> upsertMultipleSettings(Map<String, String> settings) async {
+    try {
+      return await _settingStorage.upsertMultipleSettings(settings);
     } catch (e, stackTrace) {
       // Map unexpected exceptions to Failure
       throw Failure(
