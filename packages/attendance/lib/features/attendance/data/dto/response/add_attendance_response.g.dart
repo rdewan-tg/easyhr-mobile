@@ -26,7 +26,7 @@ _$AddAttendanceDataImpl _$$AddAttendanceDataImplFromJson(
   latitude: json['latitude'] as String,
   longitude: json['longitude'] as String,
   zone: json['zone'] as String,
-  image: json['image'] as String,
+  image: json['image'] as String?,
   status: $enumDecode(_$AttendanceStatusEnumMap, json['status']),
   transDay: (json['transDay'] as num).toInt(),
   transMonth: (json['transMonth'] as num).toInt(),

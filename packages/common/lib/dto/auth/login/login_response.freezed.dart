@@ -1211,6 +1211,8 @@ mixin _$CompanyDto {
   String get timeZone => throw _privateConstructorUsedError;
   @JsonKey(name: "isZoneEnabled")
   bool get isZoneEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "isCameraEnabled")
+  bool get isCameraEnabled => throw _privateConstructorUsedError;
 
   /// Serializes this CompanyDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1237,6 +1239,7 @@ abstract class $CompanyDtoCopyWith<$Res> {
     @JsonKey(name: "gpsRadius") int gpsRadius,
     @JsonKey(name: "timeZone") String timeZone,
     @JsonKey(name: "isZoneEnabled") bool isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") bool isCameraEnabled,
   });
 }
 
@@ -1262,6 +1265,7 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
     Object? gpsRadius = null,
     Object? timeZone = null,
     Object? isZoneEnabled = null,
+    Object? isCameraEnabled = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1300,6 +1304,11 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
                     ? _value.isZoneEnabled
                     : isZoneEnabled // ignore: cast_nullable_to_non_nullable
                         as bool,
+            isCameraEnabled:
+                null == isCameraEnabled
+                    ? _value.isCameraEnabled
+                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                        as bool,
           )
           as $Val,
     );
@@ -1323,6 +1332,7 @@ abstract class _$$CompanyDtoImplCopyWith<$Res>
     @JsonKey(name: "gpsRadius") int gpsRadius,
     @JsonKey(name: "timeZone") String timeZone,
     @JsonKey(name: "isZoneEnabled") bool isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") bool isCameraEnabled,
   });
 }
 
@@ -1347,6 +1357,7 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
     Object? gpsRadius = null,
     Object? timeZone = null,
     Object? isZoneEnabled = null,
+    Object? isCameraEnabled = null,
   }) {
     return _then(
       _$CompanyDtoImpl(
@@ -1385,6 +1396,11 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
                 ? _value.isZoneEnabled
                 : isZoneEnabled // ignore: cast_nullable_to_non_nullable
                     as bool,
+        isCameraEnabled:
+            null == isCameraEnabled
+                ? _value.isCameraEnabled
+                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -1401,6 +1417,7 @@ class _$CompanyDtoImpl implements _CompanyDto {
     @JsonKey(name: "gpsRadius") required this.gpsRadius,
     @JsonKey(name: "timeZone") required this.timeZone,
     @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") required this.isCameraEnabled,
   });
 
   factory _$CompanyDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -1427,10 +1444,13 @@ class _$CompanyDtoImpl implements _CompanyDto {
   @override
   @JsonKey(name: "isZoneEnabled")
   final bool isZoneEnabled;
+  @override
+  @JsonKey(name: "isCameraEnabled")
+  final bool isCameraEnabled;
 
   @override
   String toString() {
-    return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled)';
+    return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled)';
   }
 
   @override
@@ -1449,7 +1469,9 @@ class _$CompanyDtoImpl implements _CompanyDto {
             (identical(other.timeZone, timeZone) ||
                 other.timeZone == timeZone) &&
             (identical(other.isZoneEnabled, isZoneEnabled) ||
-                other.isZoneEnabled == isZoneEnabled));
+                other.isZoneEnabled == isZoneEnabled) &&
+            (identical(other.isCameraEnabled, isCameraEnabled) ||
+                other.isCameraEnabled == isCameraEnabled));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1463,6 +1485,7 @@ class _$CompanyDtoImpl implements _CompanyDto {
     gpsRadius,
     timeZone,
     isZoneEnabled,
+    isCameraEnabled,
   );
 
   /// Create a copy of CompanyDto
@@ -1488,6 +1511,7 @@ abstract class _CompanyDto implements CompanyDto {
     @JsonKey(name: "gpsRadius") required final int gpsRadius,
     @JsonKey(name: "timeZone") required final String timeZone,
     @JsonKey(name: "isZoneEnabled") required final bool isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") required final bool isCameraEnabled,
   }) = _$CompanyDtoImpl;
 
   factory _CompanyDto.fromJson(Map<String, dynamic> json) =
@@ -1514,6 +1538,9 @@ abstract class _CompanyDto implements CompanyDto {
   @override
   @JsonKey(name: "isZoneEnabled")
   bool get isZoneEnabled;
+  @override
+  @JsonKey(name: "isCameraEnabled")
+  bool get isCameraEnabled;
 
   /// Create a copy of CompanyDto
   /// with the given fields replaced by the non-null parameter values.

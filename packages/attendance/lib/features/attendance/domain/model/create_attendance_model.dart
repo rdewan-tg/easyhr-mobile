@@ -8,7 +8,7 @@ part 'create_attendance_model.freezed.dart';
 @freezed
 class CreateAttendanceModel with _$CreateAttendanceModel {
   factory CreateAttendanceModel({
-    required File file,
+    required File? file,
     required String address,
     required double latitude,
     required double longitude,

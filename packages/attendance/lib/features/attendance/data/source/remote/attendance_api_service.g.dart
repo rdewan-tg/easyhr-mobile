@@ -46,7 +46,7 @@ class _AttendanceApiService implements AttendanceApiService {
 
   @override
   Future<AddAttendanceResponse> addAttendance({
-    required File file,
+    File? file,
     required String address,
     required double latitude,
     required double longitude,
@@ -59,18 +59,23 @@ class _AttendanceApiService implements AttendanceApiService {
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.files.add(
-      MapEntry(
-        'file',
-        MultipartFile.fromFileSync(
-          file.path,
-          filename: file.path.split(Platform.pathSeparator).last,
-          contentType: DioMediaType.parse('image/*'),
-        ),
-      ),
-    );
+    if (file != null) {
+      if (file != null) {
+        _data.files.add(
+          MapEntry(
+            'file',
+            MultipartFile.fromFileSync(
+              file.path,
+              filename: file.path.split(Platform.pathSeparator).last,
+              contentType: DioMediaType.parse('image/*'),
+            ),
+          ),
+        );
+      }
+    }
     _data.fields.add(MapEntry('address', address));
     _data.fields.add(MapEntry('latitude', latitude.toString()));
     _data.fields.add(MapEntry('longitude', longitude.toString()));
@@ -90,6 +95,36 @@ class _AttendanceApiService implements AttendanceApiService {
           .compose(
             _dio.options,
             '/v1/attendance',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AddAttendanceResponse _value;
+    try {
+      _value = AddAttendanceResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AddAttendanceResponse> addAttendanceWithoutImage(
+    AddAttendanceWithoutImageRequest data,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(data.toJson());
+    final _options = _setStreamType<AddAttendanceResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/v1/attendance/without-image',
             queryParameters: queryParameters,
             data: _data,
           )

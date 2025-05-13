@@ -22,10 +22,13 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Attendance"), centerTitle: true),
+      appBar: AppBar(
+        title: Text(context.localizations("attendance.title")),
+        centerTitle: true,
+      ),
       body: const AttendanceList(),
       floatingActionButton: FloatingActionButton.extended(
-        label: Text('Add'.hardcoded),
+        label: Text(context.localizations("attendance.add")),
         icon: const Icon(Icons.add),
         onPressed: () {
           context.push('/map');

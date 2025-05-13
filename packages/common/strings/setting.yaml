@@ -28,3 +28,6 @@ currencyCode: Currency Code
 companyCode: Company Code
 companySetting: Company Setting
 companySettingSubTitle: Manage your company setting
+isCameraEnabled: Is Camera Enabled
+unexpectedError: An unexpected error occurred. Please try again later
+anUnexpectedErrorOccurred: An unexpected error occurred

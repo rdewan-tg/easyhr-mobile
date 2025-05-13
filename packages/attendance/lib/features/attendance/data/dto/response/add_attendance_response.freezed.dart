@@ -246,7 +246,7 @@ mixin _$AddAttendanceData {
   @JsonKey(name: 'zone')
   String get zone => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
-  String get image => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'status')
   AttendanceStatus get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'transDay')
@@ -288,7 +288,7 @@ abstract class $AddAttendanceDataCopyWith<$Res> {
     @JsonKey(name: 'latitude') String latitude,
     @JsonKey(name: 'longitude') String longitude,
     @JsonKey(name: 'zone') String zone,
-    @JsonKey(name: 'image') String image,
+    @JsonKey(name: 'image') String? image,
     @JsonKey(name: 'status') AttendanceStatus status,
     @JsonKey(name: 'transDay') int transDay,
     @JsonKey(name: 'transMonth') int transMonth,
@@ -321,7 +321,7 @@ class _$AddAttendanceDataCopyWithImpl<$Res, $Val extends AddAttendanceData>
     Object? latitude = null,
     Object? longitude = null,
     Object? zone = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? status = null,
     Object? transDay = null,
     Object? transMonth = null,
@@ -364,10 +364,10 @@ class _$AddAttendanceDataCopyWithImpl<$Res, $Val extends AddAttendanceData>
                     : zone // ignore: cast_nullable_to_non_nullable
                         as String,
             image:
-                null == image
+                freezed == image
                     ? _value.image
                     : image // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             status:
                 null == status
                     ? _value.status
@@ -430,7 +430,7 @@ abstract class _$$AddAttendanceDataImplCopyWith<$Res>
     @JsonKey(name: 'latitude') String latitude,
     @JsonKey(name: 'longitude') String longitude,
     @JsonKey(name: 'zone') String zone,
-    @JsonKey(name: 'image') String image,
+    @JsonKey(name: 'image') String? image,
     @JsonKey(name: 'status') AttendanceStatus status,
     @JsonKey(name: 'transDay') int transDay,
     @JsonKey(name: 'transMonth') int transMonth,
@@ -462,7 +462,7 @@ class __$$AddAttendanceDataImplCopyWithImpl<$Res>
     Object? latitude = null,
     Object? longitude = null,
     Object? zone = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? status = null,
     Object? transDay = null,
     Object? transMonth = null,
@@ -505,10 +505,10 @@ class __$$AddAttendanceDataImplCopyWithImpl<$Res>
                 : zone // ignore: cast_nullable_to_non_nullable
                     as String,
         image:
-            null == image
+            freezed == image
                 ? _value.image
                 : image // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         status:
             null == status
                 ? _value.status
@@ -564,7 +564,7 @@ class _$AddAttendanceDataImpl implements _AddAttendanceData {
     @JsonKey(name: 'latitude') required this.latitude,
     @JsonKey(name: 'longitude') required this.longitude,
     @JsonKey(name: 'zone') required this.zone,
-    @JsonKey(name: 'image') required this.image,
+    @JsonKey(name: 'image') this.image,
     @JsonKey(name: 'status') required this.status,
     @JsonKey(name: 'transDay') required this.transDay,
     @JsonKey(name: 'transMonth') required this.transMonth,
@@ -598,7 +598,7 @@ class _$AddAttendanceDataImpl implements _AddAttendanceData {
   final String zone;
   @override
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @override
   @JsonKey(name: 'status')
   final AttendanceStatus status;
@@ -705,7 +705,7 @@ abstract class _AddAttendanceData implements AddAttendanceData {
     @JsonKey(name: 'latitude') required final String latitude,
     @JsonKey(name: 'longitude') required final String longitude,
     @JsonKey(name: 'zone') required final String zone,
-    @JsonKey(name: 'image') required final String image,
+    @JsonKey(name: 'image') final String? image,
     @JsonKey(name: 'status') required final AttendanceStatus status,
     @JsonKey(name: 'transDay') required final int transDay,
     @JsonKey(name: 'transMonth') required final int transMonth,
@@ -739,7 +739,7 @@ abstract class _AddAttendanceData implements AddAttendanceData {
   String get zone;
   @override
   @JsonKey(name: 'image')
-  String get image;
+  String? get image;
   @override
   @JsonKey(name: 'status')
   AttendanceStatus get status;

@@ -75,6 +75,7 @@ class CompanyDto with _$CompanyDto {
     @JsonKey(name: "gpsRadius") required int gpsRadius,
     @JsonKey(name: "timeZone") required String timeZone,
     @JsonKey(name: "isZoneEnabled") required bool isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") required bool isCameraEnabled,
   }) = _CompanyDto;
 
   factory CompanyDto.fromJson(Map<String, dynamic> json) =>
