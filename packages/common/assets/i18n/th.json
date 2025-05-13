@@ -41,5 +41,16 @@
     "setting.currencyCode": "รหัสสกุลเงิน",
     "setting.companyCode": "รหัสบริษัท",
     "setting.companySetting": "การตั้งค่าบริษัท",
-    "setting.companySettingSubTitle": "จัดการการตั้งค่าบริษัทของคุณ"
+    "setting.companySettingSubTitle": "จัดการการตั้งค่าบริษัทของคุณ",
+    "setting.isCameraEnabled": "เปิดใช้งานกล้องแล้ว",
+    "attendance.add": "เพิ่ม",
+    "attendance.location": "ที่ตั้ง",
+    "attendance.zone": "โซน",
+    "setting.unexpectedError": "เกิดข้อผิดพลาดที่ไม่คาดคิด โปรดลองอีกครั้งในภายหลัง",
+    "setting.anUnexpectedErrorOccurred": "เกิดข้อผิดพลาดที่ไม่คาดคิด",
+    "common.close": "ปิด",
+    "common.success": "ความสำเร็จ",
+    "common.checkedIn": "เช็คอินแล้ว",
+    "common.checkedOut": "เช็คเอาท์แล้ว",
+    "common.youHaveSuccessfully": "คุณประสบความสำเร็จแล้ว"
 }

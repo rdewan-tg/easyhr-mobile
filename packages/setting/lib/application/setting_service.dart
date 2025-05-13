@@ -47,6 +47,7 @@ final class SettingService implements ISettingService {
         'timeZone': response.data.timeZone,
         'gpsRadius': response.data.gpsRadius.toString(),
         'isZoneEnabled': response.data.isZoneEnabled.toString(),
+        'isCameraEnabled': response.data.isCameraEnabled.toString(),
       });
     } on Failure catch (_) {
       rethrow;

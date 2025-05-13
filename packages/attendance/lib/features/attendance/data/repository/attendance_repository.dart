@@ -9,6 +9,7 @@ import 'package:dio/dio.dart';
 import 'package:common/exception/failure.dart';
 import 'package:attendance/features/attendance/data/dto/response/add_attendance_response.dart';
 import 'package:attendance/features/attendance/data/dto/response/attendance_response.dart';
+import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
 
 final attendanceRepositoryProvider = Provider<IAttendanceRepository>((ref) {
@@ -43,6 +44,19 @@ final class AttendanceRepository
         transYear: data.transYear,
         date: data.date,
       );
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } catch (e, s) {
+      throw Failure(message: e.toString(), stackTrace: s);
+    }
+  }
+
+  @override
+  Future<AddAttendanceResponse> addAttendanceWithoutImage(
+    AddAttendanceWithoutImageRequest data,
+  ) async {
+    try {
+      return await _attendanceApiService.addAttendanceWithoutImage(data);
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {

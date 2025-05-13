@@ -32,6 +32,7 @@ final class LoginService implements ILoginService {
         'timeZone': result.data.user.company.timeZone,
         'gpsRadius': result.data.user.company.gpsRadius.toString(),
         'isZoneEnabled': result.data.user.company.isZoneEnabled.toString(),
+        'isCameraEnabled': result.data.user.company.isCameraEnabled.toString(),
       });
 
       return const Success(true);

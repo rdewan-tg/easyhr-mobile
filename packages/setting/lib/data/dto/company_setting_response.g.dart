@@ -27,6 +27,7 @@ _$CompanySettingDataImpl _$$CompanySettingDataImplFromJson(
   isZoneEnabled: json['isZoneEnabled'] as bool,
   currencyCode: json['currencyCode'] as String,
   companyId: (json['companyId'] as num).toInt(),
+  isCameraEnabled: json['isCameraEnabled'] as bool,
 );
 
 Map<String, dynamic> _$$CompanySettingDataImplToJson(
@@ -39,4 +40,5 @@ Map<String, dynamic> _$$CompanySettingDataImplToJson(
   'isZoneEnabled': instance.isZoneEnabled,
   'currencyCode': instance.currencyCode,
   'companyId': instance.companyId,
+  'isCameraEnabled': instance.isCameraEnabled,
 };

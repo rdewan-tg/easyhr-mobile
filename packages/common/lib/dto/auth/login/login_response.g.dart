@@ -94,6 +94,7 @@ _$CompanyDtoImpl _$$CompanyDtoImplFromJson(Map<String, dynamic> json) =>
       gpsRadius: (json['gpsRadius'] as num).toInt(),
       timeZone: json['timeZone'] as String,
       isZoneEnabled: json['isZoneEnabled'] as bool,
+      isCameraEnabled: json['isCameraEnabled'] as bool,
     );
 
 Map<String, dynamic> _$$CompanyDtoImplToJson(_$CompanyDtoImpl instance) =>
@@ -105,6 +106,7 @@ Map<String, dynamic> _$$CompanyDtoImplToJson(_$CompanyDtoImpl instance) =>
       'gpsRadius': instance.gpsRadius,
       'timeZone': instance.timeZone,
       'isZoneEnabled': instance.isZoneEnabled,
+      'isCameraEnabled': instance.isCameraEnabled,
     };
 
 _$DeviceSettingDtoImpl _$$DeviceSettingDtoImplFromJson(

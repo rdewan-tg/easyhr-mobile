@@ -114,6 +114,12 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           final isZoneEnabled = ref.watch(
             mapControllerProvider.select((value) => value.isZoneEnabled),
           );
+          final isCameraEnabled = ref.watch(
+            mapControllerProvider.select((value) => value.isCameraEnabled),
+          );
+          final currentPosition = ref.watch(
+            mapControllerProvider.select((value) => value.currentPosition),
+          );
           return SafeArea(
             child: Container(
               width: double.infinity,
@@ -126,19 +132,30 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                   const SizedBox(height: kSmall),
                   const CurrentAddressWidget(),
                   const SizedBox(height: kMedium),
-                  if (isZoneEnabled) ...[
-                    const Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(flex: 8, child: ZoneWidget()),
-                        SizedBox(width: kMedium),
-                        CaptureImageButtonWidget(),
+                  // if current position is null - remove the checkin and checkout buttons
+                  if (currentPosition != null) ...[
+                    if (isZoneEnabled) ...[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Flexible(flex: 8, child: ZoneWidget()),
+                          const SizedBox(width: kMedium),
+                          if (isCameraEnabled) ...[
+                            const CaptureImageButtonWidget(),
+                          ] else ...[
+                            const AddAttendanceWithNoImage(),
+                          ],
+                        ],
+                      ),
+                    ] else ...[
+                      if (isCameraEnabled) ...[
+                        const Center(child: CaptureImageButtonNoZoneWidget()),
+                      ] else ...[
+                        const Center(child: AddAttendanceWithNoImage()),
                       ],
-                    ),
-                  ] else ...[
-                    const Center(child: CaptureImageButtonNoZoneWidget()),
+                    ],
+                    const SizedBox(height: kMedium),
                   ],
-                  const SizedBox(height: kMedium),
                 ],
               ),
             ),
@@ -158,7 +175,10 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             children: [
               const Icon(Icons.check, color: Colors.green),
               const SizedBox(width: kSmall),
-              Text('Success'.hardcoded, style: context.textTheme.titleMedium),
+              Text(
+                context.localizations("common.success"),
+                style: context.textTheme.titleMedium,
+              ),
             ],
           ),
           scrollable: true,
@@ -176,7 +196,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                 const SizedBox(height: kMedium),
                 Text.rich(
                   TextSpan(
-                    text: 'You have successfully '.hardcoded,
+                    text: context.localizations("common.youHaveSuccessfully"),
                     style: context.textTheme.bodyMedium,
                     children: [
                       TextSpan(
@@ -200,7 +220,65 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           ),
           actions: [
             TextButton.icon(
-              label: Text('Close'.hardcoded),
+              label: Text(context.localizations("common.close")),
+              icon: const Icon(Icons.close),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showDialogWithNoImage(AttendanceStatus status) async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog.adaptive(
+          icon: Row(
+            children: [
+              const Icon(Icons.check, color: Colors.green),
+              const SizedBox(width: kSmall),
+              Text(
+                context.localizations("common.success"),
+                style: context.textTheme.titleMedium,
+              ),
+            ],
+          ),
+          scrollable: true,
+          content: Padding(
+            padding: const EdgeInsets.all(kSmall),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text.rich(
+                  TextSpan(
+                    text: context.localizations("common.youHaveSuccessfully"),
+                    style: context.textTheme.bodyMedium,
+                    children: [
+                      TextSpan(
+                        text:
+                            status == AttendanceStatus.checkedIn
+                                ? 'Checked In'
+                                : 'Checked Out',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color:
+                              status == AttendanceStatus.checkedIn
+                                  ? Colors.green
+                                  : Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton.icon(
+              label: Text(context.localizations("common.close")),
               icon: const Icon(Icons.close),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -211,6 +289,17 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   }
 
   void _listener() {
+    // listen to loading
+    ref.listen(mapControllerProvider.select((value) => value.isLoading), (
+      _,
+      next,
+    ) {
+      if (next) {
+        context.loaderOverlay.show();
+      } else {
+        context.loaderOverlay.hide();
+      }
+    });
     // listen for error
     ref.listen(mapControllerProvider.select((value) => value.errorMsg), (
       _,
@@ -235,8 +324,14 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           final imageFile =
               ref.read(mapControllerProvider.notifier).getImagePath();
           final status = ref.read(mapControllerProvider.notifier).getStatus();
-          if (imageFile == null || status == null) return;
-          _showImageDialog(File(imageFile), status);
+          // check if status is null
+          if (status == null) return;
+          // check if imageFile is null
+          if (imageFile != null) {
+            _showImageDialog(File(imageFile), status);
+          } else {
+            _showDialogWithNoImage(status);
+          }
         }
       },
     );

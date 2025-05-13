@@ -247,6 +247,8 @@ mixin _$CompanySettingData {
   String get currencyCode => throw _privateConstructorUsedError;
   @JsonKey(name: "companyId")
   int get companyId => throw _privateConstructorUsedError;
+  @JsonKey(name: "isCameraEnabled")
+  bool get isCameraEnabled => throw _privateConstructorUsedError;
 
   /// Serializes this CompanySettingData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -273,6 +275,7 @@ abstract class $CompanySettingDataCopyWith<$Res> {
     @JsonKey(name: "isZoneEnabled") bool isZoneEnabled,
     @JsonKey(name: "currencyCode") String currencyCode,
     @JsonKey(name: "companyId") int companyId,
+    @JsonKey(name: "isCameraEnabled") bool isCameraEnabled,
   });
 }
 
@@ -298,6 +301,7 @@ class _$CompanySettingDataCopyWithImpl<$Res, $Val extends CompanySettingData>
     Object? isZoneEnabled = null,
     Object? currencyCode = null,
     Object? companyId = null,
+    Object? isCameraEnabled = null,
   }) {
     return _then(
       _value.copyWith(
@@ -336,6 +340,11 @@ class _$CompanySettingDataCopyWithImpl<$Res, $Val extends CompanySettingData>
                     ? _value.companyId
                     : companyId // ignore: cast_nullable_to_non_nullable
                         as int,
+            isCameraEnabled:
+                null == isCameraEnabled
+                    ? _value.isCameraEnabled
+                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                        as bool,
           )
           as $Val,
     );
@@ -359,6 +368,7 @@ abstract class _$$CompanySettingDataImplCopyWith<$Res>
     @JsonKey(name: "isZoneEnabled") bool isZoneEnabled,
     @JsonKey(name: "currencyCode") String currencyCode,
     @JsonKey(name: "companyId") int companyId,
+    @JsonKey(name: "isCameraEnabled") bool isCameraEnabled,
   });
 }
 
@@ -383,6 +393,7 @@ class __$$CompanySettingDataImplCopyWithImpl<$Res>
     Object? isZoneEnabled = null,
     Object? currencyCode = null,
     Object? companyId = null,
+    Object? isCameraEnabled = null,
   }) {
     return _then(
       _$CompanySettingDataImpl(
@@ -421,6 +432,11 @@ class __$$CompanySettingDataImplCopyWithImpl<$Res>
                 ? _value.companyId
                 : companyId // ignore: cast_nullable_to_non_nullable
                     as int,
+        isCameraEnabled:
+            null == isCameraEnabled
+                ? _value.isCameraEnabled
+                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -437,6 +453,7 @@ class _$CompanySettingDataImpl implements _CompanySettingData {
     @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled,
     @JsonKey(name: "currencyCode") required this.currencyCode,
     @JsonKey(name: "companyId") required this.companyId,
+    @JsonKey(name: "isCameraEnabled") required this.isCameraEnabled,
   });
 
   factory _$CompanySettingDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -463,10 +480,13 @@ class _$CompanySettingDataImpl implements _CompanySettingData {
   @override
   @JsonKey(name: "companyId")
   final int companyId;
+  @override
+  @JsonKey(name: "isCameraEnabled")
+  final bool isCameraEnabled;
 
   @override
   String toString() {
-    return 'CompanySettingData(id: $id, timeZone: $timeZone, gpsRadius: $gpsRadius, isLocationData: $isLocationData, isZoneEnabled: $isZoneEnabled, currencyCode: $currencyCode, companyId: $companyId)';
+    return 'CompanySettingData(id: $id, timeZone: $timeZone, gpsRadius: $gpsRadius, isLocationData: $isLocationData, isZoneEnabled: $isZoneEnabled, currencyCode: $currencyCode, companyId: $companyId, isCameraEnabled: $isCameraEnabled)';
   }
 
   @override
@@ -486,7 +506,9 @@ class _$CompanySettingDataImpl implements _CompanySettingData {
             (identical(other.currencyCode, currencyCode) ||
                 other.currencyCode == currencyCode) &&
             (identical(other.companyId, companyId) ||
-                other.companyId == companyId));
+                other.companyId == companyId) &&
+            (identical(other.isCameraEnabled, isCameraEnabled) ||
+                other.isCameraEnabled == isCameraEnabled));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -500,6 +522,7 @@ class _$CompanySettingDataImpl implements _CompanySettingData {
     isZoneEnabled,
     currencyCode,
     companyId,
+    isCameraEnabled,
   );
 
   /// Create a copy of CompanySettingData
@@ -528,6 +551,7 @@ abstract class _CompanySettingData implements CompanySettingData {
     @JsonKey(name: "isZoneEnabled") required final bool isZoneEnabled,
     @JsonKey(name: "currencyCode") required final String currencyCode,
     @JsonKey(name: "companyId") required final int companyId,
+    @JsonKey(name: "isCameraEnabled") required final bool isCameraEnabled,
   }) = _$CompanySettingDataImpl;
 
   factory _CompanySettingData.fromJson(Map<String, dynamic> json) =
@@ -554,6 +578,9 @@ abstract class _CompanySettingData implements CompanySettingData {
   @override
   @JsonKey(name: "companyId")
   int get companyId;
+  @override
+  @JsonKey(name: "isCameraEnabled")
+  bool get isCameraEnabled;
 
   /// Create a copy of CompanySettingData
   /// with the given fields replaced by the non-null parameter values.

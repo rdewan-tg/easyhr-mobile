@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
 import 'package:attendance/features/attendance/data/dto/response/add_attendance_response.dart';
 import 'package:attendance/features/attendance/data/dto/response/attendance_response.dart';
 import 'package:common/common.dart';
@@ -26,7 +27,7 @@ abstract class AttendanceApiService {
   @POST(createAttendanceEndPoint)
   @MultiPart()
   Future<AddAttendanceResponse> addAttendance({
-    @Part(name: "file", contentType: 'image/*') required File file,
+    @Part(name: "file", contentType: 'image/*') File? file,
     @Part(name: "address") required String address,
     @Part(name: "latitude") required double latitude,
     @Part(name: "longitude") required double longitude,
@@ -37,6 +38,11 @@ abstract class AttendanceApiService {
     @Part(name: "transYear") required int transYear,
     @Part(name: "date") required String date,
   });
+
+  @POST(createAttendanceEndPointWithoutImage)
+  Future<AddAttendanceResponse> addAttendanceWithoutImage(
+    @Body() AddAttendanceWithoutImageRequest data,
+  );
 
   @GET(getAttendanceEndPoint)
   Future<AttendanceResponse> getAttendance();

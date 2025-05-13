@@ -17,7 +17,7 @@
     "setting.orderNumberFormat": "Format Nombor Pesanan",
     "setting.orderRunningNumberTitle": "Nombor Berjalan Pesanan",
     "setting.orderRunningNumberSubTitle": "Nombor Berjalan Pesanan",
-    "setting.timeZone": "Zon Waktu",
+    "setting.timeZone": "Zon Masa",
     "setting.importSalesCustomer": "Pelanggan Jualan Import",
     "setting.importSalesCustomerSubTitle": "Import Pelanggan Jualan daripada API",
     "setting.importMerchandiserCustomer": "Pelanggan Import Merchandiser",
@@ -41,5 +41,16 @@
     "setting.currencyCode": "Kod Mata Wang",
     "setting.companyCode": "Kod Syarikat",
     "setting.companySetting": "Tetapan Syarikat",
-    "setting.companySettingSubTitle": "Urus tetapan syarikat anda"
+    "setting.companySettingSubTitle": "Urus tetapan syarikat anda",
+    "setting.isCameraEnabled": "Adakah Kamera Didayakan",
+    "attendance.add": "Tambah",
+    "attendance.location": "Lokasi",
+    "attendance.zone": "Zon",
+    "setting.unexpectedError": "Ralat yang tidak dijangka berlaku. Sila cuba lagi kemudian",
+    "setting.anUnexpectedErrorOccurred": "Ralat yang tidak dijangka berlaku",
+    "common.close": "tutup",
+    "common.success": "Kejayaan",
+    "common.checkedIn": "Daftar Masuk",
+    "common.checkedOut": "Daftar Keluar",
+    "common.youHaveSuccessfully": "Anda telah berjaya"
 }

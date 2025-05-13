@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:attendance/features/attendance/application/attendance_service.dart';
+import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
 import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
 import 'package:attendance/features/zone/application/zone_service.dart';
@@ -35,8 +36,13 @@ class MapController extends AutoDisposeNotifier<MapState> {
   Future<void> getAllSetting() async {
     final settings = await ref.read(mapServiceProvider).getAllSetting();
     final isZoneEnabled = settings['isZoneEnabled'] == 'true';
+    final isCameraEnabled = settings['isCameraEnabled'] == 'true';
 
-    state = state.copyWith(settings: settings, isZoneEnabled: isZoneEnabled);
+    state = state.copyWith(
+      settings: settings,
+      isZoneEnabled: isZoneEnabled,
+      isCameraEnabled: isCameraEnabled,
+    );
   }
 
   Future<void> getAttendanceStatus() async {
@@ -63,7 +69,7 @@ class MapController extends AutoDisposeNotifier<MapState> {
       errorMsg: null,
       isAttendanceAdded: false,
     );
-    final file = data["file"] as File;
+    final file = data["file"] as File?;
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
     final status =
@@ -95,8 +101,65 @@ class MapController extends AutoDisposeNotifier<MapState> {
       (success) async {
         // save the status to secure storage
         await mapService.setAttendanceStatus(status.name);
-        // set the image path
-        _setImagePath(file.path);
+        if (file != null) {
+          // set the image path
+          _setImagePath(file.path);
+        }
+        // update the state
+        state = state.copyWith(
+          isLoading: false,
+          status: status,
+          zone: null,
+          isAttendanceAdded: success,
+        );
+      },
+      (error) {
+        state = state.copyWith(
+          imagePath: null,
+          errorMsg: error.message,
+          isLoading: false,
+        );
+      },
+    );
+  }
+
+  Future<void> addAttendanceWithoutImage(Map<String, dynamic> data) async {
+    if (data.isEmpty) return;
+    state = state.copyWith(
+      isLoading: true,
+      errorMsg: null,
+      isAttendanceAdded: false,
+    );
+    final mapService = ref.read(mapServiceProvider);
+    final result = await mapService.getAttendanceStatus();
+    final status =
+        result == "checkedIn"
+            ? AttendanceStatus.checkedOut
+            : result == "checkedOut"
+            ? AttendanceStatus.checkedIn
+            : AttendanceStatus.checkedIn;
+
+    final body = AddAttendanceWithoutImageRequest(
+      address: state.currentAddress ?? "",
+      latitude: state.currentPosition?.latitude ?? 0.0,
+      longitude: state.currentPosition?.longitude ?? 0.0,
+      zone: state.zone ?? "Not Enabled",
+      status: status,
+      transDay: int.tryParse(data["transDay"]) ?? 0,
+      transMonth: int.tryParse(data["transMonth"]) ?? 0,
+      transYear: int.tryParse(data["transYear"]) ?? 0,
+      date: data["date"],
+    );
+    // call the api
+    final addAttendanceResult = await ref
+        .read(attendanceServiceProvider)
+        .addAttendanceWithoutImage(body);
+
+    // upda the state
+    addAttendanceResult.when(
+      (success) async {
+        // save the status to secure storage
+        await mapService.setAttendanceStatus(status.name);
         // update the state
         state = state.copyWith(
           isLoading: false,
@@ -161,5 +224,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
       const Duration(seconds: 3),
       () => state = state.copyWith(errorMsg: null),
     );
+  }
+
+  Future<bool> getIsCameraEnabled() async {
+    final settings = await ref.read(mapServiceProvider).getAllSetting();
+    return settings['isCameraEnabled'] == 'true';
   }
 }

@@ -11,7 +11,7 @@ class AttendanceModel with _$AttendanceModel {
     required String latitude,
     required String longitude,
     required String zone,
-    required String image,
+    String? image,
     required String status,
     required int transDay,
     required int transMonth,
