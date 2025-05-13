@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'attendance_model.dart';
+part of 'add_attendance_without_image_request.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,73 +15,89 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-/// @nodoc
-mixin _$AttendanceModel {
-  int get id => throw _privateConstructorUsedError;
-  int get userId => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get latitude => throw _privateConstructorUsedError;
-  String get longitude => throw _privateConstructorUsedError;
-  String get zone => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
-  int get transDay => throw _privateConstructorUsedError;
-  int get transMonth => throw _privateConstructorUsedError;
-  int get transYear => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
-
-  /// Create a copy of AttendanceModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AttendanceModelCopyWith<AttendanceModel> get copyWith =>
-      throw _privateConstructorUsedError;
+AddAttendanceWithoutImageRequest _$AddAttendanceWithoutImageRequestFromJson(
+  Map<String, dynamic> json,
+) {
+  return _AddAttendanceWithoutImageRequest.fromJson(json);
 }
 
 /// @nodoc
-abstract class $AttendanceModelCopyWith<$Res> {
-  factory $AttendanceModelCopyWith(
-    AttendanceModel value,
-    $Res Function(AttendanceModel) then,
-  ) = _$AttendanceModelCopyWithImpl<$Res, AttendanceModel>;
+mixin _$AddAttendanceWithoutImageRequest {
+  @JsonKey(name: "address")
+  String get address => throw _privateConstructorUsedError;
+  @JsonKey(name: "latitude")
+  double get latitude => throw _privateConstructorUsedError;
+  @JsonKey(name: "longitude")
+  double get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: "zone")
+  String get zone => throw _privateConstructorUsedError;
+  @JsonKey(name: "status")
+  AttendanceStatus get status => throw _privateConstructorUsedError;
+  @JsonKey(name: "transDay")
+  int get transDay => throw _privateConstructorUsedError;
+  @JsonKey(name: "transMonth")
+  int get transMonth => throw _privateConstructorUsedError;
+  @JsonKey(name: "transYear")
+  int get transYear => throw _privateConstructorUsedError;
+  @JsonKey(name: "date")
+  String get date => throw _privateConstructorUsedError;
+
+  /// Serializes this AddAttendanceWithoutImageRequest to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AddAttendanceWithoutImageRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AddAttendanceWithoutImageRequestCopyWith<AddAttendanceWithoutImageRequest>
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AddAttendanceWithoutImageRequestCopyWith<$Res> {
+  factory $AddAttendanceWithoutImageRequestCopyWith(
+    AddAttendanceWithoutImageRequest value,
+    $Res Function(AddAttendanceWithoutImageRequest) then,
+  ) =
+      _$AddAttendanceWithoutImageRequestCopyWithImpl<
+        $Res,
+        AddAttendanceWithoutImageRequest
+      >;
   @useResult
   $Res call({
-    int id,
-    int userId,
-    String address,
-    String latitude,
-    String longitude,
-    String zone,
-    String? image,
-    String status,
-    int transDay,
-    int transMonth,
-    int transYear,
-    String date,
+    @JsonKey(name: "address") String address,
+    @JsonKey(name: "latitude") double latitude,
+    @JsonKey(name: "longitude") double longitude,
+    @JsonKey(name: "zone") String zone,
+    @JsonKey(name: "status") AttendanceStatus status,
+    @JsonKey(name: "transDay") int transDay,
+    @JsonKey(name: "transMonth") int transMonth,
+    @JsonKey(name: "transYear") int transYear,
+    @JsonKey(name: "date") String date,
   });
 }
 
 /// @nodoc
-class _$AttendanceModelCopyWithImpl<$Res, $Val extends AttendanceModel>
-    implements $AttendanceModelCopyWith<$Res> {
-  _$AttendanceModelCopyWithImpl(this._value, this._then);
+class _$AddAttendanceWithoutImageRequestCopyWithImpl<
+  $Res,
+  $Val extends AddAttendanceWithoutImageRequest
+>
+    implements $AddAttendanceWithoutImageRequestCopyWith<$Res> {
+  _$AddAttendanceWithoutImageRequestCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AttendanceModel
+  /// Create a copy of AddAttendanceWithoutImageRequest
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
     Object? address = null,
     Object? latitude = null,
     Object? longitude = null,
     Object? zone = null,
-    Object? image = freezed,
     Object? status = null,
     Object? transDay = null,
     Object? transMonth = null,
@@ -90,16 +106,6 @@ class _$AttendanceModelCopyWithImpl<$Res, $Val extends AttendanceModel>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as int,
             address:
                 null == address
                     ? _value.address
@@ -109,27 +115,22 @@ class _$AttendanceModelCopyWithImpl<$Res, $Val extends AttendanceModel>
                 null == latitude
                     ? _value.latitude
                     : latitude // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as double,
             longitude:
                 null == longitude
                     ? _value.longitude
                     : longitude // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as double,
             zone:
                 null == zone
                     ? _value.zone
                     : zone // ignore: cast_nullable_to_non_nullable
                         as String,
-            image:
-                freezed == image
-                    ? _value.image
-                    : image // ignore: cast_nullable_to_non_nullable
-                        as String?,
             status:
                 null == status
                     ? _value.status
                     : status // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as AttendanceStatus,
             transDay:
                 null == transDay
                     ? _value.transDay
@@ -157,51 +158,49 @@ class _$AttendanceModelCopyWithImpl<$Res, $Val extends AttendanceModel>
 }
 
 /// @nodoc
-abstract class _$$AttendanceModelImplCopyWith<$Res>
-    implements $AttendanceModelCopyWith<$Res> {
-  factory _$$AttendanceModelImplCopyWith(
-    _$AttendanceModelImpl value,
-    $Res Function(_$AttendanceModelImpl) then,
-  ) = __$$AttendanceModelImplCopyWithImpl<$Res>;
+abstract class _$$AddAttendanceWithoutImageRequestImplCopyWith<$Res>
+    implements $AddAttendanceWithoutImageRequestCopyWith<$Res> {
+  factory _$$AddAttendanceWithoutImageRequestImplCopyWith(
+    _$AddAttendanceWithoutImageRequestImpl value,
+    $Res Function(_$AddAttendanceWithoutImageRequestImpl) then,
+  ) = __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
-    int id,
-    int userId,
-    String address,
-    String latitude,
-    String longitude,
-    String zone,
-    String? image,
-    String status,
-    int transDay,
-    int transMonth,
-    int transYear,
-    String date,
+    @JsonKey(name: "address") String address,
+    @JsonKey(name: "latitude") double latitude,
+    @JsonKey(name: "longitude") double longitude,
+    @JsonKey(name: "zone") String zone,
+    @JsonKey(name: "status") AttendanceStatus status,
+    @JsonKey(name: "transDay") int transDay,
+    @JsonKey(name: "transMonth") int transMonth,
+    @JsonKey(name: "transYear") int transYear,
+    @JsonKey(name: "date") String date,
   });
 }
 
 /// @nodoc
-class __$$AttendanceModelImplCopyWithImpl<$Res>
-    extends _$AttendanceModelCopyWithImpl<$Res, _$AttendanceModelImpl>
-    implements _$$AttendanceModelImplCopyWith<$Res> {
-  __$$AttendanceModelImplCopyWithImpl(
-    _$AttendanceModelImpl _value,
-    $Res Function(_$AttendanceModelImpl) _then,
+class __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<$Res>
+    extends
+        _$AddAttendanceWithoutImageRequestCopyWithImpl<
+          $Res,
+          _$AddAttendanceWithoutImageRequestImpl
+        >
+    implements _$$AddAttendanceWithoutImageRequestImplCopyWith<$Res> {
+  __$$AddAttendanceWithoutImageRequestImplCopyWithImpl(
+    _$AddAttendanceWithoutImageRequestImpl _value,
+    $Res Function(_$AddAttendanceWithoutImageRequestImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AttendanceModel
+  /// Create a copy of AddAttendanceWithoutImageRequest
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
     Object? address = null,
     Object? latitude = null,
     Object? longitude = null,
     Object? zone = null,
-    Object? image = freezed,
     Object? status = null,
     Object? transDay = null,
     Object? transMonth = null,
@@ -209,17 +208,7 @@ class __$$AttendanceModelImplCopyWithImpl<$Res>
     Object? date = null,
   }) {
     return _then(
-      _$AttendanceModelImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as int,
+      _$AddAttendanceWithoutImageRequestImpl(
         address:
             null == address
                 ? _value.address
@@ -229,27 +218,22 @@ class __$$AttendanceModelImplCopyWithImpl<$Res>
             null == latitude
                 ? _value.latitude
                 : latitude // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as double,
         longitude:
             null == longitude
                 ? _value.longitude
                 : longitude // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as double,
         zone:
             null == zone
                 ? _value.zone
                 : zone // ignore: cast_nullable_to_non_nullable
                     as String,
-        image:
-            freezed == image
-                ? _value.image
-                : image // ignore: cast_nullable_to_non_nullable
-                    as String?,
         status:
             null == status
                 ? _value.status
                 : status // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as AttendanceStatus,
         transDay:
             null == transDay
                 ? _value.transDay
@@ -276,67 +260,69 @@ class __$$AttendanceModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$AttendanceModelImpl implements _AttendanceModel {
-  _$AttendanceModelImpl({
-    required this.id,
-    required this.userId,
-    required this.address,
-    required this.latitude,
-    required this.longitude,
-    required this.zone,
-    this.image,
-    required this.status,
-    required this.transDay,
-    required this.transMonth,
-    required this.transYear,
-    required this.date,
+@JsonSerializable()
+class _$AddAttendanceWithoutImageRequestImpl
+    implements _AddAttendanceWithoutImageRequest {
+  _$AddAttendanceWithoutImageRequestImpl({
+    @JsonKey(name: "address") required this.address,
+    @JsonKey(name: "latitude") required this.latitude,
+    @JsonKey(name: "longitude") required this.longitude,
+    @JsonKey(name: "zone") required this.zone,
+    @JsonKey(name: "status") required this.status,
+    @JsonKey(name: "transDay") required this.transDay,
+    @JsonKey(name: "transMonth") required this.transMonth,
+    @JsonKey(name: "transYear") required this.transYear,
+    @JsonKey(name: "date") required this.date,
   });
 
+  factory _$AddAttendanceWithoutImageRequestImpl.fromJson(
+    Map<String, dynamic> json,
+  ) => _$$AddAttendanceWithoutImageRequestImplFromJson(json);
+
   @override
-  final int id;
-  @override
-  final int userId;
-  @override
+  @JsonKey(name: "address")
   final String address;
   @override
-  final String latitude;
+  @JsonKey(name: "latitude")
+  final double latitude;
   @override
-  final String longitude;
+  @JsonKey(name: "longitude")
+  final double longitude;
   @override
+  @JsonKey(name: "zone")
   final String zone;
   @override
-  final String? image;
+  @JsonKey(name: "status")
+  final AttendanceStatus status;
   @override
-  final String status;
-  @override
+  @JsonKey(name: "transDay")
   final int transDay;
   @override
+  @JsonKey(name: "transMonth")
   final int transMonth;
   @override
+  @JsonKey(name: "transYear")
   final int transYear;
   @override
+  @JsonKey(name: "date")
   final String date;
 
   @override
   String toString() {
-    return 'AttendanceModel(id: $id, userId: $userId, address: $address, latitude: $latitude, longitude: $longitude, zone: $zone, image: $image, status: $status, transDay: $transDay, transMonth: $transMonth, transYear: $transYear, date: $date)';
+    return 'AddAttendanceWithoutImageRequest(address: $address, latitude: $latitude, longitude: $longitude, zone: $zone, status: $status, transDay: $transDay, transMonth: $transMonth, transYear: $transYear, date: $date)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AttendanceModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
+            other is _$AddAttendanceWithoutImageRequestImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
             (identical(other.zone, zone) || other.zone == zone) &&
-            (identical(other.image, image) || other.image == image) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.transDay, transDay) ||
                 other.transDay == transDay) &&
@@ -347,16 +333,14 @@ class _$AttendanceModelImpl implements _AttendanceModel {
             (identical(other.date, date) || other.date == date));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    userId,
     address,
     latitude,
     longitude,
     zone,
-    image,
     status,
     transDay,
     transMonth,
@@ -364,63 +348,76 @@ class _$AttendanceModelImpl implements _AttendanceModel {
     date,
   );
 
-  /// Create a copy of AttendanceModel
+  /// Create a copy of AddAttendanceWithoutImageRequest
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AttendanceModelImplCopyWith<_$AttendanceModelImpl> get copyWith =>
-      __$$AttendanceModelImplCopyWithImpl<_$AttendanceModelImpl>(
-        this,
-        _$identity,
-      );
+  _$$AddAttendanceWithoutImageRequestImplCopyWith<
+    _$AddAttendanceWithoutImageRequestImpl
+  >
+  get copyWith => __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<
+    _$AddAttendanceWithoutImageRequestImpl
+  >(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AddAttendanceWithoutImageRequestImplToJson(this);
+  }
 }
 
-abstract class _AttendanceModel implements AttendanceModel {
-  factory _AttendanceModel({
-    required final int id,
-    required final int userId,
-    required final String address,
-    required final String latitude,
-    required final String longitude,
-    required final String zone,
-    final String? image,
-    required final String status,
-    required final int transDay,
-    required final int transMonth,
-    required final int transYear,
-    required final String date,
-  }) = _$AttendanceModelImpl;
+abstract class _AddAttendanceWithoutImageRequest
+    implements AddAttendanceWithoutImageRequest {
+  factory _AddAttendanceWithoutImageRequest({
+    @JsonKey(name: "address") required final String address,
+    @JsonKey(name: "latitude") required final double latitude,
+    @JsonKey(name: "longitude") required final double longitude,
+    @JsonKey(name: "zone") required final String zone,
+    @JsonKey(name: "status") required final AttendanceStatus status,
+    @JsonKey(name: "transDay") required final int transDay,
+    @JsonKey(name: "transMonth") required final int transMonth,
+    @JsonKey(name: "transYear") required final int transYear,
+    @JsonKey(name: "date") required final String date,
+  }) = _$AddAttendanceWithoutImageRequestImpl;
+
+  factory _AddAttendanceWithoutImageRequest.fromJson(
+    Map<String, dynamic> json,
+  ) = _$AddAttendanceWithoutImageRequestImpl.fromJson;
 
   @override
-  int get id;
-  @override
-  int get userId;
-  @override
+  @JsonKey(name: "address")
   String get address;
   @override
-  String get latitude;
+  @JsonKey(name: "latitude")
+  double get latitude;
   @override
-  String get longitude;
+  @JsonKey(name: "longitude")
+  double get longitude;
   @override
+  @JsonKey(name: "zone")
   String get zone;
   @override
-  String? get image;
+  @JsonKey(name: "status")
+  AttendanceStatus get status;
   @override
-  String get status;
-  @override
+  @JsonKey(name: "transDay")
   int get transDay;
   @override
+  @JsonKey(name: "transMonth")
   int get transMonth;
   @override
+  @JsonKey(name: "transYear")
   int get transYear;
   @override
+  @JsonKey(name: "date")
   String get date;
 
-  /// Create a copy of AttendanceModel
+  /// Create a copy of AddAttendanceWithoutImageRequest
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AttendanceModelImplCopyWith<_$AttendanceModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AddAttendanceWithoutImageRequestImplCopyWith<
+    _$AddAttendanceWithoutImageRequestImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }

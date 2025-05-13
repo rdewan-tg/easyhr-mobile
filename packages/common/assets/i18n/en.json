@@ -2,6 +2,9 @@
     "home.title": "Home",
     "home.viewMore": "View More",
     "attendance.title": "Attendance",
+    "attendance.add": "Add",
+    "attendance.location": "Location",
+    "attendance.zone": "Zone",
     "setting.title": "Setting",
     "setting.theme": "Theme",
     "setting.darkMode": "Dark Mode",
@@ -32,6 +35,9 @@
     "setting.companyCode": "Company Code",
     "setting.companySetting": "Company Setting",
     "setting.companySettingSubTitle": "Manage your company setting",
+    "setting.isCameraEnabled": "Is Camera Enabled",
+    "setting.unexpectedError": "An unexpected error occurred. Please try again later",
+    "setting.anUnexpectedErrorOccurred": "An unexpected error occurred",
     "profile.title": "Profile",
     "profile.deleteMyAccount": "Delete Account",
     "profile.signout": "Sign out",
@@ -41,5 +47,10 @@
     "profile.deleteDialogSubTitle": "Are you sure you want to delete your account?",
     "profile.btnYes": "Yes",
     "profile.btnNo": "No",
-    "common.noData": "No Data Available"
+    "common.noData": "No Data Available",
+    "common.close": "Close",
+    "common.success": "Success",
+    "common.checkedIn": "Checked In",
+    "common.checkedOut": "Checked Out",
+    "common.youHaveSuccessfully": "You have successfully"
 }

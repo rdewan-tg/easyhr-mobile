@@ -24,7 +24,7 @@ class AddAttendanceData with _$AddAttendanceData {
     @JsonKey(name: 'latitude') required String latitude,
     @JsonKey(name: 'longitude') required String longitude,
     @JsonKey(name: 'zone') required String zone,
-    @JsonKey(name: 'image') required String image,
+    @JsonKey(name: 'image') String? image,
     @JsonKey(name: 'status') required AttendanceStatus status,
     @JsonKey(name: 'transDay') required int transDay,
     @JsonKey(name: 'transMonth') required int transMonth,

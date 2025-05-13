@@ -28,6 +28,7 @@ class CompanySettingData with _$CompanySettingData {
     @JsonKey(name: "isZoneEnabled") required bool isZoneEnabled,
     @JsonKey(name: "currencyCode") required String currencyCode,
     @JsonKey(name: "companyId") required int companyId,
+    @JsonKey(name: "isCameraEnabled") required bool isCameraEnabled,
   }) = _CompanySettingData;
 
   factory CompanySettingData.fromJson(Map<String, dynamic> json) =>

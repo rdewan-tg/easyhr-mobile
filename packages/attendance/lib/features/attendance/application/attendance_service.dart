@@ -9,6 +9,7 @@ import 'package:multiple_result/multiple_result.dart';
 import 'package:common/exception/failure.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:attendance/features/attendance/data/repository/attendance_repository.dart';
+import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
 
 final attendanceServiceProvider = Provider<IAttendanceService>((ref) {
   return AttendanceService(ref.watch(attendanceRepositoryProvider));
@@ -25,6 +26,20 @@ final class AttendanceService implements IAttendanceService {
   ) async {
     try {
       await _attendanceRepository.addAttendance(data);
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(Failure(message: e.toString(), stackTrace: s));
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> addAttendanceWithoutImage(
+    AddAttendanceWithoutImageRequest data,
+  ) async {
+    try {
+      await _attendanceRepository.addAttendanceWithoutImage(data);
       return const Success(true);
     } on Failure catch (e) {
       return Error(e);

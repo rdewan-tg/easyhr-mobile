@@ -86,7 +86,9 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                           Expanded(
                             child: _AttendanceInfoTile(
                               icon: Icons.location_on_rounded,
-                              label: 'Location'.hardcoded,
+                              label: context.localizations(
+                                "attendance.location",
+                              ),
                               value: data.address,
                               color: context.themeColor.colorScheme.primary,
                               onTap:
@@ -100,7 +102,7 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                           Expanded(
                             child: _AttendanceInfoTile(
                               icon: Icons.map_rounded,
-                              label: 'Zone'.hardcoded,
+                              label: context.localizations("attendance.zone"),
                               value: data.zone,
                               color: context.themeColor.colorScheme.secondary,
                             ),

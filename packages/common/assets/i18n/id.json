@@ -41,5 +41,16 @@
     "setting.currencyCode": "Kode Mata Uang",
     "setting.companyCode": "Kode Perusahaan",
     "setting.companySetting": "Pengaturan Perusahaan",
-    "setting.companySettingSubTitle": "Kelola pengaturan perusahaan Anda"
+    "setting.companySettingSubTitle": "Kelola pengaturan perusahaan Anda",
+    "setting.isCameraEnabled": "Apakah Kamera Diaktifkan",
+    "attendance.add": "Menambahkan",
+    "attendance.location": "Lokasi",
+    "attendance.zone": "Daerah",
+    "setting.unexpectedError": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti",
+    "setting.anUnexpectedErrorOccurred": "Terjadi kesalahan yang tidak terduga",
+    "common.close": "Menutup",
+    "common.success": "Kesuksesan",
+    "common.checkedIn": "Sudah Check In",
+    "common.checkedOut": "Sudah diperiksa",
+    "common.youHaveSuccessfully": "Anda telah berhasil"
 }

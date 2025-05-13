@@ -13,7 +13,7 @@ class CurrentLocationWidget extends ConsumerWidget {
       children: [
         Text(
           currentPosition == null
-              ? 'No location'
+              ? context.localizations("attendance.noLocation")
               : 'Lat: ${currentPosition.latitude}, Long: ${currentPosition.longitude}',
           style: context.textTheme.labelLarge,
         ),
@@ -28,7 +28,11 @@ class CurrentLocationWidget extends ConsumerWidget {
               ),
             );
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Copied to clipboard')),
+              SnackBar(
+                content: Text(
+                  context.localizations("attendance.copiedToClipboard"),
+                ),
+              ),
             );
           },
         ),

@@ -54,6 +54,11 @@ class _CompanySettingScreenState extends ConsumerState<CompanySettingScreen> {
                 value: settings['isZoneEnabled'] == 'true',
                 onChanged: (value) {},
               ),
+              SwitchListTile.adaptive(
+                title: Text(context.localizations('setting.isCameraEnabled')),
+                value: settings['isCameraEnabled'] == 'true',
+                onChanged: (value) {},
+              ),
             ],
           ),
         ),

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateAttendanceModel {
-  File get file => throw _privateConstructorUsedError;
+  File? get file => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $CreateAttendanceModelCopyWith<$Res> {
   ) = _$CreateAttendanceModelCopyWithImpl<$Res, CreateAttendanceModel>;
   @useResult
   $Res call({
-    File file,
+    File? file,
     String address,
     double latitude,
     double longitude,
@@ -74,7 +74,7 @@ class _$CreateAttendanceModelCopyWithImpl<
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? file = null,
+    Object? file = freezed,
     Object? address = null,
     Object? latitude = null,
     Object? longitude = null,
@@ -88,10 +88,10 @@ class _$CreateAttendanceModelCopyWithImpl<
     return _then(
       _value.copyWith(
             file:
-                null == file
+                freezed == file
                     ? _value.file
                     : file // ignore: cast_nullable_to_non_nullable
-                        as File,
+                        as File?,
             address:
                 null == address
                     ? _value.address
@@ -153,7 +153,7 @@ abstract class _$$CreateAttendanceModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    File file,
+    File? file,
     String address,
     double latitude,
     double longitude,
@@ -181,7 +181,7 @@ class __$$CreateAttendanceModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? file = null,
+    Object? file = freezed,
     Object? address = null,
     Object? latitude = null,
     Object? longitude = null,
@@ -195,10 +195,10 @@ class __$$CreateAttendanceModelImplCopyWithImpl<$Res>
     return _then(
       _$CreateAttendanceModelImpl(
         file:
-            null == file
+            freezed == file
                 ? _value.file
                 : file // ignore: cast_nullable_to_non_nullable
-                    as File,
+                    as File?,
         address:
             null == address
                 ? _value.address
@@ -266,7 +266,7 @@ class _$CreateAttendanceModelImpl implements _CreateAttendanceModel {
   });
 
   @override
-  final File file;
+  final File? file;
   @override
   final String address;
   @override
@@ -343,7 +343,7 @@ class _$CreateAttendanceModelImpl implements _CreateAttendanceModel {
 
 abstract class _CreateAttendanceModel implements CreateAttendanceModel {
   factory _CreateAttendanceModel({
-    required final File file,
+    required final File? file,
     required final String address,
     required final double latitude,
     required final double longitude,
@@ -356,7 +356,7 @@ abstract class _CreateAttendanceModel implements CreateAttendanceModel {
   }) = _$CreateAttendanceModelImpl;
 
   @override
-  File get file;
+  File? get file;
   @override
   String get address;
   @override

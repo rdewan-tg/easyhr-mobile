@@ -5,6 +5,8 @@ const String signUpEndPoint = '/v1/auth/signup';
 const String forgotPasswordEndPoint = '/v1/auth/forgot-password';
 const String meEndPoint = '/v1/me';
 const String createAttendanceEndPoint = '/v1/attendance';
+const String createAttendanceEndPointWithoutImage =
+    '/v1/attendance/without-image';
 const String getAttendanceEndPoint = '/v1/attendance';
 const String getZonesEndPoint = '/v1/zones';
 const String getLastAttendanceStateEndPoint = '/v1/attendance/latest';
