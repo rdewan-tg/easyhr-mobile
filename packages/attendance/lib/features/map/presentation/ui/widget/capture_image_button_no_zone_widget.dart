@@ -23,6 +23,21 @@ class _CaptureImageButtonNoZoneWidgetState
     final status = ref.watch(
       mapControllerProvider.select((value) => value.status),
     );
+    // check if the consent statement is accepted
+    final isConsentStatement = ref.watch(
+      mapControllerProvider.select((value) => value.isConsentStatement),
+    );
+    // if consent statement is not accepted, show the consent statement text
+    if (!isConsentStatement) {
+      return Center(
+        child: Text(
+          context.localizations(
+            "attendance.pleaseReadAndAcceptTheConsentStatement",
+          ),
+          style: context.textTheme.titleMedium,
+        ),
+      );
+    }
 
     /// [status] == AttendanceStatus.checkedIn means the user previously checked-in and is ready to check-out
     /// [status] == AttendanceStatus.checkedOut means the user previously checked-out and is ready to check-in

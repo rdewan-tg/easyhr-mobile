@@ -11,6 +11,7 @@ class MapState with _$MapState {
     @Default(true) bool isZoneEnabled,
     @Default(false) bool isCameraEnabled,
     @Default(false) bool isAttendanceAdded,
+    @Default(false) bool isConsentStatement,
     @Default({}) Map<String, String> settings,
     AttendanceStatus? status,
     LatLng? currentPosition,

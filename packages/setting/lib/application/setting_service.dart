@@ -141,4 +141,14 @@ final class SettingService implements ISettingService {
   Future<void> setFirstRun() async {
     await _settingRepository.setFirstRun();
   }
+
+  @override
+  Future<void> setConsentStatement(bool value) async {
+    await _settingRepository.setConsentStatement(value);
+  }
+
+  @override
+  Future<bool> getConsentStatement() async {
+    return await _settingRepository.getConsentStatement();
+  }
 }

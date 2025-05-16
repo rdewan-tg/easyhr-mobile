@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SettingState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isConsentAccepted => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get themeMode => throw _privateConstructorUsedError;
   String get timeZone => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $SettingStateCopyWith<$Res> {
   @useResult
   $Res call({
     bool isLoading,
+    bool isConsentAccepted,
     String language,
     String themeMode,
     String timeZone,
@@ -66,6 +68,7 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isConsentAccepted = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -79,6 +82,11 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
                 null == isLoading
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isConsentAccepted:
+                null == isConsentAccepted
+                    ? _value.isConsentAccepted
+                    : isConsentAccepted // ignore: cast_nullable_to_non_nullable
                         as bool,
             language:
                 null == language
@@ -127,6 +135,7 @@ abstract class _$$SettingStateImplCopyWith<$Res>
   @useResult
   $Res call({
     bool isLoading,
+    bool isConsentAccepted,
     String language,
     String themeMode,
     String timeZone,
@@ -151,6 +160,7 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isConsentAccepted = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -164,6 +174,11 @@ class __$$SettingStateImplCopyWithImpl<$Res>
             null == isLoading
                 ? _value.isLoading
                 : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isConsentAccepted:
+            null == isConsentAccepted
+                ? _value.isConsentAccepted
+                : isConsentAccepted // ignore: cast_nullable_to_non_nullable
                     as bool,
         language:
             null == language
@@ -205,6 +220,7 @@ class __$$SettingStateImplCopyWithImpl<$Res>
 class _$SettingStateImpl implements _SettingState {
   const _$SettingStateImpl({
     this.isLoading = false,
+    this.isConsentAccepted = false,
     this.language = 'en',
     this.themeMode = 'light',
     this.timeZone = 'Asia/Kolkata',
@@ -216,6 +232,9 @@ class _$SettingStateImpl implements _SettingState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isConsentAccepted;
   @override
   @JsonKey()
   final String language;
@@ -242,7 +261,7 @@ class _$SettingStateImpl implements _SettingState {
 
   @override
   String toString() {
-    return 'SettingState(isLoading: $isLoading, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
+    return 'SettingState(isLoading: $isLoading, isConsentAccepted: $isConsentAccepted, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
   }
 
   @override
@@ -252,6 +271,8 @@ class _$SettingStateImpl implements _SettingState {
             other is _$SettingStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isConsentAccepted, isConsentAccepted) ||
+                other.isConsentAccepted == isConsentAccepted) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.themeMode, themeMode) ||
@@ -269,6 +290,7 @@ class _$SettingStateImpl implements _SettingState {
   int get hashCode => Object.hash(
     runtimeType,
     isLoading,
+    isConsentAccepted,
     language,
     themeMode,
     timeZone,
@@ -289,6 +311,7 @@ class _$SettingStateImpl implements _SettingState {
 abstract class _SettingState implements SettingState {
   const factory _SettingState({
     final bool isLoading,
+    final bool isConsentAccepted,
     final String language,
     final String themeMode,
     final String timeZone,
@@ -299,6 +322,8 @@ abstract class _SettingState implements SettingState {
 
   @override
   bool get isLoading;
+  @override
+  bool get isConsentAccepted;
   @override
   String get language;
   @override

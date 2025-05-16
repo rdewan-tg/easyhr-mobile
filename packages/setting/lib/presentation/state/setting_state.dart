@@ -6,6 +6,7 @@ part 'setting_state.freezed.dart';
 class SettingState with _$SettingState {
   const factory SettingState({
     @Default(false) bool isLoading,
+    @Default(false) bool isConsentAccepted,
     @Default('en') String language,
     @Default('light') String themeMode,
     @Default('Asia/Kolkata') String timeZone,

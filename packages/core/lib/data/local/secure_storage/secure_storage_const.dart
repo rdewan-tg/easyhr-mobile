@@ -3,3 +3,4 @@ const String refreshTokenKey = 'refreshToken';
 const String uuidKey = 'uuid';
 const String attendanceStatusKey = 'attendanceStatus';
 const String firstRunKey = 'firstRun';
+const String consentStatementKey = 'consentStatement';
