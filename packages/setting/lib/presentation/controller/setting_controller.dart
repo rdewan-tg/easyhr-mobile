@@ -149,5 +149,15 @@ final class SettingController extends _$SettingController {
     await ref.read(settingServiceProvider).setFirstRun();
   }
 
+  void setConsentStatementState(bool value) {
+    ref.read(settingServiceProvider).setConsentStatement(value);
+    state = state.copyWith(isConsentAccepted: value);
+  }
+
+  Future<void> getConsentStatement() async {
+    final result = await ref.read(settingServiceProvider).getConsentStatement();
+    state = state.copyWith(isConsentAccepted: result);
+  }
+
   String? getTimeZone() => state.settings['timeZone'];
 }

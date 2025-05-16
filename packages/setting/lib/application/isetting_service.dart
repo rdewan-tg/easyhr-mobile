@@ -21,4 +21,8 @@ abstract interface class ISettingService {
   Future<bool> getFirstRun();
 
   Future<void> setFirstRun();
+
+  Future<void> setConsentStatement(bool value);
+
+  Future<bool> getConsentStatement();
 }

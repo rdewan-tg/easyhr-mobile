@@ -25,13 +25,29 @@ class _CaptureImageButtonWidgetState
     );
     final zone = ref.watch(mapControllerProvider.select((value) => value.zone));
 
+    // check if the consent statement is accepted
+    final isConsentStatement = ref.watch(
+      mapControllerProvider.select((value) => value.isConsentStatement),
+    );
+    // if consent statement is not accepted, show the consent statement text
+    if (!isConsentStatement) {
+      return Center(
+        child: Text(
+          context.localizations(
+            "common.pleaseReadAndAcceptTheConsentStatement",
+          ),
+          style: context.textTheme.titleMedium,
+        ),
+      );
+    }
+
     /// [status] == AttendanceStatus.checkedIn means the user previously checked-in and is ready to check-out
     /// [status] == AttendanceStatus.checkedOut means the user previously checked-out and is ready to check-in
     /// Text: [status] == AttendanceStatus.checkedIn then "Check Out" else "Check In"
     /// Button Color : [status] == AttendanceStatus.checkedIn then red else null
     return FilledButton.icon(
       onPressed:
-          zone == null
+          zone == null || !isConsentStatement
               ? null
               : () async {
                 final currentAddress =

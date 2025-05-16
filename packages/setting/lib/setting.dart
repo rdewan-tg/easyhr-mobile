@@ -12,3 +12,5 @@ part 'presentation/ui/setting_screen.dart';
 part 'presentation/ui/theme_picker_screen.dart';
 part 'presentation/ui/language_picker_screen.dart';
 part 'presentation/ui/company_setting_screen.dart';
+part 'presentation/ui/privacy_policy_screen.dart';
+part 'presentation/ui/widget/consent_checkbox.dart';

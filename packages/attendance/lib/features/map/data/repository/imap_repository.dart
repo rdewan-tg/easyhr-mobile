@@ -4,4 +4,6 @@ abstract interface class IMapRepository {
   Future<String?> getAttendanceStatus();
 
   Future<Map<String, String>> getAllSettings();
+
+  Future<bool> getConsentStatement();
 }

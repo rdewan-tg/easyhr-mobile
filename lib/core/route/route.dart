@@ -9,4 +9,5 @@ const String settingRoute = 'setting';
 const String themeRoute = 'theme';
 const String languageRoute = 'language';
 const String profileRoute = 'profile';
-const String deviceSettingRoute = 'device-setting';
+const String companySettingRoute = 'company-setting';
+const String privacyPolicyRoute = 'privacy-policy';

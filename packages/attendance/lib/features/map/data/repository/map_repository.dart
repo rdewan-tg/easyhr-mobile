@@ -50,4 +50,13 @@ final class MapReporitory implements IMapRepository {
       );
     }
   }
+
+  @override
+  Future<bool> getConsentStatement() async {
+    try {
+      return await _localStorage.getConsentStatement();
+    } catch (e, s) {
+      throw Failure(message: e.toString(), stackTrace: s);
+    }
+  }
 }

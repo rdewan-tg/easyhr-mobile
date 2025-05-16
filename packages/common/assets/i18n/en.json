@@ -5,6 +5,9 @@
     "attendance.add": "Add",
     "attendance.location": "Location",
     "attendance.zone": "Zone",
+    "attendance.noLocation": "No location",
+    "attendance.copiedToClipboard": "Copied to clipboard",
+    "attendance.pleaseReadAndAcceptTheConsentStatement": "Please read and accept the consent statement",
     "setting.title": "Setting",
     "setting.theme": "Theme",
     "setting.darkMode": "Dark Mode",
@@ -38,6 +41,11 @@
     "setting.isCameraEnabled": "Is Camera Enabled",
     "setting.unexpectedError": "An unexpected error occurred. Please try again later",
     "setting.anUnexpectedErrorOccurred": "An unexpected error occurred",
+    "setting.privacyPolicy": "Privacy Policy",
+    "setting.privacyPolicySubTitle": "Manage your privacy policy",
+    "setting.confirm": "Confirm",
+    "setting.privacyPolicyMessage": "I hereby voluntarily give my consent to the Company to record and store photographic images of my face for the purpose of verifying my identity and accurately recording my working hours (Check-in/Check-out) via the EasyHR application. This consent is granted solely for the purposes stated above. I agree that the Company shall use such data only within the specified scope and shall not use it for any other purpose without my prior written consent.'",
+    "setting.acceptConsentStatement": "I accept the terms of the consent statement",
     "profile.title": "Profile",
     "profile.deleteMyAccount": "Delete Account",
     "profile.signout": "Sign out",
@@ -52,5 +60,6 @@
     "common.success": "Success",
     "common.checkedIn": "Checked In",
     "common.checkedOut": "Checked Out",
-    "common.youHaveSuccessfully": "You have successfully"
+    "common.youHaveSuccessfully": "You have successfully",
+    "common.confirm": "Confirm"
 }

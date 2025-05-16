@@ -17,7 +17,7 @@
     "setting.orderNumberFormat": "Format Nombor Pesanan",
     "setting.orderRunningNumberTitle": "Nombor Berjalan Pesanan",
     "setting.orderRunningNumberSubTitle": "Nombor Berjalan Pesanan",
-    "setting.timeZone": "Zon Masa",
+    "setting.timeZone": "Zon Waktu",
     "setting.importSalesCustomer": "Pelanggan Jualan Import",
     "setting.importSalesCustomerSubTitle": "Import Pelanggan Jualan daripada API",
     "setting.importMerchandiserCustomer": "Pelanggan Import Merchandiser",
@@ -52,5 +52,14 @@
     "common.success": "Kejayaan",
     "common.checkedIn": "Daftar Masuk",
     "common.checkedOut": "Daftar Keluar",
-    "common.youHaveSuccessfully": "Anda telah berjaya"
+    "common.youHaveSuccessfully": "Anda telah berjaya",
+    "attendance.noLocation": "Tiada lokasi",
+    "attendance.copiedToClipboard": "Disalin ke papan keratan",
+    "setting.privacyPolicy": "Dasar Privasi",
+    "setting.privacyPolicySubTitle": "Urus dasar privasi anda",
+    "setting.confirm": "sahkan",
+    "common.confirm": "sahkan",
+    "setting.privacyPolicyMessage": "Saya dengan ini secara sukarela memberikan persetujuan saya kepada Syarikat untuk merakam dan menyimpan imej fotografi wajah saya bagi tujuan mengesahkan identiti saya dan merekodkan waktu kerja saya dengan tepat (Daftar Masuk/Daftar Keluar) melalui aplikasi EasyHR. Keizinan ini diberikan semata-mata untuk tujuan yang dinyatakan di atas. Saya bersetuju bahawa Syarikat akan menggunakan data tersebut hanya dalam skop yang ditetapkan dan tidak akan menggunakannya untuk sebarang tujuan lain tanpa kebenaran bertulis saya terlebih dahulu.'",
+    "setting.acceptConsentStatement": "Saya menerima syarat pernyataan persetujuan",
+    "attendance.pleaseReadAndAcceptTheConsentStatement": "Sila baca dan terima kenyataan persetujuan"
 }
