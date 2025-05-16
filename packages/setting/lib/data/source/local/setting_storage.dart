@@ -54,6 +54,6 @@ class SetingStorage implements ISettingStorage {
   @override
   Future<bool> getConsentStatement() async {
     final result = await _secureStorage.read(consentStatementKey);
-    return result == null || result == 'true' ? true : false;
+    return result == null || result == 'false' ? false : true;
   }
 }
