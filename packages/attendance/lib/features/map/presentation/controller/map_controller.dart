@@ -230,4 +230,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
     final settings = await ref.read(mapServiceProvider).getAllSetting();
     return settings['isCameraEnabled'] == 'true';
   }
+
+  Future<void> getConsentStatement() async {
+    final consentStatement =
+        await ref.read(mapServiceProvider).getConsentStatement();
+    state = state.copyWith(isConsentStatement: consentStatement);
+  }
 }

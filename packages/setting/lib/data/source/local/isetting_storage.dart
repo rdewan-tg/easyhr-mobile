@@ -5,5 +5,9 @@ abstract interface class ISettingStorage {
 
   Future<bool> getFirstRun();
 
+  Future<void> setConsentStatement(bool value);
+
+  Future<bool> getConsentStatement();
+
   Future<void> upsertMultipleSettings(Map<String, String> settings);
 }

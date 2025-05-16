@@ -130,4 +130,14 @@ final class SettingRepositroy
   Future<void> setFirstRun() async {
     await _settingStorage.setFirstRun();
   }
+
+  @override
+  Future<void> setConsentStatement(bool value) async {
+    await _settingStorage.setConsentStatement(value);
+  }
+
+  @override
+  Future<bool> getConsentStatement() async {
+    return await _settingStorage.getConsentStatement();
+  }
 }

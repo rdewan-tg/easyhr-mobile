@@ -38,4 +38,13 @@ final class MapService implements IMapService {
       rethrow;
     }
   }
+
+  @override
+  Future<bool> getConsentStatement() async {
+    try {
+      return await _repository.getConsentStatement();
+    } catch (_) {
+      rethrow;
+    }
+  }
 }

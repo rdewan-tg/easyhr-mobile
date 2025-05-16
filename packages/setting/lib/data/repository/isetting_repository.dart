@@ -8,6 +8,10 @@ abstract interface class ISettingRepository {
 
   Future<void> upsertMultipleSettings(Map<String, String> settings);
 
+  Future<void> setConsentStatement(bool value);
+
+  Future<bool> getConsentStatement();
+
   Stream<String> watchThemeMode();
 
   Stream<String> watchLanguage();

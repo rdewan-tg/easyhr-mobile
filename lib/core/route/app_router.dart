@@ -212,6 +212,7 @@ class AppRouter {
             _languageRoute(),
             _profileRoute(),
             _deviceSettingRoute(),
+            _privacyPolicyRoute(),
           ],
         ),
       ],
@@ -259,13 +260,26 @@ class AppRouter {
 
   RouteBase _deviceSettingRoute() {
     return GoRoute(
-      path: '/$deviceSettingRoute',
-      name: deviceSettingRoute,
+      path: '/$companySettingRoute',
+      name: companySettingRoute,
       pageBuilder:
           (context, state) => NoTransitionPage(
             key: state.pageKey,
             name: state.name,
             child: const CompanySettingScreen(),
+          ),
+    );
+  }
+
+  RouteBase _privacyPolicyRoute() {
+    return GoRoute(
+      path: '/$privacyPolicyRoute',
+      name: privacyPolicyRoute,
+      pageBuilder:
+          (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            name: state.name,
+            child: const PrivacyPolicyScreen(),
           ),
     );
   }

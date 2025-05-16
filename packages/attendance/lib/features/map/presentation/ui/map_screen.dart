@@ -19,6 +19,8 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       ref.read(mapControllerProvider.notifier).getAllSetting();
       // get the zone from api
       ref.read(mapControllerProvider.notifier).getZones();
+      // get the consent statement
+      ref.read(mapControllerProvider.notifier).getConsentStatement();
     });
     _initLocation();
   }
@@ -134,12 +136,15 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                   const SizedBox(height: kMedium),
                   // if current position is null - remove the checkin and checkout buttons
                   if (currentPosition != null) ...[
+                    // if the Zone is enabled - show the zone and capture image button
                     if (isZoneEnabled) ...[
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const Flexible(flex: 8, child: ZoneWidget()),
                           const SizedBox(width: kMedium),
+                          // if the camera is enabled - show the capture image button
+                          //else show the add attendance with no image
                           if (isCameraEnabled) ...[
                             const CaptureImageButtonWidget(),
                           ] else ...[
@@ -148,6 +153,8 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                         ],
                       ),
                     ] else ...[
+                      //if the camera is enabled - show the capture image button
+                      //else show the add attendance with no image
                       if (isCameraEnabled) ...[
                         const Center(child: CaptureImageButtonNoZoneWidget()),
                       ] else ...[

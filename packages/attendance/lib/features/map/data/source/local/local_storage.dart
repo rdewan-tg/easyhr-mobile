@@ -32,4 +32,14 @@ final class LocalStorage implements ILocalStorage {
       rethrow;
     }
   }
+
+  @override
+  Future<bool> getConsentStatement() async {
+    try {
+      final result = await _secureStorage.read(consentStatementKey);
+      return result == null || result == 'true' ? true : false;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

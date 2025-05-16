@@ -19,21 +19,6 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
         child: Column(
           children: [
             ListTile(
-              title: Text(context.localizations('setting.companySetting')),
-              subtitle: Text(
-                context.localizations('setting.companySettingSubTitle'),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  context.go('/setting/device-setting');
-                },
-                icon: const Icon(Icons.navigate_next),
-              ),
-              onTap: () {
-                context.go('/setting/device-setting');
-              },
-            ),
-            ListTile(
               title: Text(context.localizations('setting.theme')),
               subtitle: Text(context.localizations('setting.enableDarkMode')),
               trailing: IconButton(
@@ -74,6 +59,36 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
               ),
               onTap: () {
                 context.go('/setting/profile');
+              },
+            ),
+            ListTile(
+              title: Text(context.localizations('setting.companySetting')),
+              subtitle: Text(
+                context.localizations('setting.companySettingSubTitle'),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  context.go('/setting/company-setting');
+                },
+                icon: const Icon(Icons.navigate_next),
+              ),
+              onTap: () {
+                context.go('/setting/company-setting');
+              },
+            ),
+            ListTile(
+              title: Text(context.localizations('setting.privacyPolicy')),
+              subtitle: Text(
+                context.localizations('setting.privacyPolicySubTitle'),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  context.go('/setting/privacy-policy');
+                },
+                icon: const Icon(Icons.navigate_next),
+              ),
+              onTap: () {
+                context.go('/setting/privacy-policy');
               },
             ),
           ],

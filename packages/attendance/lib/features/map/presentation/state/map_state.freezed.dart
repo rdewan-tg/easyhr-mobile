@@ -21,6 +21,7 @@ mixin _$MapState {
   bool get isZoneEnabled => throw _privateConstructorUsedError;
   bool get isCameraEnabled => throw _privateConstructorUsedError;
   bool get isAttendanceAdded => throw _privateConstructorUsedError;
+  bool get isConsentStatement => throw _privateConstructorUsedError;
   Map<String, String> get settings => throw _privateConstructorUsedError;
   AttendanceStatus? get status => throw _privateConstructorUsedError;
   LatLng? get currentPosition => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $MapStateCopyWith<$Res> {
     bool isZoneEnabled,
     bool isCameraEnabled,
     bool isAttendanceAdded,
+    bool isConsentStatement,
     Map<String, String> settings,
     AttendanceStatus? status,
     LatLng? currentPosition,
@@ -79,6 +81,7 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
     Object? isZoneEnabled = null,
     Object? isCameraEnabled = null,
     Object? isAttendanceAdded = null,
+    Object? isConsentStatement = null,
     Object? settings = null,
     Object? status = freezed,
     Object? currentPosition = freezed,
@@ -110,6 +113,11 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
                 null == isAttendanceAdded
                     ? _value.isAttendanceAdded
                     : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isConsentStatement:
+                null == isConsentStatement
+                    ? _value.isConsentStatement
+                    : isConsentStatement // ignore: cast_nullable_to_non_nullable
                         as bool,
             settings:
                 null == settings
@@ -176,6 +184,7 @@ abstract class _$$MapStateImplCopyWith<$Res>
     bool isZoneEnabled,
     bool isCameraEnabled,
     bool isAttendanceAdded,
+    bool isConsentStatement,
     Map<String, String> settings,
     AttendanceStatus? status,
     LatLng? currentPosition,
@@ -206,6 +215,7 @@ class __$$MapStateImplCopyWithImpl<$Res>
     Object? isZoneEnabled = null,
     Object? isCameraEnabled = null,
     Object? isAttendanceAdded = null,
+    Object? isConsentStatement = null,
     Object? settings = null,
     Object? status = freezed,
     Object? currentPosition = freezed,
@@ -237,6 +247,11 @@ class __$$MapStateImplCopyWithImpl<$Res>
             null == isAttendanceAdded
                 ? _value.isAttendanceAdded
                 : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isConsentStatement:
+            null == isConsentStatement
+                ? _value.isConsentStatement
+                : isConsentStatement // ignore: cast_nullable_to_non_nullable
                     as bool,
         settings:
             null == settings
@@ -296,6 +311,7 @@ class _$MapStateImpl implements _MapState {
     this.isZoneEnabled = true,
     this.isCameraEnabled = false,
     this.isAttendanceAdded = false,
+    this.isConsentStatement = false,
     final Map<String, String> settings = const {},
     this.status,
     this.currentPosition,
@@ -321,6 +337,9 @@ class _$MapStateImpl implements _MapState {
   @override
   @JsonKey()
   final bool isAttendanceAdded;
+  @override
+  @JsonKey()
+  final bool isConsentStatement;
   final Map<String, String> _settings;
   @override
   @JsonKey()
@@ -363,7 +382,7 @@ class _$MapStateImpl implements _MapState {
 
   @override
   String toString() {
-    return 'MapState(isLoading: $isLoading, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, isAttendanceAdded: $isAttendanceAdded, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, zones: $zones, currentZones: $currentZones, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
+    return 'MapState(isLoading: $isLoading, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, isAttendanceAdded: $isAttendanceAdded, isConsentStatement: $isConsentStatement, settings: $settings, status: $status, currentPosition: $currentPosition, imagePath: $imagePath, zones: $zones, currentZones: $currentZones, currentAddress: $currentAddress, zone: $zone, errorMsg: $errorMsg)';
   }
 
   @override
@@ -379,6 +398,8 @@ class _$MapStateImpl implements _MapState {
                 other.isCameraEnabled == isCameraEnabled) &&
             (identical(other.isAttendanceAdded, isAttendanceAdded) ||
                 other.isAttendanceAdded == isAttendanceAdded) &&
+            (identical(other.isConsentStatement, isConsentStatement) ||
+                other.isConsentStatement == isConsentStatement) &&
             const DeepCollectionEquality().equals(other._settings, _settings) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.currentPosition, currentPosition) ||
@@ -404,6 +425,7 @@ class _$MapStateImpl implements _MapState {
     isZoneEnabled,
     isCameraEnabled,
     isAttendanceAdded,
+    isConsentStatement,
     const DeepCollectionEquality().hash(_settings),
     status,
     currentPosition,
@@ -430,6 +452,7 @@ abstract class _MapState implements MapState {
     final bool isZoneEnabled,
     final bool isCameraEnabled,
     final bool isAttendanceAdded,
+    final bool isConsentStatement,
     final Map<String, String> settings,
     final AttendanceStatus? status,
     final LatLng? currentPosition,
@@ -449,6 +472,8 @@ abstract class _MapState implements MapState {
   bool get isCameraEnabled;
   @override
   bool get isAttendanceAdded;
+  @override
+  bool get isConsentStatement;
   @override
   Map<String, String> get settings;
   @override

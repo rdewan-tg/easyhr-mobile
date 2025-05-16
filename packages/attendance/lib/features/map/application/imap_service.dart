@@ -4,4 +4,6 @@ abstract class IMapService {
   Future<void> setAttendanceStatus(String status);
 
   Future<Map<String, String>> getAllSetting();
+
+  Future<bool> getConsentStatement();
 }
