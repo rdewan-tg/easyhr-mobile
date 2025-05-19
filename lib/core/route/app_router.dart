@@ -10,9 +10,10 @@ import 'package:easy_hr/core/route/route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'package:home/home.dart';
+//import 'package:home/home.dart';
 import 'package:profile/profile.dart';
 import 'package:setting/setting.dart';
+import 'package:blog/blog.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   final notifier = ref.read(goRouterNotifierProvider);
@@ -171,10 +172,44 @@ class AppRouter {
               (context, state) => NoTransitionPage(
                 key: state.pageKey,
                 name: state.name,
-                child: const HomeScreen(),
+                child: const BlogScreen(),
               ),
+          routes: [_blogDetailRoute()],
         ),
       ],
+    );
+  }
+
+  // StatefulShellBranch _blogBranch() {
+  //   return StatefulShellBranch(
+  //     routes: [
+  //       GoRoute(
+  //         path: '/$blogRoute',
+  //         name: blogRoute,
+  //         pageBuilder:
+  //             (context, state) => NoTransitionPage(
+  //               key: state.pageKey,
+  //               name: state.name,
+  //               child: const BlogScreen(),
+  //             ),
+  //         routes: [_blogDetailRoute()],
+  //       ),
+  //     ],
+  //   );
+  // }
+
+  RouteBase _blogDetailRoute() {
+    return GoRoute(
+      path: '/$blogDetailRoute/:blogId',
+      name: blogDetailRoute,
+      pageBuilder: (context, state) {
+        final blogId = state.pathParameters['blogId'] ?? '';
+        return NoTransitionPage(
+          key: state.pageKey,
+          name: state.name,
+          child: BlogDetailScreen(blogId: int.parse(blogId)),
+        );
+      },
     );
   }
 

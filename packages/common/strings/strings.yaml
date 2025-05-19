@@ -16,6 +16,8 @@ setting:
   $ref: setting.yaml
 profile:
   $ref: profile.yaml
+blog:
+  $ref: blog.yaml
 
 common:
   $ref: common.yaml
