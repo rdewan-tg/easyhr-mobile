@@ -1,40 +1,20 @@
-name: easy_hr
-description: "A new Flutter project."
-publish_to: 'none'
+name: blog
+description: "A new Flutter package project."
 version: 0.0.1
+publish_to: 'none'
+homepage:
 
 environment:
   sdk: ^3.7.2
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  common:
-    path: packages/common
   core:
-    path: packages/core
-  auth:
-    path: packages/auth
-  dashboard:
-    path: packages/dashboard
-  home:
-    path: packages/home
-  attendance:
-    path: packages/attendance
-  setting:
-    path: packages/setting    
-  profile:
-    path: packages/profile
-  blog:
-    path: packages/blog
+    path: ../core
 
-  flutter_riverpod: any
-  go_router: any
-  upgrader: any
-  loader_overlay: any
-  riverpod_annotation: any
-  timezone: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -54,7 +34,9 @@ dev_dependencies:
   # https://pub.dev/packages/custom_lint
   custom_lint: ^0.7.0
 
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
-  assets:
-    - shorebird.yaml

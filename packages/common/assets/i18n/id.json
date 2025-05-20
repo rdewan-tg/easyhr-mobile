@@ -61,5 +61,7 @@
     "common.confirm": "Mengonfirmasi",
     "setting.privacyPolicyMessage": "Dengan ini saya secara sukarela memberikan persetujuan kepada Perusahaan untuk merekam dan menyimpan gambar wajah saya untuk tujuan verifikasi identitas saya dan pencatatan jam kerja saya secara akurat (Check-in/Check-out) melalui aplikasi EasyHR. Persetujuan ini diberikan semata-mata untuk tujuan yang disebutkan di atas. Saya setuju bahwa Perusahaan akan menggunakan data tersebut hanya dalam lingkup yang ditentukan dan tidak akan menggunakannya untuk tujuan lain tanpa persetujuan tertulis saya sebelumnya.",
     "setting.acceptConsentStatement": "Saya menerima persyaratan pernyataan persetujuan",
-    "attendance.pleaseReadAndAcceptTheConsentStatement": "Harap baca dan terima pernyataan persetujuan"
+    "attendance.pleaseReadAndAcceptTheConsentStatement": "Harap baca dan terima pernyataan persetujuan",
+    "blog.blogTitle": "Blog",
+    "blog.blogDetailTitle": "Detil"
 }
