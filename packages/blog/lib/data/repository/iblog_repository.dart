@@ -5,4 +5,6 @@ abstract interface class IBlogRepository {
   Future<BlogResponse> getBlogById(int id);
 
   Future<BlogsResponse> getBlogs();
+
+  Future<Map<String, String>> getAllSettings();
 }

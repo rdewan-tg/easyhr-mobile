@@ -10,7 +10,7 @@ class BlogDetail extends ConsumerWidget {
     );
 
     if (blog == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const SizedBox.shrink();
     }
 
     return SingleChildScrollView(
@@ -22,9 +22,9 @@ class BlogDetail extends ConsumerWidget {
               tag: 'blog-image-${blog.id}',
               child: Image.network(
                 blog.image!,
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.cover,
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.fill,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     height: 200,
@@ -58,14 +58,14 @@ class BlogDetail extends ConsumerWidget {
                     const Icon(Icons.calendar_today, size: 16),
                     const SizedBox(width: 4),
                     Text(
-                      'Created: ${_formatDate(blog.createdAt)}',
+                      'Created: ${blog.createdAt}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     const SizedBox(width: 16),
                     const Icon(Icons.update, size: 16),
                     const SizedBox(width: 4),
                     Text(
-                      'Updated: ${_formatDate(blog.updatedAt)}',
+                      'Updated: ${blog.updatedAt}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
@@ -115,10 +115,5 @@ class BlogDetail extends ConsumerWidget {
         ],
       ),
     );
-  }
-
-  String _formatDate(String dateString) {
-    final date = DateTime.parse(dateString);
-    return '${date.day}/${date.month}/${date.year}';
   }
 }

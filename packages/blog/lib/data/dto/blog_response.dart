@@ -21,6 +21,7 @@ abstract class BlogResponseData with _$BlogResponseData {
     @JsonKey(name: "title") required String title,
     @JsonKey(name: "content") required String content,
     @JsonKey(name: "image") String? image,
+    @JsonKey(name: "imageUrl") String? imageUrl,
     @JsonKey(name: "isActive") required bool isActive,
     @JsonKey(name: "createdAt") required String createdAt,
     @JsonKey(name: "updatedAt") required String updatedAt,

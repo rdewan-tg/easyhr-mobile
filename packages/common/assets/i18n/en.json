@@ -55,6 +55,8 @@
     "profile.deleteDialogSubTitle": "Are you sure you want to delete your account?",
     "profile.btnYes": "Yes",
     "profile.btnNo": "No",
+    "blog.blogTitle": "Blog",
+    "blog.blogDetailTitle": "Detail",
     "common.noData": "No Data Available",
     "common.close": "Close",
     "common.success": "Success",

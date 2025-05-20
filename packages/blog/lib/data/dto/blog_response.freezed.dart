@@ -216,6 +216,8 @@ mixin _$BlogResponseData {
   String get content => throw _privateConstructorUsedError;
   @JsonKey(name: "image")
   String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: "imageUrl")
+  String? get imageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: "isActive")
   bool get isActive => throw _privateConstructorUsedError;
   @JsonKey(name: "createdAt")
@@ -245,6 +247,7 @@ abstract class $BlogResponseDataCopyWith<$Res> {
     @JsonKey(name: "title") String title,
     @JsonKey(name: "content") String content,
     @JsonKey(name: "image") String? image,
+    @JsonKey(name: "imageUrl") String? imageUrl,
     @JsonKey(name: "isActive") bool isActive,
     @JsonKey(name: "createdAt") String createdAt,
     @JsonKey(name: "updatedAt") String updatedAt,
@@ -270,6 +273,7 @@ class _$BlogResponseDataCopyWithImpl<$Res, $Val extends BlogResponseData>
     Object? title = null,
     Object? content = null,
     Object? image = freezed,
+    Object? imageUrl = freezed,
     Object? isActive = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -295,6 +299,11 @@ class _$BlogResponseDataCopyWithImpl<$Res, $Val extends BlogResponseData>
                 freezed == image
                     ? _value.image
                     : image // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            imageUrl:
+                freezed == imageUrl
+                    ? _value.imageUrl
+                    : imageUrl // ignore: cast_nullable_to_non_nullable
                         as String?,
             isActive:
                 null == isActive
@@ -331,6 +340,7 @@ abstract class _$$BlogResponseDataImplCopyWith<$Res>
     @JsonKey(name: "title") String title,
     @JsonKey(name: "content") String content,
     @JsonKey(name: "image") String? image,
+    @JsonKey(name: "imageUrl") String? imageUrl,
     @JsonKey(name: "isActive") bool isActive,
     @JsonKey(name: "createdAt") String createdAt,
     @JsonKey(name: "updatedAt") String updatedAt,
@@ -355,6 +365,7 @@ class __$$BlogResponseDataImplCopyWithImpl<$Res>
     Object? title = null,
     Object? content = null,
     Object? image = freezed,
+    Object? imageUrl = freezed,
     Object? isActive = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -380,6 +391,11 @@ class __$$BlogResponseDataImplCopyWithImpl<$Res>
             freezed == image
                 ? _value.image
                 : image // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        imageUrl:
+            freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
                     as String?,
         isActive:
             null == isActive
@@ -409,6 +425,7 @@ class _$BlogResponseDataImpl implements _BlogResponseData {
     @JsonKey(name: "title") required this.title,
     @JsonKey(name: "content") required this.content,
     @JsonKey(name: "image") this.image,
+    @JsonKey(name: "imageUrl") this.imageUrl,
     @JsonKey(name: "isActive") required this.isActive,
     @JsonKey(name: "createdAt") required this.createdAt,
     @JsonKey(name: "updatedAt") required this.updatedAt,
@@ -430,6 +447,9 @@ class _$BlogResponseDataImpl implements _BlogResponseData {
   @JsonKey(name: "image")
   final String? image;
   @override
+  @JsonKey(name: "imageUrl")
+  final String? imageUrl;
+  @override
   @JsonKey(name: "isActive")
   final bool isActive;
   @override
@@ -441,7 +461,7 @@ class _$BlogResponseDataImpl implements _BlogResponseData {
 
   @override
   String toString() {
-    return 'BlogResponseData(id: $id, title: $title, content: $content, image: $image, isActive: $isActive, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'BlogResponseData(id: $id, title: $title, content: $content, image: $image, imageUrl: $imageUrl, isActive: $isActive, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -453,6 +473,8 @@ class _$BlogResponseDataImpl implements _BlogResponseData {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.isActive, isActive) ||
                 other.isActive == isActive) &&
             (identical(other.createdAt, createdAt) ||
@@ -469,6 +491,7 @@ class _$BlogResponseDataImpl implements _BlogResponseData {
     title,
     content,
     image,
+    imageUrl,
     isActive,
     createdAt,
     updatedAt,
@@ -497,6 +520,7 @@ abstract class _BlogResponseData implements BlogResponseData {
     @JsonKey(name: "title") required final String title,
     @JsonKey(name: "content") required final String content,
     @JsonKey(name: "image") final String? image,
+    @JsonKey(name: "imageUrl") final String? imageUrl,
     @JsonKey(name: "isActive") required final bool isActive,
     @JsonKey(name: "createdAt") required final String createdAt,
     @JsonKey(name: "updatedAt") required final String updatedAt,
@@ -517,6 +541,9 @@ abstract class _BlogResponseData implements BlogResponseData {
   @override
   @JsonKey(name: "image")
   String? get image;
+  @override
+  @JsonKey(name: "imageUrl")
+  String? get imageUrl;
   @override
   @JsonKey(name: "isActive")
   bool get isActive;

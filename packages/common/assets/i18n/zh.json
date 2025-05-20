@@ -61,5 +61,7 @@
     "common.confirm": "确认",
     "setting.privacyPolicyMessage": "我在此自愿同意公司记录并存储我的面部照片，以便通过 EasyHR 应用程序验证我的身份并准确记录我的工作时间（签到/签退）。此同意仅用于上述目的。我同意公司仅在指定范围内使用此类数据，未经我事先书面同意，不得将其用于任何其他目的。",
     "setting.acceptConsentStatement": "我接受同意声明的条款",
-    "attendance.pleaseReadAndAcceptTheConsentStatement": "请阅读并接受同意声明"
+    "attendance.pleaseReadAndAcceptTheConsentStatement": "请阅读并接受同意声明",
+    "blog.blogTitle": "博客",
+    "blog.blogDetailTitle": "细节"
 }

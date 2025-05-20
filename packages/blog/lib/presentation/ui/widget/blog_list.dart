@@ -51,7 +51,7 @@ class _BlogListState extends ConsumerState<BlogList> {
             if (blog.image != null)
               Image.network(
                 blog.image!,
-                height: 200,
+                height: 150,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
@@ -109,7 +109,7 @@ class _BlogListState extends ConsumerState<BlogList> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Updated: ${_formatDate(blog.updatedAt)}',
+                        'Updated: ${blog.updatedAt}',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       FilledButton(
@@ -127,10 +127,5 @@ class _BlogListState extends ConsumerState<BlogList> {
         ),
       ),
     );
-  }
-
-  String _formatDate(String dateString) {
-    final date = DateTime.parse(dateString);
-    return '${date.day}/${date.month}/${date.year}';
   }
 }
