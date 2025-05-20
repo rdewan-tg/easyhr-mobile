@@ -20,97 +20,95 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
         itemCount: attendanceList.length,
         itemBuilder: (context, index) {
           final data = attendanceList[index];
-          return Padding(
-            padding: const EdgeInsets.only(bottom: kMedium),
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(kMedium),
+          return Card(
+            margin: const EdgeInsets.only(bottom: kMedium),
+            clipBehavior: Clip.antiAlias,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+              side: BorderSide(
+                color: Theme.of(context).colorScheme.outlineVariant,
+                width: 1,
               ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(kMedium),
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(kMedium),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_today_rounded,
-                            color: context.themeColor.colorScheme.primary,
-                            size: kLarge,
+            ),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(kMedium),
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(kMedium),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_today_rounded,
+                          color: context.themeColor.colorScheme.primary,
+                          size: kLarge,
+                        ),
+                        const SizedBox(width: kSmall),
+                        Text(
+                          data.date,
+                          style: context.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
                           ),
-                          const SizedBox(width: kSmall),
-                          Text(
-                            data.date,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: kSmall,
+                            vertical: kXSmall,
                           ),
-                          const Spacer(),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: kSmall,
-                              vertical: kXSmall,
-                            ),
-                            decoration: BoxDecoration(
+                          decoration: BoxDecoration(
+                            color:
+                                data.status == "IN"
+                                    ? context.themeColor.colorScheme.tertiary
+                                        .withValues(alpha: 0.1)
+                                    : context.themeColor.colorScheme.error
+                                        .withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            data.status,
+                            style: context.textTheme.labelSmall?.copyWith(
                               color:
                                   data.status == "IN"
                                       ? context.themeColor.colorScheme.tertiary
-                                          .withValues(alpha: 0.1)
-                                      : context.themeColor.colorScheme.error
-                                          .withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Text(
-                              data.status,
-                              style: context.textTheme.labelSmall?.copyWith(
-                                color:
-                                    data.status == "IN"
-                                        ? context
-                                            .themeColor
-                                            .colorScheme
-                                            .tertiary
-                                        : context.themeColor.colorScheme.error,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                      : context.themeColor.colorScheme.error,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: kMedium),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _AttendanceInfoTile(
-                              icon: Icons.location_on_rounded,
-                              label: context.localizations(
-                                "attendance.location",
-                              ),
-                              value: data.address,
-                              color: context.themeColor.colorScheme.primary,
-                              onTap:
-                                  () => _launchGoogleMaps(
-                                    data.latitude,
-                                    data.longitude,
-                                  ),
-                            ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: kMedium),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _AttendanceInfoTile(
+                            icon: Icons.location_on_rounded,
+                            label: context.localizations("attendance.location"),
+                            value: data.address,
+                            color: context.themeColor.colorScheme.primary,
+                            onTap:
+                                () => _launchGoogleMaps(
+                                  data.latitude,
+                                  data.longitude,
+                                ),
                           ),
-                          const SizedBox(width: kMedium),
-                          Expanded(
-                            child: _AttendanceInfoTile(
-                              icon: Icons.map_rounded,
-                              label: context.localizations("attendance.zone"),
-                              value: data.zone,
-                              color: context.themeColor.colorScheme.secondary,
-                            ),
+                        ),
+                        const SizedBox(width: kMedium),
+                        Expanded(
+                          child: _AttendanceInfoTile(
+                            icon: Icons.map_rounded,
+                            label: context.localizations("attendance.zone"),
+                            value: data.zone,
+                            color: context.themeColor.colorScheme.secondary,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -160,10 +158,7 @@ class _AttendanceInfoTile extends StatelessWidget {
       borderRadius: BorderRadius.circular(kMedium),
       child: Container(
         padding: const EdgeInsets.all(kMedium),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(kMedium),
-        ),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(kMedium)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
