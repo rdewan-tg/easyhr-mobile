@@ -11,3 +11,5 @@ const String languageRoute = 'language';
 const String profileRoute = 'profile';
 const String companySettingRoute = 'company-setting';
 const String privacyPolicyRoute = 'privacy-policy';
+const String blogRoute = 'blog';
+const String blogDetailRoute = 'blog-detail';
