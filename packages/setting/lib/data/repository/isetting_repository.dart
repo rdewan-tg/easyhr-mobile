@@ -27,4 +27,8 @@ abstract interface class ISettingRepository {
   Future<bool> getFirstRun();
 
   Future<void> setFirstRun();
+
+  Future<void> setScheduleTime(String time);
+
+  Future<int> getScheduleTime();
 }

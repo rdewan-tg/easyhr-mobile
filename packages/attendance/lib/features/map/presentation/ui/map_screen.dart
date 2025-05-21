@@ -95,7 +95,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     : GoogleMap(
                       initialCameraPosition: CameraPosition(
                         target: currentPosition,
-                        zoom: 21,
+                        zoom: 19,
                       ),
                       markers: {
                         Marker(
@@ -172,6 +172,25 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     );
   }
 
+  Future<tz.TZDateTime> _dateTime() async {
+    final scheduleTime =
+        await ref.read(mapControllerProvider.notifier).getScheduleTime();
+    final timeZone = ref.read(mapControllerProvider.notifier).getTimeZone();
+
+    // initialize Time Zone database from latest
+    tz_latest.initializeTimeZones();
+    final location = tz.getLocation(timeZone);
+    tz.setLocalLocation(location);
+    // get the current date and time
+    final now = tz.TZDateTime.now(location);
+    // check for debug mode and add minutes or hours
+    if (kDebugMode) {
+      return now.add(Duration(minutes: scheduleTime));
+    } else {
+      return now.add(Duration(hours: scheduleTime));
+    }
+  }
+
   Future<void> _showImageDialog(File imageFile, AttendanceStatus status) async {
     showDialog(
       context: context,
@@ -206,11 +225,12 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     text: context.localizations("common.youHaveSuccessfully"),
                     style: context.textTheme.bodyMedium,
                     children: [
+                      const TextSpan(text: ' '),
                       TextSpan(
                         text:
                             status == AttendanceStatus.checkedIn
-                                ? 'Checked In'
-                                : 'Checked Out',
+                                ? "${context.localizations("attendance.checkedIn")} ✅"
+                                : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color:
@@ -264,11 +284,12 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     text: context.localizations("common.youHaveSuccessfully"),
                     style: context.textTheme.bodyMedium,
                     children: [
+                      const TextSpan(text: ' '),
                       TextSpan(
                         text:
                             status == AttendanceStatus.checkedIn
-                                ? 'Checked In'
-                                : 'Checked Out',
+                                ? "${context.localizations("attendance.checkedIn")} ✅"
+                                : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color:
@@ -323,16 +344,30 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       }
     });
 
-    // listen for success and show dialog
+    // listen for success and show dialog - schedule push notification
     ref.listen(
       mapControllerProvider.select((value) => value.isAttendanceAdded),
-      (_, next) {
+      (_, next) async {
         if (next) {
           final imageFile =
               ref.read(mapControllerProvider.notifier).getImagePath();
           final status = ref.read(mapControllerProvider.notifier).getStatus();
           // check if status is null
           if (status == null) return;
+
+          // if the status is checkedIn set schedule push notification
+          if (status == AttendanceStatus.checkedIn) {
+            final dateTime = await _dateTime();
+            // check if mounted
+            if (!mounted) return;
+            ref
+                .read(mapControllerProvider.notifier)
+                .setSchedulePushNotification(
+                  dateTime,
+                  context.localizations("attendance.attendanceReminderTitle"),
+                  context.localizations("attendance.attendanceReminderBody"),
+                );
+          }
           // check if imageFile is null
           if (imageFile != null) {
             _showImageDialog(File(imageFile), status);

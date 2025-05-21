@@ -27,11 +27,9 @@ class _CompanySettingScreenState extends ConsumerState<CompanySettingScreen> {
 
     return AppScaffoldScrollable(
       title: Text(context.localizations('setting.companySetting')),
-      widget: RefreshIndicator(
+      widget: RefreshIndicator.adaptive(
         onRefresh: () async {
-          await ref
-              .read(settingControllerProvider.notifier)
-              .getCompanySetting();
+          ref.read(settingControllerProvider.notifier).getCompanySetting();
         },
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),

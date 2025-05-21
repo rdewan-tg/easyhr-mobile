@@ -19,6 +19,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isConsentAccepted => throw _privateConstructorUsedError;
+  int get scheduleTime => throw _privateConstructorUsedError;
+  bool get isScheduleTimeSet => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get themeMode => throw _privateConstructorUsedError;
   String get timeZone => throw _privateConstructorUsedError;
@@ -43,6 +45,8 @@ abstract class $SettingStateCopyWith<$Res> {
   $Res call({
     bool isLoading,
     bool isConsentAccepted,
+    int scheduleTime,
+    bool isScheduleTimeSet,
     String language,
     String themeMode,
     String timeZone,
@@ -69,6 +73,8 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   $Res call({
     Object? isLoading = null,
     Object? isConsentAccepted = null,
+    Object? scheduleTime = null,
+    Object? isScheduleTimeSet = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -87,6 +93,16 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
                 null == isConsentAccepted
                     ? _value.isConsentAccepted
                     : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            scheduleTime:
+                null == scheduleTime
+                    ? _value.scheduleTime
+                    : scheduleTime // ignore: cast_nullable_to_non_nullable
+                        as int,
+            isScheduleTimeSet:
+                null == isScheduleTimeSet
+                    ? _value.isScheduleTimeSet
+                    : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
                         as bool,
             language:
                 null == language
@@ -136,6 +152,8 @@ abstract class _$$SettingStateImplCopyWith<$Res>
   $Res call({
     bool isLoading,
     bool isConsentAccepted,
+    int scheduleTime,
+    bool isScheduleTimeSet,
     String language,
     String themeMode,
     String timeZone,
@@ -161,6 +179,8 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? isConsentAccepted = null,
+    Object? scheduleTime = null,
+    Object? isScheduleTimeSet = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -179,6 +199,16 @@ class __$$SettingStateImplCopyWithImpl<$Res>
             null == isConsentAccepted
                 ? _value.isConsentAccepted
                 : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        scheduleTime:
+            null == scheduleTime
+                ? _value.scheduleTime
+                : scheduleTime // ignore: cast_nullable_to_non_nullable
+                    as int,
+        isScheduleTimeSet:
+            null == isScheduleTimeSet
+                ? _value.isScheduleTimeSet
+                : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
                     as bool,
         language:
             null == language
@@ -221,6 +251,8 @@ class _$SettingStateImpl implements _SettingState {
   const _$SettingStateImpl({
     this.isLoading = false,
     this.isConsentAccepted = false,
+    this.scheduleTime = 0,
+    this.isScheduleTimeSet = false,
     this.language = 'en',
     this.themeMode = 'light',
     this.timeZone = 'Asia/Kolkata',
@@ -235,6 +267,12 @@ class _$SettingStateImpl implements _SettingState {
   @override
   @JsonKey()
   final bool isConsentAccepted;
+  @override
+  @JsonKey()
+  final int scheduleTime;
+  @override
+  @JsonKey()
+  final bool isScheduleTimeSet;
   @override
   @JsonKey()
   final String language;
@@ -261,7 +299,7 @@ class _$SettingStateImpl implements _SettingState {
 
   @override
   String toString() {
-    return 'SettingState(isLoading: $isLoading, isConsentAccepted: $isConsentAccepted, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
+    return 'SettingState(isLoading: $isLoading, isConsentAccepted: $isConsentAccepted, scheduleTime: $scheduleTime, isScheduleTimeSet: $isScheduleTimeSet, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
   }
 
   @override
@@ -273,6 +311,10 @@ class _$SettingStateImpl implements _SettingState {
                 other.isLoading == isLoading) &&
             (identical(other.isConsentAccepted, isConsentAccepted) ||
                 other.isConsentAccepted == isConsentAccepted) &&
+            (identical(other.scheduleTime, scheduleTime) ||
+                other.scheduleTime == scheduleTime) &&
+            (identical(other.isScheduleTimeSet, isScheduleTimeSet) ||
+                other.isScheduleTimeSet == isScheduleTimeSet) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.themeMode, themeMode) ||
@@ -291,6 +333,8 @@ class _$SettingStateImpl implements _SettingState {
     runtimeType,
     isLoading,
     isConsentAccepted,
+    scheduleTime,
+    isScheduleTimeSet,
     language,
     themeMode,
     timeZone,
@@ -312,6 +356,8 @@ abstract class _SettingState implements SettingState {
   const factory _SettingState({
     final bool isLoading,
     final bool isConsentAccepted,
+    final int scheduleTime,
+    final bool isScheduleTimeSet,
     final String language,
     final String themeMode,
     final String timeZone,
@@ -324,6 +370,10 @@ abstract class _SettingState implements SettingState {
   bool get isLoading;
   @override
   bool get isConsentAccepted;
+  @override
+  int get scheduleTime;
+  @override
+  bool get isScheduleTimeSet;
   @override
   String get language;
   @override

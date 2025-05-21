@@ -91,6 +91,21 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
                 context.go('/setting/privacy-policy');
               },
             ),
+            ListTile(
+              title: Text(context.localizations('setting.pushNotification')),
+              subtitle: Text(
+                context.localizations('setting.pushNotificationSubTitle'),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  context.go('/setting/push-notification');
+                },
+                icon: const Icon(Icons.navigate_next),
+              ),
+              onTap: () {
+                context.go('/setting/push-notification');
+              },
+            ),
           ],
         ),
       ),

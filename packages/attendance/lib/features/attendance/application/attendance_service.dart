@@ -102,6 +102,17 @@ final class AttendanceService implements IAttendanceService {
       throw Failure(message: e.toString(), stackTrace: s);
     }
   }
+
+  @override
+  Future<int> getScheduleTime() async {
+    try {
+      return await _attendanceRepository.getScheduleTime();
+    } on Failure catch (_) {
+      rethrow;
+    } catch (e, s) {
+      throw Failure(message: e.toString(), stackTrace: s);
+    }
+  }
 }
 
 // top level function for isolate

@@ -7,6 +7,8 @@ class SettingState with _$SettingState {
   const factory SettingState({
     @Default(false) bool isLoading,
     @Default(false) bool isConsentAccepted,
+    @Default(0) int scheduleTime,
+    @Default(false) bool isScheduleTimeSet,
     @Default('en') String language,
     @Default('light') String themeMode,
     @Default('Asia/Kolkata') String timeZone,

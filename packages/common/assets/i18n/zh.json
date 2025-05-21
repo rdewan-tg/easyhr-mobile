@@ -63,5 +63,14 @@
     "setting.acceptConsentStatement": "我接受同意声明的条款",
     "attendance.pleaseReadAndAcceptTheConsentStatement": "请阅读并接受同意声明",
     "blog.blogTitle": "博客",
-    "blog.blogDetailTitle": "细节"
+    "blog.blogDetailTitle": "细节",
+    "setting.pushNotification": "推送通知",
+    "setting.pushNotificationSubTitle": "管理您的推送通知",
+    "setting.scheduleTimeTitle": "设置在用户签到后发送推送通知的计划时间。",
+    "setting.enablePushNotification": "启用推送通知",
+    "setting.scheduleTimeLabel": "小时时间 (hr)",
+    "attendance.checkedIn": "报到",
+    "attendance.checkedOut": "查看",
+    "attendance.attendanceReminderTitle": "出勤提醒⏰",
+    "attendance.attendanceReminderBody": "嘿，该结账了！⌚ 别忘了标记你的出勤率！"
 }

@@ -63,5 +63,14 @@
     "setting.acceptConsentStatement": "Saya menerima persyaratan pernyataan persetujuan",
     "attendance.pleaseReadAndAcceptTheConsentStatement": "Harap baca dan terima pernyataan persetujuan",
     "blog.blogTitle": "Blog",
-    "blog.blogDetailTitle": "Detil"
+    "blog.blogDetailTitle": "Detil",
+    "setting.pushNotification": "Pemberitahuan Push",
+    "setting.pushNotificationSubTitle": "Kelola pemberitahuan push Anda",
+    "setting.scheduleTimeTitle": "Tetapkan waktu jadwal untuk pemberitahuan push yang akan dikirim setelah pengguna check-in.",
+    "setting.enablePushNotification": "Aktifkan Pemberitahuan Push",
+    "setting.scheduleTimeLabel": "Waktu dalam Jam (jam)",
+    "attendance.checkedIn": "Pendaftaran",
+    "attendance.checkedOut": "Check-out",
+    "attendance.attendanceReminderTitle": "Pengingat Kehadiran ⏰",
+    "attendance.attendanceReminderBody": "Hai, saatnya untuk check out! ⌚ Jangan lupa untuk menandai kehadiran Anda!"
 }

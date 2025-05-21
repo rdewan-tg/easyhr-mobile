@@ -17,6 +17,7 @@ import 'package:go_router/go_router.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:uuid/uuid.dart';
+import 'package:logging/logging.dart';
 
 part 'style/dimens.dart';
 part 'upgrader/upgrader_translation_messages.dart';
@@ -47,6 +48,7 @@ part 'provider/scroll_controller_povider.dart';
 part 'provider/auth_state_provider.dart';
 part 'provider/bottom_navigation_state_povider.dart';
 part 'provider/uuid_provider.dart';
+part 'provider/app_logger_provider.dart';
 
 part 'mixin/dio_exception_mapper.dart';
 part 'mixin/error_dialog_mixin.dart';

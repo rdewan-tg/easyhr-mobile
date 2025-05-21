@@ -12,9 +12,11 @@ class _BlogScreenState extends ConsumerState<BlogScreen> {
   void initState() {
     super.initState();
     // Fetch blogs when screen initializes
-    Future.microtask(
-      () => ref.read(blogControllerProvider.notifier).getBlogs(),
-    );
+    Future.microtask(() {
+      ref.read(blogControllerProvider.notifier).getBlogs();
+      // init firebase push notification - in home screen
+      ref.read(firebasePushNotificationProvider);
+    });
   }
 
   @override

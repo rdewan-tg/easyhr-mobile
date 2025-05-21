@@ -25,4 +25,8 @@ abstract interface class ISettingService {
   Future<void> setConsentStatement(bool value);
 
   Future<bool> getConsentStatement();
+
+  Future<Result<bool, Failure>> setScheduleTime(String time);
+
+  Future<Result<int, Failure>> getScheduleTime();
 }

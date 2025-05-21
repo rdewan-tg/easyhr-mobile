@@ -32,4 +32,14 @@ final class LocalStorage implements ILocalStorage {
       rethrow;
     }
   }
+
+  @override
+  Future<int> getScheduleTime() async {
+    try {
+      final time = await _secureStorage.read(scheduleTimeKey);
+      return int.parse(time ?? '0');
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

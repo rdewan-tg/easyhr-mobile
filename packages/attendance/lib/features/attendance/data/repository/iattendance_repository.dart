@@ -18,4 +18,6 @@ abstract interface class IAttendanceRepository {
   Future<void> setAttendanceStatus(String status);
 
   Future<String?> getAttendanceStatus();
+
+  Future<int> getScheduleTime();
 }

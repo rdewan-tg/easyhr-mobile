@@ -151,4 +151,42 @@ final class SettingService implements ISettingService {
   Future<bool> getConsentStatement() async {
     return await _settingRepository.getConsentStatement();
   }
+
+  @override
+  Future<Result<bool, Failure>> setScheduleTime(String time) async {
+    try {
+      await _settingRepository.setScheduleTime(time);
+
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Result<int, Failure>> getScheduleTime() async {
+    try {
+      final result = await _settingRepository.getScheduleTime();
+
+      return Success(result);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
 }

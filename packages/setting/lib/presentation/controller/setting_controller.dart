@@ -159,5 +159,35 @@ final class SettingController extends _$SettingController {
     state = state.copyWith(isConsentAccepted: result);
   }
 
+  Future<void> setScheduleTime(String time) async {
+    state = state.copyWith(
+      isLoading: true,
+      errorMsg: null,
+      isScheduleTimeSet: false,
+    );
+    final result = await ref.read(settingServiceProvider).setScheduleTime(time);
+    result.when(
+      (success) {
+        state = state.copyWith(isScheduleTimeSet: success, isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
+  Future<void> getScheduleTime() async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    final result = await ref.read(settingServiceProvider).getScheduleTime();
+    result.when(
+      (success) {
+        state = state.copyWith(scheduleTime: success, isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
   String? getTimeZone() => state.settings['timeZone'];
 }

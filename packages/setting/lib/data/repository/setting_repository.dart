@@ -140,4 +140,14 @@ final class SettingRepositroy
   Future<bool> getConsentStatement() async {
     return await _settingStorage.getConsentStatement();
   }
+
+  @override
+  Future<void> setScheduleTime(String time) async {
+    await _settingStorage.setScheduleTime(time);
+  }
+
+  @override
+  Future<int> getScheduleTime() async {
+    return await _settingStorage.getScheduleTime();
+  }
 }
