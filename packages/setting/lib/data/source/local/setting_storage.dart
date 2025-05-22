@@ -56,4 +56,15 @@ class SetingStorage implements ISettingStorage {
     final result = await _secureStorage.read(consentStatementKey);
     return result == null || result == 'false' ? false : true;
   }
+
+  @override
+  Future<void> setScheduleTime(String time) async {
+    await _secureStorage.write(scheduleTimeKey, time);
+  }
+
+  @override
+  Future<int> getScheduleTime() async {
+    final result = await _secureStorage.read(scheduleTimeKey);
+    return result == null ? 0 : int.parse(result);
+  }
 }

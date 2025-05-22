@@ -19,6 +19,12 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isConsentAccepted => throw _privateConstructorUsedError;
+  int get scheduleTime => throw _privateConstructorUsedError;
+  bool get isScheduleTimeSet => throw _privateConstructorUsedError;
+  List<NotificationScheduleEntityData> get notificationSchedules =>
+      throw _privateConstructorUsedError;
+  bool get isNotificationScheduleRemoved => throw _privateConstructorUsedError;
+  bool get isNotificationScheduleCleared => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get themeMode => throw _privateConstructorUsedError;
   String get timeZone => throw _privateConstructorUsedError;
@@ -43,6 +49,11 @@ abstract class $SettingStateCopyWith<$Res> {
   $Res call({
     bool isLoading,
     bool isConsentAccepted,
+    int scheduleTime,
+    bool isScheduleTimeSet,
+    List<NotificationScheduleEntityData> notificationSchedules,
+    bool isNotificationScheduleRemoved,
+    bool isNotificationScheduleCleared,
     String language,
     String themeMode,
     String timeZone,
@@ -69,6 +80,11 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   $Res call({
     Object? isLoading = null,
     Object? isConsentAccepted = null,
+    Object? scheduleTime = null,
+    Object? isScheduleTimeSet = null,
+    Object? notificationSchedules = null,
+    Object? isNotificationScheduleRemoved = null,
+    Object? isNotificationScheduleCleared = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -87,6 +103,31 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
                 null == isConsentAccepted
                     ? _value.isConsentAccepted
                     : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            scheduleTime:
+                null == scheduleTime
+                    ? _value.scheduleTime
+                    : scheduleTime // ignore: cast_nullable_to_non_nullable
+                        as int,
+            isScheduleTimeSet:
+                null == isScheduleTimeSet
+                    ? _value.isScheduleTimeSet
+                    : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            notificationSchedules:
+                null == notificationSchedules
+                    ? _value.notificationSchedules
+                    : notificationSchedules // ignore: cast_nullable_to_non_nullable
+                        as List<NotificationScheduleEntityData>,
+            isNotificationScheduleRemoved:
+                null == isNotificationScheduleRemoved
+                    ? _value.isNotificationScheduleRemoved
+                    : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isNotificationScheduleCleared:
+                null == isNotificationScheduleCleared
+                    ? _value.isNotificationScheduleCleared
+                    : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
                         as bool,
             language:
                 null == language
@@ -136,6 +177,11 @@ abstract class _$$SettingStateImplCopyWith<$Res>
   $Res call({
     bool isLoading,
     bool isConsentAccepted,
+    int scheduleTime,
+    bool isScheduleTimeSet,
+    List<NotificationScheduleEntityData> notificationSchedules,
+    bool isNotificationScheduleRemoved,
+    bool isNotificationScheduleCleared,
     String language,
     String themeMode,
     String timeZone,
@@ -161,6 +207,11 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? isConsentAccepted = null,
+    Object? scheduleTime = null,
+    Object? isScheduleTimeSet = null,
+    Object? notificationSchedules = null,
+    Object? isNotificationScheduleRemoved = null,
+    Object? isNotificationScheduleCleared = null,
     Object? language = null,
     Object? themeMode = null,
     Object? timeZone = null,
@@ -179,6 +230,31 @@ class __$$SettingStateImplCopyWithImpl<$Res>
             null == isConsentAccepted
                 ? _value.isConsentAccepted
                 : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        scheduleTime:
+            null == scheduleTime
+                ? _value.scheduleTime
+                : scheduleTime // ignore: cast_nullable_to_non_nullable
+                    as int,
+        isScheduleTimeSet:
+            null == isScheduleTimeSet
+                ? _value.isScheduleTimeSet
+                : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        notificationSchedules:
+            null == notificationSchedules
+                ? _value._notificationSchedules
+                : notificationSchedules // ignore: cast_nullable_to_non_nullable
+                    as List<NotificationScheduleEntityData>,
+        isNotificationScheduleRemoved:
+            null == isNotificationScheduleRemoved
+                ? _value.isNotificationScheduleRemoved
+                : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isNotificationScheduleCleared:
+            null == isNotificationScheduleCleared
+                ? _value.isNotificationScheduleCleared
+                : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
                     as bool,
         language:
             null == language
@@ -221,13 +297,19 @@ class _$SettingStateImpl implements _SettingState {
   const _$SettingStateImpl({
     this.isLoading = false,
     this.isConsentAccepted = false,
+    this.scheduleTime = 0,
+    this.isScheduleTimeSet = false,
+    final List<NotificationScheduleEntityData> notificationSchedules = const [],
+    this.isNotificationScheduleRemoved = false,
+    this.isNotificationScheduleCleared = false,
     this.language = 'en',
     this.themeMode = 'light',
     this.timeZone = 'Asia/Kolkata',
     final Map<String, String> settings = const {},
     this.orderRunningNumber = 0,
     this.errorMsg,
-  }) : _settings = settings;
+  }) : _notificationSchedules = notificationSchedules,
+       _settings = settings;
 
   @override
   @JsonKey()
@@ -235,6 +317,28 @@ class _$SettingStateImpl implements _SettingState {
   @override
   @JsonKey()
   final bool isConsentAccepted;
+  @override
+  @JsonKey()
+  final int scheduleTime;
+  @override
+  @JsonKey()
+  final bool isScheduleTimeSet;
+  final List<NotificationScheduleEntityData> _notificationSchedules;
+  @override
+  @JsonKey()
+  List<NotificationScheduleEntityData> get notificationSchedules {
+    if (_notificationSchedules is EqualUnmodifiableListView)
+      return _notificationSchedules;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_notificationSchedules);
+  }
+
+  @override
+  @JsonKey()
+  final bool isNotificationScheduleRemoved;
+  @override
+  @JsonKey()
+  final bool isNotificationScheduleCleared;
   @override
   @JsonKey()
   final String language;
@@ -261,7 +365,7 @@ class _$SettingStateImpl implements _SettingState {
 
   @override
   String toString() {
-    return 'SettingState(isLoading: $isLoading, isConsentAccepted: $isConsentAccepted, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
+    return 'SettingState(isLoading: $isLoading, isConsentAccepted: $isConsentAccepted, scheduleTime: $scheduleTime, isScheduleTimeSet: $isScheduleTimeSet, notificationSchedules: $notificationSchedules, isNotificationScheduleRemoved: $isNotificationScheduleRemoved, isNotificationScheduleCleared: $isNotificationScheduleCleared, language: $language, themeMode: $themeMode, timeZone: $timeZone, settings: $settings, orderRunningNumber: $orderRunningNumber, errorMsg: $errorMsg)';
   }
 
   @override
@@ -273,6 +377,26 @@ class _$SettingStateImpl implements _SettingState {
                 other.isLoading == isLoading) &&
             (identical(other.isConsentAccepted, isConsentAccepted) ||
                 other.isConsentAccepted == isConsentAccepted) &&
+            (identical(other.scheduleTime, scheduleTime) ||
+                other.scheduleTime == scheduleTime) &&
+            (identical(other.isScheduleTimeSet, isScheduleTimeSet) ||
+                other.isScheduleTimeSet == isScheduleTimeSet) &&
+            const DeepCollectionEquality().equals(
+              other._notificationSchedules,
+              _notificationSchedules,
+            ) &&
+            (identical(
+                  other.isNotificationScheduleRemoved,
+                  isNotificationScheduleRemoved,
+                ) ||
+                other.isNotificationScheduleRemoved ==
+                    isNotificationScheduleRemoved) &&
+            (identical(
+                  other.isNotificationScheduleCleared,
+                  isNotificationScheduleCleared,
+                ) ||
+                other.isNotificationScheduleCleared ==
+                    isNotificationScheduleCleared) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.themeMode, themeMode) ||
@@ -291,6 +415,11 @@ class _$SettingStateImpl implements _SettingState {
     runtimeType,
     isLoading,
     isConsentAccepted,
+    scheduleTime,
+    isScheduleTimeSet,
+    const DeepCollectionEquality().hash(_notificationSchedules),
+    isNotificationScheduleRemoved,
+    isNotificationScheduleCleared,
     language,
     themeMode,
     timeZone,
@@ -312,6 +441,11 @@ abstract class _SettingState implements SettingState {
   const factory _SettingState({
     final bool isLoading,
     final bool isConsentAccepted,
+    final int scheduleTime,
+    final bool isScheduleTimeSet,
+    final List<NotificationScheduleEntityData> notificationSchedules,
+    final bool isNotificationScheduleRemoved,
+    final bool isNotificationScheduleCleared,
     final String language,
     final String themeMode,
     final String timeZone,
@@ -324,6 +458,16 @@ abstract class _SettingState implements SettingState {
   bool get isLoading;
   @override
   bool get isConsentAccepted;
+  @override
+  int get scheduleTime;
+  @override
+  bool get isScheduleTimeSet;
+  @override
+  List<NotificationScheduleEntityData> get notificationSchedules;
+  @override
+  bool get isNotificationScheduleRemoved;
+  @override
+  bool get isNotificationScheduleCleared;
   @override
   String get language;
   @override

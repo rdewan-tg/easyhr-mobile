@@ -1,4 +1,5 @@
 import 'package:common/exception/failure.dart';
+import 'package:core/data/local/db/app_database.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 abstract interface class ISettingService {
@@ -25,4 +26,23 @@ abstract interface class ISettingService {
   Future<void> setConsentStatement(bool value);
 
   Future<bool> getConsentStatement();
+
+  Future<Result<bool, Failure>> setScheduleTime(String time);
+
+  Future<Result<int, Failure>> getScheduleTime();
+
+  Future<Result<bool, Failure>> removeNotificationSchedule(int id);
+
+  Future<Result<bool, Failure>> removeAllNotificationSchedule();
+
+  Stream<List<NotificationScheduleEntityData>> watchAllNotificationSchedule();
+
+  Future<Result<bool, Failure>> upsertNotificationSchedule(
+    NotificationScheduleEntityCompanion schedule,
+  );
+
+  Future<Result<bool, Failure>> updateNotificationScheduleStatus(
+    int id,
+    bool isActive,
+  );
 }

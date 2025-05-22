@@ -9,5 +9,9 @@ abstract interface class ISettingStorage {
 
   Future<bool> getConsentStatement();
 
+  Future<void> setScheduleTime(String time);
+
+  Future<int> getScheduleTime();
+
   Future<void> upsertMultipleSettings(Map<String, String> settings);
 }

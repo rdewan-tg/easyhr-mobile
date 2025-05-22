@@ -221,6 +221,9 @@ dart run drift_dev make-migrations
 dart run drift_dev make-migrations
 ```
 
+### Git
+`git rm --cached -r android/app/.cxx/`
+
 #### Git Hook
 - configure Git to look for the hooks in the given directory `.githooks/`.
 ```bash

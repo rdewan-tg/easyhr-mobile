@@ -10,24 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  common:
-    path: packages/common
+  
   core:
     path: packages/core
-  auth:
-    path: packages/auth
-  dashboard:
-    path: packages/dashboard
-  home:
-    path: packages/home
-  attendance:
-    path: packages/attendance
-  setting:
-    path: packages/setting    
-  profile:
-    path: packages/profile
-  blog:
-    path: packages/blog
 
   flutter_riverpod: any
   go_router: any

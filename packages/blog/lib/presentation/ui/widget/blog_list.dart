@@ -14,9 +14,9 @@ class _BlogListState extends ConsumerState<BlogList> {
       blogControllerProvider.select((state) => state.blogs),
     );
 
-    return RefreshIndicator(
+    return RefreshIndicator.adaptive(
       onRefresh: () async {
-        await ref.read(blogControllerProvider.notifier).getBlogs();
+        ref.read(blogControllerProvider.notifier).getBlogs();
       },
       child: ListView.builder(
         padding: const EdgeInsets.all(16),

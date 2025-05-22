@@ -5,3 +5,7 @@ zone: Zone
 noLocation: No location
 copiedToClipboard: Copied to clipboard
 pleaseReadAndAcceptTheConsentStatement: Please read and accept the consent statement
+checkedIn: Checked-in
+checkedOut: Checked-out
+attendanceReminderTitle: Attendance Reminder ⏰
+attendanceReminderBody: Hey, it's time to check out! ⌚ Don't forget to mark your attendance!

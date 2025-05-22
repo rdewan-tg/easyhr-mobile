@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:attendance/features/attendance/application/attendance_service.dart';
+import 'package:common/common.dart';
 import 'package:core/core.dart';
 import 'package:core/data/local/db/app_database.dart';
 import 'package:core/data/local/secure_storage/secure_storage.dart';
@@ -25,6 +26,9 @@ Future<void> startUp(Ref ref, {required Flavor flavor}) async {
   // start trace
   // initialize database
   ref.read(appDatabaseProvider);
+  // Setup Logger
+  // ignore: avoid_manual_providers_as_generated_provider_dependency
+  ref.read(appLoggerProvider);
 
   // get access token
   final accessToken = await ref

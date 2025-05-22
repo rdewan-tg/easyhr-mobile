@@ -36,3 +36,27 @@ privacyPolicySubTitle: Manage your privacy policy
 confirm: Confirm
 privacyPolicyMessage: I hereby voluntarily give my consent to the Company to record and store photographic images of my face for the purpose of verifying my identity and accurately recording my working hours (Check-in/Check-out) via the EasyHR application. This consent is granted solely for the purposes stated above. I agree that the Company shall use such data only within the specified scope and shall not use it for any other purpose without my prior written consent.'
 acceptConsentStatement: I accept the terms of the consent statement
+pushNotification: Push Notification
+pushNotificationSubTitle: Manage your push notification
+scheduleTimeTitle: Set a schedule time for push notification that will be sent after the user check-in.
+enablePushNotification: Enable Push Notification
+scheduleTimeLabel: Time in Hour (hr)
+scheduleNotification: Schedule Notification
+scheduleNotificationSubTitle: Manage your schedule notification
+pleaseSelectAtLeastOneDay: Please select at least one day
+repeatOn: Repeat on
+notificationDetails: Notification Details
+notificationTitle: Notification Title
+notificationMessage: Notification Message
+notificationsScheduledSuccessfully: Notifications scheduled successfully
+clearAllNotifications: Clear All Notifications
+clearNotificationsTitle: Clear Notifications
+clearNotificationsConfirmation: Are you sure you want to clear all scheduled notifications?
+notificationsClearedSuccessfully: All notifications cleared successfully
+notificationScheduled: Notification Scheduled
+notificationScheduledSubTitle: Manage your notification schedule
+notificationScheduleRemovedSuccessfully: Notification schedule removed successfully
+alarmPermissionRequired: Alarm permission is required
+alarmPermissionGranted: Alarm permission has been granted
+clear: Clear
+cancel: Cancel

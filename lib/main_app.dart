@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 FutureOr<void> mainApp(Flavor flavor) async {
   runZonedGuarded<Future<void>>(
@@ -20,7 +21,7 @@ FutureOr<void> mainApp(Flavor flavor) async {
       };
 
       // initialize firebase
-      //await Firebase.initializeApp();
+      await Firebase.initializeApp();
 
       // Pass all uncaught errors from the framework to Crashlytics.
       FlutterError.onError = (FlutterErrorDetails error) {

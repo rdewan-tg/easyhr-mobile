@@ -1,8 +1,8 @@
 import 'package:attendance/features/attendance/data/dto/response/last_attendance_state_response.dart';
 import 'package:attendance/features/attendance/data/repository/iattendance_repository.dart';
 import 'package:attendance/features/attendance/data/source/remote/attendance_api_service.dart';
-import 'package:attendance/features/map/data/source/local/ilocal_storage.dart';
-import 'package:attendance/features/map/data/source/local/local_storage.dart';
+import 'package:attendance/features/attendance/data/source/local/ilocal_storage.dart';
+import 'package:attendance/features/attendance/data/source/local/local_storage.dart';
 import 'package:common/common.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
@@ -100,6 +100,15 @@ final class AttendanceRepository
   Future<String?> getAttendanceStatus() async {
     try {
       return await _localStorage.getAttendanceStatus();
+    } catch (e, s) {
+      throw Failure(message: e.toString(), stackTrace: s);
+    }
+  }
+
+  @override
+  Future<int> getScheduleTime() async {
+    try {
+      return await _localStorage.getScheduleTime();
     } catch (e, s) {
       throw Failure(message: e.toString(), stackTrace: s);
     }
