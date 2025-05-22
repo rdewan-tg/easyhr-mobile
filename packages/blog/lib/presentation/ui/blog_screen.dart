@@ -25,7 +25,9 @@ class _BlogScreenState extends ConsumerState<BlogScreen> {
   // set firebase device token
   void _setFirebaseDeviceToken() async {
     final result =
-        await ref.read(firebasePushNotificationProvider).getIsPermissionGranted();
+        await ref
+            .read(firebasePushNotificationProvider)
+            .getIsPermissionGranted();
     if (result) {
       final token =
           await ref.read(firebasePushNotificationProvider).getFirebaseToken();

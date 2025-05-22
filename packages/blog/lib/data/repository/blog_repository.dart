@@ -28,7 +28,12 @@ final class BlogRepository with DioExceptionMapper implements IBlogRepository {
   final CoreApiService _coreApiService;
   final Logger _logger;
 
-  BlogRepository(this.blogApi, this._settingDao, this._coreApiService, this._logger);
+  BlogRepository(
+    this.blogApi,
+    this._settingDao,
+    this._coreApiService,
+    this._logger,
+  );
 
   @override
   Future<BlogResponse> getBlogById(int id) async {

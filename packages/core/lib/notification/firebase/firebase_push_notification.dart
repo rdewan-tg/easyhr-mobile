@@ -28,9 +28,9 @@ final firebasePushNotificationProvider =
 
 class FirebasePushNotification {
   final FirebaseMessaging _messaging;
-  final LocalPushNotification _localPushNotification;  
+  final LocalPushNotification _localPushNotification;
   final GoRouter _goRouter;
-  final Logger _logger;  
+  final Logger _logger;
 
   FirebasePushNotification(
     this._messaging,
