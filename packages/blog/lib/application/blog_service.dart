@@ -7,6 +7,7 @@ import 'package:blog/data/repository/blog_repository.dart';
 import 'package:blog/data/repository/iblog_repository.dart';
 import 'package:blog/domain/model/blog_model.dart';
 import 'package:common/exception/failure.dart';
+import 'package:core/data/remote/dtos/request/set_me_firebase_token_request.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/data/latest.dart' as tz_latest;
@@ -53,6 +54,18 @@ final class BlogService implements IBlogService {
       );
 
       return Success(blogs);
+    } on Failure catch (e) {
+      return Error(e);
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> setFirebaseDeviceToken(
+    SetMeFirebaseTokenRequest request,
+  ) async {
+    try {
+      await blogRepository.setFirebaseDeviceToken(request);
+      return const Success(true);
     } on Failure catch (e) {
       return Error(e);
     }

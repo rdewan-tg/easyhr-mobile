@@ -11,12 +11,28 @@ class _BlogScreenState extends ConsumerState<BlogScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _setFirebaseDeviceToken();
+    });
     // Fetch blogs when screen initializes
     Future.microtask(() {
       ref.read(blogControllerProvider.notifier).getBlogs();
       // init firebase push notification - in home screen
       ref.read(firebasePushNotificationProvider);
     });
+  }
+
+  // set firebase device token
+  void _setFirebaseDeviceToken() async {
+    final result =
+        await ref.read(firebasePushNotificationProvider).getIsPermissionGranted();
+    if (result) {
+      final token =
+          await ref.read(firebasePushNotificationProvider).getFirebaseToken();
+      if (token != null) {
+        ref.read(blogControllerProvider.notifier).setFirebaseDeviceToken(token);
+      }
+    }
   }
 
   @override

@@ -174,5 +174,5 @@ jobs:
           mappingFile: build/app/outputs/mapping/prodRelease/mapping.txt
           debugSymbols: build/app/intermediates/merged_native_libs/prodRelease/mergeProdReleaseNativeLibs/out/lib
           whatsNewDirectory: distribution/whatsnew
-          track: alpha
+          track: production
   
