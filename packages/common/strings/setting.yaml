@@ -41,3 +41,22 @@ pushNotificationSubTitle: Manage your push notification
 scheduleTimeTitle: Set a schedule time for push notification that will be sent after the user check-in.
 enablePushNotification: Enable Push Notification
 scheduleTimeLabel: Time in Hour (hr)
+scheduleNotification: Schedule Notification
+scheduleNotificationSubTitle: Manage your schedule notification
+pleaseSelectAtLeastOneDay: Please select at least one day
+repeatOn: Repeat on
+notificationDetails: Notification Details
+notificationTitle: Notification Title
+notificationMessage: Notification Message
+notificationsScheduledSuccessfully: Notifications scheduled successfully
+clearAllNotifications: Clear All Notifications
+clearNotificationsTitle: Clear Notifications
+clearNotificationsConfirmation: Are you sure you want to clear all scheduled notifications?
+notificationsClearedSuccessfully: All notifications cleared successfully
+notificationScheduled: Notification Scheduled
+notificationScheduledSubTitle: Manage your notification schedule
+notificationScheduleRemovedSuccessfully: Notification schedule removed successfully
+alarmPermissionRequired: Alarm permission is required
+alarmPermissionGranted: Alarm permission has been granted
+clear: Clear
+cancel: Cancel

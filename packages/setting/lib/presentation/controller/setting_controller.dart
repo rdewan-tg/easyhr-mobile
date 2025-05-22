@@ -1,22 +1,27 @@
 import 'dart:async';
 
 import 'package:core/core.dart';
+import 'package:core/data/local/db/app_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:setting/application/setting_service.dart';
 import 'package:setting/presentation/state/setting_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:drift/drift.dart';
 
 part 'setting_controller.g.dart';
 
 @Riverpod(keepAlive: true)
 final class SettingController extends _$SettingController {
   StreamSubscription<String>? _themeModeSubscription;
+  StreamSubscription<List<NotificationScheduleEntityData>>?
+  _notificationScheduleSubscription;
 
   @override
   SettingState build() {
     // Cancel the subscription when the controller is disposed
     ref.onDispose(() {
       _themeModeSubscription?.cancel();
+      _notificationScheduleSubscription?.cancel();
     });
 
     // Start listening to the theme mode stream when the controller is created
@@ -182,6 +187,105 @@ final class SettingController extends _$SettingController {
     result.when(
       (success) {
         state = state.copyWith(scheduleTime: success, isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
+  Future<void> createNotificationSchedule(
+    int id,
+    String title,
+    String body,
+    int dayOfWeek,
+    int hour,
+    int minute,
+  ) async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    final result = await ref
+        .read(settingServiceProvider)
+        .upsertNotificationSchedule(
+          NotificationScheduleEntityCompanion(
+            notificationId: Value(id),
+            title: Value(title),
+            body: Value(body),
+            dayOfWeek: Value(dayOfWeek),
+            hour: Value(hour),
+            minute: Value(minute),
+          ),
+        );
+    result.when(
+      (success) {
+        state = state.copyWith(isLoading: false);
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
+  Future<void> removeNotificationSchedule(int id) async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    final result = await ref
+        .read(settingServiceProvider)
+        .removeNotificationSchedule(id);
+    result.when(
+      (success) {
+        state = state.copyWith(
+          isNotificationScheduleRemoved: success,
+          isLoading: false,
+        );
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
+  Future<void> removeAllNotificationSchedule() async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    final result =
+        await ref.read(settingServiceProvider).removeAllNotificationSchedule();
+    result.when(
+      (success) {
+        state = state.copyWith(
+          isNotificationScheduleCleared: success,
+          isLoading: false,
+        );
+      },
+      (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
+  }
+
+  Future<void> getNotificationSchedules() async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    _notificationScheduleSubscription = ref
+        .read(settingServiceProvider)
+        .watchAllNotificationSchedule()
+        .listen(
+          (success) {
+            state = state.copyWith(
+              notificationSchedules: success,
+              isLoading: false,
+            );
+          },
+          onError: (error) {
+            state = state.copyWith(errorMsg: error.message, isLoading: false);
+          },
+        );
+  }
+
+  Future<void> updateNotificationScheduleStatus(int id, bool isActive) async {
+    state = state.copyWith(isLoading: true, errorMsg: null);
+    final result = await ref
+        .read(settingServiceProvider)
+        .updateNotificationScheduleStatus(id, isActive);
+    result.when(
+      (success) {
+        state = state.copyWith(isLoading: false);
       },
       (error) {
         state = state.copyWith(errorMsg: error.message, isLoading: false);

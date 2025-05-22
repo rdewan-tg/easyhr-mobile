@@ -14,3 +14,5 @@ const String privacyPolicyRoute = 'privacy-policy';
 const String blogRoute = 'blog';
 const String blogDetailRoute = 'blog-detail';
 const String pushNotificationRoute = 'push-notification';
+const String scheduleNotificationRoute = 'schedule-notification';
+const String notificationScheduleRoute = 'notification-schedule';

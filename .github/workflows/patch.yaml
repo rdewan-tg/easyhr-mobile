@@ -60,6 +60,21 @@ jobs:
         run: |
           echo "${{env.ANDROID_KEYSTORE}}" | base64 --decode > android/keystore/tonggarden.jks
 
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - Dev
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/dev/google-services.json
+
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - QA
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/qa/google-services.json
+
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - Prod
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/prod/google-services.json
+
       - name: Setup Flutter Translation Sheet Credentials
         run: |
           echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json 

@@ -242,7 +242,7 @@ class AppRouter {
             _profileRoute(),
             _deviceSettingRoute(),
             _privacyPolicyRoute(),
-            _pushNotificationRoute(),
+            _scheduleNotificationRoute(),
           ],
         ),
       ],
@@ -309,14 +309,27 @@ class AppRouter {
     );
   }
 
-  RouteBase _pushNotificationRoute() {
+  RouteBase _scheduleNotificationRoute() {
     return GoRoute(
-      path: '/$pushNotificationRoute',
-      name: pushNotificationRoute,
+      path: '/$scheduleNotificationRoute',
+      name: scheduleNotificationRoute,
       pageBuilder: (context, state) => NoTransitionPage(
         key: state.pageKey,
         name: state.name,
-        child: const PushNotificationScreen(),
+        child: const ScheduleNotificationScreen(),
+      ),
+      routes: [_notificationScheduleRoute()],
+    );
+  }
+
+  RouteBase _notificationScheduleRoute() {
+    return GoRoute(
+      path: '/$notificationScheduleRoute',
+      name: notificationScheduleRoute,
+      pageBuilder: (context, state) => NoTransitionPage(
+        key: state.pageKey,
+        name: state.name,
+        child: const NotificationScheduleScreen(),
       ),
     );
   }

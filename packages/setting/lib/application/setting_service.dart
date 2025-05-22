@@ -1,4 +1,5 @@
 import 'package:common/exception/failure.dart';
+import 'package:core/data/local/db/app_database.dart';
 import 'package:setting/application/isetting_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:setting/data/repository/isetting_repository.dart';
@@ -177,6 +178,91 @@ final class SettingService implements ISettingService {
       final result = await _settingRepository.getScheduleTime();
 
       return Success(result);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> removeAllNotificationSchedule() async {
+    try {
+      await _settingRepository.removeAllNotificationSchedule();
+
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> removeNotificationSchedule(int id) async {
+    try {
+      await _settingRepository.removeNotificationSchedule(id);
+
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> upsertNotificationSchedule(
+    NotificationScheduleEntityCompanion schedule,
+  ) async {
+    try {
+      await _settingRepository.upsertNotificationSchedule(schedule);
+
+      return const Success(true);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e, s) {
+      return Error(
+        Failure(
+          message: e.toString(),
+          exception: e as Exception,
+          stackTrace: s,
+        ),
+      );
+    }
+  }
+
+  @override
+  Stream<List<NotificationScheduleEntityData>> watchAllNotificationSchedule() {
+    return _settingRepository.watchAllNotificationSchedule();
+  }
+
+  @override
+  Future<Result<bool, Failure>> updateNotificationScheduleStatus(
+    int id,
+    bool isActive,
+  ) async {
+    try {
+      await _settingRepository.updateNotificationScheduleStatus(id, isActive);
+      return const Success(true);
     } on Failure catch (e) {
       return Error(e);
     } catch (e, s) {

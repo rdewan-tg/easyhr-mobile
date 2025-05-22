@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:common/logger/logger_provider.dart';
+import 'package:core/core.dart';
 import 'package:core/notification/local/model/local_notification_message.dart';
 import 'package:core/route/app_router.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logging/logging.dart';
 import 'package:go_router/go_router.dart';
-import 'package:core/core.dart';
+import 'package:logging/logging.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 final localPushNotificationProvider = Provider<LocalPushNotification>((ref) {
@@ -160,6 +160,120 @@ class LocalPushNotification {
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       );
     }
+  }
+
+  /// Schedule a weekly notification on a specific day of the week and time
+  ///
+  /// Parameters:
+  /// - [id]: Unique identifier for the notification
+  /// - [title]: Title of the notification
+  /// - [body]: Content of the notification
+  /// - [dayOfWeek]: Day of the week (1-7, where 1 is Monday, 7 is Sunday)
+  /// - [hour]: Hour of the day (0-23)
+  /// - [minute]: Minute of the hour (0-59)
+  ///
+  /// Returns a Future<bool> indicating whether the notification was scheduled
+  Future<bool> scheduleWeeklyNotification({
+    required int id,
+    required String title,
+    required String body,
+    required int dayOfWeek,
+    required int hour,
+    required int minute,
+  }) async {
+    // Validate inputs
+    if (dayOfWeek < 1 || dayOfWeek > 7) {
+      _logger.warning('Invalid day of week: $dayOfWeek. Must be between 1-7');
+      return false;
+    }
+
+    if (hour < 0 || hour > 23) {
+      _logger.warning('Invalid hour: $hour. Must be between 0-23');
+      return false;
+    }
+
+    if (minute < 0 || minute > 59) {
+      _logger.warning('Invalid minute: $minute. Must be between 0-59');
+      return false;
+    }
+
+    // Check for alarm permissions
+    final androidPlugin =
+        _localNotificationsPlugin.resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>();
+
+    var hasPermission =
+        await androidPlugin?.canScheduleExactNotifications() ?? false;
+    if (!hasPermission) {
+      hasPermission =
+          await androidPlugin?.requestExactAlarmsPermission() ?? false;
+    }
+
+    if (!hasPermission) {
+      _logger.warning('Alarm permission not granted');
+      return false;
+    }
+
+    try {
+      // Cancel any existing notification with this ID
+      await _localNotificationsPlugin.cancel(id);
+
+      // Calculate the next occurrence of the specified day at the specified time using timezone-aware dates
+      final now = tz.TZDateTime.now(tz.local);
+
+      // Convert day of week from 1-7 (where 1 is Monday) to 1-7 (where 1 is Monday, 7 is Sunday)
+      // This matches DateTime's weekday property
+      final targetWeekday = dayOfWeek;
+
+      // Calculate days until the target day
+      int daysUntilTarget = targetWeekday - now.weekday;
+      if (daysUntilTarget <= 0) {
+        daysUntilTarget +=
+            7; // If today is the target day or later, get next week
+      }
+
+      // Create a timezone-aware date time for the next occurrence
+      tz.TZDateTime scheduledDate = tz.TZDateTime(
+        tz.local,
+        now.year,
+        now.month,
+        now.day + daysUntilTarget,
+        hour,
+        minute,
+      );
+
+      // If the scheduled date is in the past, add a week
+      if (scheduledDate.isBefore(now)) {
+        scheduledDate = scheduledDate.add(const Duration(days: 7));
+      }
+
+      // Schedule the notification
+      await _localNotificationsPlugin.zonedSchedule(
+        id,
+        title,
+        body,
+        scheduledDate,
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'easyhr_periodic_notification_channel_id',
+            'EasyHR Periodic Notification',
+            channelDescription:
+                'This channel is used by EasyHR for periodic notifications.',
+          ),
+        ),
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+      );
+
+      return true;
+    } catch (e) {
+      _logger.severe('Error scheduling notification: $e');
+      return false;
+    }
+  }
+
+  void cancelAllLocalNotification() async {
+    await _localNotificationsPlugin.cancelAll();
   }
 
   void cancelLocalNotification({int id = 0}) async {

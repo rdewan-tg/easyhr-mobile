@@ -92,18 +92,20 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
               },
             ),
             ListTile(
-              title: Text(context.localizations('setting.pushNotification')),
+              title: Text(
+                context.localizations('setting.scheduleNotification'),
+              ),
               subtitle: Text(
-                context.localizations('setting.pushNotificationSubTitle'),
+                context.localizations('setting.scheduleNotificationSubTitle'),
               ),
               trailing: IconButton(
                 onPressed: () {
-                  context.go('/setting/push-notification');
+                  context.go('/setting/schedule-notification');
                 },
                 icon: const Icon(Icons.navigate_next),
               ),
               onTap: () {
-                context.go('/setting/push-notification');
+                context.go('/setting/schedule-notification');
               },
             ),
           ],
