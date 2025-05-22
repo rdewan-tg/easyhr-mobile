@@ -4,3 +4,6 @@ const String uuidKey = 'uuid';
 const String attendanceStatusKey = 'attendanceStatus';
 const String firstRunKey = 'firstRun';
 const String consentStatementKey = 'consentStatement';
+const String firebaseDeviceTokenKey = 'firebaseDeviceToken';
+const String scheduleTimeKey = 'scheduleTime';
+const String pushNotificationKey = 'pushNotification';

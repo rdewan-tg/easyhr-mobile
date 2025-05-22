@@ -9,7 +9,7 @@ class BaseLoadingIndicator extends ConsumerWidget {
       children: [
         // Semi-transparent background
         const ModalBarrier(
-          color: Color.fromRGBO(0, 0, 0, 0.8), // 80% transparent black
+          color: Color.fromRGBO(0, 0, 0, 0.5), // 80% transparent black
           dismissible: false,
         ),
         Center(

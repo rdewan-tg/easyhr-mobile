@@ -5,11 +5,13 @@ import 'package:attendance/features/attendance/data/dto/request/add_attendance_w
 import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
 import 'package:attendance/features/zone/application/zone_service.dart';
+import 'package:core/notification/local/local_push_notification.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:attendance/features/map/presentation/state/map_state.dart';
 import 'package:common/common.dart';
 import 'package:common/exception/failure.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 final mapControllerProvider =
     AutoDisposeNotifierProvider<MapController, MapState>(MapController.new);
@@ -235,5 +237,25 @@ class MapController extends AutoDisposeNotifier<MapState> {
     final consentStatement =
         await ref.read(mapServiceProvider).getConsentStatement();
     state = state.copyWith(isConsentStatement: consentStatement);
+  }
+
+  Future<int> getScheduleTime() async {
+    final scheduleTime =
+        await ref.read(attendanceServiceProvider).getScheduleTime();
+    return scheduleTime;
+  }
+
+  Future<void> setSchedulePushNotification(
+    tz.TZDateTime scheduledDate,
+    String title,
+    String body,
+  ) async {
+    final scheduleTime =
+        await ref.read(attendanceServiceProvider).getScheduleTime();
+    if (scheduleTime > 0) {
+      ref
+          .read(localPushNotificationProvider)
+          .scheduleLocalNotification(scheduledDate, title, body);
+    }
   }
 }

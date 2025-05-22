@@ -1,3 +1,4 @@
+import 'package:core/data/local/db/app_database.dart';
 import 'package:setting/data/dto/company_setting_response.dart';
 import 'package:setting/data/dto/device_setting.dart';
 
@@ -27,4 +28,20 @@ abstract interface class ISettingRepository {
   Future<bool> getFirstRun();
 
   Future<void> setFirstRun();
+
+  Future<void> setScheduleTime(String time);
+
+  Future<int> getScheduleTime();
+
+  Future<void> removeNotificationSchedule(int id);
+
+  Future<void> removeAllNotificationSchedule();
+
+  Stream<List<NotificationScheduleEntityData>> watchAllNotificationSchedule();
+
+  Future<void> upsertNotificationSchedule(
+    NotificationScheduleEntityCompanion schedule,
+  );
+
+  Future<void> updateNotificationScheduleStatus(int id, bool isActive);
 }
