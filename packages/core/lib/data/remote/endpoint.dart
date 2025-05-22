@@ -12,3 +12,4 @@ const String getZonesEndPoint = '/v1/zones';
 const String getLastAttendanceStateEndPoint = '/v1/attendance/latest';
 const String getBlogEndPoint = '/v1/blogs';
 const String getBlogEndPointById = '/v1/blogs/{id}';
+const String setMeFirebaseDeviceTokenEndPoint = '/v1/me/firebase-device-token';
