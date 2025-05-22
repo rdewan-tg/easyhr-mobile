@@ -2,9 +2,6 @@ import 'dart:convert';
 
 import 'package:common/logger/logger_provider.dart';
 import 'package:core/core.dart';
-import 'package:core/data/local/secure_storage/isecure_storage.dart';
-import 'package:core/data/local/secure_storage/secure_storage.dart';
-import 'package:core/data/local/secure_storage/secure_storage_const.dart';
 import 'package:core/notification/local/local_push_notification.dart';
 import 'package:core/notification/local/model/local_notification_message.dart';
 import 'package:core/route/app_router.dart';
@@ -19,13 +16,11 @@ final firebasePushNotificationProvider =
   final messaging = ref.watch(firebaseMessagingProvider);
   final localPushNotification = ref.watch(localPushNotificationProvider);
   final logger = ref.watch(loggerProvider('FirebasePushNotification'));
-  final secureStorage = ref.watch(secureStorageProvider);
   final goRouter = ref.watch(goRouterProvider);
 
   return FirebasePushNotification(
     messaging,
     localPushNotification,
-    secureStorage,
     goRouter,
     logger,
   );
@@ -34,21 +29,18 @@ final firebasePushNotificationProvider =
 class FirebasePushNotification {
   final FirebaseMessaging _messaging;
   final LocalPushNotification _localPushNotification;
-  final ISecureStorage _secureStorage;
   final GoRouter _goRouter;
   final Logger _logger;
 
   FirebasePushNotification(
     this._messaging,
     this._localPushNotification,
-    this._secureStorage,
     this._goRouter,
     this._logger,
   ) {
     _init();
     _onFirebaseMessageReceived();
     _setupInteractedMessage();
-    _getFirebaseToken();
   }
 
   void _init() async {
@@ -142,15 +134,12 @@ class FirebasePushNotification {
   }
 
   /// Returns the default FCM token for this device.
-  Future<void> _getFirebaseToken() async {
+  Future<String?> getFirebaseToken() async {
     try {
-      final token = await _messaging.getToken();
-      if (token == null) {
-        return;
-      }
-      await _secureStorage.write(firebaseDeviceTokenKey, token);
+      return await _messaging.getToken();
     } catch (e) {
       _logger.warning('Failed to get Firebase token: $e');
+      return null;
     }
   }
 
@@ -163,6 +152,11 @@ class FirebasePushNotification {
   /// iOS/MacOS devices without using the FCM service.
   Future<String?> getAPNSToken() async {
     return await _messaging.getAPNSToken();
+  }
+
+  Future<bool> getIsPermissionGranted() async {
+    final settings = await getNotificationSettings();
+    return settings.authorizationStatus == AuthorizationStatus.authorized;
   }
 
   /// Returns the current [NotificationSettings].

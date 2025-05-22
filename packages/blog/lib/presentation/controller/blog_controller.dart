@@ -1,4 +1,5 @@
 import 'package:blog/application/blog_service.dart';
+import 'package:core/data/remote/dtos/request/set_me_firebase_token_request.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:blog/presentation/state/blog_state.dart';
 
@@ -42,5 +43,19 @@ class BlogController extends Notifier<BlogState> {
         state = state.copyWith(isLoading: false, error: failure.message);
       },
     );
+  }
+
+  Future<void> setFirebaseDeviceToken(String token) async {
+    // setup the request body
+    final request = SetMeFirebaseTokenRequest(deviceToken: token);
+    // update the state
+    state = state.copyWith(error: null);
+    // call the api
+    final result = await ref
+        .read(blogServiceProvider)
+        .setFirebaseDeviceToken(request);
+    result.when((success) {}, (failure) {
+      state = state.copyWith(error: failure.message);
+    });
   }
 }
