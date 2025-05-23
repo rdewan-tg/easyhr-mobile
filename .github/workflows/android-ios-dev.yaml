@@ -178,8 +178,11 @@ jobs:
         run: |
           cd packages/core
           pwd
+
+          echo "flutter clean"
+          flutter clean
           
-          echo Getting dependencies
+          echo Getting flutter dependencies
           flutter pub get >> /dev/null
 
           echo Running build_runner in packages/core
