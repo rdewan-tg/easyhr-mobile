@@ -13,6 +13,11 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
     final attendanceList = ref.watch(
       attendanceControllerProvider.select((value) => value.attendanceList),
     );
+
+    if (attendanceList.isEmpty) {
+      return const EmptyDataWidget();
+    }
+
     return RefreshIndicator.adaptive(
       onRefresh: _pullToRefresh,
       child: ListView.builder(
