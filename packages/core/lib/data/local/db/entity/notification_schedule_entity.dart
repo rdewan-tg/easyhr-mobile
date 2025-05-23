@@ -3,6 +3,8 @@ import 'package:drift/drift.dart';
 /// Entity to store notification schedule information
 class NotificationScheduleEntity extends Table {
   // Unique identifier for the notification
+  // When using autoIncrement(), Drift automatically sets this as the primary key
+  // so we don't need to override primaryKey
   IntColumn get id => integer().autoIncrement()();
 
   // Title of the notification
@@ -33,8 +35,9 @@ class NotificationScheduleEntity extends Table {
   // When the notification was last updated
   DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
 
-  @override
-  Set<Column<Object>> get primaryKey => {id};
+  // We don't need to override primaryKey when using autoIncrement()
+  // @override
+  // Set<Column<Object>> get primaryKey => {id};
 
   @override
   List<Set<Column<Object>>> get uniqueKeys => [

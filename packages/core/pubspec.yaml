@@ -132,9 +132,12 @@ dev_dependencies:
   # https://pub.dev/packages/drift_dev
   drift_dev: ^2.23.0
   # https://pub.dev/packages/flutter_gen_runner
-  flutter_gen_runner: ^5.9.0 
+  flutter_gen_runner: ^5.9.0
   
 
 flutter:
   uses-material-design: true
+
+dependency_overrides:
+  custom_lint_visitor: 1.0.0+7.3.0
 
