@@ -14,6 +14,10 @@ class _BlogListState extends ConsumerState<BlogList> {
       blogControllerProvider.select((state) => state.blogs),
     );
 
+    if (blogs.isEmpty) {
+      return const EmptyDataWidget();
+    }
+
     return RefreshIndicator.adaptive(
       onRefresh: () async {
         ref.read(blogControllerProvider.notifier).getBlogs();
