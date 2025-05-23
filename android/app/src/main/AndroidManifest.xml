@@ -68,5 +68,7 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+    <!-- Add this meta-data to declare the app as a monitoring tool -->
+    <meta-data android:name="isMonitoringTool" android:value="enterprise_management" />
 
 </manifest>
