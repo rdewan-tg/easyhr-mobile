@@ -158,7 +158,7 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
         with:
-          args: --build-name=2.0.0 --build-number=10 --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
+          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
