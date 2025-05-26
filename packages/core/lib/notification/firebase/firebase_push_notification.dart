@@ -89,7 +89,8 @@ class FirebasePushNotification {
       Map<String, dynamic> data = message.data;
 
       _logger.info(
-          'RemoteMessage Notification: ${notification?.android?.imageUrl}');
+        'RemoteMessage Notification: ${notification?.android?.imageUrl}',
+      );
       _logger
           .info('RemoteMessage Notification: ${notification?.apple?.imageUrl}');
       _logger.info('RemoteMessage Data: $data');
