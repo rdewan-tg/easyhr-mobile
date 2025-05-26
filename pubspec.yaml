@@ -39,7 +39,11 @@ dev_dependencies:
   # https://pub.dev/packages/custom_lint
   custom_lint: ^0.7.0
 
+
 flutter:
   uses-material-design: true
   assets:
     - shorebird.yaml
+
+dependency_overrides:
+  custom_lint_visitor: 1.0.0+7.3.0
