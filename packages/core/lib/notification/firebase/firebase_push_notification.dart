@@ -88,6 +88,12 @@ class FirebasePushNotification {
       AndroidNotification? android = message.notification?.android;
       Map<String, dynamic> data = message.data;
 
+      _logger.info(
+          'RemoteMessage Notification: ${notification?.android?.imageUrl}');
+      _logger
+          .info('RemoteMessage Notification: ${notification?.apple?.imageUrl}');
+      _logger.info('RemoteMessage Data: $data');
+
       if (notification != null && android != null) {
         _localPushNotification.showNotification(
           LocalNotificationMessage(
@@ -112,6 +118,9 @@ class FirebasePushNotification {
     // Get any messages which caused the application to open from
     // a terminated state.
     RemoteMessage? initialMessage = await _messaging.getInitialMessage();
+    _logger
+        .info('initialMessage Notification: ${initialMessage?.notification}');
+    _logger.info('initialMessage Data: ${initialMessage?.data}');
 
     // If the message also contains a data property with a "type" of "chat",
     // navigate to a chat screen
