@@ -90,5 +90,6 @@
     "setting.notificationScheduled": "Pemberitahuan Dijadualkan",
     "setting.notificationScheduleRemovedSuccessfully": "Jadual pemberitahuan berjaya dialih keluar",
     "setting.alarmPermissionRequired": "Kebenaran penggera diperlukan",
-    "setting.alarmPermissionGranted": "Kebenaran penggera telah diberikan"
+    "setting.alarmPermissionGranted": "Kebenaran penggera telah diberikan",
+    "notification.title": "Pemberitahuan"
 }

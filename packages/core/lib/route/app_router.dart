@@ -10,6 +10,8 @@ import 'package:dashboard/dashboard.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:notification/domain/model/notification.dart' as model;
+import 'package:notification/notification.dart';
 //import 'package:home/home.dart';
 import 'package:profile/profile.dart';
 import 'package:setting/setting.dart';
@@ -135,7 +137,12 @@ class AppRouter {
       builder: (context, state, navigationShell) {
         return DashboardScreen(navigationShell: navigationShell);
       },
-      branches: [_homeBranch(), _attendanceBranch(), _settingBranch()],
+      branches: [
+        _homeBranch(),
+        _attendanceBranch(),
+        _notificationBranch(),
+        _settingBranch(),
+      ],
     );
   }
 
@@ -206,6 +213,25 @@ class AppRouter {
           child: BlogDetailScreen(blogId: int.parse(blogId)),
         );
       },
+    );
+  }
+
+  StatefulShellBranch _notificationBranch() {
+    return StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/$notificationRoute',
+          name: notificationRoute,
+          pageBuilder: (context, state) {
+            return NoTransitionPage(
+              key: state.pageKey,
+              name: state.name,
+              child: const NotificationScreen(),
+            );
+          },
+          routes: [_notificationDetailRoute()],
+        ),
+      ],
     );
   }
 
@@ -330,6 +356,20 @@ class AppRouter {
         key: state.pageKey,
         name: state.name,
         child: const NotificationScheduleScreen(),
+      ),
+    );
+  }
+
+  RouteBase _notificationDetailRoute() {
+    return GoRoute(
+      path: '/$notificationDetailRoute',
+      name: notificationDetailRoute,
+      pageBuilder: (context, state) => NoTransitionPage(
+        key: state.pageKey,
+        name: state.name,
+        child: NotificationDetailScreen(
+          notification: state.extra as model.Notification,
+        ),
       ),
     );
   }

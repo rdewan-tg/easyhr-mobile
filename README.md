@@ -240,6 +240,9 @@ flutter create --template=package your-package-name
 *   ```bash
     keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
     ```
+*   ```bash
+    keytool -list -v -alias tonggarden -keystore ../keystore/tonggarden.jks
+    ```
 
 ### Error
 *   `Error: CocoaPods not installed or not in valid state.`

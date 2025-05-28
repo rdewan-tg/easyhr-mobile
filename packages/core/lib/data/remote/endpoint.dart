@@ -13,3 +13,6 @@ const String getLastAttendanceStateEndPoint = '/v1/attendance/latest';
 const String getBlogEndPoint = '/v1/blogs';
 const String getBlogEndPointById = '/v1/blogs/{id}';
 const String setMeFirebaseDeviceTokenEndPoint = '/v1/me/firebase-device-token';
+const String getNotificationEndPoint = '/v1/notifications';
+const String getNotificationEndPointById = '/v1/notifications/{id}';
+const String markNotificationAsReadEndPoint = '/v1/notifications/{id}/read';
