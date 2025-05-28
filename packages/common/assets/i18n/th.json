@@ -90,5 +90,6 @@
     "setting.notificationScheduled": "การแจ้งเตือนกำหนดการ",
     "setting.notificationScheduleRemovedSuccessfully": "ลบตารางการแจ้งเตือนเรียบร้อยแล้ว",
     "setting.alarmPermissionRequired": "ต้องได้รับอนุญาติแจ้งเตือน",
-    "setting.alarmPermissionGranted": "ได้รับอนุญาติแจ้งเตือนแล้ว"
+    "setting.alarmPermissionGranted": "ได้รับอนุญาติแจ้งเตือนแล้ว",
+    "notification.title": "การแจ้งเตือน"
 }

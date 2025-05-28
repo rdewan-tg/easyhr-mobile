@@ -18,7 +18,8 @@ profile:
   $ref: profile.yaml
 blog:
   $ref: blog.yaml
-
+notification:
+  $ref: notification.yaml
 common:
   $ref: common.yaml
 

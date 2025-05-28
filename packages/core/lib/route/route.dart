@@ -16,3 +16,5 @@ const String blogDetailRoute = 'blog-detail';
 const String pushNotificationRoute = 'push-notification';
 const String scheduleNotificationRoute = 'schedule-notification';
 const String notificationScheduleRoute = 'notification-schedule';
+const String notificationRoute = 'notification';
+const String notificationDetailRoute = 'notification-detail';
