@@ -1102,6 +1102,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
+  notification:
+    dependency: transitive
+    description:
+      path: "packages/notification"
+      relative: true
+    source: path
+    version: "0.0.1"
   open_file:
     dependency: transitive
     description:

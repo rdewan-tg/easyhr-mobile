@@ -90,5 +90,6 @@
     "setting.notificationScheduled": "已安排通知",
     "setting.notificationScheduleRemovedSuccessfully": "已成功删除通知计划",
     "setting.alarmPermissionRequired": "需要警报权限",
-    "setting.alarmPermissionGranted": "已授予报警权限"
+    "setting.alarmPermissionGranted": "已授予报警权限",
+    "notification.title": "通知"
 }
