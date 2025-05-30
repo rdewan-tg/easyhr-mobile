@@ -3,8 +3,8 @@ name: Flutter - Android Build Prod
 
 on:
   # Build release after merge
-  push:
-    branches:
+  #push:
+    #branches:
       #- main
 
 env:
