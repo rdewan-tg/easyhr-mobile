@@ -3,9 +3,9 @@ name: Flutter - Android Build Prod
 
 on:
   # Build release after merge
-  push:
-    branches:
-      - main
+  #push:
+    #branches:
+      #- main
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}

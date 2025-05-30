@@ -60,13 +60,11 @@ class _$LogoutResponseCopyWithImpl<$Res, $Val extends LogoutResponse>
   $Res call({Object? status = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -99,11 +97,10 @@ class __$$LogoutResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null}) {
     return _then(
       _$LogoutResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }

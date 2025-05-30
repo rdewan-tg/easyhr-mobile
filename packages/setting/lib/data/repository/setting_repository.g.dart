@@ -13,10 +13,9 @@ String _$settingRepositoryHash() => r'3fc20e00ad517be98d4bc2cd4662c1dd7ec2c513';
 final settingRepositoryProvider = Provider<ISettingRepository>.internal(
   settingRepository,
   name: r'settingRepositoryProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$settingRepositoryHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$settingRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

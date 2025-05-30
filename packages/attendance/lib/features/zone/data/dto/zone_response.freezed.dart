@@ -66,18 +66,15 @@ class _$ZoneReponseCopyWithImpl<$Res, $Val extends ZoneReponse>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as List<ZoneData>,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as List<ZoneData>,
+      ) as $Val,
     );
   }
 }
@@ -113,16 +110,14 @@ class __$$ZoneReponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$ZoneReponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value._data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as List<ZoneData>,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                as List<ZoneData>,
       ),
     );
   }
@@ -168,10 +163,10 @@ class _$ZoneReponseImpl implements _ZoneReponse {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    status,
-    const DeepCollectionEquality().hash(_data),
-  );
+        runtimeType,
+        status,
+        const DeepCollectionEquality().hash(_data),
+      );
 
   /// Create a copy of ZoneReponse
   /// with the given fields replaced by the non-null parameter values.
@@ -295,58 +290,47 @@ class _$ZoneDataCopyWithImpl<$Res, $Val extends ZoneData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                freezed == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            latitude:
-                null == latitude
-                    ? _value.latitude
-                    : latitude // ignore: cast_nullable_to_non_nullable
-                        as double,
-            longitude:
-                null == longitude
-                    ? _value.longitude
-                    : longitude // ignore: cast_nullable_to_non_nullable
-                        as double,
-            isActive:
-                null == isActive
-                    ? _value.isActive
-                    : isActive // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            version:
-                null == version
-                    ? _value.version
-                    : version // ignore: cast_nullable_to_non_nullable
-                        as int,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            createdAt:
-                null == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            updatedAt:
-                null == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-          )
-          as $Val,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String?,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        isActive: null == isActive
+            ? _value.isActive
+            : isActive // ignore: cast_nullable_to_non_nullable
+                as bool,
+        version: null == version
+            ? _value.version
+            : version // ignore: cast_nullable_to_non_nullable
+                as int,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                as DateTime,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                as DateTime,
+      ) as $Val,
     );
   }
 }
@@ -401,56 +385,46 @@ class __$$ZoneDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ZoneDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        latitude:
-            null == latitude
-                ? _value.latitude
-                : latitude // ignore: cast_nullable_to_non_nullable
-                    as double,
-        longitude:
-            null == longitude
-                ? _value.longitude
-                : longitude // ignore: cast_nullable_to_non_nullable
-                    as double,
-        isActive:
-            null == isActive
-                ? _value.isActive
-                : isActive // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        version:
-            null == version
-                ? _value.version
-                : version // ignore: cast_nullable_to_non_nullable
-                    as int,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        createdAt:
-            null == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        updatedAt:
-            null == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                as String?,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        isActive: null == isActive
+            ? _value.isActive
+            : isActive // ignore: cast_nullable_to_non_nullable
+                as bool,
+        version: null == version
+            ? _value.version
+            : version // ignore: cast_nullable_to_non_nullable
+                as int,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                as DateTime,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                as DateTime,
       ),
     );
   }
@@ -540,18 +514,18 @@ class _$ZoneDataImpl implements _ZoneData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    description,
-    latitude,
-    longitude,
-    isActive,
-    version,
-    companyId,
-    createdAt,
-    updatedAt,
-  );
+        runtimeType,
+        id,
+        name,
+        description,
+        latitude,
+        longitude,
+        isActive,
+        version,
+        companyId,
+        createdAt,
+        updatedAt,
+      );
 
   /// Create a copy of ZoneData
   /// with the given fields replaced by the non-null parameter values.

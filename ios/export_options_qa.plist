@@ -6,15 +6,15 @@
     <string>release-testing</string>
 
     <key>teamID</key>
-    <string>FCUZNYGQMQ</string>
+    <string>8QW9GJRQT2</string>
 
     <key>signingStyle</key>
     <string>manual</string>
 
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.tonggarden.easysales.qa</key>
-        <string>EasySales-QA-Provisioning-Profile</string>
+        <key>com.tonggarden.easyhr.qa</key>
+        <string>EasyHR-QA-ProvisioningProfile</string>
     </dict>
 </dict>
 </plist>

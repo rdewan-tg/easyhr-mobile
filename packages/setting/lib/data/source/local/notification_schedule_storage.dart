@@ -5,12 +5,12 @@ import 'package:setting/data/source/local/inotification_schedule_storage.dart';
 
 final notificationScheduleStorageProvider =
     Provider<INotificationScheduleStorage>((ref) {
-      final notificationScheduleDao = ref.watch(
-        notificationScheduleDaoProvider,
-      );
+  final notificationScheduleDao = ref.watch(
+    notificationScheduleDaoProvider,
+  );
 
-      return NotificationScheduleStorage(notificationScheduleDao);
-    });
+  return NotificationScheduleStorage(notificationScheduleDao);
+});
 
 final class NotificationScheduleStorage
     implements INotificationScheduleStorage {

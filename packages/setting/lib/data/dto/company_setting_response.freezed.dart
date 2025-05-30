@@ -54,10 +54,8 @@ abstract class $CompanySettingResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CompanySettingResponseCopyWithImpl<
-  $Res,
-  $Val extends CompanySettingResponse
->
+class _$CompanySettingResponseCopyWithImpl<$Res,
+        $Val extends CompanySettingResponse>
     implements $CompanySettingResponseCopyWith<$Res> {
   _$CompanySettingResponseCopyWithImpl(this._value, this._then);
 
@@ -73,18 +71,15 @@ class _$CompanySettingResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as CompanySettingData,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as CompanySettingData,
+      ) as $Val,
     );
   }
 
@@ -119,8 +114,8 @@ abstract class _$$CompanySettingResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CompanySettingResponseImplCopyWithImpl<$Res>
-    extends
-        _$CompanySettingResponseCopyWithImpl<$Res, _$CompanySettingResponseImpl>
+    extends _$CompanySettingResponseCopyWithImpl<$Res,
+        _$CompanySettingResponseImpl>
     implements _$$CompanySettingResponseImplCopyWith<$Res> {
   __$$CompanySettingResponseImplCopyWithImpl(
     _$CompanySettingResponseImpl _value,
@@ -134,16 +129,14 @@ class __$$CompanySettingResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$CompanySettingResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as CompanySettingData,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as CompanySettingData,
       ),
     );
   }
@@ -191,11 +184,11 @@ class _$CompanySettingResponseImpl implements _CompanySettingResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$CompanySettingResponseImplCopyWith<_$CompanySettingResponseImpl>
-  get copyWith =>
-      __$$CompanySettingResponseImplCopyWithImpl<_$CompanySettingResponseImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$CompanySettingResponseImplCopyWithImpl<
+              _$CompanySettingResponseImpl>(
+            this,
+            _$identity,
+          );
 
   @override
   Map<String, dynamic> toJson() {
@@ -224,7 +217,7 @@ abstract class _CompanySettingResponse implements CompanySettingResponse {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanySettingResponseImplCopyWith<_$CompanySettingResponseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 CompanySettingData _$CompanySettingDataFromJson(Map<String, dynamic> json) {
@@ -305,48 +298,39 @@ class _$CompanySettingDataCopyWithImpl<$Res, $Val extends CompanySettingData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            timeZone:
-                null == timeZone
-                    ? _value.timeZone
-                    : timeZone // ignore: cast_nullable_to_non_nullable
-                        as String,
-            gpsRadius:
-                null == gpsRadius
-                    ? _value.gpsRadius
-                    : gpsRadius // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isLocationData:
-                null == isLocationData
-                    ? _value.isLocationData
-                    : isLocationData // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isZoneEnabled:
-                null == isZoneEnabled
-                    ? _value.isZoneEnabled
-                    : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            currencyCode:
-                null == currencyCode
-                    ? _value.currencyCode
-                    : currencyCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isCameraEnabled:
-                null == isCameraEnabled
-                    ? _value.isCameraEnabled
-                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-          )
-          as $Val,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        timeZone: null == timeZone
+            ? _value.timeZone
+            : timeZone // ignore: cast_nullable_to_non_nullable
+                as String,
+        gpsRadius: null == gpsRadius
+            ? _value.gpsRadius
+            : gpsRadius // ignore: cast_nullable_to_non_nullable
+                as int,
+        isLocationData: null == isLocationData
+            ? _value.isLocationData
+            : isLocationData // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isZoneEnabled: null == isZoneEnabled
+            ? _value.isZoneEnabled
+            : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                as bool,
+        currencyCode: null == currencyCode
+            ? _value.currencyCode
+            : currencyCode // ignore: cast_nullable_to_non_nullable
+                as String,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        isCameraEnabled: null == isCameraEnabled
+            ? _value.isCameraEnabled
+            : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ) as $Val,
     );
   }
 }
@@ -397,46 +381,38 @@ class __$$CompanySettingDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CompanySettingDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        timeZone:
-            null == timeZone
-                ? _value.timeZone
-                : timeZone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        gpsRadius:
-            null == gpsRadius
-                ? _value.gpsRadius
-                : gpsRadius // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isLocationData:
-            null == isLocationData
-                ? _value.isLocationData
-                : isLocationData // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isZoneEnabled:
-            null == isZoneEnabled
-                ? _value.isZoneEnabled
-                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        currencyCode:
-            null == currencyCode
-                ? _value.currencyCode
-                : currencyCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isCameraEnabled:
-            null == isCameraEnabled
-                ? _value.isCameraEnabled
-                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        timeZone: null == timeZone
+            ? _value.timeZone
+            : timeZone // ignore: cast_nullable_to_non_nullable
+                as String,
+        gpsRadius: null == gpsRadius
+            ? _value.gpsRadius
+            : gpsRadius // ignore: cast_nullable_to_non_nullable
+                as int,
+        isLocationData: null == isLocationData
+            ? _value.isLocationData
+            : isLocationData // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isZoneEnabled: null == isZoneEnabled
+            ? _value.isZoneEnabled
+            : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                as bool,
+        currencyCode: null == currencyCode
+            ? _value.currencyCode
+            : currencyCode // ignore: cast_nullable_to_non_nullable
+                as String,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        isCameraEnabled: null == isCameraEnabled
+            ? _value.isCameraEnabled
+            : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                as bool,
       ),
     );
   }
@@ -514,16 +490,16 @@ class _$CompanySettingDataImpl implements _CompanySettingData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    timeZone,
-    gpsRadius,
-    isLocationData,
-    isZoneEnabled,
-    currencyCode,
-    companyId,
-    isCameraEnabled,
-  );
+        runtimeType,
+        id,
+        timeZone,
+        gpsRadius,
+        isLocationData,
+        isZoneEnabled,
+        currencyCode,
+        companyId,
+        isCameraEnabled,
+      );
 
   /// Create a copy of CompanySettingData
   /// with the given fields replaced by the non-null parameter values.

@@ -10,55 +10,54 @@ mixin ErrorDialogMixin {
   }) {
     return showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog.adaptive(
-            clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(kSmall),
-            ),
-            content: Container(
-              padding: const EdgeInsets.only(
-                top: kXLarge,
-                bottom: kMedium,
-                left: kMedium,
-                right: kMedium,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+      builder: (context) => AlertDialog.adaptive(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kSmall),
+        ),
+        content: Container(
+          padding: const EdgeInsets.only(
+            top: kXLarge,
+            bottom: kMedium,
+            left: kMedium,
+            right: kMedium,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.error_outline,
-                        color: context.themeColor.colorScheme.error,
-                      ),
-                      const SizedBox(width: kSmall),
-                      Text(title, style: context.textTheme.headlineMedium),
-                    ],
+                  Icon(
+                    Icons.error_outline,
+                    color: context.themeColor.colorScheme.error,
                   ),
-                  const SizedBox(height: kMedium),
-                  Text(
-                    msg,
-                    style: context.textTheme.bodySmall,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: kLarge),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton.icon(
-                        onPressed: onOkTap,
-                        icon: const Icon(Icons.close),
-                        label: Text(context.localizations('ok')),
-                      ),
-                    ],
+                  const SizedBox(width: kSmall),
+                  Text(title, style: context.textTheme.headlineMedium),
+                ],
+              ),
+              const SizedBox(height: kMedium),
+              Text(
+                msg,
+                style: context.textTheme.bodySmall,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: kLarge),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton.icon(
+                    onPressed: onOkTap,
+                    icon: const Icon(Icons.close),
+                    label: Text(context.localizations('ok')),
                   ),
                 ],
               ),
-            ),
+            ],
           ),
+        ),
+      ),
     );
   }
 }

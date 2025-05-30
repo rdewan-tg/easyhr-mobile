@@ -59,23 +59,19 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
   }) {
     return _then(
       _value.copyWith(
-            notifications:
-                null == notifications
-                    ? _value.notifications
-                    : notifications // ignore: cast_nullable_to_non_nullable
-                        as List<Notification>,
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        notifications: null == notifications
+            ? _value.notifications
+            : notifications // ignore: cast_nullable_to_non_nullable
+                as List<Notification>,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -112,21 +108,18 @@ class __$$NotificationStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$NotificationStateImpl(
-        notifications:
-            null == notifications
-                ? _value._notifications
-                : notifications // ignore: cast_nullable_to_non_nullable
-                    as List<Notification>,
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        notifications: null == notifications
+            ? _value._notifications
+            : notifications // ignore: cast_nullable_to_non_nullable
+                as List<Notification>,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }
@@ -177,11 +170,11 @@ class _$NotificationStateImpl implements _NotificationState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_notifications),
-    isLoading,
-    error,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_notifications),
+        isLoading,
+        error,
+      );
 
   /// Create a copy of NotificationState
   /// with the given fields replaced by the non-null parameter values.

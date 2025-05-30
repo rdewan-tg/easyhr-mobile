@@ -35,7 +35,7 @@ mixin _$LastAttendanceStateResponse {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $LastAttendanceStateResponseCopyWith<LastAttendanceStateResponse>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -43,11 +43,8 @@ abstract class $LastAttendanceStateResponseCopyWith<$Res> {
   factory $LastAttendanceStateResponseCopyWith(
     LastAttendanceStateResponse value,
     $Res Function(LastAttendanceStateResponse) then,
-  ) =
-      _$LastAttendanceStateResponseCopyWithImpl<
-        $Res,
-        LastAttendanceStateResponse
-      >;
+  ) = _$LastAttendanceStateResponseCopyWithImpl<$Res,
+      LastAttendanceStateResponse>;
   @useResult
   $Res call({
     @JsonKey(name: "status") String status,
@@ -58,10 +55,8 @@ abstract class $LastAttendanceStateResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LastAttendanceStateResponseCopyWithImpl<
-  $Res,
-  $Val extends LastAttendanceStateResponse
->
+class _$LastAttendanceStateResponseCopyWithImpl<$Res,
+        $Val extends LastAttendanceStateResponse>
     implements $LastAttendanceStateResponseCopyWith<$Res> {
   _$LastAttendanceStateResponseCopyWithImpl(this._value, this._then);
 
@@ -77,18 +72,15 @@ class _$LastAttendanceStateResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                freezed == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as LastAttendanceStateData?,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as LastAttendanceStateData?,
+      ) as $Val,
     );
   }
 
@@ -127,11 +119,8 @@ abstract class _$$LastAttendanceStateResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$LastAttendanceStateResponseImplCopyWithImpl<$Res>
-    extends
-        _$LastAttendanceStateResponseCopyWithImpl<
-          $Res,
-          _$LastAttendanceStateResponseImpl
-        >
+    extends _$LastAttendanceStateResponseCopyWithImpl<$Res,
+        _$LastAttendanceStateResponseImpl>
     implements _$$LastAttendanceStateResponseImplCopyWith<$Res> {
   __$$LastAttendanceStateResponseImplCopyWithImpl(
     _$LastAttendanceStateResponseImpl _value,
@@ -145,16 +134,14 @@ class __$$LastAttendanceStateResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _$LastAttendanceStateResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            freezed == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as LastAttendanceStateData?,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as LastAttendanceStateData?,
       ),
     );
   }
@@ -171,7 +158,8 @@ class _$LastAttendanceStateResponseImpl
 
   factory _$LastAttendanceStateResponseImpl.fromJson(
     Map<String, dynamic> json,
-  ) => _$$LastAttendanceStateResponseImplFromJson(json);
+  ) =>
+      _$$LastAttendanceStateResponseImplFromJson(json);
 
   @override
   @JsonKey(name: "status")
@@ -204,9 +192,8 @@ class _$LastAttendanceStateResponseImpl
   @override
   @pragma('vm:prefer-inline')
   _$$LastAttendanceStateResponseImplCopyWith<_$LastAttendanceStateResponseImpl>
-  get copyWith => __$$LastAttendanceStateResponseImplCopyWithImpl<
-    _$LastAttendanceStateResponseImpl
-  >(this, _$identity);
+      get copyWith => __$$LastAttendanceStateResponseImplCopyWithImpl<
+          _$LastAttendanceStateResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -236,7 +223,7 @@ abstract class _LastAttendanceStateResponse
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LastAttendanceStateResponseImplCopyWith<_$LastAttendanceStateResponseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 LastAttendanceStateData _$LastAttendanceStateDataFromJson(
@@ -271,10 +258,8 @@ abstract class $LastAttendanceStateDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LastAttendanceStateDataCopyWithImpl<
-  $Res,
-  $Val extends LastAttendanceStateData
->
+class _$LastAttendanceStateDataCopyWithImpl<$Res,
+        $Val extends LastAttendanceStateData>
     implements $LastAttendanceStateDataCopyWith<$Res> {
   _$LastAttendanceStateDataCopyWithImpl(this._value, this._then);
 
@@ -290,13 +275,11 @@ class _$LastAttendanceStateDataCopyWithImpl<
   $Res call({Object? status = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AttendanceStatus,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
+      ) as $Val,
     );
   }
 }
@@ -315,11 +298,8 @@ abstract class _$$LastAttendanceStateDataImplCopyWith<$Res>
 
 /// @nodoc
 class __$$LastAttendanceStateDataImplCopyWithImpl<$Res>
-    extends
-        _$LastAttendanceStateDataCopyWithImpl<
-          $Res,
-          _$LastAttendanceStateDataImpl
-        >
+    extends _$LastAttendanceStateDataCopyWithImpl<$Res,
+        _$LastAttendanceStateDataImpl>
     implements _$$LastAttendanceStateDataImplCopyWith<$Res> {
   __$$LastAttendanceStateDataImplCopyWithImpl(
     _$LastAttendanceStateDataImpl _value,
@@ -333,11 +313,10 @@ class __$$LastAttendanceStateDataImplCopyWithImpl<$Res>
   $Res call({Object? status = null}) {
     return _then(
       _$LastAttendanceStateDataImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AttendanceStatus,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
       ),
     );
   }
@@ -380,9 +359,8 @@ class _$LastAttendanceStateDataImpl implements _LastAttendanceStateData {
   @override
   @pragma('vm:prefer-inline')
   _$$LastAttendanceStateDataImplCopyWith<_$LastAttendanceStateDataImpl>
-  get copyWith => __$$LastAttendanceStateDataImplCopyWithImpl<
-    _$LastAttendanceStateDataImpl
-  >(this, _$identity);
+      get copyWith => __$$LastAttendanceStateDataImplCopyWithImpl<
+          _$LastAttendanceStateDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -407,5 +385,5 @@ abstract class _LastAttendanceStateData implements LastAttendanceStateData {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LastAttendanceStateDataImplCopyWith<_$LastAttendanceStateDataImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }

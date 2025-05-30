@@ -65,21 +65,19 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                             vertical: kXSmall,
                           ),
                           decoration: BoxDecoration(
-                            color:
-                                data.status == "IN"
-                                    ? context.themeColor.colorScheme.tertiary
-                                        .withValues(alpha: 0.1)
-                                    : context.themeColor.colorScheme.error
-                                        .withValues(alpha: 0.1),
+                            color: data.status == "IN"
+                                ? context.themeColor.colorScheme.tertiary
+                                    .withValues(alpha: 0.1)
+                                : context.themeColor.colorScheme.error
+                                    .withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             data.status,
                             style: context.textTheme.labelSmall?.copyWith(
-                              color:
-                                  data.status == "IN"
-                                      ? context.themeColor.colorScheme.tertiary
-                                      : context.themeColor.colorScheme.error,
+                              color: data.status == "IN"
+                                  ? context.themeColor.colorScheme.tertiary
+                                  : context.themeColor.colorScheme.error,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -95,11 +93,10 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                             label: context.localizations("attendance.location"),
                             value: data.address,
                             color: context.themeColor.colorScheme.primary,
-                            onTap:
-                                () => _launchGoogleMaps(
-                                  data.latitude,
-                                  data.longitude,
-                                ),
+                            onTap: () => _launchGoogleMaps(
+                              data.latitude,
+                              data.longitude,
+                            ),
                           ),
                         ),
                         const SizedBox(width: kMedium),

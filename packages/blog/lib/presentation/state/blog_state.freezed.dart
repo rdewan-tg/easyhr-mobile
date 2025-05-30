@@ -66,28 +66,23 @@ class _$BlogStateCopyWithImpl<$Res, $Val extends BlogState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            blogs:
-                null == blogs
-                    ? _value.blogs
-                    : blogs // ignore: cast_nullable_to_non_nullable
-                        as List<BlogModel>,
-            blog:
-                freezed == blog
-                    ? _value.blog
-                    : blog // ignore: cast_nullable_to_non_nullable
-                        as BlogModel?,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        blogs: null == blogs
+            ? _value.blogs
+            : blogs // ignore: cast_nullable_to_non_nullable
+                as List<BlogModel>,
+        blog: freezed == blog
+            ? _value.blog
+            : blog // ignore: cast_nullable_to_non_nullable
+                as BlogModel?,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 
@@ -147,26 +142,22 @@ class __$$BlogStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$BlogStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        blogs:
-            null == blogs
-                ? _value._blogs
-                : blogs // ignore: cast_nullable_to_non_nullable
-                    as List<BlogModel>,
-        blog:
-            freezed == blog
-                ? _value.blog
-                : blog // ignore: cast_nullable_to_non_nullable
-                    as BlogModel?,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        blogs: null == blogs
+            ? _value._blogs
+            : blogs // ignore: cast_nullable_to_non_nullable
+                as List<BlogModel>,
+        blog: freezed == blog
+            ? _value.blog
+            : blog // ignore: cast_nullable_to_non_nullable
+                as BlogModel?,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }
@@ -218,12 +209,12 @@ class _$BlogStateImpl implements _BlogState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_blogs),
-    blog,
-    error,
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_blogs),
+        blog,
+        error,
+      );
 
   /// Create a copy of BlogState
   /// with the given fields replaced by the non-null parameter values.

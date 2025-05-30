@@ -1,19 +1,18 @@
-name: Flutter - Android-iOS Build Dev
+
+name: Android Build - QA
 
 on:
-  push:
-    branches:
-      - dev
+  # Validate PR builds
   pull_request:
     branches:
-      - dev
+      - qa
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
   ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
   ANDROID_KEY_PROPERTIES: ${{ secrets.ANDROID_KEY_PROPERTIES }}
   ANDROID_LOCAL_PROPERTIES: ${{ secrets.ANDROID_LOCAL_PROPERTIES }}
-  APPLE_DEVELOPMENT_CERTIFICATE_BASE64: ${{ secrets.APPLE_DEVELOPMENT_CERTIFICATE_BASE64 }}
+  APPLE_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
   APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
   FLUTTER_TRANSLATION_SHEET_CREDENTIALS: ${{ secrets.FLUTTER_TRANSLATION_SHEET_CREDENTIALS }}
   ENV_DEV: ${{ secrets.ENV_DEV }}
@@ -22,12 +21,19 @@ env:
 
 jobs:
   build:
-    runs-on:  macos-latest
-    environment: DEV
+    runs-on: ubuntu-latest
+    environment: QA
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: gradle
+      
       # Use the setup-shorebird action to configure Shorebird
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
@@ -38,46 +44,21 @@ jobs:
       - name: 🚀 Use Shorebird
         run: shorebird --version
 
-      # Android specific setup
-      # Setup JDK
-      - name: Setup JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-          cache: gradle
-      
       # Set Build Number
       # echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV: This makes BUILD_NUMBER available as an environment variable for later steps.
       - name: Set Build Number
         run: |
           BUILD_NUMBER=${{ github.run_number }}
           echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV     
-      
-      # Cache Gradle
-      - name: Cache Gradle
-        uses: actions/cache@v4
-        id: gradle-cache
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: |
-            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
 
-      # Setup key.properties file
       - name: Setup key.properties file
         run: |
           echo "${{env.ANDROID_KEY_PROPERTIES}}" | base64 --decode > android/key.properties
 
-      # Setup local.properties file
       - name: Setup local.properties file
         run: |
           echo "${{env.ANDROID_LOCAL_PROPERTIES}}" | base64 --decode > android/local.properties
 
-      # Setup keystore
       - name: Setup keystore file
         run: |
           echo "${{env.ANDROID_KEYSTORE}}" | base64 --decode > android/keystore/tonggarden.jks
@@ -112,30 +93,19 @@ jobs:
         run: |
           echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Prod/GoogleService-Info.plist
 
-      # Setup Flutter Translation Sheet Credentials
       - name: Setup Flutter Translation Sheet Credentials
         run: |
           echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json 
-
-      # Setup .env files    
+          
       - name: Setup .env file
         run: |
           echo "${{env.ENV_DEV}}" | base64 --decode > packages/core/.dev.env
           echo "${{env.ENV_QA}}" | base64 --decode > packages/core/.qa.env
           echo "${{env.ENV_PROD}}" | base64 --decode > packages/core/.prod.env
 
-      # Setup FVM
       - name: Setup FVM
         uses: kuhnroyal/flutter-fvm-config-action/config@v3
         id: fvm-config-action
-
-      # Cache Pub dependencies
-      - name: Cache Pub dependencies
-        uses: actions/cache@v4
-        id: pub-cache
-        with:
-          path: ~/.pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -143,12 +113,6 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
-     
-      # Install Flutter dependencies only if cache was not restored
-      - name: Install Flutter Dependencies
-        run: |
-          flutter pub get >> /dev/null
-      
       # Cache CocoaPods
       - name: Cache CocoaPods
         uses: actions/cache@v4
@@ -171,32 +135,28 @@ jobs:
       - name: Install iOS Certificates and Provisioning Profile
         uses: apple-actions/import-codesign-certs@v1
         with:
-          p12-file-base64: ${{ env.APPLE_DEVELOPMENT_CERTIFICATE_BASE64 }}
+          p12-file-base64: ${{ env.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
           p12-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
 
       # setup iOS provisioning profile
       - name: Install Provisioning Profile
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
+          echo "${{ secrets.APPLE_PROVISION_QA_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-QA-ProvisioningProfile.mobileprovision
 
-      # setup flutter translation sheet
+
       - name: Setup Flutter Translation Sheet
         run: |
           cd packages/common
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
-      # setup build runner
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
-
-          echo "flutter clean"
-          flutter clean
           
-          echo Getting flutter dependencies
+          echo Getting dependencies
           flutter pub get >> /dev/null
 
           echo Running build_runner in packages/core
@@ -206,27 +166,30 @@ jobs:
           cd ../../    
           flutter pub get >> /dev/null
 
-      # format dart code
+      # Formats the dart code
       - name: Auto-format Dart code
         run: dart format .
 
-      # verify formatting
+      # Verifies if the dart code is formatted well
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
+        # --set-exit-if-changed stops execution if the any code is not well formatted
+        # --output=none prints files which needs to be formatted
 
-      # analyze project for lints
-      - name: Analyze project source
+      # Checks for Symantic errors. Can be configured using analysis_options.yaml
+      - name: Analyze Project Source
         run: flutter analyze --fatal-warnings
+        # optionally use --fatal-warnings to stop execution if any warnings are found
 
-      # run tests
-      - name: Run tests
+      # Runs unit test
+      - name: Run Flutter Test
         run: flutter test
 
       - name: Shorebird Android Build
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
         with:
-          args: --artifact=apk --build-name=1.0.2 --build-number=${{ env.BUILD_NUMBER }} --flavor=dev --target=lib/main_dev.dart -- --obfuscate --split-debug-info=build/app/symbols 
+          args: --artifact=apk --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --flavor=qa --target=lib/main_qa.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
@@ -234,22 +197,42 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=1.0.2 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_dev.plist --flavor=dev --target=lib/main_dev.dart
+          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_qa.plist --flavor=qa --target=lib/main_qa.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
 
-
-      # upload artifacts - android
-      - name: Upload APK
+      # Upload the built AAB as an artifact
+      - name: Upload AAB as an artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dev-apk
-          path: build/app/outputs/flutter-apk/*.apk
+          name: qa-release-aab
+          path: build/app/outputs/flutter-apk/app-qa-release.apk
 
-      # upload artifacts - ios
-      - name: Upload IPA
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}
+          groups: "android-internal"
+          file: build/app/outputs/flutter-apk/app-qa-release.apk
+          releaseNotesFile: distribution/whatsnew/whatsnew-en-US
+
+      # Upload the built IPA as an artifact
+      - name: Upload IPA as an artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dev-ipa
+          name: qa-release-ipa
           path: build/ios/ipa
 
+      # Upload the built IPA to Firebase App Distribution
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID_IOS }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}
+          groups: "ios-internal"
+          file: build/ios/ipa
+          releaseNotesFile: distribution/whatsnew/whatsnew-en-US
+        
+
+  

@@ -54,18 +54,15 @@ class _$CaptureImageStateCopyWithImpl<$Res, $Val extends CaptureImageState>
   $Res call({Object? isLoading = null, Object? imagePath = freezed}) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            imagePath:
-                freezed == imagePath
-                    ? _value.imagePath
-                    : imagePath // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        imagePath: freezed == imagePath
+            ? _value.imagePath
+            : imagePath // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -98,16 +95,14 @@ class __$$CaptureImageStateImplCopyWithImpl<$Res>
   $Res call({Object? isLoading = null, Object? imagePath = freezed}) {
     return _then(
       _$CaptureImageStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        imagePath:
-            freezed == imagePath
-                ? _value.imagePath
-                : imagePath // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        imagePath: freezed == imagePath
+            ? _value.imagePath
+            : imagePath // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }

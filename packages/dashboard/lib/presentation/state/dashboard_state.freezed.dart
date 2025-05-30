@@ -53,13 +53,11 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   $Res call({Object? pageIndex = null}) {
     return _then(
       _value.copyWith(
-            pageIndex:
-                null == pageIndex
-                    ? _value.pageIndex
-                    : pageIndex // ignore: cast_nullable_to_non_nullable
-                        as int,
-          )
-          as $Val,
+        pageIndex: null == pageIndex
+            ? _value.pageIndex
+            : pageIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+      ) as $Val,
     );
   }
 }
@@ -92,11 +90,10 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
   $Res call({Object? pageIndex = null}) {
     return _then(
       _$DashboardStateImpl(
-        pageIndex:
-            null == pageIndex
-                ? _value.pageIndex
-                : pageIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
+        pageIndex: null == pageIndex
+            ? _value.pageIndex
+            : pageIndex // ignore: cast_nullable_to_non_nullable
+                as int,
       ),
     );
   }

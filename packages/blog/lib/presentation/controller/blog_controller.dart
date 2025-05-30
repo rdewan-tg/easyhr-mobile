@@ -51,9 +51,8 @@ class BlogController extends Notifier<BlogState> {
     // update the state
     state = state.copyWith(error: null);
     // call the api
-    final result = await ref
-        .read(blogServiceProvider)
-        .setFirebaseDeviceToken(request);
+    final result =
+        await ref.read(blogServiceProvider).setFirebaseDeviceToken(request);
     result.when((success) {}, (failure) {
       state = state.copyWith(error: failure.message);
     });

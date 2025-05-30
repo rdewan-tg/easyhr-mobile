@@ -59,23 +59,19 @@ class _$SignUpModelCopyWithImpl<$Res, $Val extends SignUpModel>
   }) {
     return _then(
       _value.copyWith(
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isSugnUpSuccess:
-                null == isSugnUpSuccess
-                    ? _value.isSugnUpSuccess
-                    : isSugnUpSuccess // ignore: cast_nullable_to_non_nullable
-                        as bool,
-          )
-          as $Val,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        isSugnUpSuccess: null == isSugnUpSuccess
+            ? _value.isSugnUpSuccess
+            : isSugnUpSuccess // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ) as $Val,
     );
   }
 }
@@ -112,21 +108,18 @@ class __$$SignUpModelImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SignUpModelImpl(
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isSugnUpSuccess:
-            null == isSugnUpSuccess
-                ? _value.isSugnUpSuccess
-                : isSugnUpSuccess // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        isSugnUpSuccess: null == isSugnUpSuccess
+            ? _value.isSugnUpSuccess
+            : isSugnUpSuccess // ignore: cast_nullable_to_non_nullable
+                as bool,
       ),
     );
   }

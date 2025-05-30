@@ -8,18 +8,19 @@ part of 'attendance_response.dart';
 
 _$AttendanceResponseImpl _$$AttendanceResponseImplFromJson(
   Map<String, dynamic> json,
-) => _$AttendanceResponseImpl(
-  status: json['status'] as String,
-  data:
-      (json['data'] as List<dynamic>?)
-          ?.map((e) => AttendanceData.fromJson(e as Map<String, dynamic>))
-          .toList() ??
-      const [],
-);
+) =>
+    _$AttendanceResponseImpl(
+      status: json['status'] as String,
+      data: (json['data'] as List<dynamic>?)
+              ?.map((e) => AttendanceData.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
 
 Map<String, dynamic> _$$AttendanceResponseImplToJson(
   _$AttendanceResponseImpl instance,
-) => <String, dynamic>{'status': instance.status, 'data': instance.data};
+) =>
+    <String, dynamic>{'status': instance.status, 'data': instance.data};
 
 _$AttendanceDataImpl _$$AttendanceDataImplFromJson(Map<String, dynamic> json) =>
     _$AttendanceDataImpl(
@@ -42,23 +43,24 @@ _$AttendanceDataImpl _$$AttendanceDataImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$AttendanceDataImplToJson(
   _$AttendanceDataImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'userId': instance.userId,
-  'address': instance.address,
-  'latitude': instance.latitude,
-  'longitude': instance.longitude,
-  'zone': instance.zone,
-  'image': instance.image,
-  'status': _$AttendanceStatusEnumMap[instance.status]!,
-  'transDay': instance.transDay,
-  'transMonth': instance.transMonth,
-  'transYear': instance.transYear,
-  'date': instance.date,
-  'companyId': instance.companyId,
-  'createdAt': instance.createdAt,
-  'updatedAt': instance.updatedAt,
-};
+) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'address': instance.address,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+      'zone': instance.zone,
+      'image': instance.image,
+      'status': _$AttendanceStatusEnumMap[instance.status]!,
+      'transDay': instance.transDay,
+      'transMonth': instance.transMonth,
+      'transYear': instance.transYear,
+      'date': instance.date,
+      'companyId': instance.companyId,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+    };
 
 const _$AttendanceStatusEnumMap = {
   AttendanceStatus.checkedIn: 'in',

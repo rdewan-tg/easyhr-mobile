@@ -52,10 +52,8 @@ abstract class $NotificationResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NotificationResponseCopyWithImpl<
-  $Res,
-  $Val extends NotificationResponse
->
+class _$NotificationResponseCopyWithImpl<$Res,
+        $Val extends NotificationResponse>
     implements $NotificationResponseCopyWith<$Res> {
   _$NotificationResponseCopyWithImpl(this._value, this._then);
 
@@ -71,18 +69,15 @@ class _$NotificationResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as NotificationItem,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as NotificationItem,
+      ) as $Val,
     );
   }
 
@@ -131,16 +126,14 @@ class __$$NotificationResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$NotificationResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as NotificationItem,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as NotificationItem,
       ),
     );
   }
@@ -188,11 +181,11 @@ class _$NotificationResponseImpl implements _NotificationResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$NotificationResponseImplCopyWith<_$NotificationResponseImpl>
-  get copyWith =>
-      __$$NotificationResponseImplCopyWithImpl<_$NotificationResponseImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith =>
+          __$$NotificationResponseImplCopyWithImpl<_$NotificationResponseImpl>(
+            this,
+            _$identity,
+          );
 
   @override
   Map<String, dynamic> toJson() {
@@ -221,5 +214,5 @@ abstract class _NotificationResponse implements NotificationResponse {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotificationResponseImplCopyWith<_$NotificationResponseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }

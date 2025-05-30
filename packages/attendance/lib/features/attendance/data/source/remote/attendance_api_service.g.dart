@@ -87,11 +87,11 @@ class _AttendanceApiService implements AttendanceApiService {
     _data.fields.add(MapEntry('date', date));
     final _options = _setStreamType<AddAttendanceResponse>(
       Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: 'multipart/form-data',
-          )
+        method: 'POST',
+        headers: _headers,
+        extra: _extra,
+        contentType: 'multipart/form-data',
+      )
           .compose(
             _dio.options,
             '/v1/attendance',

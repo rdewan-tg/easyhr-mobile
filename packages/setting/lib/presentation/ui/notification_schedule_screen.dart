@@ -21,34 +21,33 @@ class _NotificationScheduleScreenState
   void _showClearAllNotificationsDialog() {
     showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(context.localizations('setting.clearAllNotifications')),
-            content: Text(
-              context.localizations('setting.clearNotificationsConfirmation'),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text(context.localizations('setting.cancel')),
-              ),
-              TextButton(
-                onPressed: () {
-                  // delete from local storage
-                  ref
-                      .read(settingControllerProvider.notifier)
-                      .removeAllNotificationSchedule();
-                  // delete from local notification
-                  ref
-                      .read(localPushNotificationProvider)
-                      .cancelAllLocalNotification();
-                  // close dialog
-                  Navigator.of(context).pop();
-                },
-                child: Text(context.localizations('setting.clear')),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        title: Text(context.localizations('setting.clearAllNotifications')),
+        content: Text(
+          context.localizations('setting.clearNotificationsConfirmation'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(context.localizations('setting.cancel')),
           ),
+          TextButton(
+            onPressed: () {
+              // delete from local storage
+              ref
+                  .read(settingControllerProvider.notifier)
+                  .removeAllNotificationSchedule();
+              // delete from local notification
+              ref
+                  .read(localPushNotificationProvider)
+                  .cancelAllLocalNotification();
+              // close dialog
+              Navigator.of(context).pop();
+            },
+            child: Text(context.localizations('setting.clear')),
+          ),
+        ],
+      ),
     );
   }
 

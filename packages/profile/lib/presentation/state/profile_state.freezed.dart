@@ -66,28 +66,23 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                freezed == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
-            isAccountDeleted:
-                freezed == isAccountDeleted
-                    ? _value.isAccountDeleted
-                    : isAccountDeleted // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
-            settings:
-                null == settings
-                    ? _value.settings
-                    : settings // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            errorMsg:
-                freezed == errorMsg
-                    ? _value.errorMsg
-                    : errorMsg // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        isLoading: freezed == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as dynamic,
+        isAccountDeleted: freezed == isAccountDeleted
+            ? _value.isAccountDeleted
+            : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+                as dynamic,
+        settings: null == settings
+            ? _value.settings
+            : settings // ignore: cast_nullable_to_non_nullable
+                as Map<String, String>,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -131,20 +126,17 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     return _then(
       _$ProfileStateImpl(
         isLoading: freezed == isLoading ? _value.isLoading! : isLoading,
-        isAccountDeleted:
-            freezed == isAccountDeleted
-                ? _value.isAccountDeleted!
-                : isAccountDeleted,
-        settings:
-            null == settings
-                ? _value._settings
-                : settings // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        errorMsg:
-            freezed == errorMsg
-                ? _value.errorMsg
-                : errorMsg // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isAccountDeleted: freezed == isAccountDeleted
+            ? _value.isAccountDeleted!
+            : isAccountDeleted,
+        settings: null == settings
+            ? _value._settings
+            : settings // ignore: cast_nullable_to_non_nullable
+                as Map<String, String>,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }
@@ -200,12 +192,12 @@ class _$ProfileStateImpl implements _ProfileState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(isLoading),
-    const DeepCollectionEquality().hash(isAccountDeleted),
-    const DeepCollectionEquality().hash(_settings),
-    errorMsg,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(isAccountDeleted),
+        const DeepCollectionEquality().hash(_settings),
+        errorMsg,
+      );
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
