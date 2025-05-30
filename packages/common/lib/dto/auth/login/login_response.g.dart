@@ -16,9 +16,9 @@ Map<String, dynamic> _$$LoginResponseImplToJson(_$LoginResponseImpl instance) =>
     <String, dynamic>{'status': instance.status, 'data': instance.data};
 
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
-  token: TokenDto.fromJson(json['token'] as Map<String, dynamic>),
-  user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
-);
+      token: TokenDto.fromJson(json['token'] as Map<String, dynamic>),
+      user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
     <String, dynamic>{'token': instance.token, 'user': instance.user};
@@ -44,10 +44,9 @@ _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
       photo: json['avatar'] as String?,
       isActive: json['isActive'] as bool,
       uuid: json['uuid'] as String?,
-      role:
-          (json['role'] as List<dynamic>)
-              .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      role: (json['role'] as List<dynamic>)
+          .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       company: CompanyDto.fromJson(json['company'] as Map<String, dynamic>),
     );
 
@@ -112,16 +111,18 @@ Map<String, dynamic> _$$CompanyDtoImplToJson(_$CompanyDtoImpl instance) =>
 
 _$DeviceSettingDtoImpl _$$DeviceSettingDtoImplFromJson(
   Map<String, dynamic> json,
-) => _$DeviceSettingDtoImpl(
-  deviceId: json['deviceId'] as String?,
-  salesPersonCode: json['salesPersonCode'] as String?,
-  orderNumberFormat: json['orderNumberFormat'] as String?,
-);
+) =>
+    _$DeviceSettingDtoImpl(
+      deviceId: json['deviceId'] as String?,
+      salesPersonCode: json['salesPersonCode'] as String?,
+      orderNumberFormat: json['orderNumberFormat'] as String?,
+    );
 
 Map<String, dynamic> _$$DeviceSettingDtoImplToJson(
   _$DeviceSettingDtoImpl instance,
-) => <String, dynamic>{
-  'deviceId': instance.deviceId,
-  'salesPersonCode': instance.salesPersonCode,
-  'orderNumberFormat': instance.orderNumberFormat,
-};
+) =>
+    <String, dynamic>{
+      'deviceId': instance.deviceId,
+      'salesPersonCode': instance.salesPersonCode,
+      'orderNumberFormat': instance.orderNumberFormat,
+    };

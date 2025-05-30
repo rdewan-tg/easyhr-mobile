@@ -57,10 +57,8 @@ abstract class $CreateAttendanceModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateAttendanceModelCopyWithImpl<
-  $Res,
-  $Val extends CreateAttendanceModel
->
+class _$CreateAttendanceModelCopyWithImpl<$Res,
+        $Val extends CreateAttendanceModel>
     implements $CreateAttendanceModelCopyWith<$Res> {
   _$CreateAttendanceModelCopyWithImpl(this._value, this._then);
 
@@ -87,58 +85,47 @@ class _$CreateAttendanceModelCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
-            file:
-                freezed == file
-                    ? _value.file
-                    : file // ignore: cast_nullable_to_non_nullable
-                        as File?,
-            address:
-                null == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
-                        as String,
-            latitude:
-                null == latitude
-                    ? _value.latitude
-                    : latitude // ignore: cast_nullable_to_non_nullable
-                        as double,
-            longitude:
-                null == longitude
-                    ? _value.longitude
-                    : longitude // ignore: cast_nullable_to_non_nullable
-                        as double,
-            zone:
-                null == zone
-                    ? _value.zone
-                    : zone // ignore: cast_nullable_to_non_nullable
-                        as String,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AttendanceStatus,
-            transDay:
-                null == transDay
-                    ? _value.transDay
-                    : transDay // ignore: cast_nullable_to_non_nullable
-                        as int,
-            transMonth:
-                null == transMonth
-                    ? _value.transMonth
-                    : transMonth // ignore: cast_nullable_to_non_nullable
-                        as int,
-            transYear:
-                null == transYear
-                    ? _value.transYear
-                    : transYear // ignore: cast_nullable_to_non_nullable
-                        as int,
-            date:
-                null == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        file: freezed == file
+            ? _value.file
+            : file // ignore: cast_nullable_to_non_nullable
+                as File?,
+        address: null == address
+            ? _value.address
+            : address // ignore: cast_nullable_to_non_nullable
+                as String,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        zone: null == zone
+            ? _value.zone
+            : zone // ignore: cast_nullable_to_non_nullable
+                as String,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
+        transDay: null == transDay
+            ? _value.transDay
+            : transDay // ignore: cast_nullable_to_non_nullable
+                as int,
+        transMonth: null == transMonth
+            ? _value.transMonth
+            : transMonth // ignore: cast_nullable_to_non_nullable
+                as int,
+        transYear: null == transYear
+            ? _value.transYear
+            : transYear // ignore: cast_nullable_to_non_nullable
+                as int,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -168,8 +155,8 @@ abstract class _$$CreateAttendanceModelImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CreateAttendanceModelImplCopyWithImpl<$Res>
-    extends
-        _$CreateAttendanceModelCopyWithImpl<$Res, _$CreateAttendanceModelImpl>
+    extends _$CreateAttendanceModelCopyWithImpl<$Res,
+        _$CreateAttendanceModelImpl>
     implements _$$CreateAttendanceModelImplCopyWith<$Res> {
   __$$CreateAttendanceModelImplCopyWithImpl(
     _$CreateAttendanceModelImpl _value,
@@ -194,56 +181,46 @@ class __$$CreateAttendanceModelImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateAttendanceModelImpl(
-        file:
-            freezed == file
-                ? _value.file
-                : file // ignore: cast_nullable_to_non_nullable
-                    as File?,
-        address:
-            null == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
-                    as String,
-        latitude:
-            null == latitude
-                ? _value.latitude
-                : latitude // ignore: cast_nullable_to_non_nullable
-                    as double,
-        longitude:
-            null == longitude
-                ? _value.longitude
-                : longitude // ignore: cast_nullable_to_non_nullable
-                    as double,
-        zone:
-            null == zone
-                ? _value.zone
-                : zone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AttendanceStatus,
-        transDay:
-            null == transDay
-                ? _value.transDay
-                : transDay // ignore: cast_nullable_to_non_nullable
-                    as int,
-        transMonth:
-            null == transMonth
-                ? _value.transMonth
-                : transMonth // ignore: cast_nullable_to_non_nullable
-                    as int,
-        transYear:
-            null == transYear
-                ? _value.transYear
-                : transYear // ignore: cast_nullable_to_non_nullable
-                    as int,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as String,
+        file: freezed == file
+            ? _value.file
+            : file // ignore: cast_nullable_to_non_nullable
+                as File?,
+        address: null == address
+            ? _value.address
+            : address // ignore: cast_nullable_to_non_nullable
+                as String,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as double,
+        zone: null == zone
+            ? _value.zone
+            : zone // ignore: cast_nullable_to_non_nullable
+                as String,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
+        transDay: null == transDay
+            ? _value.transDay
+            : transDay // ignore: cast_nullable_to_non_nullable
+                as int,
+        transMonth: null == transMonth
+            ? _value.transMonth
+            : transMonth // ignore: cast_nullable_to_non_nullable
+                as int,
+        transYear: null == transYear
+            ? _value.transYear
+            : transYear // ignore: cast_nullable_to_non_nullable
+                as int,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -315,18 +292,18 @@ class _$CreateAttendanceModelImpl implements _CreateAttendanceModel {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    file,
-    address,
-    latitude,
-    longitude,
-    zone,
-    status,
-    transDay,
-    transMonth,
-    transYear,
-    date,
-  );
+        runtimeType,
+        file,
+        address,
+        latitude,
+        longitude,
+        zone,
+        status,
+        transDay,
+        transMonth,
+        transYear,
+        date,
+      );
 
   /// Create a copy of CreateAttendanceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -334,11 +311,11 @@ class _$CreateAttendanceModelImpl implements _CreateAttendanceModel {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateAttendanceModelImplCopyWith<_$CreateAttendanceModelImpl>
-  get copyWith =>
-      __$$CreateAttendanceModelImplCopyWithImpl<_$CreateAttendanceModelImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$CreateAttendanceModelImplCopyWithImpl<
+              _$CreateAttendanceModelImpl>(
+            this,
+            _$identity,
+          );
 }
 
 abstract class _CreateAttendanceModel implements CreateAttendanceModel {
@@ -381,5 +358,5 @@ abstract class _CreateAttendanceModel implements CreateAttendanceModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateAttendanceModelImplCopyWith<_$CreateAttendanceModelImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }

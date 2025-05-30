@@ -77,28 +77,23 @@ class _$SignUpRequestCopyWithImpl<$Res, $Val extends SignUpRequest>
   }) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            password:
-                null == password
-                    ? _value.password
-                    : password // ignore: cast_nullable_to_non_nullable
-                        as String,
-            passwordConfirm:
-                null == passwordConfirm
-                    ? _value.passwordConfirm
-                    : passwordConfirm // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                as String,
+        passwordConfirm: null == passwordConfirm
+            ? _value.passwordConfirm
+            : passwordConfirm // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -141,26 +136,22 @@ class __$$SignUpRequestImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SignUpRequestImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        password:
-            null == password
-                ? _value.password
-                : password // ignore: cast_nullable_to_non_nullable
-                    as String,
-        passwordConfirm:
-            null == passwordConfirm
-                ? _value.passwordConfirm
-                : passwordConfirm // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                as String,
+        passwordConfirm: null == passwordConfirm
+            ? _value.passwordConfirm
+            : passwordConfirm // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }

@@ -64,23 +64,19 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            attendanceList:
-                null == attendanceList
-                    ? _value.attendanceList
-                    : attendanceList // ignore: cast_nullable_to_non_nullable
-                        as List<AttendanceModel>,
-            errorMsg:
-                freezed == errorMsg
-                    ? _value.errorMsg
-                    : errorMsg // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        attendanceList: null == attendanceList
+            ? _value.attendanceList
+            : attendanceList // ignore: cast_nullable_to_non_nullable
+                as List<AttendanceModel>,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -121,21 +117,18 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AttendanceStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        attendanceList:
-            null == attendanceList
-                ? _value._attendanceList
-                : attendanceList // ignore: cast_nullable_to_non_nullable
-                    as List<AttendanceModel>,
-        errorMsg:
-            freezed == errorMsg
-                ? _value.errorMsg
-                : errorMsg // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        attendanceList: null == attendanceList
+            ? _value._attendanceList
+            : attendanceList // ignore: cast_nullable_to_non_nullable
+                as List<AttendanceModel>,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }
@@ -187,11 +180,11 @@ class _$AttendanceStateImpl implements _AttendanceState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_attendanceList),
-    errorMsg,
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_attendanceList),
+        errorMsg,
+      );
 
   /// Create a copy of AttendanceState
   /// with the given fields replaced by the non-null parameter values.

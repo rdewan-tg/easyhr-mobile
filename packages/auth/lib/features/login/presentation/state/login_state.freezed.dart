@@ -69,33 +69,27 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isLoginSuccess:
-                null == isLoginSuccess
-                    ? _value.isLoginSuccess
-                    : isLoginSuccess // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isPasswordVisible:
-                null == isPasswordVisible
-                    ? _value.isPasswordVisible
-                    : isPasswordVisible // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            loginForm:
-                null == loginForm
-                    ? _value.loginForm
-                    : loginForm // ignore: cast_nullable_to_non_nullable
-                        as Map<String, dynamic>,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isLoginSuccess: null == isLoginSuccess
+            ? _value.isLoginSuccess
+            : isLoginSuccess // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isPasswordVisible: null == isPasswordVisible
+            ? _value.isPasswordVisible
+            : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+                as bool,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
+        loginForm: null == loginForm
+            ? _value.loginForm
+            : loginForm // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ) as $Val,
     );
   }
 }
@@ -140,31 +134,26 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$LoginStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isLoginSuccess:
-            null == isLoginSuccess
-                ? _value.isLoginSuccess
-                : isLoginSuccess // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isPasswordVisible:
-            null == isPasswordVisible
-                ? _value.isPasswordVisible
-                : isPasswordVisible // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        loginForm:
-            null == loginForm
-                ? _value._loginForm
-                : loginForm // ignore: cast_nullable_to_non_nullable
-                    as Map<String, dynamic>,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isLoginSuccess: null == isLoginSuccess
+            ? _value.isLoginSuccess
+            : isLoginSuccess // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isPasswordVisible: null == isPasswordVisible
+            ? _value.isPasswordVisible
+            : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+                as bool,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
+        loginForm: null == loginForm
+            ? _value._loginForm
+            : loginForm // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
       ),
     );
   }
@@ -226,13 +215,13 @@ class _$LoginStateImpl implements _LoginState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    isLoginSuccess,
-    isPasswordVisible,
-    error,
-    const DeepCollectionEquality().hash(_loginForm),
-  );
+        runtimeType,
+        isLoading,
+        isLoginSuccess,
+        isPasswordVisible,
+        error,
+        const DeepCollectionEquality().hash(_loginForm),
+      );
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

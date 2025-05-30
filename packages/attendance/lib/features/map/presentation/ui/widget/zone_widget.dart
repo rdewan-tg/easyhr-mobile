@@ -35,15 +35,14 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
         constraints: BoxConstraints(maxHeight: 40),
         border: OutlineInputBorder(),
       ),
-      dropdownMenuEntries:
-          zones
-              .map(
-                (zone) => DropdownMenuEntry<String>(
-                  value: zone.name,
-                  label: zone.name,
-                ),
-              )
-              .toList(),
+      dropdownMenuEntries: zones
+          .map(
+            (zone) => DropdownMenuEntry<String>(
+              value: zone.name,
+              label: zone.name,
+            ),
+          )
+          .toList(),
     );
   }
 }

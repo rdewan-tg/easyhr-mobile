@@ -9,8 +9,7 @@ part of 'blogs_response.dart';
 _$BlogsResponseImpl _$$BlogsResponseImplFromJson(Map<String, dynamic> json) =>
     _$BlogsResponseImpl(
       status: json['status'] as String,
-      data:
-          (json['data'] as List<dynamic>?)
+      data: (json['data'] as List<dynamic>?)
               ?.map((e) => BlogResponseData.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],

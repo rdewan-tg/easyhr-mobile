@@ -24,8 +24,7 @@ mixin DioExceptionMapper {
       case DioExceptionType.badResponse:
         final statusCode = e.response?.statusCode;
         return Failure(
-          message:
-              e.response?.data['message'] ??
+          message: e.response?.data['message'] ??
               _getMessageForStatusCode(statusCode),
           statusCode: statusCode,
           exception: e,

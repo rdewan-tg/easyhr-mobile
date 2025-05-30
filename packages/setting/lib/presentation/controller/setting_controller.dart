@@ -14,7 +14,7 @@ part 'setting_controller.g.dart';
 final class SettingController extends _$SettingController {
   StreamSubscription<String>? _themeModeSubscription;
   StreamSubscription<List<NotificationScheduleEntityData>>?
-  _notificationScheduleSubscription;
+      _notificationScheduleSubscription;
 
   @override
   SettingState build() {
@@ -78,32 +78,28 @@ final class SettingController extends _$SettingController {
 
   Future<void> watchTheme() async {
     // Start listening to the theme mode stream
-    _themeModeSubscription = ref
-        .watch(settingServiceProvider)
-        .watchThemeMode()
-        .listen(
-          (themeMode) {
-            state = state.copyWith(themeMode: themeMode);
-          },
-          onError: (error) {
-            state = state.copyWith(errorMsg: error);
-          },
-        );
+    _themeModeSubscription =
+        ref.watch(settingServiceProvider).watchThemeMode().listen(
+      (themeMode) {
+        state = state.copyWith(themeMode: themeMode);
+      },
+      onError: (error) {
+        state = state.copyWith(errorMsg: error);
+      },
+    );
   }
 
   Future<void> watchLanguage() async {
     // Start listening to the language mode stream
-    _themeModeSubscription = ref
-        .watch(settingServiceProvider)
-        .watchLanguage()
-        .listen(
-          (language) {
-            state = state.copyWith(language: language);
-          },
-          onError: (error) {
-            state = state.copyWith(errorMsg: error);
-          },
-        );
+    _themeModeSubscription =
+        ref.watch(settingServiceProvider).watchLanguage().listen(
+      (language) {
+        state = state.copyWith(language: language);
+      },
+      onError: (error) {
+        state = state.copyWith(errorMsg: error);
+      },
+    );
   }
 
   Future<void> logout() async {
@@ -203,18 +199,17 @@ final class SettingController extends _$SettingController {
     int minute,
   ) async {
     state = state.copyWith(isLoading: true, errorMsg: null);
-    final result = await ref
-        .read(settingServiceProvider)
-        .upsertNotificationSchedule(
-          NotificationScheduleEntityCompanion(
-            notificationId: Value(id),
-            title: Value(title),
-            body: Value(body),
-            dayOfWeek: Value(dayOfWeek),
-            hour: Value(hour),
-            minute: Value(minute),
-          ),
-        );
+    final result =
+        await ref.read(settingServiceProvider).upsertNotificationSchedule(
+              NotificationScheduleEntityCompanion(
+                notificationId: Value(id),
+                title: Value(title),
+                body: Value(body),
+                dayOfWeek: Value(dayOfWeek),
+                hour: Value(hour),
+                minute: Value(minute),
+              ),
+            );
     result.when(
       (success) {
         state = state.copyWith(isLoading: false);
@@ -227,9 +222,8 @@ final class SettingController extends _$SettingController {
 
   Future<void> removeNotificationSchedule(int id) async {
     state = state.copyWith(isLoading: true, errorMsg: null);
-    final result = await ref
-        .read(settingServiceProvider)
-        .removeNotificationSchedule(id);
+    final result =
+        await ref.read(settingServiceProvider).removeNotificationSchedule(id);
     result.when(
       (success) {
         state = state.copyWith(
@@ -262,20 +256,18 @@ final class SettingController extends _$SettingController {
 
   Future<void> getNotificationSchedules() async {
     state = state.copyWith(isLoading: true, errorMsg: null);
-    _notificationScheduleSubscription = ref
-        .read(settingServiceProvider)
-        .watchAllNotificationSchedule()
-        .listen(
-          (success) {
-            state = state.copyWith(
-              notificationSchedules: success,
-              isLoading: false,
-            );
-          },
-          onError: (error) {
-            state = state.copyWith(errorMsg: error.message, isLoading: false);
-          },
+    _notificationScheduleSubscription =
+        ref.read(settingServiceProvider).watchAllNotificationSchedule().listen(
+      (success) {
+        state = state.copyWith(
+          notificationSchedules: success,
+          isLoading: false,
         );
+      },
+      onError: (error) {
+        state = state.copyWith(errorMsg: error.message, isLoading: false);
+      },
+    );
   }
 
   Future<void> updateNotificationScheduleStatus(int id, bool isActive) async {

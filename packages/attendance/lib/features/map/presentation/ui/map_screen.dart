@@ -89,32 +89,32 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             mapControllerProvider.select((value) => value.currentPosition),
           );
           return SafeArea(
-            child:
-                currentPosition == null
-                    ? const Center(child: CircularProgressIndicator())
-                    : GoogleMap(
-                      initialCameraPosition: CameraPosition(
-                        target: currentPosition,
-                        zoom: 19,
-                      ),
-                      markers: {
-                        Marker(
-                          markerId: const MarkerId('currentLocation'),
-                          position: currentPosition,
-                          infoWindow: const InfoWindow(title: 'You are here'),
-                          onTap: () {}, // Empty onTap to prevent default behavior
-                        ),
-                      },
-                      onMapCreated: (controller) {
-                        _mapController = controller;
-                        // Show info window after a short delay
-                        Future.delayed(const Duration(milliseconds: 500), () {
-                          controller.showMarkerInfoWindow(const MarkerId('currentLocation'));
-                        });
-                      },
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
+            child: currentPosition == null
+                ? const Center(child: CircularProgressIndicator())
+                : GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target: currentPosition,
+                      zoom: 19,
                     ),
+                    markers: {
+                      Marker(
+                        markerId: const MarkerId('currentLocation'),
+                        position: currentPosition,
+                        infoWindow: const InfoWindow(title: 'You are here'),
+                        onTap: () {}, // Empty onTap to prevent default behavior
+                      ),
+                    },
+                    onMapCreated: (controller) {
+                      _mapController = controller;
+                      // Show info window after a short delay
+                      Future.delayed(const Duration(milliseconds: 500), () {
+                        controller.showMarkerInfoWindow(
+                            const MarkerId('currentLocation'),);
+                      });
+                    },
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: true,
+                  ),
           );
         },
       ),
@@ -234,16 +234,14 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     children: [
                       const TextSpan(text: ' '),
                       TextSpan(
-                        text:
-                            status == AttendanceStatus.checkedIn
-                                ? "${context.localizations("attendance.checkedIn")} ✅"
-                                : "${context.localizations("attendance.checkedOut")} 🏃",
+                        text: status == AttendanceStatus.checkedIn
+                            ? "${context.localizations("attendance.checkedIn")} ✅"
+                            : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color:
-                              status == AttendanceStatus.checkedIn
-                                  ? Colors.green
-                                  : Colors.red,
+                          color: status == AttendanceStatus.checkedIn
+                              ? Colors.green
+                              : Colors.red,
                         ),
                       ),
                     ],
@@ -293,16 +291,14 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     children: [
                       const TextSpan(text: ' '),
                       TextSpan(
-                        text:
-                            status == AttendanceStatus.checkedIn
-                                ? "${context.localizations("attendance.checkedIn")} ✅"
-                                : "${context.localizations("attendance.checkedOut")} 🏃",
+                        text: status == AttendanceStatus.checkedIn
+                            ? "${context.localizations("attendance.checkedIn")} ✅"
+                            : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color:
-                              status == AttendanceStatus.checkedIn
-                                  ? Colors.green
-                                  : Colors.red,
+                          color: status == AttendanceStatus.checkedIn
+                              ? Colors.green
+                              : Colors.red,
                         ),
                       ),
                     ],

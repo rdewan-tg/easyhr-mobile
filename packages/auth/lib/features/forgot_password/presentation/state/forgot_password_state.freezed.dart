@@ -59,23 +59,19 @@ class _$ForgotPasswordStateCopyWithImpl<$Res, $Val extends ForgotPasswordState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isEmailSent:
-                freezed == isEmailSent
-                    ? _value.isEmailSent
-                    : isEmailSent // ignore: cast_nullable_to_non_nullable
-                        as bool?,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isEmailSent: freezed == isEmailSent
+            ? _value.isEmailSent
+            : isEmailSent // ignore: cast_nullable_to_non_nullable
+                as bool?,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ) as $Val,
     );
   }
 }
@@ -112,21 +108,18 @@ class __$$ForgotPasswordStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ForgotPasswordStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isEmailSent:
-            freezed == isEmailSent
-                ? _value.isEmailSent
-                : isEmailSent // ignore: cast_nullable_to_non_nullable
-                    as bool?,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isEmailSent: freezed == isEmailSent
+            ? _value.isEmailSent
+            : isEmailSent // ignore: cast_nullable_to_non_nullable
+                as bool?,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                as String?,
       ),
     );
   }

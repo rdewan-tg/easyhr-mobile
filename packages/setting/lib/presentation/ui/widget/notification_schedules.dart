@@ -65,8 +65,8 @@ class NotificationSchedules extends ConsumerWidget {
                   Text(
                     notification.title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -92,19 +92,17 @@ class NotificationSchedules extends ConsumerWidget {
                             Icon(
                               Icons.calendar_today_outlined,
                               size: 16,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).colorScheme.onPrimaryContainer,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onPrimaryContainer,
                             ),
                             const SizedBox(width: 4),
                             Text(
                               _getDayName(notification.dayOfWeek),
                               style: TextStyle(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).colorScheme.onPrimaryContainer,
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onPrimaryContainer,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -130,10 +128,9 @@ class NotificationSchedules extends ConsumerWidget {
                             Icon(
                               Icons.access_time_rounded,
                               size: 16,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).colorScheme.onSecondaryContainer,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSecondaryContainer,
                             ),
                             const SizedBox(width: 4),
                             Text(
@@ -142,10 +139,9 @@ class NotificationSchedules extends ConsumerWidget {
                                 notification.minute,
                               ),
                               style: TextStyle(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).colorScheme.onSecondaryContainer,
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSecondaryContainer,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
                               ),

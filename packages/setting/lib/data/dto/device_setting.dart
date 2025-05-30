@@ -5,7 +5,8 @@ part 'device_setting.g.dart';
 
 DeviceSettingResponse deserializeDeviceSettingResponse(
   Map<String, dynamic> json,
-) => DeviceSettingResponse.fromJson(json);
+) =>
+    DeviceSettingResponse.fromJson(json);
 
 @freezed
 class DeviceSettingResponse with _$DeviceSettingResponse {

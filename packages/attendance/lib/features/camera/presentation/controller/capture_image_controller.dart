@@ -4,8 +4,8 @@ import 'package:attendance/features/camera/presentation/state/capture_image_stat
 
 final captureImageControllerProvider =
     NotifierProvider<CaptureImageController, CaptureImageState>(
-      CaptureImageController.new,
-    );
+  CaptureImageController.new,
+);
 
 class CaptureImageController extends Notifier<CaptureImageState> {
   @override

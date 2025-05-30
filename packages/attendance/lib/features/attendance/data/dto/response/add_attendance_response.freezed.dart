@@ -54,10 +54,8 @@ abstract class $AddAttendanceResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddAttendanceResponseCopyWithImpl<
-  $Res,
-  $Val extends AddAttendanceResponse
->
+class _$AddAttendanceResponseCopyWithImpl<$Res,
+        $Val extends AddAttendanceResponse>
     implements $AddAttendanceResponseCopyWith<$Res> {
   _$AddAttendanceResponseCopyWithImpl(this._value, this._then);
 
@@ -73,18 +71,15 @@ class _$AddAttendanceResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as AddAttendanceData,
-          )
-          as $Val,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as AddAttendanceData,
+      ) as $Val,
     );
   }
 
@@ -119,8 +114,8 @@ abstract class _$$AddAttendanceResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$AddAttendanceResponseImplCopyWithImpl<$Res>
-    extends
-        _$AddAttendanceResponseCopyWithImpl<$Res, _$AddAttendanceResponseImpl>
+    extends _$AddAttendanceResponseCopyWithImpl<$Res,
+        _$AddAttendanceResponseImpl>
     implements _$$AddAttendanceResponseImplCopyWith<$Res> {
   __$$AddAttendanceResponseImplCopyWithImpl(
     _$AddAttendanceResponseImpl _value,
@@ -134,16 +129,14 @@ class __$$AddAttendanceResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$AddAttendanceResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as AddAttendanceData,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as AddAttendanceData,
       ),
     );
   }
@@ -191,11 +184,11 @@ class _$AddAttendanceResponseImpl implements _AddAttendanceResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$AddAttendanceResponseImplCopyWith<_$AddAttendanceResponseImpl>
-  get copyWith =>
-      __$$AddAttendanceResponseImplCopyWithImpl<_$AddAttendanceResponseImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$AddAttendanceResponseImplCopyWithImpl<
+              _$AddAttendanceResponseImpl>(
+            this,
+            _$identity,
+          );
 
   @override
   Map<String, dynamic> toJson() {
@@ -224,7 +217,7 @@ abstract class _AddAttendanceResponse implements AddAttendanceResponse {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddAttendanceResponseImplCopyWith<_$AddAttendanceResponseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 AddAttendanceData _$AddAttendanceDataFromJson(Map<String, dynamic> json) {
@@ -333,83 +326,67 @@ class _$AddAttendanceDataCopyWithImpl<$Res, $Val extends AddAttendanceData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            address:
-                null == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
-                        as String,
-            latitude:
-                null == latitude
-                    ? _value.latitude
-                    : latitude // ignore: cast_nullable_to_non_nullable
-                        as String,
-            longitude:
-                null == longitude
-                    ? _value.longitude
-                    : longitude // ignore: cast_nullable_to_non_nullable
-                        as String,
-            zone:
-                null == zone
-                    ? _value.zone
-                    : zone // ignore: cast_nullable_to_non_nullable
-                        as String,
-            image:
-                freezed == image
-                    ? _value.image
-                    : image // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AttendanceStatus,
-            transDay:
-                null == transDay
-                    ? _value.transDay
-                    : transDay // ignore: cast_nullable_to_non_nullable
-                        as int,
-            transMonth:
-                null == transMonth
-                    ? _value.transMonth
-                    : transMonth // ignore: cast_nullable_to_non_nullable
-                        as int,
-            transYear:
-                null == transYear
-                    ? _value.transYear
-                    : transYear // ignore: cast_nullable_to_non_nullable
-                        as int,
-            date:
-                null == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as String,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            createdAt:
-                null == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as String,
-            updatedAt:
-                null == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                as int,
+        address: null == address
+            ? _value.address
+            : address // ignore: cast_nullable_to_non_nullable
+                as String,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as String,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as String,
+        zone: null == zone
+            ? _value.zone
+            : zone // ignore: cast_nullable_to_non_nullable
+                as String,
+        image: freezed == image
+            ? _value.image
+            : image // ignore: cast_nullable_to_non_nullable
+                as String?,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
+        transDay: null == transDay
+            ? _value.transDay
+            : transDay // ignore: cast_nullable_to_non_nullable
+                as int,
+        transMonth: null == transMonth
+            ? _value.transMonth
+            : transMonth // ignore: cast_nullable_to_non_nullable
+                as int,
+        transYear: null == transYear
+            ? _value.transYear
+            : transYear // ignore: cast_nullable_to_non_nullable
+                as int,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                as String,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                as String,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -474,81 +451,66 @@ class __$$AddAttendanceDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AddAttendanceDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        address:
-            null == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
-                    as String,
-        latitude:
-            null == latitude
-                ? _value.latitude
-                : latitude // ignore: cast_nullable_to_non_nullable
-                    as String,
-        longitude:
-            null == longitude
-                ? _value.longitude
-                : longitude // ignore: cast_nullable_to_non_nullable
-                    as String,
-        zone:
-            null == zone
-                ? _value.zone
-                : zone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        image:
-            freezed == image
-                ? _value.image
-                : image // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AttendanceStatus,
-        transDay:
-            null == transDay
-                ? _value.transDay
-                : transDay // ignore: cast_nullable_to_non_nullable
-                    as int,
-        transMonth:
-            null == transMonth
-                ? _value.transMonth
-                : transMonth // ignore: cast_nullable_to_non_nullable
-                    as int,
-        transYear:
-            null == transYear
-                ? _value.transYear
-                : transYear // ignore: cast_nullable_to_non_nullable
-                    as int,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as String,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        createdAt:
-            null == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as String,
-        updatedAt:
-            null == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                as int,
+        address: null == address
+            ? _value.address
+            : address // ignore: cast_nullable_to_non_nullable
+                as String,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                as String,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                as String,
+        zone: null == zone
+            ? _value.zone
+            : zone // ignore: cast_nullable_to_non_nullable
+                as String,
+        image: freezed == image
+            ? _value.image
+            : image // ignore: cast_nullable_to_non_nullable
+                as String?,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                as AttendanceStatus,
+        transDay: null == transDay
+            ? _value.transDay
+            : transDay // ignore: cast_nullable_to_non_nullable
+                as int,
+        transMonth: null == transMonth
+            ? _value.transMonth
+            : transMonth // ignore: cast_nullable_to_non_nullable
+                as int,
+        transYear: null == transYear
+            ? _value.transYear
+            : transYear // ignore: cast_nullable_to_non_nullable
+                as int,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                as String,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                as int,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                as String,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -662,23 +624,23 @@ class _$AddAttendanceDataImpl implements _AddAttendanceData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    userId,
-    address,
-    latitude,
-    longitude,
-    zone,
-    image,
-    status,
-    transDay,
-    transMonth,
-    transYear,
-    date,
-    companyId,
-    createdAt,
-    updatedAt,
-  );
+        runtimeType,
+        id,
+        userId,
+        address,
+        latitude,
+        longitude,
+        zone,
+        image,
+        status,
+        transDay,
+        transMonth,
+        transYear,
+        date,
+        companyId,
+        createdAt,
+        updatedAt,
+      );
 
   /// Create a copy of AddAttendanceData
   /// with the given fields replaced by the non-null parameter values.

@@ -17,7 +17,8 @@ import 'package:timezone/timezone.dart' as tz;
 void notificationTapBackground(NotificationResponse notificationResponse) {
   // handle action
   debugPrint(
-      ("Handling a background message: ${notificationResponse.payload}"));
+    ("Handling a background message: ${notificationResponse.payload}"),
+  );
 }
 
 final localPushNotificationProvider = Provider<LocalPushNotification>((ref) {
