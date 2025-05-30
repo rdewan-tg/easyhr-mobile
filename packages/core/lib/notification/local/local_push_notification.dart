@@ -16,7 +16,8 @@ import 'package:timezone/timezone.dart' as tz;
 @pragma('vm:entry-point')
 void notificationTapBackground(NotificationResponse notificationResponse) {
   // handle action
-   debugPrint(("Handling a background message: ${notificationResponse.payload}"));
+  debugPrint(
+      ("Handling a background message: ${notificationResponse.payload}"));
 }
 
 final localPushNotificationProvider = Provider<LocalPushNotification>((ref) {
@@ -98,7 +99,7 @@ class LocalPushNotification {
       }
       return hasPermission;
     }
-    
+
     // For iOS: Request notification permissions
     if (Platform.isIOS) {
       try {
@@ -120,8 +121,10 @@ class LocalPushNotification {
           },
           onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
         );
-        
-        _logger.info('iOS notification permissions requested, initialization success: $initialized');
+
+        _logger.info(
+          'iOS notification permissions requested, initialization success: $initialized',
+        );
         // Return the result of initialization (true if successful, false otherwise)
         return initialized ?? false;
       } catch (e) {
@@ -129,7 +132,7 @@ class LocalPushNotification {
         return false;
       }
     }
-    
+
     // For other platforms
     return false;
   }
