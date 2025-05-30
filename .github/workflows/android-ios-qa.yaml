@@ -213,8 +213,8 @@ jobs:
           name: qa-release-aab
           path: build/app/outputs/flutter-apk/app-qa-release.apk
 
-      - name: Upload to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
+      - name: Upload tAPK to Firebase App Distribution
+        uses: emertozd/Firebase-Distribution-Github-Action@v2
         with:
           appId: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}
@@ -230,8 +230,8 @@ jobs:
           path: build/ios/ipa
 
       # Upload the built IPA to Firebase App Distribution
-      - name: Upload to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
+      - name: Upload IPA to Firebase App Distribution
+        uses: emertozd/Firebase-Distribution-Github-Action@v2
         with:
           appId: ${{ secrets.FIREBASE_APP_ID_IOS }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}

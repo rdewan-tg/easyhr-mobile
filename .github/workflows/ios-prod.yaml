@@ -3,6 +3,9 @@ name: iOS Build - Prod
 
 on:
   # Validate PR builds
+  push:
+    branches:
+      - ios-prod
   pull_request:
     branches:
       - ios-prod
@@ -113,6 +116,11 @@ jobs:
         with:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+      # Install Flutter dependencies only if cache was not restored
+      - name: Install Flutter Dependencies
+        run: |
+          flutter pub get >> /dev/null    
 
       # Cache CocoaPods
       - name: Cache CocoaPods
