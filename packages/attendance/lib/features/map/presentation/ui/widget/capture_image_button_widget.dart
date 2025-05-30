@@ -32,11 +32,32 @@ class _CaptureImageButtonWidgetState
     // if consent statement is not accepted, show the consent statement text
     if (!isConsentStatement) {
       return Center(
-        child: Text(
-          context.localizations(
-            "common.pleaseReadAndAcceptTheConsentStatement",
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondaryContainer,
+            borderRadius: BorderRadius.circular(12),
           ),
-          style: context.textTheme.titleMedium,
+          child: Row(
+            children: [
+              Icon(
+                Icons.info_outline_rounded,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  context.localizations(
+                    "attendance.pleaseReadAndAcceptTheConsentStatement",
+                  ),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }

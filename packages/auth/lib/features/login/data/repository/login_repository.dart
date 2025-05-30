@@ -50,8 +50,7 @@ final class LoginRepository
     } catch (e, stackTrace) {
       // Map unexpected exceptions to Failure
       throw Failure(
-        message: 'An unexpected error occurred'.hardcoded,
-        exception: e as Exception,
+        message: e.toString(),
         stackTrace: stackTrace,
       );
     }
@@ -64,8 +63,7 @@ final class LoginRepository
     } catch (e, stackTrace) {
       // Map unexpected exceptions to Failure
       throw Failure(
-        message: 'An unexpected error occurred'.hardcoded,
-        exception: e as Exception,
+        message: e.toString(),
         stackTrace: stackTrace,
       );
     }

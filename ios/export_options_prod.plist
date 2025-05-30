@@ -8,7 +8,7 @@
 
     <!-- Team ID -->
     <key>teamID</key>
-    <string>FCUZNYGQMQ</string>
+    <string>8QW9GJRQT2</string>
 
     <!-- Signing style (manual or automatic) -->
     <key>signingStyle</key>
@@ -18,8 +18,8 @@
     <key>provisioningProfiles</key>
     <dict>
         <!-- Bundle ID and corresponding provisioning profile -->
-        <key>com.tonggarden.easysales</key>
-        <string>EasySales-Prod-Provisioning-Profile</string>
+        <key>com.tonggarden.easyhr</key>
+        <string>EasyHR-Prod-ProvisioningProfile</string>
     </dict>
 </dict>
 </plist>

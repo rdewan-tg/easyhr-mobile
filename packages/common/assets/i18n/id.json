@@ -89,7 +89,7 @@
     "setting.cancel": "Membatalkan",
     "setting.notificationScheduled": "Pemberitahuan Dijadwalkan",
     "setting.notificationScheduleRemovedSuccessfully": "Jadwal notifikasi berhasil dihapus",
-    "setting.alarmPermissionRequired": "Izin alarm diperlukan",
+    "setting.alarmPermissionRequired": "Diperlukan izin alarm",
     "setting.alarmPermissionGranted": "Izin alarm telah diberikan",
     "notification.title": "Pemberitahuan"
 }
