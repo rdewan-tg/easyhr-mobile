@@ -198,7 +198,7 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=1.0.0 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
 
@@ -206,7 +206,7 @@ jobs:
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v3
         with: 
-          app-path: 'build/ios/ipa' 
+          app-path: build/ios/ipa/prod-release-ipa.ipa
           issuer-id: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           api-private-key: ${{ secrets.APP_STORE_CONNECT_API_KEY }}

@@ -236,7 +236,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID_IOS }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}
           groups: "ios-internal"
-          file: build/ios/ipa
+          file: build/ios/ipa/qa-release-ipa.ipa
           releaseNotesFile: distribution/whatsnew/whatsnew-en-US
         
 
