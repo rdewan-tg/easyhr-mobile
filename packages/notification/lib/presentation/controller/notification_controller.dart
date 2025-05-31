@@ -4,8 +4,8 @@ import 'package:notification/presentation/state/notification_state.dart';
 
 final notificationControllerProvider =
     NotifierProvider<NotificationController, NotificationState>(
-  () => NotificationController(),
-);
+      () => NotificationController(),
+    );
 
 class NotificationController extends Notifier<NotificationState> {
   @override
@@ -34,12 +34,13 @@ class NotificationController extends Notifier<NotificationState> {
       (success) {
         state = state.copyWith(
           isLoading: false,
-          notifications: state.notifications.map((notification) {
-            if (notification.id == id) {
-              return notification.copyWith(isRead: true);
-            }
-            return notification;
-          }).toList(),
+          notifications:
+              state.notifications.map((notification) {
+                if (notification.id == id) {
+                  return notification.copyWith(isRead: true);
+                }
+                return notification;
+              }).toList(),
         );
       },
       (failure) {

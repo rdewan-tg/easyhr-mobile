@@ -47,7 +47,7 @@ class _ScheduleNotificationScreenState
     // Get user's timezone from settings
     final userTimezone =
         ref.read(settingControllerProvider.notifier).getTimeZone() ??
-            'Asia/Kolkata';
+        'Asia/Kolkata';
 
     // Get current time in the user's timezone
     final location = tz.getLocation(userTimezone);
@@ -143,7 +143,9 @@ class _ScheduleNotificationScreenState
             1000 * dayOfWeek + 60 * _selectedTime.hour + _selectedTime.minute;
 
         // Schedule the notification
-        ref.read(localPushNotificationProvider).scheduleWeeklyNotification(
+        ref
+            .read(localPushNotificationProvider)
+            .scheduleWeeklyNotification(
               id: uniqueId,
               title: _titleController.text,
               body: _messageController.text,
@@ -152,7 +154,9 @@ class _ScheduleNotificationScreenState
               minute: _selectedTime.minute,
             );
         // store notification schedule in local storage
-        ref.read(settingControllerProvider.notifier).createNotificationSchedule(
+        ref
+            .read(settingControllerProvider.notifier)
+            .createNotificationSchedule(
               uniqueId,
               _titleController.text,
               _messageController.text,
@@ -237,9 +241,7 @@ class _ScheduleNotificationScreenState
                     child: Center(
                       child: Text(
                         _selectedTime.format(context),
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium
+                        style: Theme.of(context).textTheme.displayMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -309,17 +311,19 @@ class _ScheduleNotificationScreenState
         height: 40,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: _selectedDays[dayIndex]
-              ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.surfaceContainerHighest,
+          color:
+              _selectedDays[dayIndex]
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.surfaceContainerHighest,
         ),
         child: Center(
           child: Text(
             _daysOfWeek[dayIndex],
             style: TextStyle(
-              color: _selectedDays[dayIndex]
-                  ? Theme.of(context).colorScheme.onPrimary
-                  : Theme.of(context).colorScheme.onSurfaceVariant,
+              color:
+                  _selectedDays[dayIndex]
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.bold,
             ),
           ),

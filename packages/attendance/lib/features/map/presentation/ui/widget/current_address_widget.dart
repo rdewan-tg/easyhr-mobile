@@ -16,10 +16,7 @@ class CurrentAddressWidget extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           children: [
-            Icon(
-              Icons.location_city_rounded,
-              color: colorScheme.primary,
-            ),
+            Icon(Icons.location_city_rounded, color: colorScheme.primary),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -49,23 +46,22 @@ class CurrentAddressWidget extends ConsumerWidget {
                 backgroundColor: colorScheme.secondaryContainer,
                 foregroundColor: colorScheme.onSecondaryContainer,
               ),
-              onPressed: currentAddress?.isEmpty == true
-                  ? null
-                  : () {
-                      Clipboard.setData(
-                        ClipboardData(
-                          text: currentAddress ?? "",
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "Address copied to clipboard".hardcoded,
+              onPressed:
+                  currentAddress?.isEmpty == true
+                      ? null
+                      : () {
+                        Clipboard.setData(
+                          ClipboardData(text: currentAddress ?? ""),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Address copied to clipboard".hardcoded,
+                            ),
+                            behavior: SnackBarBehavior.floating,
                           ),
-                          behavior: SnackBarBehavior.floating,
-                        ),
-                      );
-                    },
+                        );
+                      },
               icon: const Icon(Icons.content_copy_rounded),
             ),
           ],

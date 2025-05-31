@@ -50,9 +50,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
   Future<void> getAttendanceStatus() async {
     try {
       final result = await ref.read(mapServiceProvider).getAttendanceStatus();
-      final status = result == "checkedIn"
-          ? AttendanceStatus.checkedIn
-          : result == "checkedOut"
+      final status =
+          result == "checkedIn"
+              ? AttendanceStatus.checkedIn
+              : result == "checkedOut"
               ? AttendanceStatus.checkedOut
               : AttendanceStatus.checkedOut;
       state = state.copyWith(status: status);
@@ -73,9 +74,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
     final file = data["file"] as File?;
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
-    final status = result == "checkedIn"
-        ? AttendanceStatus.checkedOut
-        : result == "checkedOut"
+    final status =
+        result == "checkedIn"
+            ? AttendanceStatus.checkedOut
+            : result == "checkedOut"
             ? AttendanceStatus.checkedIn
             : AttendanceStatus.checkedIn;
 
@@ -92,8 +94,9 @@ class MapController extends AutoDisposeNotifier<MapState> {
       date: data["date"],
     );
     // call the api
-    final addAttendanceResult =
-        await ref.read(attendanceServiceProvider).addAttendance(body);
+    final addAttendanceResult = await ref
+        .read(attendanceServiceProvider)
+        .addAttendance(body);
 
     // upda the state
     addAttendanceResult.when(
@@ -131,9 +134,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
     );
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
-    final status = result == "checkedIn"
-        ? AttendanceStatus.checkedOut
-        : result == "checkedOut"
+    final status =
+        result == "checkedIn"
+            ? AttendanceStatus.checkedOut
+            : result == "checkedOut"
             ? AttendanceStatus.checkedIn
             : AttendanceStatus.checkedIn;
 
@@ -197,15 +201,17 @@ class MapController extends AutoDisposeNotifier<MapState> {
     }
 
     // filter the zones
-    final filteredZones =
-        await ref.read(zoneServiceProvider).filterZones(position, state.zones);
+    final filteredZones = await ref
+        .read(zoneServiceProvider)
+        .filterZones(position, state.zones);
 
     // update the state
     filteredZones.when(
-      (success) => state = state.copyWith(
-        currentPosition: position,
-        currentZones: success,
-      ),
+      (success) =>
+          state = state.copyWith(
+            currentPosition: position,
+            currentZones: success,
+          ),
       (error) => state = state.copyWith(errorMsg: error.message),
     );
   }

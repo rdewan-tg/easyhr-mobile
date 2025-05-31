@@ -67,9 +67,10 @@ List<Notification> _mapNotificationsResponseToNotifications(
           image: notification.image,
           link: notification.link,
           isRead: notification.isRead,
-          readAt: notification.readAt != null
-              ? _currentDateTime(timeZone, notification.readAt!, location)
-              : null,
+          readAt:
+              notification.readAt != null
+                  ? _currentDateTime(timeZone, notification.readAt!, location)
+                  : null,
           dateTimeDifferance: _formatTimeDifference(notification.createdAt),
           createdAt: _currentDateTime(
             timeZone,

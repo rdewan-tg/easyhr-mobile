@@ -14,8 +14,7 @@ _$SignUpResponseImpl _$$SignUpResponseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SignUpResponseImplToJson(
   _$SignUpResponseImpl instance,
-) =>
-    <String, dynamic>{'status': instance.status, 'data': instance.data};
+) => <String, dynamic>{'status': instance.status, 'data': instance.data};
 
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) =>
     _$DataImpl(user: User.fromJson(json['user'] as Map<String, dynamic>));
@@ -24,12 +23,12 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
     <String, dynamic>{'user': instance.user};
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      email: json['email'] as String,
-      role: json['role'] as String,
-      authType: json['authType'] as String,
-    );
+  id: json['id'] as String,
+  name: json['name'] as String,
+  email: json['email'] as String,
+  role: json['role'] as String,
+  authType: json['authType'] as String,
+);
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{

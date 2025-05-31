@@ -3,15 +3,17 @@ name: Flutter - Android Build Prod
 
 on:
   # Build release after merge
-  #push:
-    #branches:
-      #- main
+  push:
+    branches:
+      - main
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
   ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
   ANDROID_KEY_PROPERTIES: ${{ secrets.ANDROID_KEY_PROPERTIES }}
   ANDROID_LOCAL_PROPERTIES: ${{ secrets.ANDROID_LOCAL_PROPERTIES }}
+  APPLE_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
+  APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
   FLUTTER_TRANSLATION_SHEET_CREDENTIALS: ${{ secrets.FLUTTER_TRANSLATION_SHEET_CREDENTIALS }}
   ENV_DEV: ${{ secrets.ENV_DEV }}
   ENV_QA: ${{ secrets.ENV_QA }}
@@ -19,11 +21,24 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     environment: PROD
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Print macOS and iOS SDK versions
+        run: |
+          echo "macOS Version:"
+          sw_vers
+          echo "\nXcode Version:"
+          xcodebuild -version
+          echo "\nAvailable SDKs:"
+          xcodebuild -showsdks
+          echo "\nDefault iOS SDK Version:"
+          xcrun --sdk iphoneos --show-sdk-version
+          echo "\nDefault iOS SDK Path:"
+          xcrun --sdk iphoneos --show-sdk-path
 
       - name: Setup JDK
         uses: actions/setup-java@v4
@@ -76,6 +91,22 @@ jobs:
         run: |
           echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/prod/google-services.json
 
+      # Setup Google Service PLIST - iOS - Dev
+      - name: Setup Google Service PLIST for Firebase - Dev
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Dev/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - QA
+      - name: Setup Google Service PLIST for Firebase - QA
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/QA/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - Prod
+      - name: Setup Google Service PLIST for Firebase - Prod
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Prod/GoogleService-Info.plist
+
+      # Flutter Translation Sheet Credentials
       - name: Setup Flutter Translation Sheet Credentials
         run: |
           echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json 
@@ -95,6 +126,43 @@ jobs:
         with:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+      # Install Flutter dependencies only if cache was not restored
+      - name: Install Flutter Dependencies
+        run: |
+          flutter pub get >> /dev/null    
+
+      # Cache CocoaPods
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        id: pods-cache
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      # iOS specific - install dependencies
+      - name: Install iOS dependencies
+        run: |
+          cd ios
+          pod repo update 
+          pod install --repo-update 
+          cd ..
+
+      # setup iOS certificates
+      - name: Install iOS Certificates and Provisioning Profile
+        uses: apple-actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ env.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          p12-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+
+      # setup iOS provisioning profile
+      - name: Install Provisioning Profile
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "${{ secrets.APPLE_PROVISION_PROD_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Prod-ProvisioningProfile.mobileprovision
+    
 
       - name: Setup Flutter Translation Sheet
         run: |
@@ -162,7 +230,30 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
+      - name: Shorebird iOS Build
+        uses: shorebirdtech/shorebird-release@v1
+        id: shorebird-ios-release
+        with:
+          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          platform: ios
 
+       # Find the IPA file path after Shorebird build
+      - name: Find IPA file path
+        id: find-ipa
+        run: |
+          echo "Listing contents of build directory:"
+          find build -name "*.ipa" -type f
+          
+          # Store the IPA path in an output variable
+          IPA_PATH=$(find build -name "*.ipa" -type f | head -n 1)
+          if [ -n "$IPA_PATH" ]; then
+            echo "Found IPA at: $IPA_PATH"
+            echo "ipa_path=$IPA_PATH" >> $GITHUB_OUTPUT
+          else
+            echo "No IPA file found!"
+            exit 1
+          fi
 
       # Upload to Google Play
       - name: Upload APK to Google Play
@@ -175,4 +266,27 @@ jobs:
           debugSymbols: build/app/intermediates/merged_native_libs/prodRelease/mergeProdReleaseNativeLibs/out/lib
           whatsNewDirectory: distribution/whatsnew
           track: production
+
+      # Upload the built IPA to TestFlight
+      - name: 'Upload app to TestFlight'
+        uses: apple-actions/upload-testflight-build@v3
+        with: 
+          app-path: ${{ steps.find-ipa.outputs.ipa_path }}
+          issuer-id: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+          api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          api-private-key: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+
+      # Create a separate workflow dispatch to handle external testing submission
+      - name: Trigger external testing workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          event-type: submit-to-external-testing
+          client-payload: '{"build_number": "${{ env.BUILD_NUMBER }}", "app_id": "${{ secrets.APP_APPLE_ID }}"}'
+      
+      - name: Next steps for external testing
+        run: |
+          echo "Build ${{ env.BUILD_NUMBER }} has been uploaded to TestFlight."
+          echo "A separate workflow has been triggered to wait for processing and submit for external testing."
+          echo "Check the 'Actions' tab for the 'Submit to TestFlight External Testing' workflow."    
   

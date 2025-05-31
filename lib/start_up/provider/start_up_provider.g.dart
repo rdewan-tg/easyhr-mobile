@@ -67,18 +67,18 @@ class StartUpFamily extends Family<AsyncValue<void>> {
 class StartUpProvider extends FutureProvider<void> {
   /// See also [startUp].
   StartUpProvider({required Flavor flavor})
-      : this._internal(
-          (ref) => startUp(ref as StartUpRef, flavor: flavor),
-          from: startUpProvider,
-          name: r'startUpProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$startUpHash,
-          dependencies: StartUpFamily._dependencies,
-          allTransitiveDependencies: StartUpFamily._allTransitiveDependencies,
-          flavor: flavor,
-        );
+    : this._internal(
+        (ref) => startUp(ref as StartUpRef, flavor: flavor),
+        from: startUpProvider,
+        name: r'startUpProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$startUpHash,
+        dependencies: StartUpFamily._dependencies,
+        allTransitiveDependencies: StartUpFamily._allTransitiveDependencies,
+        flavor: flavor,
+      );
 
   StartUpProvider._internal(
     super._createNotifier, {

@@ -3,12 +3,12 @@ name: iOS Build - Prod
 
 on:
   # Validate PR builds
-  push:
-    branches:
-      - ios-prod
-  pull_request:
-    branches:
-      - ios-prod
+  # push:
+  #   branches:
+  #     - ios-prod
+  # pull_request:
+  #   branches:
+  #     - ios-prod
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
@@ -24,11 +24,24 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-15
     environment: PROD
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Print macOS and iOS SDK versions
+        run: |
+          echo "macOS Version:"
+          sw_vers
+          echo "\nXcode Version:"
+          xcodebuild -version
+          echo "\nAvailable SDKs:"
+          xcodebuild -showsdks
+          echo "\nDefault iOS SDK Version:"
+          xcrun --sdk iphoneos --show-sdk-version
+          echo "\nDefault iOS SDK Path:"
+          xcrun --sdk iphoneos --show-sdk-path
 
       - name: Setup JDK
         uses: actions/setup-java@v4
@@ -198,18 +211,55 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=1.0.0 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
+
+       # Find the IPA file path after Shorebird build
+      - name: Find IPA file path
+        id: find-ipa
+        run: |
+          echo "Listing contents of build directory:"
+          find build -name "*.ipa" -type f
+          
+          # Store the IPA path in an output variable
+          IPA_PATH=$(find build -name "*.ipa" -type f | head -n 1)
+          if [ -n "$IPA_PATH" ]; then
+            echo "Found IPA at: $IPA_PATH"
+            echo "ipa_path=$IPA_PATH" >> $GITHUB_OUTPUT
+          else
+            echo "No IPA file found!"
+            exit 1
+          fi
+          
+      # Upload the built IPA as an artifact
+      - name: Upload IPA as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod-release-ipa
+          path: ${{ steps.find-ipa.outputs.ipa_path }}
 
       # Upload the built IPA to TestFlight
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v3
         with: 
-          app-path: 'build/ios/ipa' 
+          app-path: ${{ steps.find-ipa.outputs.ipa_path }}
           issuer-id: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           api-private-key: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
 
+      # Create a separate workflow dispatch to handle external testing submission
+      - name: Trigger external testing workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          event-type: submit-to-external-testing
+          client-payload: '{"build_number": "${{ env.BUILD_NUMBER }}", "app_id": "${{ secrets.APP_APPLE_ID }}"}'
+      
+      - name: Next steps for external testing
+        run: |
+          echo "Build ${{ env.BUILD_NUMBER }} has been uploaded to TestFlight."
+          echo "A separate workflow has been triggered to wait for processing and submit for external testing."
+          echo "Check the 'Actions' tab for the 'Submit to TestFlight External Testing' workflow."
 
      

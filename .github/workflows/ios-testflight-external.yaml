@@ -1,0 +1,77 @@
+name: Submit to TestFlight External Testing
+
+on:
+  repository_dispatch:
+    types: [submit-to-external-testing]
+
+jobs:
+  submit-to-external-testing:
+    runs-on: macos-15
+    environment: PROD
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install fastlane
+        run: gem install fastlane
+
+      - name: Wait for TestFlight processing and submit for external testing
+        env:
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_APPLE_ID: ${{ github.event.client_payload.app_id }}
+          BUILD_NUMBER: ${{ github.event.client_payload.build_number }}
+          TESTFLIGHT_GROUPS: ${{ secrets.TESTFLIGHT_GROUPS }}
+        run: |
+          # Create API key JSON file
+          echo "$APP_STORE_CONNECT_API_KEY_CONTENT" > api_key.p8
+          
+          # Wait for build to finish processing (retry for up to 30 minutes)
+          echo "Waiting for TestFlight build $BUILD_NUMBER to finish processing..."
+          
+          MAX_ATTEMPTS=30
+          ATTEMPT=1
+          BUILD_READY=false
+          
+          while [ $ATTEMPT -le $MAX_ATTEMPTS ] && [ "$BUILD_READY" = false ]; do
+            echo "Attempt $ATTEMPT of $MAX_ATTEMPTS: Checking build status..."
+            
+            # Check if build is ready for testing
+            BUILD_STATUS=$(fastlane run latest_testflight_build_number api_key_path:"api_key.p8" \
+              api_key_id:"$APP_STORE_CONNECT_KEY_ID" \
+              api_key_issuer_id:"$APP_STORE_CONNECT_ISSUER_ID" \
+              app_id:"$APP_APPLE_ID" \
+              live:false \
+              version:"$BUILD_NUMBER" \
+              get_build_info:true)
+            
+            echo "Build status: $BUILD_STATUS"
+            
+            if echo "$BUILD_STATUS" | grep -q "PROCESSING_EXCEPTION\|INVALID"; then
+              echo "Build processing failed. Exiting."
+              exit 1
+            elif echo "$BUILD_STATUS" | grep -q "READY_FOR_BETA_SUBMISSION\|READY_FOR_BETA"; then
+              echo "Build is ready for external testing submission!"
+              BUILD_READY=true
+            else
+              echo "Build is still processing. Waiting 60 seconds before next check..."
+              sleep 60
+              ATTEMPT=$((ATTEMPT + 1))
+            fi
+          done
+          
+          if [ "$BUILD_READY" = false ]; then
+            echo "Timed out waiting for build to process. Please check App Store Connect manually."
+            exit 1
+          fi
+          
+          # Submit for external testing
+          echo "Submitting build $BUILD_NUMBER for external testing..."
+          fastlane run distribute_external_testing api_key_path:"api_key.p8" \
+            api_key_id:"$APP_STORE_CONNECT_KEY_ID" \
+            api_key_issuer_id:"$APP_STORE_CONNECT_ISSUER_ID" \
+            app_id:"$APP_APPLE_ID" \
+            groups:"$TESTFLIGHT_GROUPS"
+          
+          echo "Build $BUILD_NUMBER has been submitted for external testing!"

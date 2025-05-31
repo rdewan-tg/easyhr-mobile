@@ -11,5 +11,4 @@ _$LogoutResponseImpl _$$LogoutResponseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$LogoutResponseImplToJson(
   _$LogoutResponseImpl instance,
-) =>
-    <String, dynamic>{'status': instance.status};
+) => <String, dynamic>{'status': instance.status};

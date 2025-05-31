@@ -49,7 +49,7 @@ mixin _$AddAttendanceWithoutImageRequest {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $AddAttendanceWithoutImageRequestCopyWith<AddAttendanceWithoutImageRequest>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -57,8 +57,11 @@ abstract class $AddAttendanceWithoutImageRequestCopyWith<$Res> {
   factory $AddAttendanceWithoutImageRequestCopyWith(
     AddAttendanceWithoutImageRequest value,
     $Res Function(AddAttendanceWithoutImageRequest) then,
-  ) = _$AddAttendanceWithoutImageRequestCopyWithImpl<$Res,
-      AddAttendanceWithoutImageRequest>;
+  ) =
+      _$AddAttendanceWithoutImageRequestCopyWithImpl<
+        $Res,
+        AddAttendanceWithoutImageRequest
+      >;
   @useResult
   $Res call({
     @JsonKey(name: "address") String address,
@@ -74,8 +77,10 @@ abstract class $AddAttendanceWithoutImageRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddAttendanceWithoutImageRequestCopyWithImpl<$Res,
-        $Val extends AddAttendanceWithoutImageRequest>
+class _$AddAttendanceWithoutImageRequestCopyWithImpl<
+  $Res,
+  $Val extends AddAttendanceWithoutImageRequest
+>
     implements $AddAttendanceWithoutImageRequestCopyWith<$Res> {
   _$AddAttendanceWithoutImageRequestCopyWithImpl(this._value, this._then);
 
@@ -101,43 +106,53 @@ class _$AddAttendanceWithoutImageRequestCopyWithImpl<$Res,
   }) {
     return _then(
       _value.copyWith(
-        address: null == address
-            ? _value.address
-            : address // ignore: cast_nullable_to_non_nullable
-                as String,
-        latitude: null == latitude
-            ? _value.latitude
-            : latitude // ignore: cast_nullable_to_non_nullable
-                as double,
-        longitude: null == longitude
-            ? _value.longitude
-            : longitude // ignore: cast_nullable_to_non_nullable
-                as double,
-        zone: null == zone
-            ? _value.zone
-            : zone // ignore: cast_nullable_to_non_nullable
-                as String,
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as AttendanceStatus,
-        transDay: null == transDay
-            ? _value.transDay
-            : transDay // ignore: cast_nullable_to_non_nullable
-                as int,
-        transMonth: null == transMonth
-            ? _value.transMonth
-            : transMonth // ignore: cast_nullable_to_non_nullable
-                as int,
-        transYear: null == transYear
-            ? _value.transYear
-            : transYear // ignore: cast_nullable_to_non_nullable
-                as int,
-        date: null == date
-            ? _value.date
-            : date // ignore: cast_nullable_to_non_nullable
-                as String,
-      ) as $Val,
+            address:
+                null == address
+                    ? _value.address
+                    : address // ignore: cast_nullable_to_non_nullable
+                        as String,
+            latitude:
+                null == latitude
+                    ? _value.latitude
+                    : latitude // ignore: cast_nullable_to_non_nullable
+                        as double,
+            longitude:
+                null == longitude
+                    ? _value.longitude
+                    : longitude // ignore: cast_nullable_to_non_nullable
+                        as double,
+            zone:
+                null == zone
+                    ? _value.zone
+                    : zone // ignore: cast_nullable_to_non_nullable
+                        as String,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as AttendanceStatus,
+            transDay:
+                null == transDay
+                    ? _value.transDay
+                    : transDay // ignore: cast_nullable_to_non_nullable
+                        as int,
+            transMonth:
+                null == transMonth
+                    ? _value.transMonth
+                    : transMonth // ignore: cast_nullable_to_non_nullable
+                        as int,
+            transYear:
+                null == transYear
+                    ? _value.transYear
+                    : transYear // ignore: cast_nullable_to_non_nullable
+                        as int,
+            date:
+                null == date
+                    ? _value.date
+                    : date // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
     );
   }
 }
@@ -166,8 +181,11 @@ abstract class _$$AddAttendanceWithoutImageRequestImplCopyWith<$Res>
 
 /// @nodoc
 class __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<$Res>
-    extends _$AddAttendanceWithoutImageRequestCopyWithImpl<$Res,
-        _$AddAttendanceWithoutImageRequestImpl>
+    extends
+        _$AddAttendanceWithoutImageRequestCopyWithImpl<
+          $Res,
+          _$AddAttendanceWithoutImageRequestImpl
+        >
     implements _$$AddAttendanceWithoutImageRequestImplCopyWith<$Res> {
   __$$AddAttendanceWithoutImageRequestImplCopyWithImpl(
     _$AddAttendanceWithoutImageRequestImpl _value,
@@ -191,42 +209,51 @@ class __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AddAttendanceWithoutImageRequestImpl(
-        address: null == address
-            ? _value.address
-            : address // ignore: cast_nullable_to_non_nullable
-                as String,
-        latitude: null == latitude
-            ? _value.latitude
-            : latitude // ignore: cast_nullable_to_non_nullable
-                as double,
-        longitude: null == longitude
-            ? _value.longitude
-            : longitude // ignore: cast_nullable_to_non_nullable
-                as double,
-        zone: null == zone
-            ? _value.zone
-            : zone // ignore: cast_nullable_to_non_nullable
-                as String,
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as AttendanceStatus,
-        transDay: null == transDay
-            ? _value.transDay
-            : transDay // ignore: cast_nullable_to_non_nullable
-                as int,
-        transMonth: null == transMonth
-            ? _value.transMonth
-            : transMonth // ignore: cast_nullable_to_non_nullable
-                as int,
-        transYear: null == transYear
-            ? _value.transYear
-            : transYear // ignore: cast_nullable_to_non_nullable
-                as int,
-        date: null == date
-            ? _value.date
-            : date // ignore: cast_nullable_to_non_nullable
-                as String,
+        address:
+            null == address
+                ? _value.address
+                : address // ignore: cast_nullable_to_non_nullable
+                    as String,
+        latitude:
+            null == latitude
+                ? _value.latitude
+                : latitude // ignore: cast_nullable_to_non_nullable
+                    as double,
+        longitude:
+            null == longitude
+                ? _value.longitude
+                : longitude // ignore: cast_nullable_to_non_nullable
+                    as double,
+        zone:
+            null == zone
+                ? _value.zone
+                : zone // ignore: cast_nullable_to_non_nullable
+                    as String,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as AttendanceStatus,
+        transDay:
+            null == transDay
+                ? _value.transDay
+                : transDay // ignore: cast_nullable_to_non_nullable
+                    as int,
+        transMonth:
+            null == transMonth
+                ? _value.transMonth
+                : transMonth // ignore: cast_nullable_to_non_nullable
+                    as int,
+        transYear:
+            null == transYear
+                ? _value.transYear
+                : transYear // ignore: cast_nullable_to_non_nullable
+                    as int,
+        date:
+            null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }
@@ -250,8 +277,7 @@ class _$AddAttendanceWithoutImageRequestImpl
 
   factory _$AddAttendanceWithoutImageRequestImpl.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$$AddAttendanceWithoutImageRequestImplFromJson(json);
+  ) => _$$AddAttendanceWithoutImageRequestImplFromJson(json);
 
   @override
   @JsonKey(name: "address")
@@ -310,17 +336,17 @@ class _$AddAttendanceWithoutImageRequestImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        address,
-        latitude,
-        longitude,
-        zone,
-        status,
-        transDay,
-        transMonth,
-        transYear,
-        date,
-      );
+    runtimeType,
+    address,
+    latitude,
+    longitude,
+    zone,
+    status,
+    transDay,
+    transMonth,
+    transYear,
+    date,
+  );
 
   /// Create a copy of AddAttendanceWithoutImageRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -328,9 +354,11 @@ class _$AddAttendanceWithoutImageRequestImpl
   @override
   @pragma('vm:prefer-inline')
   _$$AddAttendanceWithoutImageRequestImplCopyWith<
-          _$AddAttendanceWithoutImageRequestImpl>
-      get copyWith => __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<
-          _$AddAttendanceWithoutImageRequestImpl>(this, _$identity);
+    _$AddAttendanceWithoutImageRequestImpl
+  >
+  get copyWith => __$$AddAttendanceWithoutImageRequestImplCopyWithImpl<
+    _$AddAttendanceWithoutImageRequestImpl
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -389,6 +417,7 @@ abstract class _AddAttendanceWithoutImageRequest
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddAttendanceWithoutImageRequestImplCopyWith<
-          _$AddAttendanceWithoutImageRequestImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$AddAttendanceWithoutImageRequestImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
