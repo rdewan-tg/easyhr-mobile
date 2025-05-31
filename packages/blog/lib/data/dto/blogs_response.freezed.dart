@@ -66,15 +66,18 @@ class _$BlogsResponseCopyWithImpl<$Res, $Val extends BlogsResponse>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                as List<BlogResponseData>,
-      ) as $Val,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as String,
+            data:
+                null == data
+                    ? _value.data
+                    : data // ignore: cast_nullable_to_non_nullable
+                        as List<BlogResponseData>,
+          )
+          as $Val,
     );
   }
 }
@@ -110,14 +113,16 @@ class __$$BlogsResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$BlogsResponseImpl(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        data: null == data
-            ? _value._data
-            : data // ignore: cast_nullable_to_non_nullable
-                as List<BlogResponseData>,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String,
+        data:
+            null == data
+                ? _value._data
+                : data // ignore: cast_nullable_to_non_nullable
+                    as List<BlogResponseData>,
       ),
     );
   }
@@ -163,10 +168,10 @@ class _$BlogsResponseImpl implements _BlogsResponse {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        status,
-        const DeepCollectionEquality().hash(_data),
-      );
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(_data),
+  );
 
   /// Create a copy of BlogsResponse
   /// with the given fields replaced by the non-null parameter values.

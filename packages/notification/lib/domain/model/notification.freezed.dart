@@ -81,43 +81,53 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
   }) {
     return _then(
       _value.copyWith(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as int,
-        title: null == title
-            ? _value.title
-            : title // ignore: cast_nullable_to_non_nullable
-                as String,
-        content: null == content
-            ? _value.content
-            : content // ignore: cast_nullable_to_non_nullable
-                as String,
-        image: freezed == image
-            ? _value.image
-            : image // ignore: cast_nullable_to_non_nullable
-                as String?,
-        link: freezed == link
-            ? _value.link
-            : link // ignore: cast_nullable_to_non_nullable
-                as String?,
-        isRead: null == isRead
-            ? _value.isRead
-            : isRead // ignore: cast_nullable_to_non_nullable
-                as bool,
-        readAt: freezed == readAt
-            ? _value.readAt
-            : readAt // ignore: cast_nullable_to_non_nullable
-                as String?,
-        dateTimeDifferance: null == dateTimeDifferance
-            ? _value.dateTimeDifferance
-            : dateTimeDifferance // ignore: cast_nullable_to_non_nullable
-                as String,
-        createdAt: null == createdAt
-            ? _value.createdAt
-            : createdAt // ignore: cast_nullable_to_non_nullable
-                as String,
-      ) as $Val,
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            content:
+                null == content
+                    ? _value.content
+                    : content // ignore: cast_nullable_to_non_nullable
+                        as String,
+            image:
+                freezed == image
+                    ? _value.image
+                    : image // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            link:
+                freezed == link
+                    ? _value.link
+                    : link // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            isRead:
+                null == isRead
+                    ? _value.isRead
+                    : isRead // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            readAt:
+                freezed == readAt
+                    ? _value.readAt
+                    : readAt // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            dateTimeDifferance:
+                null == dateTimeDifferance
+                    ? _value.dateTimeDifferance
+                    : dateTimeDifferance // ignore: cast_nullable_to_non_nullable
+                        as String,
+            createdAt:
+                null == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
     );
   }
 }
@@ -170,42 +180,51 @@ class __$$NotificationImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$NotificationImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as int,
-        title: null == title
-            ? _value.title
-            : title // ignore: cast_nullable_to_non_nullable
-                as String,
-        content: null == content
-            ? _value.content
-            : content // ignore: cast_nullable_to_non_nullable
-                as String,
-        image: freezed == image
-            ? _value.image
-            : image // ignore: cast_nullable_to_non_nullable
-                as String?,
-        link: freezed == link
-            ? _value.link
-            : link // ignore: cast_nullable_to_non_nullable
-                as String?,
-        isRead: null == isRead
-            ? _value.isRead
-            : isRead // ignore: cast_nullable_to_non_nullable
-                as bool,
-        readAt: freezed == readAt
-            ? _value.readAt
-            : readAt // ignore: cast_nullable_to_non_nullable
-                as String?,
-        dateTimeDifferance: null == dateTimeDifferance
-            ? _value.dateTimeDifferance
-            : dateTimeDifferance // ignore: cast_nullable_to_non_nullable
-                as String,
-        createdAt: null == createdAt
-            ? _value.createdAt
-            : createdAt // ignore: cast_nullable_to_non_nullable
-                as String,
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        content:
+            null == content
+                ? _value.content
+                : content // ignore: cast_nullable_to_non_nullable
+                    as String,
+        image:
+            freezed == image
+                ? _value.image
+                : image // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        link:
+            freezed == link
+                ? _value.link
+                : link // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        isRead:
+            null == isRead
+                ? _value.isRead
+                : isRead // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        readAt:
+            freezed == readAt
+                ? _value.readAt
+                : readAt // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        dateTimeDifferance:
+            null == dateTimeDifferance
+                ? _value.dateTimeDifferance
+                : dateTimeDifferance // ignore: cast_nullable_to_non_nullable
+                    as String,
+        createdAt:
+            null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }
@@ -270,17 +289,17 @@ class _$NotificationImpl implements _Notification {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        id,
-        title,
-        content,
-        image,
-        link,
-        isRead,
-        readAt,
-        dateTimeDifferance,
-        createdAt,
-      );
+    runtimeType,
+    id,
+    title,
+    content,
+    image,
+    link,
+    isRead,
+    readAt,
+    dateTimeDifferance,
+    createdAt,
+  );
 
   /// Create a copy of Notification
   /// with the given fields replaced by the non-null parameter values.

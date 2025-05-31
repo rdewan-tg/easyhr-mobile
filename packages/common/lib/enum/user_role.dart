@@ -14,5 +14,5 @@ enum UserRole {
   @JsonValue('user')
   user,
   @JsonValue('guest')
-  guest
+  guest,
 }

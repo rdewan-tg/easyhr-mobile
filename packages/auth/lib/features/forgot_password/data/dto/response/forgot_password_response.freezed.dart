@@ -54,8 +54,10 @@ abstract class $ForgotPasswordResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ForgotPasswordResponseCopyWithImpl<$Res,
-        $Val extends ForgotPasswordResponse>
+class _$ForgotPasswordResponseCopyWithImpl<
+  $Res,
+  $Val extends ForgotPasswordResponse
+>
     implements $ForgotPasswordResponseCopyWith<$Res> {
   _$ForgotPasswordResponseCopyWithImpl(this._value, this._then);
 
@@ -71,15 +73,18 @@ class _$ForgotPasswordResponseCopyWithImpl<$Res,
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                as Data,
-      ) as $Val,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as String,
+            data:
+                null == data
+                    ? _value.data
+                    : data // ignore: cast_nullable_to_non_nullable
+                        as Data,
+          )
+          as $Val,
     );
   }
 
@@ -114,8 +119,8 @@ abstract class _$$ForgotPasswordResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$ForgotPasswordResponseImplCopyWithImpl<$Res>
-    extends _$ForgotPasswordResponseCopyWithImpl<$Res,
-        _$ForgotPasswordResponseImpl>
+    extends
+        _$ForgotPasswordResponseCopyWithImpl<$Res, _$ForgotPasswordResponseImpl>
     implements _$$ForgotPasswordResponseImplCopyWith<$Res> {
   __$$ForgotPasswordResponseImplCopyWithImpl(
     _$ForgotPasswordResponseImpl _value,
@@ -129,14 +134,16 @@ class __$$ForgotPasswordResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$ForgotPasswordResponseImpl(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                as Data,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String,
+        data:
+            null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                    as Data,
       ),
     );
   }
@@ -184,11 +191,11 @@ class _$ForgotPasswordResponseImpl implements _ForgotPasswordResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$ForgotPasswordResponseImplCopyWith<_$ForgotPasswordResponseImpl>
-      get copyWith => __$$ForgotPasswordResponseImplCopyWithImpl<
-              _$ForgotPasswordResponseImpl>(
-            this,
-            _$identity,
-          );
+  get copyWith =>
+      __$$ForgotPasswordResponseImplCopyWithImpl<_$ForgotPasswordResponseImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
@@ -217,7 +224,7 @@ abstract class _ForgotPasswordResponse implements ForgotPasswordResponse {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ForgotPasswordResponseImplCopyWith<_$ForgotPasswordResponseImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 Data _$DataFromJson(Map<String, dynamic> json) {
@@ -263,11 +270,13 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   $Res call({Object? emailSent = null}) {
     return _then(
       _value.copyWith(
-        emailSent: null == emailSent
-            ? _value.emailSent
-            : emailSent // ignore: cast_nullable_to_non_nullable
-                as bool,
-      ) as $Val,
+            emailSent:
+                null == emailSent
+                    ? _value.emailSent
+                    : emailSent // ignore: cast_nullable_to_non_nullable
+                        as bool,
+          )
+          as $Val,
     );
   }
 }
@@ -288,7 +297,7 @@ class __$$DataImplCopyWithImpl<$Res>
     extends _$DataCopyWithImpl<$Res, _$DataImpl>
     implements _$$DataImplCopyWith<$Res> {
   __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Data
   /// with the given fields replaced by the non-null parameter values.
@@ -297,10 +306,11 @@ class __$$DataImplCopyWithImpl<$Res>
   $Res call({Object? emailSent = null}) {
     return _then(
       _$DataImpl(
-        emailSent: null == emailSent
-            ? _value.emailSent
-            : emailSent // ignore: cast_nullable_to_non_nullable
-                as bool,
+        emailSent:
+            null == emailSent
+                ? _value.emailSent
+                : emailSent // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }

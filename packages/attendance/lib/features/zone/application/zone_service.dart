@@ -60,15 +60,16 @@ List<ZoneModel> _filterZones(
 ) {
   try {
     // Filter stores within radius
-    final filtered = zones.where((e) {
-      final distanceInMeter = Geolocator.distanceBetween(
-        position.latitude,
-        position.longitude,
-        e.latitude,
-        e.longitude,
-      );
-      return distanceInMeter <= radius;
-    }).toList();
+    final filtered =
+        zones.where((e) {
+          final distanceInMeter = Geolocator.distanceBetween(
+            position.latitude,
+            position.longitude,
+            e.latitude,
+            e.longitude,
+          );
+          return distanceInMeter <= radius;
+        }).toList();
 
     // Sort by nearest
     filtered.sort((a, b) {

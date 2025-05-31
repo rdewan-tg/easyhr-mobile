@@ -36,17 +36,19 @@ class _NotificationListState extends ConsumerState<NotificationList> {
           final item = notifications[index];
           return Card(
             elevation: 0,
-            color: item.isRead
-                ? colorScheme.surfaceContainerLow
-                : colorScheme.primaryContainer.withAlpha(
-                    (255 * 0.3).round(),
-                  ),
+            color:
+                item.isRead
+                    ? colorScheme.surfaceContainerLow
+                    : colorScheme.primaryContainer.withAlpha(
+                      (255 * 0.3).round(),
+                    ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kMedium),
               side: BorderSide(
-                color: item.isRead
-                    ? colorScheme.outlineVariant
-                    : colorScheme.primary.withAlpha((255 * 0.5).round()),
+                color:
+                    item.isRead
+                        ? colorScheme.outlineVariant
+                        : colorScheme.primary.withAlpha((255 * 0.5).round()),
                 width: 1,
               ),
             ),
@@ -76,12 +78,14 @@ class _NotificationListState extends ConsumerState<NotificationList> {
                           child: Text(
                             item.title,
                             style: textTheme.titleMedium?.copyWith(
-                              fontWeight: item.isRead
-                                  ? FontWeight.normal
-                                  : FontWeight.bold,
-                              color: item.isRead
-                                  ? colorScheme.onSurface
-                                  : colorScheme.primary,
+                              fontWeight:
+                                  item.isRead
+                                      ? FontWeight.normal
+                                      : FontWeight.bold,
+                              color:
+                                  item.isRead
+                                      ? colorScheme.onSurface
+                                      : colorScheme.primary,
                             ),
                           ),
                         ),

@@ -94,59 +94,73 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   }) {
     return _then(
       _value.copyWith(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        isConsentAccepted: null == isConsentAccepted
-            ? _value.isConsentAccepted
-            : isConsentAccepted // ignore: cast_nullable_to_non_nullable
-                as bool,
-        scheduleTime: null == scheduleTime
-            ? _value.scheduleTime
-            : scheduleTime // ignore: cast_nullable_to_non_nullable
-                as int,
-        isScheduleTimeSet: null == isScheduleTimeSet
-            ? _value.isScheduleTimeSet
-            : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
-                as bool,
-        notificationSchedules: null == notificationSchedules
-            ? _value.notificationSchedules
-            : notificationSchedules // ignore: cast_nullable_to_non_nullable
-                as List<NotificationScheduleEntityData>,
-        isNotificationScheduleRemoved: null == isNotificationScheduleRemoved
-            ? _value.isNotificationScheduleRemoved
-            : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
-                as bool,
-        isNotificationScheduleCleared: null == isNotificationScheduleCleared
-            ? _value.isNotificationScheduleCleared
-            : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
-                as bool,
-        language: null == language
-            ? _value.language
-            : language // ignore: cast_nullable_to_non_nullable
-                as String,
-        themeMode: null == themeMode
-            ? _value.themeMode
-            : themeMode // ignore: cast_nullable_to_non_nullable
-                as String,
-        timeZone: null == timeZone
-            ? _value.timeZone
-            : timeZone // ignore: cast_nullable_to_non_nullable
-                as String,
-        settings: null == settings
-            ? _value.settings
-            : settings // ignore: cast_nullable_to_non_nullable
-                as Map<String, String>,
-        orderRunningNumber: null == orderRunningNumber
-            ? _value.orderRunningNumber
-            : orderRunningNumber // ignore: cast_nullable_to_non_nullable
-                as int,
-        errorMsg: freezed == errorMsg
-            ? _value.errorMsg
-            : errorMsg // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ) as $Val,
+            isLoading:
+                null == isLoading
+                    ? _value.isLoading
+                    : isLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isConsentAccepted:
+                null == isConsentAccepted
+                    ? _value.isConsentAccepted
+                    : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            scheduleTime:
+                null == scheduleTime
+                    ? _value.scheduleTime
+                    : scheduleTime // ignore: cast_nullable_to_non_nullable
+                        as int,
+            isScheduleTimeSet:
+                null == isScheduleTimeSet
+                    ? _value.isScheduleTimeSet
+                    : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            notificationSchedules:
+                null == notificationSchedules
+                    ? _value.notificationSchedules
+                    : notificationSchedules // ignore: cast_nullable_to_non_nullable
+                        as List<NotificationScheduleEntityData>,
+            isNotificationScheduleRemoved:
+                null == isNotificationScheduleRemoved
+                    ? _value.isNotificationScheduleRemoved
+                    : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isNotificationScheduleCleared:
+                null == isNotificationScheduleCleared
+                    ? _value.isNotificationScheduleCleared
+                    : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            language:
+                null == language
+                    ? _value.language
+                    : language // ignore: cast_nullable_to_non_nullable
+                        as String,
+            themeMode:
+                null == themeMode
+                    ? _value.themeMode
+                    : themeMode // ignore: cast_nullable_to_non_nullable
+                        as String,
+            timeZone:
+                null == timeZone
+                    ? _value.timeZone
+                    : timeZone // ignore: cast_nullable_to_non_nullable
+                        as String,
+            settings:
+                null == settings
+                    ? _value.settings
+                    : settings // ignore: cast_nullable_to_non_nullable
+                        as Map<String, String>,
+            orderRunningNumber:
+                null == orderRunningNumber
+                    ? _value.orderRunningNumber
+                    : orderRunningNumber // ignore: cast_nullable_to_non_nullable
+                        as int,
+            errorMsg:
+                freezed == errorMsg
+                    ? _value.errorMsg
+                    : errorMsg // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
     );
   }
 }
@@ -207,58 +221,71 @@ class __$$SettingStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SettingStateImpl(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        isConsentAccepted: null == isConsentAccepted
-            ? _value.isConsentAccepted
-            : isConsentAccepted // ignore: cast_nullable_to_non_nullable
-                as bool,
-        scheduleTime: null == scheduleTime
-            ? _value.scheduleTime
-            : scheduleTime // ignore: cast_nullable_to_non_nullable
-                as int,
-        isScheduleTimeSet: null == isScheduleTimeSet
-            ? _value.isScheduleTimeSet
-            : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
-                as bool,
-        notificationSchedules: null == notificationSchedules
-            ? _value._notificationSchedules
-            : notificationSchedules // ignore: cast_nullable_to_non_nullable
-                as List<NotificationScheduleEntityData>,
-        isNotificationScheduleRemoved: null == isNotificationScheduleRemoved
-            ? _value.isNotificationScheduleRemoved
-            : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
-                as bool,
-        isNotificationScheduleCleared: null == isNotificationScheduleCleared
-            ? _value.isNotificationScheduleCleared
-            : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
-                as bool,
-        language: null == language
-            ? _value.language
-            : language // ignore: cast_nullable_to_non_nullable
-                as String,
-        themeMode: null == themeMode
-            ? _value.themeMode
-            : themeMode // ignore: cast_nullable_to_non_nullable
-                as String,
-        timeZone: null == timeZone
-            ? _value.timeZone
-            : timeZone // ignore: cast_nullable_to_non_nullable
-                as String,
-        settings: null == settings
-            ? _value._settings
-            : settings // ignore: cast_nullable_to_non_nullable
-                as Map<String, String>,
-        orderRunningNumber: null == orderRunningNumber
-            ? _value.orderRunningNumber
-            : orderRunningNumber // ignore: cast_nullable_to_non_nullable
-                as int,
-        errorMsg: freezed == errorMsg
-            ? _value.errorMsg
-            : errorMsg // ignore: cast_nullable_to_non_nullable
-                as String?,
+        isLoading:
+            null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isConsentAccepted:
+            null == isConsentAccepted
+                ? _value.isConsentAccepted
+                : isConsentAccepted // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        scheduleTime:
+            null == scheduleTime
+                ? _value.scheduleTime
+                : scheduleTime // ignore: cast_nullable_to_non_nullable
+                    as int,
+        isScheduleTimeSet:
+            null == isScheduleTimeSet
+                ? _value.isScheduleTimeSet
+                : isScheduleTimeSet // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        notificationSchedules:
+            null == notificationSchedules
+                ? _value._notificationSchedules
+                : notificationSchedules // ignore: cast_nullable_to_non_nullable
+                    as List<NotificationScheduleEntityData>,
+        isNotificationScheduleRemoved:
+            null == isNotificationScheduleRemoved
+                ? _value.isNotificationScheduleRemoved
+                : isNotificationScheduleRemoved // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isNotificationScheduleCleared:
+            null == isNotificationScheduleCleared
+                ? _value.isNotificationScheduleCleared
+                : isNotificationScheduleCleared // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        language:
+            null == language
+                ? _value.language
+                : language // ignore: cast_nullable_to_non_nullable
+                    as String,
+        themeMode:
+            null == themeMode
+                ? _value.themeMode
+                : themeMode // ignore: cast_nullable_to_non_nullable
+                    as String,
+        timeZone:
+            null == timeZone
+                ? _value.timeZone
+                : timeZone // ignore: cast_nullable_to_non_nullable
+                    as String,
+        settings:
+            null == settings
+                ? _value._settings
+                : settings // ignore: cast_nullable_to_non_nullable
+                    as Map<String, String>,
+        orderRunningNumber:
+            null == orderRunningNumber
+                ? _value.orderRunningNumber
+                : orderRunningNumber // ignore: cast_nullable_to_non_nullable
+                    as int,
+        errorMsg:
+            freezed == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -281,8 +308,8 @@ class _$SettingStateImpl implements _SettingState {
     final Map<String, String> settings = const {},
     this.orderRunningNumber = 0,
     this.errorMsg,
-  })  : _notificationSchedules = notificationSchedules,
-        _settings = settings;
+  }) : _notificationSchedules = notificationSchedules,
+       _settings = settings;
 
   @override
   @JsonKey()
@@ -385,21 +412,21 @@ class _$SettingStateImpl implements _SettingState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        isLoading,
-        isConsentAccepted,
-        scheduleTime,
-        isScheduleTimeSet,
-        const DeepCollectionEquality().hash(_notificationSchedules),
-        isNotificationScheduleRemoved,
-        isNotificationScheduleCleared,
-        language,
-        themeMode,
-        timeZone,
-        const DeepCollectionEquality().hash(_settings),
-        orderRunningNumber,
-        errorMsg,
-      );
+    runtimeType,
+    isLoading,
+    isConsentAccepted,
+    scheduleTime,
+    isScheduleTimeSet,
+    const DeepCollectionEquality().hash(_notificationSchedules),
+    isNotificationScheduleRemoved,
+    isNotificationScheduleCleared,
+    language,
+    themeMode,
+    timeZone,
+    const DeepCollectionEquality().hash(_settings),
+    orderRunningNumber,
+    errorMsg,
+  );
 
   /// Create a copy of SettingState
   /// with the given fields replaced by the non-null parameter values.

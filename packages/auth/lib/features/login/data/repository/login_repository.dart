@@ -49,10 +49,7 @@ final class LoginRepository
       throw mapDioExceptionToFailure(e, stackTrace);
     } catch (e, stackTrace) {
       // Map unexpected exceptions to Failure
-      throw Failure(
-        message: e.toString(),
-        stackTrace: stackTrace,
-      );
+      throw Failure(message: e.toString(), stackTrace: stackTrace);
     }
   }
 
@@ -62,10 +59,7 @@ final class LoginRepository
       return await _settingStorage.upsertMultipleSettings(settings);
     } catch (e, stackTrace) {
       // Map unexpected exceptions to Failure
-      throw Failure(
-        message: e.toString(),
-        stackTrace: stackTrace,
-      );
+      throw Failure(message: e.toString(), stackTrace: stackTrace);
     }
   }
 
