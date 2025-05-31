@@ -50,9 +50,8 @@ class _CaptureImageButtonNoZoneWidgetState
                     "attendance.pleaseReadAndAcceptTheConsentStatement",
                   ),
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color:
-                            Theme.of(context).colorScheme.onSecondaryContainer,
-                      ),
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
                 ),
               ),
             ],
@@ -75,13 +74,16 @@ class _CaptureImageButtonNoZoneWidgetState
             ? "Check Out".hardcoded
             : "Check In".hardcoded,
       ),
-      icon: status == AttendanceStatus.checkedIn
-          ? const Icon(Icons.logout_outlined)
-          : const Icon(Icons.logout_rounded),
+      icon:
+          status == AttendanceStatus.checkedIn
+              ? const Icon(Icons.logout_outlined)
+              : const Icon(Icons.logout_rounded),
       style: FilledButton.styleFrom(
-        backgroundColor: status == AttendanceStatus.checkedIn
-            ? Colors.red // Background color for checked-in state
-            : null, // Background color for checked-out state
+        backgroundColor:
+            status == AttendanceStatus.checkedIn
+                ? Colors
+                    .red // Background color for checked-in state
+                : null, // Background color for checked-out state
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kSmall),
         ),

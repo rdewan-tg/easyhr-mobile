@@ -23,9 +23,10 @@ class ForgotPasswordButton extends ConsumerWidget {
           'Send'.hardcoded,
           style: const TextStyle(fontSize: kMedium),
         ),
-        icon: isLoading
-            ? const CircularProgressIndicator.adaptive()
-            : const Icon(Icons.send),
+        icon:
+            isLoading
+                ? const CircularProgressIndicator.adaptive()
+                : const Icon(Icons.send),
         onPressed: isLoading ? null : onPressed,
       ),
     );

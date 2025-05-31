@@ -17,28 +17,26 @@ Map<String, dynamic> _$$BlogResponseImplToJson(_$BlogResponseImpl instance) =>
 
 _$BlogResponseDataImpl _$$BlogResponseDataImplFromJson(
   Map<String, dynamic> json,
-) =>
-    _$BlogResponseDataImpl(
-      id: (json['id'] as num).toInt(),
-      title: json['title'] as String,
-      content: json['content'] as String,
-      image: json['image'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      isActive: json['isActive'] as bool,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
-    );
+) => _$BlogResponseDataImpl(
+  id: (json['id'] as num).toInt(),
+  title: json['title'] as String,
+  content: json['content'] as String,
+  image: json['image'] as String?,
+  imageUrl: json['imageUrl'] as String?,
+  isActive: json['isActive'] as bool,
+  createdAt: json['createdAt'] as String,
+  updatedAt: json['updatedAt'] as String,
+);
 
 Map<String, dynamic> _$$BlogResponseDataImplToJson(
   _$BlogResponseDataImpl instance,
-) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'content': instance.content,
-      'image': instance.image,
-      'imageUrl': instance.imageUrl,
-      'isActive': instance.isActive,
-      'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
-    };
+) => <String, dynamic>{
+  'id': instance.id,
+  'title': instance.title,
+  'content': instance.content,
+  'image': instance.image,
+  'imageUrl': instance.imageUrl,
+  'isActive': instance.isActive,
+  'createdAt': instance.createdAt,
+  'updatedAt': instance.updatedAt,
+};

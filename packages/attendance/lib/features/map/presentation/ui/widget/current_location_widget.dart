@@ -16,10 +16,7 @@ class CurrentLocationWidget extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           children: [
-            Icon(
-              Icons.location_on_rounded,
-              color: colorScheme.primary,
-            ),
+            Icon(Icons.location_on_rounded, color: colorScheme.primary),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -49,25 +46,27 @@ class CurrentLocationWidget extends ConsumerWidget {
                 backgroundColor: colorScheme.secondaryContainer,
                 foregroundColor: colorScheme.onSecondaryContainer,
               ),
-              onPressed: currentPosition == null
-                  ? null
-                  : () {
-                      Clipboard.setData(
-                        ClipboardData(
-                          text:
-                              '${currentPosition.latitude.toStringAsFixed(7)},${currentPosition.longitude.toStringAsFixed(7)}',
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            context
-                                .localizations("attendance.copiedToClipboard"),
+              onPressed:
+                  currentPosition == null
+                      ? null
+                      : () {
+                        Clipboard.setData(
+                          ClipboardData(
+                            text:
+                                '${currentPosition.latitude.toStringAsFixed(7)},${currentPosition.longitude.toStringAsFixed(7)}',
                           ),
-                          behavior: SnackBarBehavior.floating,
-                        ),
-                      );
-                    },
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              context.localizations(
+                                "attendance.copiedToClipboard",
+                              ),
+                            ),
+                            behavior: SnackBarBehavior.floating,
+                          ),
+                        );
+                      },
               icon: const Icon(Icons.content_copy_rounded),
             ),
           ],

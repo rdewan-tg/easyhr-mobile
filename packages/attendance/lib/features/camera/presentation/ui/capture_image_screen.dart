@@ -75,42 +75,44 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
           );
         },
         availableFilters: awesomePresetFiltersList,
-        topActionsBuilder: (state) => AwesomeTopActions(
-          state: state,
-          children: [
-            IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            ),
-          ],
-        ),
-        bottomActionsBuilder: (state) => AwesomeBottomActions(
-          state: state,
-          left: const SizedBox(),
-          right: StreamBuilder<MediaCapture?>(
-            stream: state.captureState$,
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const SizedBox(width: 72, height: 72);
-              }
-              return SizedBox(
-                width: 72,
-                child: AwesomeMediaPreview(
-                  mediaCapture: snapshot.requireData,
-                  onMediaTap: (capture) {
-                    capture.captureRequest.when(
-                      single: (single) async {
-                        await OpenFile.open(single.file?.path);
-                      },
-                    );
+        topActionsBuilder:
+            (state) => AwesomeTopActions(
+              state: state,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    context.pop();
                   },
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 ),
-              );
-            },
-          ),
-        ),
+              ],
+            ),
+        bottomActionsBuilder:
+            (state) => AwesomeBottomActions(
+              state: state,
+              left: const SizedBox(),
+              right: StreamBuilder<MediaCapture?>(
+                stream: state.captureState$,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const SizedBox(width: 72, height: 72);
+                  }
+                  return SizedBox(
+                    width: 72,
+                    child: AwesomeMediaPreview(
+                      mediaCapture: snapshot.requireData,
+                      onMediaTap: (capture) {
+                        capture.captureRequest.when(
+                          single: (single) async {
+                            await OpenFile.open(single.file?.path);
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
       ),
     );
   }

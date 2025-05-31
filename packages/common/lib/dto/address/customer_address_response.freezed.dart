@@ -55,8 +55,10 @@ abstract class $CustomerAddressResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CustomerAddressResponseCopyWithImpl<$Res,
-        $Val extends CustomerAddressResponse>
+class _$CustomerAddressResponseCopyWithImpl<
+  $Res,
+  $Val extends CustomerAddressResponse
+>
     implements $CustomerAddressResponseCopyWith<$Res> {
   _$CustomerAddressResponseCopyWithImpl(this._value, this._then);
 
@@ -76,19 +78,23 @@ class _$CustomerAddressResponseCopyWithImpl<$Res,
   }) {
     return _then(
       _value.copyWith(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        total: null == total
-            ? _value.total
-            : total // ignore: cast_nullable_to_non_nullable
-                as int,
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                as List<CustomerAddressData>,
-      ) as $Val,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as String,
+            total:
+                null == total
+                    ? _value.total
+                    : total // ignore: cast_nullable_to_non_nullable
+                        as int,
+            data:
+                null == data
+                    ? _value.data
+                    : data // ignore: cast_nullable_to_non_nullable
+                        as List<CustomerAddressData>,
+          )
+          as $Val,
     );
   }
 }
@@ -111,8 +117,11 @@ abstract class _$$CustomerAddressResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CustomerAddressResponseImplCopyWithImpl<$Res>
-    extends _$CustomerAddressResponseCopyWithImpl<$Res,
-        _$CustomerAddressResponseImpl>
+    extends
+        _$CustomerAddressResponseCopyWithImpl<
+          $Res,
+          _$CustomerAddressResponseImpl
+        >
     implements _$$CustomerAddressResponseImplCopyWith<$Res> {
   __$$CustomerAddressResponseImplCopyWithImpl(
     _$CustomerAddressResponseImpl _value,
@@ -130,18 +139,21 @@ class __$$CustomerAddressResponseImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CustomerAddressResponseImpl(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as String,
-        total: null == total
-            ? _value.total
-            : total // ignore: cast_nullable_to_non_nullable
-                as int,
-        data: null == data
-            ? _value._data
-            : data // ignore: cast_nullable_to_non_nullable
-                as List<CustomerAddressData>,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String,
+        total:
+            null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                    as int,
+        data:
+            null == data
+                ? _value._data
+                : data // ignore: cast_nullable_to_non_nullable
+                    as List<CustomerAddressData>,
       ),
     );
   }
@@ -193,11 +205,11 @@ class _$CustomerAddressResponseImpl implements _CustomerAddressResponse {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        status,
-        total,
-        const DeepCollectionEquality().hash(_data),
-      );
+    runtimeType,
+    status,
+    total,
+    const DeepCollectionEquality().hash(_data),
+  );
 
   /// Create a copy of CustomerAddressResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -205,8 +217,9 @@ class _$CustomerAddressResponseImpl implements _CustomerAddressResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerAddressResponseImplCopyWith<_$CustomerAddressResponseImpl>
-      get copyWith => __$$CustomerAddressResponseImplCopyWithImpl<
-          _$CustomerAddressResponseImpl>(this, _$identity);
+  get copyWith => __$$CustomerAddressResponseImplCopyWithImpl<
+    _$CustomerAddressResponseImpl
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -239,7 +252,7 @@ abstract class _CustomerAddressResponse implements CustomerAddressResponse {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerAddressResponseImplCopyWith<_$CustomerAddressResponseImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 CustomerAddressData _$CustomerAddressDataFromJson(Map<String, dynamic> json) {
@@ -344,63 +357,78 @@ class _$CustomerAddressDataCopyWithImpl<$Res, $Val extends CustomerAddressData>
   }) {
     return _then(
       _value.copyWith(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as int,
-        customerId: null == customerId
-            ? _value.customerId
-            : customerId // ignore: cast_nullable_to_non_nullable
-                as String,
-        address: freezed == address
-            ? _value.address
-            : address // ignore: cast_nullable_to_non_nullable
-                as String?,
-        salesPersonId: freezed == salesPersonId
-            ? _value.salesPersonId
-            : salesPersonId // ignore: cast_nullable_to_non_nullable
-                as String?,
-        latitude: null == latitude
-            ? _value.latitude
-            : latitude // ignore: cast_nullable_to_non_nullable
-                as String,
-        longitude: null == longitude
-            ? _value.longitude
-            : longitude // ignore: cast_nullable_to_non_nullable
-                as String,
-        deliveryName: freezed == deliveryName
-            ? _value.deliveryName
-            : deliveryName // ignore: cast_nullable_to_non_nullable
-                as String?,
-        postalAddress: null == postalAddress
-            ? _value.postalAddress
-            : postalAddress // ignore: cast_nullable_to_non_nullable
-                as String,
-        location: null == location
-            ? _value.location
-            : location // ignore: cast_nullable_to_non_nullable
-                as String,
-        isPrimary: null == isPrimary
-            ? _value.isPrimary
-            : isPrimary // ignore: cast_nullable_to_non_nullable
-                as bool,
-        companyId: null == companyId
-            ? _value.companyId
-            : companyId // ignore: cast_nullable_to_non_nullable
-                as int,
-        companyCode: null == companyCode
-            ? _value.companyCode
-            : companyCode // ignore: cast_nullable_to_non_nullable
-                as String,
-        createAt: null == createAt
-            ? _value.createAt
-            : createAt // ignore: cast_nullable_to_non_nullable
-                as DateTime,
-        updatedAt: null == updatedAt
-            ? _value.updatedAt
-            : updatedAt // ignore: cast_nullable_to_non_nullable
-                as DateTime,
-      ) as $Val,
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            customerId:
+                null == customerId
+                    ? _value.customerId
+                    : customerId // ignore: cast_nullable_to_non_nullable
+                        as String,
+            address:
+                freezed == address
+                    ? _value.address
+                    : address // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            salesPersonId:
+                freezed == salesPersonId
+                    ? _value.salesPersonId
+                    : salesPersonId // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            latitude:
+                null == latitude
+                    ? _value.latitude
+                    : latitude // ignore: cast_nullable_to_non_nullable
+                        as String,
+            longitude:
+                null == longitude
+                    ? _value.longitude
+                    : longitude // ignore: cast_nullable_to_non_nullable
+                        as String,
+            deliveryName:
+                freezed == deliveryName
+                    ? _value.deliveryName
+                    : deliveryName // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            postalAddress:
+                null == postalAddress
+                    ? _value.postalAddress
+                    : postalAddress // ignore: cast_nullable_to_non_nullable
+                        as String,
+            location:
+                null == location
+                    ? _value.location
+                    : location // ignore: cast_nullable_to_non_nullable
+                        as String,
+            isPrimary:
+                null == isPrimary
+                    ? _value.isPrimary
+                    : isPrimary // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            companyId:
+                null == companyId
+                    ? _value.companyId
+                    : companyId // ignore: cast_nullable_to_non_nullable
+                        as int,
+            companyCode:
+                null == companyCode
+                    ? _value.companyCode
+                    : companyCode // ignore: cast_nullable_to_non_nullable
+                        as String,
+            createAt:
+                null == createAt
+                    ? _value.createAt
+                    : createAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            updatedAt:
+                null == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+          )
+          as $Val,
     );
   }
 }
@@ -463,62 +491,76 @@ class __$$CustomerAddressDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CustomerAddressDataImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as int,
-        customerId: null == customerId
-            ? _value.customerId
-            : customerId // ignore: cast_nullable_to_non_nullable
-                as String,
-        address: freezed == address
-            ? _value.address
-            : address // ignore: cast_nullable_to_non_nullable
-                as String?,
-        salesPersonId: freezed == salesPersonId
-            ? _value.salesPersonId
-            : salesPersonId // ignore: cast_nullable_to_non_nullable
-                as String?,
-        latitude: null == latitude
-            ? _value.latitude
-            : latitude // ignore: cast_nullable_to_non_nullable
-                as String,
-        longitude: null == longitude
-            ? _value.longitude
-            : longitude // ignore: cast_nullable_to_non_nullable
-                as String,
-        deliveryName: freezed == deliveryName
-            ? _value.deliveryName
-            : deliveryName // ignore: cast_nullable_to_non_nullable
-                as String?,
-        postalAddress: null == postalAddress
-            ? _value.postalAddress
-            : postalAddress // ignore: cast_nullable_to_non_nullable
-                as String,
-        location: null == location
-            ? _value.location
-            : location // ignore: cast_nullable_to_non_nullable
-                as String,
-        isPrimary: null == isPrimary
-            ? _value.isPrimary
-            : isPrimary // ignore: cast_nullable_to_non_nullable
-                as bool,
-        companyId: null == companyId
-            ? _value.companyId
-            : companyId // ignore: cast_nullable_to_non_nullable
-                as int,
-        companyCode: null == companyCode
-            ? _value.companyCode
-            : companyCode // ignore: cast_nullable_to_non_nullable
-                as String,
-        createAt: null == createAt
-            ? _value.createAt
-            : createAt // ignore: cast_nullable_to_non_nullable
-                as DateTime,
-        updatedAt: null == updatedAt
-            ? _value.updatedAt
-            : updatedAt // ignore: cast_nullable_to_non_nullable
-                as DateTime,
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        customerId:
+            null == customerId
+                ? _value.customerId
+                : customerId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        address:
+            freezed == address
+                ? _value.address
+                : address // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        salesPersonId:
+            freezed == salesPersonId
+                ? _value.salesPersonId
+                : salesPersonId // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        latitude:
+            null == latitude
+                ? _value.latitude
+                : latitude // ignore: cast_nullable_to_non_nullable
+                    as String,
+        longitude:
+            null == longitude
+                ? _value.longitude
+                : longitude // ignore: cast_nullable_to_non_nullable
+                    as String,
+        deliveryName:
+            freezed == deliveryName
+                ? _value.deliveryName
+                : deliveryName // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        postalAddress:
+            null == postalAddress
+                ? _value.postalAddress
+                : postalAddress // ignore: cast_nullable_to_non_nullable
+                    as String,
+        location:
+            null == location
+                ? _value.location
+                : location // ignore: cast_nullable_to_non_nullable
+                    as String,
+        isPrimary:
+            null == isPrimary
+                ? _value.isPrimary
+                : isPrimary // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        companyId:
+            null == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                    as int,
+        companyCode:
+            null == companyCode
+                ? _value.companyCode
+                : companyCode // ignore: cast_nullable_to_non_nullable
+                    as String,
+        createAt:
+            null == createAt
+                ? _value.createAt
+                : createAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        updatedAt:
+            null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
       ),
     );
   }
@@ -631,22 +673,22 @@ class _$CustomerAddressDataImpl implements _CustomerAddressData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        id,
-        customerId,
-        address,
-        salesPersonId,
-        latitude,
-        longitude,
-        deliveryName,
-        postalAddress,
-        location,
-        isPrimary,
-        companyId,
-        companyCode,
-        createAt,
-        updatedAt,
-      );
+    runtimeType,
+    id,
+    customerId,
+    address,
+    salesPersonId,
+    latitude,
+    longitude,
+    deliveryName,
+    postalAddress,
+    location,
+    isPrimary,
+    companyId,
+    companyCode,
+    createAt,
+    updatedAt,
+  );
 
   /// Create a copy of CustomerAddressData
   /// with the given fields replaced by the non-null parameter values.

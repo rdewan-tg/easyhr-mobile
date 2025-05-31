@@ -23,9 +23,10 @@ class LoginButton extends ConsumerWidget {
           'Login'.hardcoded,
           style: const TextStyle(fontSize: kMedium),
         ),
-        icon: isLoading
-            ? const CircularProgressIndicator.adaptive()
-            : const Icon(Icons.login),
+        icon:
+            isLoading
+                ? const CircularProgressIndicator.adaptive()
+                : const Icon(Icons.login),
         onPressed: isLoading ? null : onPressed,
       ),
     );

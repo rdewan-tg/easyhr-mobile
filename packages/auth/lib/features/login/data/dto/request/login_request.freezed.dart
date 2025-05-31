@@ -73,19 +73,23 @@ class _$LoginRequestCopyWithImpl<$Res, $Val extends LoginRequest>
   }) {
     return _then(
       _value.copyWith(
-        email: null == email
-            ? _value.email
-            : email // ignore: cast_nullable_to_non_nullable
-                as String,
-        password: null == password
-            ? _value.password
-            : password // ignore: cast_nullable_to_non_nullable
-                as String,
-        uuid: null == uuid
-            ? _value.uuid
-            : uuid // ignore: cast_nullable_to_non_nullable
-                as String,
-      ) as $Val,
+            email:
+                null == email
+                    ? _value.email
+                    : email // ignore: cast_nullable_to_non_nullable
+                        as String,
+            password:
+                null == password
+                    ? _value.password
+                    : password // ignore: cast_nullable_to_non_nullable
+                        as String,
+            uuid:
+                null == uuid
+                    ? _value.uuid
+                    : uuid // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
     );
   }
 }
@@ -126,18 +130,21 @@ class __$$LoginRequestImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$LoginRequestImpl(
-        email: null == email
-            ? _value.email
-            : email // ignore: cast_nullable_to_non_nullable
-                as String,
-        password: null == password
-            ? _value.password
-            : password // ignore: cast_nullable_to_non_nullable
-                as String,
-        uuid: null == uuid
-            ? _value.uuid
-            : uuid // ignore: cast_nullable_to_non_nullable
-                as String,
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String,
+        password:
+            null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as String,
+        uuid:
+            null == uuid
+                ? _value.uuid
+                : uuid // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }

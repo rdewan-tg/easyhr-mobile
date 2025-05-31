@@ -5,8 +5,7 @@ part 'company_setting_response.g.dart';
 
 CompanySettingResponse deserializeCompanySettingResponse(
   Map<String, dynamic> json,
-) =>
-    CompanySettingResponse.fromJson(json);
+) => CompanySettingResponse.fromJson(json);
 
 @freezed
 class CompanySettingResponse with _$CompanySettingResponse {

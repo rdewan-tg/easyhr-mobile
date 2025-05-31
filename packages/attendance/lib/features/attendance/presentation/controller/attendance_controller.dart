@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final attendanceControllerProvider =
     AutoDisposeNotifierProvider<AttendanceController, AttendanceState>(
-  AttendanceController.new,
-);
+      AttendanceController.new,
+    );
 
 class AttendanceController extends AutoDisposeNotifier<AttendanceState> {
   @override

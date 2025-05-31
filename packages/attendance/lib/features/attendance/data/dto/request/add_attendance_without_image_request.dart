@@ -20,6 +20,5 @@ class AddAttendanceWithoutImageRequest with _$AddAttendanceWithoutImageRequest {
 
   factory AddAttendanceWithoutImageRequest.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$AddAttendanceWithoutImageRequestFromJson(json);
+  ) => _$AddAttendanceWithoutImageRequestFromJson(json);
 }
