@@ -3,12 +3,12 @@ name: iOS Build - Prod
 
 on:
   # Validate PR builds
-  push:
-    branches:
-      - ios-prod
-  pull_request:
-    branches:
-      - ios-prod
+  # push:
+  #   branches:
+  #     - ios-prod
+  # pull_request:
+  #   branches:
+  #     - ios-prod
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
@@ -248,5 +248,18 @@ jobs:
           api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           api-private-key: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
 
+      # Create a separate workflow dispatch to handle external testing submission
+      - name: Trigger external testing workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          event-type: submit-to-external-testing
+          client-payload: '{"build_number": "${{ env.BUILD_NUMBER }}", "app_id": "${{ secrets.APP_APPLE_ID }}"}'
+      
+      - name: Next steps for external testing
+        run: |
+          echo "Build ${{ env.BUILD_NUMBER }} has been uploaded to TestFlight."
+          echo "A separate workflow has been triggered to wait for processing and submit for external testing."
+          echo "Check the 'Actions' tab for the 'Submit to TestFlight External Testing' workflow."
 
      
