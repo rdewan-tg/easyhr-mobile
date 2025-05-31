@@ -229,6 +229,23 @@ jobs:
           name: qa-release-ipa
           path: build/ios/ipa
 
+       # Find the IPA file path after Shorebird build
+      - name: Find IPA file path
+        id: find-ipa
+        run: |
+          echo "Listing contents of build directory:"
+          find build -name "*.ipa" -type f
+          
+          # Store the IPA path in an output variable
+          IPA_PATH=$(find build -name "*.ipa" -type f | head -n 1)
+          if [ -n "$IPA_PATH" ]; then
+            echo "Found IPA at: $IPA_PATH"
+            echo "ipa_path=$IPA_PATH" >> $GITHUB_OUTPUT
+          else
+            echo "No IPA file found!"
+            exit 1
+          fi
+
       # Upload the built IPA to Firebase App Distribution
       - name: Upload IPA to Firebase App Distribution
         uses: emertozd/Firebase-Distribution-Github-Action@v2
@@ -236,7 +253,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID_IOS }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL }}
           groups: "ios-internal"
-          file: build/ios/ipa/qa-release-ipa.ipa
+          file: ${{ steps.find-ipa.outputs.ipa_path }}
           releaseNotesFile: distribution/whatsnew/whatsnew-en-US
         
 
