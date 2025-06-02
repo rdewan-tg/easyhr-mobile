@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "Rumah",
     "home.viewMore": "Lihat Lagi",
     "setting.title": "Tetapan",
@@ -59,7 +60,7 @@
     "setting.privacyPolicySubTitle": "Urus dasar privasi anda",
     "setting.confirm": "sahkan",
     "common.confirm": "sahkan",
-    "setting.privacyPolicyMessage": "Saya dengan ini secara sukarela memberikan persetujuan saya kepada Syarikat untuk merakam dan menyimpan imej fotografi wajah saya bagi tujuan mengesahkan identiti saya dan merekodkan waktu kerja saya dengan tepat (Daftar Masuk/Daftar Keluar) melalui aplikasi EasyHR. Keizinan ini diberikan semata-mata untuk tujuan yang dinyatakan di atas. Saya bersetuju bahawa Syarikat akan menggunakan data tersebut hanya dalam skop yang ditetapkan dan tidak akan menggunakannya untuk sebarang tujuan lain tanpa kebenaran bertulis saya terlebih dahulu.'",
+    "setting.privacyPolicyMessage": "Saya dengan ini secara sukarela memberikan persetujuan saya kepada Syarikat untuk merakam dan menyimpan imej fotografi wajah saya bagi tujuan mengesahkan identiti saya dan merekodkan waktu kerja saya dengan tepat (Daftar Masuk/Daftar Keluar) melalui aplikasi EasyHR. Persetujuan ini diberikan semata-mata untuk tujuan yang dinyatakan di atas. Saya bersetuju bahawa Syarikat akan menggunakan data tersebut hanya dalam skop yang ditetapkan dan tidak akan menggunakannya untuk sebarang tujuan lain tanpa kebenaran bertulis saya terlebih dahulu.'",
     "setting.acceptConsentStatement": "Saya menerima syarat pernyataan persetujuan",
     "attendance.pleaseReadAndAcceptTheConsentStatement": "Sila baca dan terima kenyataan persetujuan",
     "blog.blogTitle": "Blog",
@@ -91,5 +92,14 @@
     "setting.notificationScheduleRemovedSuccessfully": "Jadual pemberitahuan berjaya dialih keluar",
     "setting.alarmPermissionRequired": "Kebenaran penggera diperlukan",
     "setting.alarmPermissionGranted": "Kebenaran penggera telah diberikan",
-    "notification.title": "Pemberitahuan"
+    "notification.title": "Pemberitahuan",
+    "drawer.myProfile": "Profil Saya",
+    "drawer.aboutUs": "Tentang Kami",
+    "drawer.notification": "Pemberitahuan",
+    "drawer.setting": "Tetapan",
+    "drawer.blog": "Blog",
+    "drawer.publicHoliday": "Cuti Umum",
+    "drawer.privacyPolicy": "Dasar Privasi",
+    "drawer.contactUs": "Hubungi Kami",
+    "drawer.signOut": "Log Keluar"
 }

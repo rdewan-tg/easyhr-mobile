@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "家",
     "home.viewMore": "查看更多",
     "setting.title": "环境",
@@ -91,5 +92,14 @@
     "setting.notificationScheduleRemovedSuccessfully": "已成功删除通知计划",
     "setting.alarmPermissionRequired": "需要警报权限",
     "setting.alarmPermissionGranted": "已授予报警权限",
-    "notification.title": "通知"
+    "notification.title": "通知",
+    "drawer.myProfile": "我的个人资料",
+    "drawer.aboutUs": "关于我们",
+    "drawer.notification": "通知",
+    "drawer.setting": "环境",
+    "drawer.blog": "博客",
+    "drawer.publicHoliday": "公众假期",
+    "drawer.privacyPolicy": "隐私政策",
+    "drawer.contactUs": "联系我们",
+    "drawer.signOut": "登出"
 }

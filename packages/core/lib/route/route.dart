@@ -18,3 +18,4 @@ const String scheduleNotificationRoute = 'schedule-notification';
 const String notificationScheduleRoute = 'notification-schedule';
 const String notificationRoute = 'notification';
 const String notificationDetailRoute = 'notification-detail';
+const String publicHolidayRoute = 'public-holiday';

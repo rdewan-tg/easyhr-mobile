@@ -16,3 +16,4 @@ const String setMeFirebaseDeviceTokenEndPoint = '/v1/me/firebase-device-token';
 const String getNotificationEndPoint = '/v1/notifications';
 const String getNotificationEndPointById = '/v1/notifications/{id}';
 const String markNotificationAsReadEndPoint = '/v1/notifications/{id}/read';
+const String getPublicHolidayEndPoint = '/v1/public-holidays';

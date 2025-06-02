@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "Home",
     "home.viewMore": "View More",
     "attendance.title": "Attendance",
@@ -92,5 +93,14 @@
     "common.checkedIn": "Checked In",
     "common.checkedOut": "Checked Out",
     "common.youHaveSuccessfully": "You have successfully",
-    "common.confirm": "Confirm"
+    "common.confirm": "Confirm",
+    "drawer.myProfile": "My Profile",
+    "drawer.aboutUs": "About Us",
+    "drawer.notification": "Notification",
+    "drawer.setting": "Setting",
+    "drawer.blog": "Blog",
+    "drawer.publicHoliday": "Public Holiday",
+    "drawer.privacyPolicy": "Privacy Policy",
+    "drawer.contactUs": "Contact Us",
+    "drawer.signOut": "Sign Out"
 }

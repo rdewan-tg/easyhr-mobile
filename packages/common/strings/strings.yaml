@@ -1,13 +1,5 @@
-## translation, entry file.
-#title: Welcome to Flutter Translation Sheet tool
+appName: EasyHR
 
-# body: |
-#   This is a sample body
-#   to check the translation system
-#   in GoogleSheet
-
-## you can reference other files and folders with [$ref: path].
-## content of the file will be unwrapped into the key.
 home:
   $ref: home.yaml
 attendance:
@@ -22,4 +14,7 @@ notification:
   $ref: notification.yaml
 common:
   $ref: common.yaml
+drawer:
+  $ref: drawer.yaml
+
 
