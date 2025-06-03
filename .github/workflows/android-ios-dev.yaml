@@ -3,10 +3,10 @@ name: Flutter - Android-iOS Build Dev
 on:
   push:
     branches:
-      - dev1
+      - dev
   pull_request:
     branches:
-      - dev1
+      - dev
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
@@ -15,7 +15,6 @@ env:
   ANDROID_LOCAL_PROPERTIES: ${{ secrets.ANDROID_LOCAL_PROPERTIES }}
   APPLE_DEVELOPMENT_CERTIFICATE_BASE64: ${{ secrets.APPLE_DEVELOPMENT_CERTIFICATE_BASE64 }}
   APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-  APPLE_PROVISION_DEV_PROFILE_BASE64: ${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}
   FLUTTER_TRANSLATION_SHEET_CREDENTIALS: ${{ secrets.FLUTTER_TRANSLATION_SHEET_CREDENTIALS }}
   ENV_DEV: ${{ secrets.ENV_DEV }}
   ENV_QA: ${{ secrets.ENV_QA }}
@@ -98,6 +97,21 @@ jobs:
         run: |
           echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/prod/google-services.json
 
+      # Setup Google Service PLIST - iOS - Dev
+      - name: Setup Google Service PLIST for Firebase - Dev
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Dev/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - QA
+      - name: Setup Google Service PLIST for Firebase - QA
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/QA/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - Prod
+      - name: Setup Google Service PLIST for Firebase - Prod
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Prod/GoogleService-Info.plist
+
       # Setup Flutter Translation Sheet Credentials
       - name: Setup Flutter Translation Sheet Credentials
         run: |
@@ -164,7 +178,7 @@ jobs:
       - name: Install Provisioning Profile
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasySales-Dev-Provisioning-Profile.mobileprovision
+          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
 
       # setup flutter translation sheet
       - name: Setup Flutter Translation Sheet

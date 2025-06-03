@@ -20,6 +20,7 @@ dependencies:
   loader_overlay: any
   riverpod_annotation: any
   timezone: any
+  grouped_list: ^6.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

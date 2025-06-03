@@ -83,6 +83,7 @@ const _$UserRoleEnumMap = {
   UserRole.supervisor: 'supervisor',
   UserRole.operator: 'operator',
   UserRole.user: 'user',
+  UserRole.guest: 'guest',
 };
 
 _$CompanyDtoImpl _$$CompanyDtoImplFromJson(Map<String, dynamic> json) =>

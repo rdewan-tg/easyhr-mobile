@@ -19,7 +19,7 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
     return DropdownMenu(
       width: MediaQuery.of(context).size.width * 0.8,
       controller: controller,
-      label: const Text('Select Zone'),
+      label: Text('Select Zone'.hardcoded),
       requestFocusOnTap: false,
       onSelected: (value) {
         if (value == null) return;
@@ -28,9 +28,11 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
       menuStyle: const MenuStyle(
         padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
       ),
+      textStyle: const TextStyle(fontSize: 14),
       inputDecorationTheme: const InputDecorationTheme(
-        isDense: true, // reduces vertical height
-        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        isDense: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        constraints: BoxConstraints(maxHeight: 40),
         border: OutlineInputBorder(),
       ),
       dropdownMenuEntries:

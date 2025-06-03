@@ -45,12 +45,8 @@ class _BlogScreenState extends ConsumerState<BlogScreen> {
   @override
   Widget build(BuildContext context) {
     _listener();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(context.localizations('home.title')),
-        centerTitle: true,
-      ),
-      body: const BlogList(),
+    return const MainAppScaffoldSliver(
+      slivers: [SliverFillRemaining(child: BlogList())],
     );
   }
 

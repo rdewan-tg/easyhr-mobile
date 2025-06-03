@@ -24,7 +24,6 @@ class _BottomSheetWidgetState extends ConsumerState<BottomSheetWidget> {
             const SizedBox(height: kMedium),
             const CaptureImageButtonWidget(),
             const SizedBox(height: kMedium),
-
             if (imageFile != null) ...[
               Image.file(imageFile!, height: 100, width: 100),
             ],

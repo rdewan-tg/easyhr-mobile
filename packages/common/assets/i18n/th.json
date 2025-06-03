@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "บ้าน",
     "home.viewMore": "ดูเพิ่มเติม",
     "setting.title": "การตั้งค่า",
@@ -91,5 +92,14 @@
     "setting.notificationScheduleRemovedSuccessfully": "ลบตารางการแจ้งเตือนเรียบร้อยแล้ว",
     "setting.alarmPermissionRequired": "ต้องได้รับอนุญาติแจ้งเตือน",
     "setting.alarmPermissionGranted": "ได้รับอนุญาติแจ้งเตือนแล้ว",
-    "notification.title": "การแจ้งเตือน"
+    "notification.title": "การแจ้งเตือน",
+    "drawer.myProfile": "โปรไฟล์ของฉัน",
+    "drawer.aboutUs": "เกี่ยวกับเรา",
+    "drawer.notification": "การแจ้งเตือน",
+    "drawer.setting": "การตั้งค่า",
+    "drawer.blog": "บล็อก",
+    "drawer.publicHoliday": "วันหยุดนักขัตฤกษ์",
+    "drawer.privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "drawer.contactUs": "ติดต่อเรา",
+    "drawer.signOut": "ออกจากระบบ"
 }

@@ -68,12 +68,12 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       if (placemarks.isNotEmpty) {
         final place = placemarks.first;
         final address =
-            "${place.street}, ${place.administrativeArea}, ${place.postalCode}, ${place.country}";
+            "${(place.street?.isNotEmpty ?? false) ? place.street : (place.name ?? '')}, ${place.administrativeArea ?? ''}, ${place.postalCode ?? ''}, ${place.country ?? ''}";
         // update the address state
         ref.read(mapControllerProvider.notifier).setCurrentAddress(address);
       }
     } catch (e) {
-      ref.read(mapControllerProvider.notifier).setErrorMsg(e.toString());
+      //ref.read(mapControllerProvider.notifier).setErrorMsg(e.toString());
     }
   }
 
@@ -102,9 +102,19 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                           markerId: const MarkerId('currentLocation'),
                           position: currentPosition,
                           infoWindow: const InfoWindow(title: 'You are here'),
+                          onTap:
+                              () {}, // Empty onTap to prevent default behavior
                         ),
                       },
-                      onMapCreated: (controller) => _mapController = controller,
+                      onMapCreated: (controller) {
+                        _mapController = controller;
+                        // Show info window after a short delay
+                        Future.delayed(const Duration(milliseconds: 500), () {
+                          controller.showMarkerInfoWindow(
+                            const MarkerId('currentLocation'),
+                          );
+                        });
+                      },
                       myLocationEnabled: true,
                       myLocationButtonEnabled: true,
                     ),

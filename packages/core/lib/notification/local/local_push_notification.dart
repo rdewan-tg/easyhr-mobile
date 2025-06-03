@@ -6,11 +6,20 @@ import 'package:core/core.dart';
 import 'package:core/notification/local/model/local_notification_message.dart';
 import 'package:core/route/app_router.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:timezone/timezone.dart' as tz;
+
+@pragma('vm:entry-point')
+void notificationTapBackground(NotificationResponse notificationResponse) {
+  // handle action
+  debugPrint(
+    ("Handling a background message: ${notificationResponse.payload}"),
+  );
+}
 
 final localPushNotificationProvider = Provider<LocalPushNotification>((ref) {
   final localNotificationsPlugin = ref.watch(flutterLocalNotificationProvider);
@@ -71,24 +80,62 @@ class LocalPushNotification {
         _logger.info(details.toString());
         _handleMessage(details.payload);
       },
+      onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
     );
   }
 
   Future<bool> requestAlarmPermission() async {
-    final androidPlugin =
-        _localNotificationsPlugin.resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>();
-    // Schedulr alaram permission
-    // Check if you still have permission from last time you asked (or false if you never asked)
-    // Null means you're not on Android
-    var hasPermission =
-        await androidPlugin?.canScheduleExactNotifications() ?? false;
-    if (!hasPermission) {
-      // if not granted, request permission
-      hasPermission =
-          await androidPlugin?.requestExactAlarmsPermission() ?? false;
+    // For Android: Request exact alarm permission
+    if (Platform.isAndroid) {
+      final androidPlugin =
+          _localNotificationsPlugin.resolvePlatformSpecificImplementation<
+              AndroidFlutterLocalNotificationsPlugin>();
+      // Check if you still have permission from last time you asked (or false if you never asked)
+      var hasPermission =
+          await androidPlugin?.canScheduleExactNotifications() ?? false;
+      if (!hasPermission) {
+        // if not granted, request permission
+        hasPermission =
+            await androidPlugin?.requestExactAlarmsPermission() ?? false;
+      }
+      return hasPermission;
     }
-    return hasPermission;
+
+    // For iOS: Request notification permissions
+    if (Platform.isIOS) {
+      try {
+        // Re-initialize with permission requests enabled
+        // This is a safer approach that works across all versions
+        final bool? initialized = await _localNotificationsPlugin.initialize(
+          const InitializationSettings(
+            iOS: DarwinInitializationSettings(
+              requestAlertPermission: true,
+              requestBadgePermission: true,
+              requestSoundPermission: true,
+              requestCriticalPermission: true,
+            ),
+          ),
+          // Maintain the same callback handlers
+          onDidReceiveNotificationResponse: (details) {
+            _logger.info(details.toString());
+            _handleMessage(details.payload);
+          },
+          onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
+        );
+
+        _logger.info(
+          'iOS notification permissions requested, initialization success: $initialized',
+        );
+        // Return the result of initialization (true if successful, false otherwise)
+        return initialized ?? false;
+      } catch (e) {
+        _logger.severe('Error requesting iOS notification permissions: $e');
+        return false;
+      }
+    }
+
+    // For other platforms
+    return false;
   }
 
   ///On Android, notification messages are sent to Notification

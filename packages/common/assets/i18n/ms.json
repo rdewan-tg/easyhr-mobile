@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "Rumah",
     "home.viewMore": "Lihat Lagi",
     "setting.title": "Tetapan",
@@ -17,7 +18,7 @@
     "setting.orderNumberFormat": "Format Nombor Pesanan",
     "setting.orderRunningNumberTitle": "Nombor Berjalan Pesanan",
     "setting.orderRunningNumberSubTitle": "Nombor Berjalan Pesanan",
-    "setting.timeZone": "Zon Waktu",
+    "setting.timeZone": "Zon Masa",
     "setting.importSalesCustomer": "Pelanggan Jualan Import",
     "setting.importSalesCustomerSubTitle": "Import Pelanggan Jualan daripada API",
     "setting.importMerchandiserCustomer": "Pelanggan Import Merchandiser",
@@ -91,5 +92,14 @@
     "setting.notificationScheduleRemovedSuccessfully": "Jadual pemberitahuan berjaya dialih keluar",
     "setting.alarmPermissionRequired": "Kebenaran penggera diperlukan",
     "setting.alarmPermissionGranted": "Kebenaran penggera telah diberikan",
-    "notification.title": "Pemberitahuan"
+    "notification.title": "Pemberitahuan",
+    "drawer.myProfile": "Profil Saya",
+    "drawer.aboutUs": "Tentang Kami",
+    "drawer.notification": "Pemberitahuan",
+    "drawer.setting": "Tetapan",
+    "drawer.blog": "Blog",
+    "drawer.publicHoliday": "Cuti Umum",
+    "drawer.privacyPolicy": "Dasar Privasi",
+    "drawer.contactUs": "Hubungi Kami",
+    "drawer.signOut": "Log Keluar"
 }

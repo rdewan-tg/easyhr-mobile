@@ -1,5 +1,5 @@
-# EasySales
-Sales and Merchandiser App
+# EasyHR
+HR App
 
 # Build Status
 | Environment | Status  |
@@ -69,8 +69,8 @@ fvm flutter pub run build_runner build -d
 *   Setup .env in packages/core 
     ```
     1. Rename .dev.env.example to .dev.env
-    2. Rename .qa.env.example to .dev.env
-    3. Rename .prod.env.example to .dev.env
+    2. Rename .qa.env.example to .qa.env
+    3. Rename .prod.env.example to .prod.env
     4. Add the required values to the keys
     ```
 

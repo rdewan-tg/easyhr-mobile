@@ -13,4 +13,6 @@ enum UserRole {
   operator,
   @JsonValue('user')
   user,
+  @JsonValue('guest')
+  guest,
 }

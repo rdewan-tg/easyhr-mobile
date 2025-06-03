@@ -43,6 +43,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to capture a photo from camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Used to capture audio</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -54,6 +56,11 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 		<string>processing</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.tongarden.easyhr.refresh</string>
+		<string>com.tongarden.easyhr.processing</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -72,7 +79,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>GOOGLE_MAPS_API_KEY</key>
+	<string>$(GOOGLE_MAPS_API_KEY)</string>
+	<key>NSUserNotificationUsageDescription</key>
+	<string>This app requires notification permissions to send alerts and reminders.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to your location.</string>
+	<string>This app needs access to location when using a attendance feature to calculate the distance between your current location and the office location.</string>
+	
 </dict>
 </plist>

@@ -1,4 +1,5 @@
 {
+    "appName": "EasyHR",
     "home.title": "Rumah",
     "home.viewMore": "Lihat Lebih Banyak",
     "setting.title": "Pengaturan",
@@ -91,5 +92,14 @@
     "setting.notificationScheduleRemovedSuccessfully": "Jadwal notifikasi berhasil dihapus",
     "setting.alarmPermissionRequired": "Izin alarm diperlukan",
     "setting.alarmPermissionGranted": "Izin alarm telah diberikan",
-    "notification.title": "Pemberitahuan"
+    "notification.title": "Pemberitahuan",
+    "drawer.myProfile": "Profil Saya",
+    "drawer.aboutUs": "Tentang Kami",
+    "drawer.notification": "Pemberitahuan",
+    "drawer.setting": "Pengaturan",
+    "drawer.blog": "Blog",
+    "drawer.publicHoliday": "Hari Libur Nasional",
+    "drawer.privacyPolicy": "Kebijakan Privasi",
+    "drawer.contactUs": "Hubungi kami",
+    "drawer.signOut": "Keluar"
 }

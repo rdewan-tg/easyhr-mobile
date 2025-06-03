@@ -20,9 +20,8 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     _listner();
-    return Scaffold(
-      appBar: AppBar(title: const Text('Notification'), centerTitle: true),
-      body: const NotificationList(),
+    return const MainAppScaffoldSliver(
+      slivers: [SliverFillRemaining(child: NotificationList())],
     );
   }
 
