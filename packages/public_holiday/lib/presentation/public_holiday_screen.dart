@@ -22,7 +22,10 @@ class _PublicHolidayScreenState extends ConsumerState<PublicHolidayScreen> {
     _listner();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Public Holidays'), centerTitle: true),
+      appBar: AppBar(
+        title: Text(context.localizations('publicHoliday.title')),
+        centerTitle: true,
+      ),
       body: const PublicHolidayList(),
     );
   }

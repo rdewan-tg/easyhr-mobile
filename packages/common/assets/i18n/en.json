@@ -102,5 +102,7 @@
     "drawer.publicHoliday": "Public Holiday",
     "drawer.privacyPolicy": "Privacy Policy",
     "drawer.contactUs": "Contact Us",
-    "drawer.signOut": "Sign Out"
+    "drawer.signOut": "Sign Out",
+    "publicHoliday.title": "Public Holidays",
+    "publicHoliday.recurring": "Recurring"
 }

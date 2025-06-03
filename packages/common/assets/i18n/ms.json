@@ -101,5 +101,7 @@
     "drawer.publicHoliday": "Cuti Umum",
     "drawer.privacyPolicy": "Dasar Privasi",
     "drawer.contactUs": "Hubungi Kami",
-    "drawer.signOut": "Log Keluar"
+    "drawer.signOut": "Log Keluar",
+    "publicHoliday.title": "Cuti Umum",
+    "publicHoliday.recurring": "Berulang"
 }
