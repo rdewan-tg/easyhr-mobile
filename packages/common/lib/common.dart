@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:common/exception/failure.dart';
 import 'package:common/gen/assets.gen.dart';
+import 'package:core/route/route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:uuid/uuid.dart';
 import 'package:logging/logging.dart';
+import 'package:profile/presentation/controller/profile_controller.dart';
 
 part 'style/dimens.dart';
 part 'upgrader/upgrader_translation_messages.dart';
@@ -34,6 +36,9 @@ part 'widget/no_route_screen.dart';
 part 'widget/app_scaffold_scrollable.dart';
 part 'widget/form/custom_text_form_field.dart';
 part 'widget/empty_data_widget.dart';
+part 'widget/main_app_scaffold.dart';
+part 'widget/main_app_drawer.dart';
+part 'widget/main_app_scaffold_sliver.dart';
 
 part 'extension/dark_mode.dart';
 part 'extension/text_theme.dart';

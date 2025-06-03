@@ -21,12 +21,8 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
   Widget build(BuildContext context) {
     _listener();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(context.localizations("attendance.title")),
-        centerTitle: true,
-      ),
-      body: const AttendanceList(),
+    return MainAppScaffoldSliver(
+      slivers: const [SliverFillRemaining(child: AttendanceList())],
       floatingActionButton: FloatingActionButton.extended(
         label: Text(context.localizations("attendance.add")),
         icon: const Icon(Icons.add),

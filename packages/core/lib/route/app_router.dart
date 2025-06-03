@@ -14,6 +14,7 @@ import 'package:notification/domain/model/notification.dart' as model;
 import 'package:notification/notification.dart';
 //import 'package:home/home.dart';
 import 'package:profile/profile.dart';
+import 'package:public_holiday/public_holiday.dart';
 import 'package:setting/setting.dart';
 import 'package:blog/blog.dart';
 
@@ -91,7 +92,13 @@ class AppRouter {
 
   // 2. Routes Configuration
   List<RouteBase> _buildRoutes() {
-    return [_loginRoute(), _signupRoute(), _dashboardRoute(), _mapRoute()];
+    return [
+      _loginRoute(),
+      _signupRoute(),
+      _dashboardRoute(),
+      _mapRoute(),
+      _publicHolidayRoute(),
+    ];
   }
 
   RouteBase _loginRoute() {
@@ -370,6 +377,18 @@ class AppRouter {
         child: NotificationDetailScreen(
           notification: state.extra as model.Notification,
         ),
+      ),
+    );
+  }
+
+  RouteBase _publicHolidayRoute() {
+    return GoRoute(
+      path: '/$publicHolidayRoute',
+      name: publicHolidayRoute,
+      pageBuilder: (context, state) => NoTransitionPage(
+        key: state.pageKey,
+        name: state.name,
+        child: const PublicHolidayScreen(),
       ),
     );
   }

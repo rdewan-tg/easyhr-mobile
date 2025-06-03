@@ -1,33 +1,35 @@
-part of notification;
+part of public_holiday;
 
-class NotificationScreen extends ConsumerStatefulWidget {
-  const NotificationScreen({super.key});
+class PublicHolidayScreen extends ConsumerStatefulWidget {
+  const PublicHolidayScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _NotificationScreenState();
+      _PublicHolidayScreenState();
 }
 
-class _NotificationScreenState extends ConsumerState<NotificationScreen> {
+class _PublicHolidayScreenState extends ConsumerState<PublicHolidayScreen> {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(notificationControllerProvider.notifier).getNotifications();
+      ref.read(publicHolidayServiceProvider).getPublicHoliday();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     _listner();
-    return const MainAppScaffoldSliver(
-      slivers: [SliverFillRemaining(child: NotificationList())],
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Public Holidays'), centerTitle: true),
+      body: const PublicHolidayList(),
     );
   }
 
   void _listner() {
     // listen for error
-    ref.listen(notificationControllerProvider.select((value) => value.error), (
+    ref.listen(publicHolidayControllerProvider.select((value) => value.error), (
       _,
       next,
     ) {
@@ -43,7 +45,7 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
     });
 
     ref.listen(
-      notificationControllerProvider.select((value) => value.isLoading),
+      publicHolidayControllerProvider.select((value) => value.isLoading),
       (_, next) {
         if (next) {
           context.loaderOverlay.show();
