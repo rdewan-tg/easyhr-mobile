@@ -226,7 +226,7 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
         with:
-          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
+          args: --build-name=2.0.${{ steps.fetch_version_info.outputs.version_code }} --build-number=${{ steps.fetch_version_info.outputs.version_code }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
@@ -234,7 +234,7 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=2.0.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          args: --build-name=2.0.${{ steps.fetch_version_info.outputs.version_code }} --build-number=${{ steps.fetch_version_info.outputs.version_code }} --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
 
@@ -282,11 +282,11 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: submit-to-external-testing
-          client-payload: '{"build_number": "${{ env.BUILD_NUMBER }}", "app_id": "${{ secrets.APP_APPLE_ID }}"}'
+          client-payload: '{"build_number": "${{steps.fetch_version_info.outputs.version_code }}", "app_id": "${{ secrets.APP_APPLE_ID }}"}'
       
       - name: Next steps for external testing
         run: |
-          echo "Build ${{ env.BUILD_NUMBER }} has been uploaded to TestFlight."
+          echo "Build ${{ steps.fetch_version_info.outputs.version_code }} has been uploaded to TestFlight."
           echo "A separate workflow has been triggered to wait for processing and submit for external testing."
           echo "Check the 'Actions' tab for the 'Submit to TestFlight External Testing' workflow."    
   
