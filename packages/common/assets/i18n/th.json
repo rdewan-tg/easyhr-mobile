@@ -101,5 +101,7 @@
     "drawer.publicHoliday": "วันหยุดนักขัตฤกษ์",
     "drawer.privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "drawer.contactUs": "ติดต่อเรา",
-    "drawer.signOut": "ออกจากระบบ"
+    "drawer.signOut": "ออกจากระบบ",
+    "publicHoliday.title": "วันหยุดนักขัตฤกษ์",
+    "publicHoliday.recurring": "การเกิดขึ้นซ้ำ"
 }

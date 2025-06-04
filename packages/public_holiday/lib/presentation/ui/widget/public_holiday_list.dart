@@ -232,7 +232,7 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                       ),
                     ),
                     child: Text(
-                      'Recurring',
+                      context.localizations('publicHoliday.recurring'),
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         fontSize: 10,
                         color:

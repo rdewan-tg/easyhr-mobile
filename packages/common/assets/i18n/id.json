@@ -101,5 +101,7 @@
     "drawer.publicHoliday": "Hari Libur Nasional",
     "drawer.privacyPolicy": "Kebijakan Privasi",
     "drawer.contactUs": "Hubungi kami",
-    "drawer.signOut": "Keluar"
+    "drawer.signOut": "Keluar",
+    "publicHoliday.title": "Hari Libur Nasional",
+    "publicHoliday.recurring": "Berulang"
 }

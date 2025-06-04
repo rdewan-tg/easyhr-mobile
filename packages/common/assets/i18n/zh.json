@@ -101,5 +101,7 @@
     "drawer.publicHoliday": "公众假期",
     "drawer.privacyPolicy": "隐私政策",
     "drawer.contactUs": "联系我们",
-    "drawer.signOut": "登出"
+    "drawer.signOut": "登出",
+    "publicHoliday.title": "公共假期",
+    "publicHoliday.recurring": "再次发生的"
 }
