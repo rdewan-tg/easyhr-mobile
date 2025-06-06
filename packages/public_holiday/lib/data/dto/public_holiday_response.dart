@@ -24,8 +24,21 @@ abstract class PublicHolidayData with _$PublicHolidayData {
     @JsonKey(name: 'year') required int year,
     @JsonKey(name: 'isRecurring') required bool isRecurring,
     @JsonKey(name: 'companyId') required int companyId,
+    @JsonKey(name: 'states') @Default([]) List<PublicHolidayState> states,
   }) = _PublicHolidayData;
 
   factory PublicHolidayData.fromJson(Map<String, dynamic> json) =>
       _$PublicHolidayDataFromJson(json);
+}
+
+@freezed
+abstract class PublicHolidayState with _$PublicHolidayState {
+  factory PublicHolidayState({
+    @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'name') required String name,
+    @JsonKey(name: 'code') String? code,
+  }) = _PublicHolidayState;
+
+  factory PublicHolidayState.fromJson(Map<String, dynamic> json) =>
+      _$PublicHolidayStateFromJson(json);
 }

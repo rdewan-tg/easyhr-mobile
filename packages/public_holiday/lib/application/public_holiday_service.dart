@@ -69,6 +69,7 @@ List<PublicHoliday> _mapToPublicHolidayList(
           month: _getMonthName(e.date),
           isPast: _isPast(e.date, now),
           isInCurrentMonth: _isInCurrentMonth(e.date, now),
+          states: e.states.map((e) => e.name).toList(),
         ),
       )
       .toList();

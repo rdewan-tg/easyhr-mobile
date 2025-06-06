@@ -230,6 +230,8 @@ mixin _$PublicHolidayData {
   bool get isRecurring => throw _privateConstructorUsedError;
   @JsonKey(name: 'companyId')
   int get companyId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'states')
+  List<PublicHolidayState> get states => throw _privateConstructorUsedError;
 
   /// Serializes this PublicHolidayData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -256,6 +258,7 @@ abstract class $PublicHolidayDataCopyWith<$Res> {
     @JsonKey(name: 'year') int year,
     @JsonKey(name: 'isRecurring') bool isRecurring,
     @JsonKey(name: 'companyId') int companyId,
+    @JsonKey(name: 'states') List<PublicHolidayState> states,
   });
 }
 
@@ -281,6 +284,7 @@ class _$PublicHolidayDataCopyWithImpl<$Res, $Val extends PublicHolidayData>
     Object? year = null,
     Object? isRecurring = null,
     Object? companyId = null,
+    Object? states = null,
   }) {
     return _then(
       _value.copyWith(
@@ -319,6 +323,11 @@ class _$PublicHolidayDataCopyWithImpl<$Res, $Val extends PublicHolidayData>
                     ? _value.companyId
                     : companyId // ignore: cast_nullable_to_non_nullable
                         as int,
+            states:
+                null == states
+                    ? _value.states
+                    : states // ignore: cast_nullable_to_non_nullable
+                        as List<PublicHolidayState>,
           )
           as $Val,
     );
@@ -342,6 +351,7 @@ abstract class _$$PublicHolidayDataImplCopyWith<$Res>
     @JsonKey(name: 'year') int year,
     @JsonKey(name: 'isRecurring') bool isRecurring,
     @JsonKey(name: 'companyId') int companyId,
+    @JsonKey(name: 'states') List<PublicHolidayState> states,
   });
 }
 
@@ -366,6 +376,7 @@ class __$$PublicHolidayDataImplCopyWithImpl<$Res>
     Object? year = null,
     Object? isRecurring = null,
     Object? companyId = null,
+    Object? states = null,
   }) {
     return _then(
       _$PublicHolidayDataImpl(
@@ -404,6 +415,11 @@ class __$$PublicHolidayDataImplCopyWithImpl<$Res>
                 ? _value.companyId
                 : companyId // ignore: cast_nullable_to_non_nullable
                     as int,
+        states:
+            null == states
+                ? _value._states
+                : states // ignore: cast_nullable_to_non_nullable
+                    as List<PublicHolidayState>,
       ),
     );
   }
@@ -420,7 +436,8 @@ class _$PublicHolidayDataImpl implements _PublicHolidayData {
     @JsonKey(name: 'year') required this.year,
     @JsonKey(name: 'isRecurring') required this.isRecurring,
     @JsonKey(name: 'companyId') required this.companyId,
-  });
+    @JsonKey(name: 'states') final List<PublicHolidayState> states = const [],
+  }) : _states = states;
 
   factory _$PublicHolidayDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$PublicHolidayDataImplFromJson(json);
@@ -446,10 +463,18 @@ class _$PublicHolidayDataImpl implements _PublicHolidayData {
   @override
   @JsonKey(name: 'companyId')
   final int companyId;
+  final List<PublicHolidayState> _states;
+  @override
+  @JsonKey(name: 'states')
+  List<PublicHolidayState> get states {
+    if (_states is EqualUnmodifiableListView) return _states;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_states);
+  }
 
   @override
   String toString() {
-    return 'PublicHolidayData(id: $id, name: $name, description: $description, date: $date, year: $year, isRecurring: $isRecurring, companyId: $companyId)';
+    return 'PublicHolidayData(id: $id, name: $name, description: $description, date: $date, year: $year, isRecurring: $isRecurring, companyId: $companyId, states: $states)';
   }
 
   @override
@@ -466,7 +491,8 @@ class _$PublicHolidayDataImpl implements _PublicHolidayData {
             (identical(other.isRecurring, isRecurring) ||
                 other.isRecurring == isRecurring) &&
             (identical(other.companyId, companyId) ||
-                other.companyId == companyId));
+                other.companyId == companyId) &&
+            const DeepCollectionEquality().equals(other._states, _states));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -480,6 +506,7 @@ class _$PublicHolidayDataImpl implements _PublicHolidayData {
     year,
     isRecurring,
     companyId,
+    const DeepCollectionEquality().hash(_states),
   );
 
   /// Create a copy of PublicHolidayData
@@ -508,6 +535,7 @@ abstract class _PublicHolidayData implements PublicHolidayData {
     @JsonKey(name: 'year') required final int year,
     @JsonKey(name: 'isRecurring') required final bool isRecurring,
     @JsonKey(name: 'companyId') required final int companyId,
+    @JsonKey(name: 'states') final List<PublicHolidayState> states,
   }) = _$PublicHolidayDataImpl;
 
   factory _PublicHolidayData.fromJson(Map<String, dynamic> json) =
@@ -534,11 +562,227 @@ abstract class _PublicHolidayData implements PublicHolidayData {
   @override
   @JsonKey(name: 'companyId')
   int get companyId;
+  @override
+  @JsonKey(name: 'states')
+  List<PublicHolidayState> get states;
 
   /// Create a copy of PublicHolidayData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PublicHolidayDataImplCopyWith<_$PublicHolidayDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PublicHolidayState _$PublicHolidayStateFromJson(Map<String, dynamic> json) {
+  return _PublicHolidayState.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PublicHolidayState {
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'code')
+  String? get code => throw _privateConstructorUsedError;
+
+  /// Serializes this PublicHolidayState to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PublicHolidayState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PublicHolidayStateCopyWith<PublicHolidayState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PublicHolidayStateCopyWith<$Res> {
+  factory $PublicHolidayStateCopyWith(
+    PublicHolidayState value,
+    $Res Function(PublicHolidayState) then,
+  ) = _$PublicHolidayStateCopyWithImpl<$Res, PublicHolidayState>;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'id') int id,
+    @JsonKey(name: 'name') String name,
+    @JsonKey(name: 'code') String? code,
+  });
+}
+
+/// @nodoc
+class _$PublicHolidayStateCopyWithImpl<$Res, $Val extends PublicHolidayState>
+    implements $PublicHolidayStateCopyWith<$Res> {
+  _$PublicHolidayStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PublicHolidayState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            code:
+                freezed == code
+                    ? _value.code
+                    : code // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$PublicHolidayStateImplCopyWith<$Res>
+    implements $PublicHolidayStateCopyWith<$Res> {
+  factory _$$PublicHolidayStateImplCopyWith(
+    _$PublicHolidayStateImpl value,
+    $Res Function(_$PublicHolidayStateImpl) then,
+  ) = __$$PublicHolidayStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'id') int id,
+    @JsonKey(name: 'name') String name,
+    @JsonKey(name: 'code') String? code,
+  });
+}
+
+/// @nodoc
+class __$$PublicHolidayStateImplCopyWithImpl<$Res>
+    extends _$PublicHolidayStateCopyWithImpl<$Res, _$PublicHolidayStateImpl>
+    implements _$$PublicHolidayStateImplCopyWith<$Res> {
+  __$$PublicHolidayStateImplCopyWithImpl(
+    _$PublicHolidayStateImpl _value,
+    $Res Function(_$PublicHolidayStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PublicHolidayState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
+    return _then(
+      _$PublicHolidayStateImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        code:
+            freezed == code
+                ? _value.code
+                : code // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PublicHolidayStateImpl implements _PublicHolidayState {
+  _$PublicHolidayStateImpl({
+    @JsonKey(name: 'id') required this.id,
+    @JsonKey(name: 'name') required this.name,
+    @JsonKey(name: 'code') this.code,
+  });
+
+  factory _$PublicHolidayStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PublicHolidayStateImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int id;
+  @override
+  @JsonKey(name: 'name')
+  final String name;
+  @override
+  @JsonKey(name: 'code')
+  final String? code;
+
+  @override
+  String toString() {
+    return 'PublicHolidayState(id: $id, name: $name, code: $code)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PublicHolidayStateImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, code);
+
+  /// Create a copy of PublicHolidayState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PublicHolidayStateImplCopyWith<_$PublicHolidayStateImpl> get copyWith =>
+      __$$PublicHolidayStateImplCopyWithImpl<_$PublicHolidayStateImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PublicHolidayStateImplToJson(this);
+  }
+}
+
+abstract class _PublicHolidayState implements PublicHolidayState {
+  factory _PublicHolidayState({
+    @JsonKey(name: 'id') required final int id,
+    @JsonKey(name: 'name') required final String name,
+    @JsonKey(name: 'code') final String? code,
+  }) = _$PublicHolidayStateImpl;
+
+  factory _PublicHolidayState.fromJson(Map<String, dynamic> json) =
+      _$PublicHolidayStateImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int get id;
+  @override
+  @JsonKey(name: 'name')
+  String get name;
+  @override
+  @JsonKey(name: 'code')
+  String? get code;
+
+  /// Create a copy of PublicHolidayState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PublicHolidayStateImplCopyWith<_$PublicHolidayStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
