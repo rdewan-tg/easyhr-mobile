@@ -67,10 +67,21 @@ class LocalPushNotification {
 
     // Creates a notification channel.
     // This method is only applicable to Android versions 8.0 or newer.
-    await _localNotificationsPlugin
+    final androidImplementation = _localNotificationsPlugin
         .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.createNotificationChannel(_notificationChannelMax());
+            AndroidFlutterLocalNotificationsPlugin>();
+
+    // Create high importance channel
+    await androidImplementation?.createNotificationChannel(_notificationChannelMax());
+
+    // Create periodic notification channel
+    const AndroidNotificationChannel periodicChannel = AndroidNotificationChannel(
+      'easyhr_periodic_notification_channel_id',
+      'EasyHR Periodic Notification',
+      description: 'This channel is used by EasyHR for periodic notifications.',
+      importance: Importance.defaultImportance,
+    );
+    await androidImplementation?.createNotificationChannel(periodicChannel);
 
     // Initializes the plugin.
     // Call this method on application before using the plugin further.
@@ -181,8 +192,7 @@ class LocalPushNotification {
 
     // Check if you still have permission from last time you asked (or false if you never asked)
     // Null means you're not on Android
-    var hasPermission =
-        await androidPlugin?.canScheduleExactNotifications() ?? false;
+    var hasPermission = await requestAlarmPermission();
     if (!hasPermission) {
       // Request permissions again and update the variable
       hasPermission =
@@ -224,40 +234,39 @@ class LocalPushNotification {
     required int id,
     required String title,
     required String body,
-    required int dayOfWeek,
-    required int hour,
-    required int minute,
+    required int dayOfWeek, // 1 for Monday, 7 for Sunday
+    required int hour, // 0-23
+    required int minute, // 0-59
   }) async {
+    _logger.info(
+      'Scheduling weekly notification: id=$id, title=$title, day=$dayOfWeek, time=$hour:$minute',
+    );
+
     // Validate inputs
-    if (dayOfWeek < 1 || dayOfWeek > 7) {
-      _logger.warning('Invalid day of week: $dayOfWeek. Must be between 1-7');
+    if (id < 0) {
+      _logger.warning('Invalid id: $id. Must be non-negative');
       return false;
     }
-
+    if (dayOfWeek < 1 || dayOfWeek > 7) {
+      _logger.warning(
+        'Invalid dayOfWeek: $dayOfWeek. Must be between 1 (Monday) and 7 (Sunday)',
+      );
+      return false;
+    }
     if (hour < 0 || hour > 23) {
       _logger.warning('Invalid hour: $hour. Must be between 0-23');
       return false;
     }
-
     if (minute < 0 || minute > 59) {
       _logger.warning('Invalid minute: $minute. Must be between 0-59');
       return false;
     }
 
-    // Check for alarm permissions
-    final androidPlugin =
-        _localNotificationsPlugin.resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>();
-
-    var hasPermission =
-        await androidPlugin?.canScheduleExactNotifications() ?? false;
-    if (!hasPermission) {
-      hasPermission =
-          await androidPlugin?.requestExactAlarmsPermission() ?? false;
-    }
+    // Request necessary permissions (handles both Android and iOS)
+    final bool hasPermission = await requestAlarmPermission();
 
     if (!hasPermission) {
-      _logger.warning('Alarm permission not granted');
+      _logger.warning('Notification/Alarm permission not granted');
       return false;
     }
 
@@ -289,10 +298,13 @@ class LocalPushNotification {
         minute,
       );
 
-      // If the scheduled date is in the past, add a week
+      // If the scheduled date is in the past (e.g., current time is past the scheduled time on the calculated day),
+      // schedule for the same day and time next week.
       if (scheduledDate.isBefore(now)) {
         scheduledDate = scheduledDate.add(const Duration(days: 7));
       }
+
+      _logger.info('Calculated scheduledDate: $scheduledDate for notification id: $id');
 
       // Schedule the notification
       await _localNotificationsPlugin.zonedSchedule(
@@ -306,15 +318,22 @@ class LocalPushNotification {
             'EasyHR Periodic Notification',
             channelDescription:
                 'This channel is used by EasyHR for periodic notifications.',
+            importance: Importance.defaultImportance, 
+            priority: Priority.defaultPriority,
+          ),
+          iOS: DarwinNotificationDetails(
+            presentAlert: true,
+            presentBadge: true,
+            presentSound: true,
           ),
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
       );
-
+      _logger.info('Successfully scheduled weekly notification id: $id');
       return true;
-    } catch (e) {
-      _logger.severe('Error scheduling notification: $e');
+    } catch (e, stackTrace) {
+      _logger.severe('Error scheduling weekly notification: $e', e, stackTrace);
       return false;
     }
   }
