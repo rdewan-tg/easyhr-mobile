@@ -32,8 +32,12 @@ class _BottomNavigationWidgetState
           label: context.localizations('attendance.title'),
         ),
         NavigationDestination(
-          selectedIcon: const Icon(Icons.notifications_rounded),
-          icon: const Icon(Icons.notifications_outlined),
+          selectedIcon: const CartBadgeWidget(
+            child: Icon(Icons.notifications_rounded),
+          ),
+          icon: const CartBadgeWidget(
+            child: Icon(Icons.notifications_outlined),
+          ),
           label: context.localizations('notification.title'),
         ),
         NavigationDestination(
