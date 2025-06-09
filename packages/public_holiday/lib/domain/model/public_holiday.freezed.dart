@@ -29,7 +29,9 @@ mixin _$PublicHoliday {
   bool get isRecurring => throw _privateConstructorUsedError;
   bool get isPast =>
       throw _privateConstructorUsedError; // true if the public holiday is in the past
-  bool get isInCurrentMonth => throw _privateConstructorUsedError;
+  bool get isInCurrentMonth =>
+      throw _privateConstructorUsedError; // true if the public holiday is in the current month
+  List<String> get states => throw _privateConstructorUsedError;
 
   /// Create a copy of PublicHoliday
   /// with the given fields replaced by the non-null parameter values.
@@ -56,6 +58,7 @@ abstract class $PublicHolidayCopyWith<$Res> {
     bool isRecurring,
     bool isPast,
     bool isInCurrentMonth,
+    List<String> states,
   });
 }
 
@@ -84,6 +87,7 @@ class _$PublicHolidayCopyWithImpl<$Res, $Val extends PublicHoliday>
     Object? isRecurring = null,
     Object? isPast = null,
     Object? isInCurrentMonth = null,
+    Object? states = null,
   }) {
     return _then(
       _value.copyWith(
@@ -137,6 +141,11 @@ class _$PublicHolidayCopyWithImpl<$Res, $Val extends PublicHoliday>
                     ? _value.isInCurrentMonth
                     : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
                         as bool,
+            states:
+                null == states
+                    ? _value.states
+                    : states // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
           )
           as $Val,
     );
@@ -163,6 +172,7 @@ abstract class _$$PublicHolidayImplCopyWith<$Res>
     bool isRecurring,
     bool isPast,
     bool isInCurrentMonth,
+    List<String> states,
   });
 }
 
@@ -190,6 +200,7 @@ class __$$PublicHolidayImplCopyWithImpl<$Res>
     Object? isRecurring = null,
     Object? isPast = null,
     Object? isInCurrentMonth = null,
+    Object? states = null,
   }) {
     return _then(
       _$PublicHolidayImpl(
@@ -243,6 +254,11 @@ class __$$PublicHolidayImplCopyWithImpl<$Res>
                 ? _value.isInCurrentMonth
                 : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
                     as bool,
+        states:
+            null == states
+                ? _value._states
+                : states // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
       ),
     );
   }
@@ -262,7 +278,8 @@ class _$PublicHolidayImpl implements _PublicHoliday {
     required this.isRecurring,
     required this.isPast,
     required this.isInCurrentMonth,
-  });
+    final List<String> states = const [],
+  }) : _states = states;
 
   @override
   final int id;
@@ -287,10 +304,20 @@ class _$PublicHolidayImpl implements _PublicHoliday {
   // true if the public holiday is in the past
   @override
   final bool isInCurrentMonth;
+  // true if the public holiday is in the current month
+  final List<String> _states;
+  // true if the public holiday is in the current month
+  @override
+  @JsonKey()
+  List<String> get states {
+    if (_states is EqualUnmodifiableListView) return _states;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_states);
+  }
 
   @override
   String toString() {
-    return 'PublicHoliday(id: $id, name: $name, description: $description, date: $date, day: $day, month: $month, year: $year, isRecurring: $isRecurring, isPast: $isPast, isInCurrentMonth: $isInCurrentMonth)';
+    return 'PublicHoliday(id: $id, name: $name, description: $description, date: $date, day: $day, month: $month, year: $year, isRecurring: $isRecurring, isPast: $isPast, isInCurrentMonth: $isInCurrentMonth, states: $states)';
   }
 
   @override
@@ -310,7 +337,8 @@ class _$PublicHolidayImpl implements _PublicHoliday {
                 other.isRecurring == isRecurring) &&
             (identical(other.isPast, isPast) || other.isPast == isPast) &&
             (identical(other.isInCurrentMonth, isInCurrentMonth) ||
-                other.isInCurrentMonth == isInCurrentMonth));
+                other.isInCurrentMonth == isInCurrentMonth) &&
+            const DeepCollectionEquality().equals(other._states, _states));
   }
 
   @override
@@ -326,6 +354,7 @@ class _$PublicHolidayImpl implements _PublicHoliday {
     isRecurring,
     isPast,
     isInCurrentMonth,
+    const DeepCollectionEquality().hash(_states),
   );
 
   /// Create a copy of PublicHoliday
@@ -349,6 +378,7 @@ abstract class _PublicHoliday implements PublicHoliday {
     required final bool isRecurring,
     required final bool isPast,
     required final bool isInCurrentMonth,
+    final List<String> states,
   }) = _$PublicHolidayImpl;
 
   @override
@@ -370,7 +400,9 @@ abstract class _PublicHoliday implements PublicHoliday {
   @override
   bool get isPast; // true if the public holiday is in the past
   @override
-  bool get isInCurrentMonth;
+  bool get isInCurrentMonth; // true if the public holiday is in the current month
+  @override
+  List<String> get states;
 
   /// Create a copy of PublicHoliday
   /// with the given fields replaced by the non-null parameter values.

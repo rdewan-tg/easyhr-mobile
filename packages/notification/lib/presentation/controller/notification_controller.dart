@@ -14,12 +14,18 @@ class NotificationController extends Notifier<NotificationState> {
   }
 
   Future<void> getNotifications() async {
+    if (state.isLoading) return;
     state = state.copyWith(isLoading: true, error: null);
     final result =
         await ref.read(notificationServiceProvider).getNotifications();
     result.when(
       (success) {
-        state = state.copyWith(isLoading: false, notifications: success);
+        state = state.copyWith(
+          isLoading: false,
+          notifications: success,
+          newNotificationCount:
+              success.where((notification) => !notification.isRead).length,
+        );
       },
       (failure) {
         state = state.copyWith(isLoading: false, error: failure.message);
@@ -32,6 +38,11 @@ class NotificationController extends Notifier<NotificationState> {
     final result = await ref.read(notificationServiceProvider).markAsRead(id);
     result.when(
       (success) {
+        // update newNotificationCount - 1
+        final newNotificationCount =
+            state.notifications
+                .where((notification) => !notification.isRead)
+                .length;
         state = state.copyWith(
           isLoading: false,
           notifications:
@@ -41,6 +52,7 @@ class NotificationController extends Notifier<NotificationState> {
                 }
                 return notification;
               }).toList(),
+          newNotificationCount: newNotificationCount - 1,
         );
       },
       (failure) {

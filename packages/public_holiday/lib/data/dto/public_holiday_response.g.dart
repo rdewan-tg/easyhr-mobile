@@ -31,6 +31,11 @@ _$PublicHolidayDataImpl _$$PublicHolidayDataImplFromJson(
   year: (json['year'] as num).toInt(),
   isRecurring: json['isRecurring'] as bool,
   companyId: (json['companyId'] as num).toInt(),
+  states:
+      (json['states'] as List<dynamic>?)
+          ?.map((e) => PublicHolidayState.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$$PublicHolidayDataImplToJson(
@@ -43,4 +48,21 @@ Map<String, dynamic> _$$PublicHolidayDataImplToJson(
   'year': instance.year,
   'isRecurring': instance.isRecurring,
   'companyId': instance.companyId,
+  'states': instance.states,
+};
+
+_$PublicHolidayStateImpl _$$PublicHolidayStateImplFromJson(
+  Map<String, dynamic> json,
+) => _$PublicHolidayStateImpl(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  code: json['code'] as String?,
+);
+
+Map<String, dynamic> _$$PublicHolidayStateImplToJson(
+  _$PublicHolidayStateImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'code': instance.code,
 };

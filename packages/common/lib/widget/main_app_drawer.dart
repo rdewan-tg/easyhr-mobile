@@ -64,52 +64,9 @@ class MainAppDrawer extends ConsumerWidget with ConfirmDialogMixin {
                 context.push('/$settingRoute/$privacyPolicyRoute');
               },
             ),
-
-            // sign-out menu
-            Consumer(
-              builder: (context, ref, child) {
-                return Column(
-                  children: [
-                    const Divider(),
-                    ListTile(
-                      leading: const Icon(Icons.logout_outlined),
-                      title: Text(context.localizations('drawer.signOut')),
-                      onTap: () => _logout(ref, context),
-                    ),
-                  ],
-                );
-              },
-            ),
-
-            const Divider(),
           ],
         ),
       ),
-    );
-  }
-
-  void _logout(WidgetRef ref, BuildContext context) {
-    Navigator.pop(context);
-    showConfirmDialog(
-      context: context,
-      title: context.localizations('profile.signOutDialogTitle'),
-      msg: context.localizations('profile.signOutDialogSubTitle'),
-      btnYesText: context.localizations('profile.btnYes'),
-      btnNoText: context.localizations('profile.btnNo'),
-      icon: Icon(
-        Icons.warning_outlined,
-        color: context.themeColor.colorScheme.error,
-      ),
-      onYesTap: () {
-        // delete customer account
-        ref.read(profileControllerProvider.notifier).logout();
-        // close dialog
-        context.pop();
-      },
-      onNoTap: () {
-        // close dialog
-        context.pop();
-      },
     );
   }
 }

@@ -19,7 +19,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:uuid/uuid.dart';
 import 'package:logging/logging.dart';
-import 'package:profile/presentation/controller/profile_controller.dart';
 
 part 'style/dimens.dart';
 part 'upgrader/upgrader_translation_messages.dart';

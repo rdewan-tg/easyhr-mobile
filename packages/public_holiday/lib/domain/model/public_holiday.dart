@@ -18,5 +18,6 @@ abstract class PublicHoliday with _$PublicHoliday {
     required bool isPast, // true if the public holiday is in the past
     required bool
     isInCurrentMonth, // true if the public holiday is in the current month
+    @Default([]) List<String> states,
   }) = _PublicHoliday;
 }

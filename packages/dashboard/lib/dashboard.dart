@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:notification/presentation/controller/notification_controller.dart';
 
 part 'presentation/ui/dashboard_screen.dart';
 part 'presentation/ui/widget/bottom_navigation_widget.dart';

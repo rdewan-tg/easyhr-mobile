@@ -213,7 +213,7 @@ jobs:
           name: qa-release-aab
           path: build/app/outputs/flutter-apk/app-qa-release.apk
 
-      - name: Upload tAPK to Firebase App Distribution
+      - name: Upload APK to Firebase App Distribution
         uses: emertozd/Firebase-Distribution-Github-Action@v2
         with:
           appId: ${{ secrets.FIREBASE_APP_ID_ANDROID }}

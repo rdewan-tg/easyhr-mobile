@@ -69,8 +69,7 @@ jobs:
           # Submit for external testing
           echo "Submitting build $BUILD_NUMBER for external testing..."
           fastlane run distribute_external_testing api_key_path:"api_key.p8" \
-            api_key_id:"$APP_STORE_CONNECT_KEY_ID" \
-            api_key_issuer_id:"$APP_STORE_CONNECT_ISSUER_ID" \
+            api_key:'{"key_id":"'"$APP_STORE_CONNECT_KEY_ID"'", "issuer_id":"'"$APP_STORE_CONNECT_ISSUER_ID"'"}' \
             app_id:"$APP_APPLE_ID" \
             groups:"$TESTFLIGHT_GROUPS"
           

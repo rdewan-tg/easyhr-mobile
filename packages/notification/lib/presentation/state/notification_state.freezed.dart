@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NotificationState {
   List<Notification> get notifications => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  int get newNotificationCount => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of NotificationState
@@ -35,7 +36,12 @@ abstract class $NotificationStateCopyWith<$Res> {
     $Res Function(NotificationState) then,
   ) = _$NotificationStateCopyWithImpl<$Res, NotificationState>;
   @useResult
-  $Res call({List<Notification> notifications, bool isLoading, String? error});
+  $Res call({
+    List<Notification> notifications,
+    bool isLoading,
+    int newNotificationCount,
+    String? error,
+  });
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
   $Res call({
     Object? notifications = null,
     Object? isLoading = null,
+    Object? newNotificationCount = null,
     Object? error = freezed,
   }) {
     return _then(
@@ -69,6 +76,11 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
                         as bool,
+            newNotificationCount:
+                null == newNotificationCount
+                    ? _value.newNotificationCount
+                    : newNotificationCount // ignore: cast_nullable_to_non_nullable
+                        as int,
             error:
                 freezed == error
                     ? _value.error
@@ -89,7 +101,12 @@ abstract class _$$NotificationStateImplCopyWith<$Res>
   ) = __$$NotificationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Notification> notifications, bool isLoading, String? error});
+  $Res call({
+    List<Notification> notifications,
+    bool isLoading,
+    int newNotificationCount,
+    String? error,
+  });
 }
 
 /// @nodoc
@@ -108,6 +125,7 @@ class __$$NotificationStateImplCopyWithImpl<$Res>
   $Res call({
     Object? notifications = null,
     Object? isLoading = null,
+    Object? newNotificationCount = null,
     Object? error = freezed,
   }) {
     return _then(
@@ -122,6 +140,11 @@ class __$$NotificationStateImplCopyWithImpl<$Res>
                 ? _value.isLoading
                 : isLoading // ignore: cast_nullable_to_non_nullable
                     as bool,
+        newNotificationCount:
+            null == newNotificationCount
+                ? _value.newNotificationCount
+                : newNotificationCount // ignore: cast_nullable_to_non_nullable
+                    as int,
         error:
             freezed == error
                 ? _value.error
@@ -138,6 +161,7 @@ class _$NotificationStateImpl implements _NotificationState {
   _$NotificationStateImpl({
     final List<Notification> notifications = const [],
     this.isLoading = false,
+    this.newNotificationCount = 0,
     this.error,
   }) : _notifications = notifications;
 
@@ -154,11 +178,14 @@ class _$NotificationStateImpl implements _NotificationState {
   @JsonKey()
   final bool isLoading;
   @override
+  @JsonKey()
+  final int newNotificationCount;
+  @override
   final String? error;
 
   @override
   String toString() {
-    return 'NotificationState(notifications: $notifications, isLoading: $isLoading, error: $error)';
+    return 'NotificationState(notifications: $notifications, isLoading: $isLoading, newNotificationCount: $newNotificationCount, error: $error)';
   }
 
   @override
@@ -172,6 +199,8 @@ class _$NotificationStateImpl implements _NotificationState {
             ) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.newNotificationCount, newNotificationCount) ||
+                other.newNotificationCount == newNotificationCount) &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -180,6 +209,7 @@ class _$NotificationStateImpl implements _NotificationState {
     runtimeType,
     const DeepCollectionEquality().hash(_notifications),
     isLoading,
+    newNotificationCount,
     error,
   );
 
@@ -199,6 +229,7 @@ abstract class _NotificationState implements NotificationState {
   factory _NotificationState({
     final List<Notification> notifications,
     final bool isLoading,
+    final int newNotificationCount,
     final String? error,
   }) = _$NotificationStateImpl;
 
@@ -206,6 +237,8 @@ abstract class _NotificationState implements NotificationState {
   List<Notification> get notifications;
   @override
   bool get isLoading;
+  @override
+  int get newNotificationCount;
   @override
   String? get error;
 
