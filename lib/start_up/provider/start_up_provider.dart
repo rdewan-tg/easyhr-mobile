@@ -12,6 +12,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:setting/presentation/controller/setting_controller.dart';
 import 'package:timezone/data/latest.dart' as tz_latest;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:notification/presentation/controller/notification_controller.dart';
+import 'package:blog/presentation/controller/blog_controller.dart';
 
 part 'start_up_provider.g.dart';
 
@@ -48,6 +50,12 @@ Future<void> startUp(Ref ref, {required Flavor flavor}) async {
   if (isFirstRun) {
     await ref.read(settingControllerProvider.notifier).setFirstRun();
   }
+
+  // get blogs
+  ref.read(blogControllerProvider.notifier).getBlogs();
+
+  // get notification
+  ref.read(notificationControllerProvider.notifier).getNotifications();
 
   // get time zone
   await ref.read(settingControllerProvider.notifier).getAllSettings();

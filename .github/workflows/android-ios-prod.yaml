@@ -268,7 +268,7 @@ jobs:
           track: production
 
       # Upload the built IPA to TestFlight
-      - name: 'Upload app to TestFlight'
+      - name: 'Upload IPA to TestFlight'
         uses: apple-actions/upload-testflight-build@v3
         with: 
           app-path: ${{ steps.find-ipa.outputs.ipa_path }}

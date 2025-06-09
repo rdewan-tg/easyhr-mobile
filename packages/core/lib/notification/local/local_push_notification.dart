@@ -245,16 +245,7 @@ class LocalPushNotification {
     }
 
     // Check for alarm permissions
-    final androidPlugin =
-        _localNotificationsPlugin.resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>();
-
-    var hasPermission =
-        await androidPlugin?.canScheduleExactNotifications() ?? false;
-    if (!hasPermission) {
-      hasPermission =
-          await androidPlugin?.requestExactAlarmsPermission() ?? false;
-    }
+    var hasPermission = await requestAlarmPermission();
 
     if (!hasPermission) {
       _logger.warning('Alarm permission not granted');
@@ -306,6 +297,11 @@ class LocalPushNotification {
             'EasyHR Periodic Notification',
             channelDescription:
                 'This channel is used by EasyHR for periodic notifications.',
+          ),
+          iOS: DarwinNotificationDetails(
+            presentBadge: true,
+            presentSound: true,
+            presentAlert: true,
           ),
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,

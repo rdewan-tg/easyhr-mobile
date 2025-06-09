@@ -1,6 +1,2 @@
-1. Added Public Holiday Module
-2. Added Drawer Menu
-3. Fixed minor UI issues
-
-
-
+1. Fix the scheduled notification issue in Android and iOS
+2. Added notification badge count

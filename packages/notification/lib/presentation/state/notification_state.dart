@@ -8,6 +8,7 @@ class NotificationState with _$NotificationState {
   factory NotificationState({
     @Default([]) List<Notification> notifications,
     @Default(false) bool isLoading,
+    @Default(0) int newNotificationCount,
     String? error,
   }) = _NotificationState;
 }
