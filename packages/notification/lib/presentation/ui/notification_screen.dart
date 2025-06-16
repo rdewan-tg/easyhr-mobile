@@ -19,13 +19,13 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _listner();
+    _stateListener();
     return const MainAppScaffoldSliver(
       slivers: [SliverFillRemaining(child: NotificationList())],
     );
   }
 
-  void _listner() {
+  void _stateListener() {
     // listen for error
     ref.listen(notificationControllerProvider.select((value) => value.error), (
       _,

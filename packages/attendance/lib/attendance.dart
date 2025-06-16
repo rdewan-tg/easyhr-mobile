@@ -25,6 +25,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 part 'features/map/presentation/ui/map_screen.dart';
 part 'features/camera/presentation/ui/capture_image_screen.dart';

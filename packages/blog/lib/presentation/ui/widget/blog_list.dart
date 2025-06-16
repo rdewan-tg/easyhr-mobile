@@ -8,6 +8,25 @@ class BlogList extends ConsumerStatefulWidget {
 }
 
 class _BlogListState extends ConsumerState<BlogList> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  void _setScrollController() {
+    final provider = ref.read(appScrollControllerProvider.notifier);
+    provider.setScrollController(_scrollController);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final blogs = ref.watch(
@@ -18,17 +37,26 @@ class _BlogListState extends ConsumerState<BlogList> {
       return const EmptyDataWidget();
     }
 
-    return RefreshIndicator.adaptive(
-      onRefresh: () async {
-        ref.read(blogControllerProvider.notifier).getBlogs();
+    return VisibilityDetector(
+      key: const Key("blog_list"),
+      onVisibilityChanged: (info) {
+        if (info.visibleFraction >= 1) {
+          _setScrollController();
+        }
       },
-      child: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: blogs.length,
-        itemBuilder: (context, index) {
-          final blog = blogs[index];
-          return _buildBlogCard(blog);
+      child: RefreshIndicator.adaptive(
+        onRefresh: () async {
+          ref.read(blogControllerProvider.notifier).getBlogs();
         },
+        child: ListView.builder(
+          controller: _scrollController,
+          padding: const EdgeInsets.all(16),
+          itemCount: blogs.length,
+          itemBuilder: (context, index) {
+            final blog = blogs[index];
+            return _buildBlogCard(blog);
+          },
+        ),
       ),
     );
   }
