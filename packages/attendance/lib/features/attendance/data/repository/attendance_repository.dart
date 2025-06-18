@@ -65,9 +65,9 @@ final class AttendanceRepository
   }
 
   @override
-  Future<AttendanceResponse> getAttendance() async {
+  Future<AttendanceResponse> getAttendance(int page, int limit) async {
     try {
-      return await _attendanceApiService.getAttendance();
+      return await _attendanceApiService.getAttendance(page, limit);
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } catch (e, s) {

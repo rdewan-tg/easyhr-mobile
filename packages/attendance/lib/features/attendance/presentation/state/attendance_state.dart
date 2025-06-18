@@ -7,7 +7,12 @@ part 'attendance_state.freezed.dart';
 class AttendanceState with _$AttendanceState {
   factory AttendanceState({
     @Default(false) bool isLoading,
+    @Default(false) bool isPageLoading,
     @Default([]) List<AttendanceModel> attendanceList,
+    @Default(0) int currentPage,
+    @Default(0) int totalPages,
+    @Default(20) int limit,
+    @Default(0) int total,
     String? errorMsg,
   }) = _AttendanceState;
 }

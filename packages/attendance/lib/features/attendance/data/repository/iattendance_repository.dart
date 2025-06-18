@@ -11,7 +11,7 @@ abstract interface class IAttendanceRepository {
     AddAttendanceWithoutImageRequest data,
   );
 
-  Future<AttendanceResponse> getAttendance();
+  Future<AttendanceResponse> getAttendance(int page, int limit);
 
   Future<LastAttendanceStateResponse> getLastAttendanceState();
 

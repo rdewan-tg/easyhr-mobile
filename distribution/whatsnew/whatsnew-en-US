@@ -1,2 +1,2 @@
-1. Fix the scheduled notification issue in Android and iOS
-2. Added notification badge count
+1. Added option to show and hide bottom navigation bar on content scroll
+2. Added pagination in attendance, blog, notification list

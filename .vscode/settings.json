@@ -12,7 +12,9 @@
   },
   "cSpell.words": [
     "easyhr",
-    "dateTimeDifferance"
+    "dateTimeDifferance",
+    "iattendance",
+    "placemarks",
   ],
   "yaml.schemaStore.enable": false
 }

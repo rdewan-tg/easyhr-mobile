@@ -1,7 +1,8 @@
 part of common;
 
 class EmptyDataWidget extends ConsumerWidget {
-  const EmptyDataWidget({super.key});
+  final VoidCallback? onRefresh;
+  const EmptyDataWidget({super.key, this.onRefresh});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,6 +16,10 @@ class EmptyDataWidget extends ConsumerWidget {
             colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
           ),
           Text(context.localizations('common.noData')),
+          const SizedBox(height: kMedium),
+          if (onRefresh != null) ...[
+            IconButton(onPressed: onRefresh, icon: const Icon(Icons.refresh)),
+          ],
         ],
       ),
     );

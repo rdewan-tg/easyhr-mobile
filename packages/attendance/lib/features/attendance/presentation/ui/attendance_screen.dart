@@ -13,7 +13,9 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      ref.read(attendanceControllerProvider.notifier).getAttendanceStatus();
+      ref
+          .read(attendanceControllerProvider.notifier)
+          .getAttendances(refresh: true);
     });
   }
 
