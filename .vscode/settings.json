@@ -10,5 +10,11 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
+  "cSpell.words": [
+    "easyhr",
+    "dateTimeDifferance",
+    "iattendance",
+    "placemarks",
+  ],
   "yaml.schemaStore.enable": false
 }

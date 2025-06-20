@@ -25,6 +25,8 @@ mixin _$AttendanceResponse {
   String get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'data')
   List<AttendanceData> get data => throw _privateConstructorUsedError;
+  @JsonKey(name: 'page')
+  AttendancePagination get page => throw _privateConstructorUsedError;
 
   /// Serializes this AttendanceResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +48,10 @@ abstract class $AttendanceResponseCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'status') String status,
     @JsonKey(name: 'data') List<AttendanceData> data,
+    @JsonKey(name: 'page') AttendancePagination page,
   });
+
+  $AttendancePaginationCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -63,7 +68,7 @@ class _$AttendanceResponseCopyWithImpl<$Res, $Val extends AttendanceResponse>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? status = null, Object? data = null}) {
+  $Res call({Object? status = null, Object? data = null, Object? page = null}) {
     return _then(
       _value.copyWith(
             status:
@@ -76,9 +81,24 @@ class _$AttendanceResponseCopyWithImpl<$Res, $Val extends AttendanceResponse>
                     ? _value.data
                     : data // ignore: cast_nullable_to_non_nullable
                         as List<AttendanceData>,
+            page:
+                null == page
+                    ? _value.page
+                    : page // ignore: cast_nullable_to_non_nullable
+                        as AttendancePagination,
           )
           as $Val,
     );
+  }
+
+  /// Create a copy of AttendanceResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AttendancePaginationCopyWith<$Res> get page {
+    return $AttendancePaginationCopyWith<$Res>(_value.page, (value) {
+      return _then(_value.copyWith(page: value) as $Val);
+    });
   }
 }
 
@@ -94,7 +114,11 @@ abstract class _$$AttendanceResponseImplCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'status') String status,
     @JsonKey(name: 'data') List<AttendanceData> data,
+    @JsonKey(name: 'page') AttendancePagination page,
   });
+
+  @override
+  $AttendancePaginationCopyWith<$Res> get page;
 }
 
 /// @nodoc
@@ -110,7 +134,7 @@ class __$$AttendanceResponseImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? status = null, Object? data = null}) {
+  $Res call({Object? status = null, Object? data = null, Object? page = null}) {
     return _then(
       _$AttendanceResponseImpl(
         status:
@@ -123,6 +147,11 @@ class __$$AttendanceResponseImplCopyWithImpl<$Res>
                 ? _value._data
                 : data // ignore: cast_nullable_to_non_nullable
                     as List<AttendanceData>,
+        page:
+            null == page
+                ? _value.page
+                : page // ignore: cast_nullable_to_non_nullable
+                    as AttendancePagination,
       ),
     );
   }
@@ -134,6 +163,7 @@ class _$AttendanceResponseImpl implements _AttendanceResponse {
   const _$AttendanceResponseImpl({
     @JsonKey(name: 'status') required this.status,
     @JsonKey(name: 'data') final List<AttendanceData> data = const [],
+    @JsonKey(name: 'page') required this.page,
   }) : _data = data;
 
   factory _$AttendanceResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -152,8 +182,12 @@ class _$AttendanceResponseImpl implements _AttendanceResponse {
   }
 
   @override
+  @JsonKey(name: 'page')
+  final AttendancePagination page;
+
+  @override
   String toString() {
-    return 'AttendanceResponse(status: $status, data: $data)';
+    return 'AttendanceResponse(status: $status, data: $data, page: $page)';
   }
 
   @override
@@ -162,7 +196,8 @@ class _$AttendanceResponseImpl implements _AttendanceResponse {
         (other.runtimeType == runtimeType &&
             other is _$AttendanceResponseImpl &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -171,6 +206,7 @@ class _$AttendanceResponseImpl implements _AttendanceResponse {
     runtimeType,
     status,
     const DeepCollectionEquality().hash(_data),
+    page,
   );
 
   /// Create a copy of AttendanceResponse
@@ -194,6 +230,7 @@ abstract class _AttendanceResponse implements AttendanceResponse {
   const factory _AttendanceResponse({
     @JsonKey(name: 'status') required final String status,
     @JsonKey(name: 'data') final List<AttendanceData> data,
+    @JsonKey(name: 'page') required final AttendancePagination page,
   }) = _$AttendanceResponseImpl;
 
   factory _AttendanceResponse.fromJson(Map<String, dynamic> json) =
@@ -205,6 +242,9 @@ abstract class _AttendanceResponse implements AttendanceResponse {
   @override
   @JsonKey(name: 'data')
   List<AttendanceData> get data;
+  @override
+  @JsonKey(name: 'page')
+  AttendancePagination get page;
 
   /// Create a copy of AttendanceResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -758,4 +798,257 @@ abstract class _AttendanceData implements AttendanceData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AttendanceDataImplCopyWith<_$AttendanceDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+AttendancePagination _$AttendancePaginationFromJson(Map<String, dynamic> json) {
+  return _AttendancePagination.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AttendancePagination {
+  @JsonKey(name: 'currentPage')
+  int get currentPage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'totalPages')
+  int get totalPages => throw _privateConstructorUsedError;
+  @JsonKey(name: 'limit')
+  int get limit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total')
+  int get total => throw _privateConstructorUsedError;
+
+  /// Serializes this AttendancePagination to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AttendancePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AttendancePaginationCopyWith<AttendancePagination> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AttendancePaginationCopyWith<$Res> {
+  factory $AttendancePaginationCopyWith(
+    AttendancePagination value,
+    $Res Function(AttendancePagination) then,
+  ) = _$AttendancePaginationCopyWithImpl<$Res, AttendancePagination>;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'currentPage') int currentPage,
+    @JsonKey(name: 'totalPages') int totalPages,
+    @JsonKey(name: 'limit') int limit,
+    @JsonKey(name: 'total') int total,
+  });
+}
+
+/// @nodoc
+class _$AttendancePaginationCopyWithImpl<
+  $Res,
+  $Val extends AttendancePagination
+>
+    implements $AttendancePaginationCopyWith<$Res> {
+  _$AttendancePaginationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AttendancePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? limit = null,
+    Object? total = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            currentPage:
+                null == currentPage
+                    ? _value.currentPage
+                    : currentPage // ignore: cast_nullable_to_non_nullable
+                        as int,
+            totalPages:
+                null == totalPages
+                    ? _value.totalPages
+                    : totalPages // ignore: cast_nullable_to_non_nullable
+                        as int,
+            limit:
+                null == limit
+                    ? _value.limit
+                    : limit // ignore: cast_nullable_to_non_nullable
+                        as int,
+            total:
+                null == total
+                    ? _value.total
+                    : total // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$AttendancePaginationImplCopyWith<$Res>
+    implements $AttendancePaginationCopyWith<$Res> {
+  factory _$$AttendancePaginationImplCopyWith(
+    _$AttendancePaginationImpl value,
+    $Res Function(_$AttendancePaginationImpl) then,
+  ) = __$$AttendancePaginationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'currentPage') int currentPage,
+    @JsonKey(name: 'totalPages') int totalPages,
+    @JsonKey(name: 'limit') int limit,
+    @JsonKey(name: 'total') int total,
+  });
+}
+
+/// @nodoc
+class __$$AttendancePaginationImplCopyWithImpl<$Res>
+    extends _$AttendancePaginationCopyWithImpl<$Res, _$AttendancePaginationImpl>
+    implements _$$AttendancePaginationImplCopyWith<$Res> {
+  __$$AttendancePaginationImplCopyWithImpl(
+    _$AttendancePaginationImpl _value,
+    $Res Function(_$AttendancePaginationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AttendancePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? limit = null,
+    Object? total = null,
+  }) {
+    return _then(
+      _$AttendancePaginationImpl(
+        currentPage:
+            null == currentPage
+                ? _value.currentPage
+                : currentPage // ignore: cast_nullable_to_non_nullable
+                    as int,
+        totalPages:
+            null == totalPages
+                ? _value.totalPages
+                : totalPages // ignore: cast_nullable_to_non_nullable
+                    as int,
+        limit:
+            null == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                    as int,
+        total:
+            null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AttendancePaginationImpl implements _AttendancePagination {
+  const _$AttendancePaginationImpl({
+    @JsonKey(name: 'currentPage') this.currentPage = 1,
+    @JsonKey(name: 'totalPages') this.totalPages = 1,
+    @JsonKey(name: 'limit') this.limit = 0,
+    @JsonKey(name: 'total') this.total = 0,
+  });
+
+  factory _$AttendancePaginationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AttendancePaginationImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'currentPage')
+  final int currentPage;
+  @override
+  @JsonKey(name: 'totalPages')
+  final int totalPages;
+  @override
+  @JsonKey(name: 'limit')
+  final int limit;
+  @override
+  @JsonKey(name: 'total')
+  final int total;
+
+  @override
+  String toString() {
+    return 'AttendancePagination(currentPage: $currentPage, totalPages: $totalPages, limit: $limit, total: $total)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AttendancePaginationImpl &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.total, total) || other.total == total));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, currentPage, totalPages, limit, total);
+
+  /// Create a copy of AttendancePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AttendancePaginationImplCopyWith<_$AttendancePaginationImpl>
+  get copyWith =>
+      __$$AttendancePaginationImplCopyWithImpl<_$AttendancePaginationImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AttendancePaginationImplToJson(this);
+  }
+}
+
+abstract class _AttendancePagination implements AttendancePagination {
+  const factory _AttendancePagination({
+    @JsonKey(name: 'currentPage') final int currentPage,
+    @JsonKey(name: 'totalPages') final int totalPages,
+    @JsonKey(name: 'limit') final int limit,
+    @JsonKey(name: 'total') final int total,
+  }) = _$AttendancePaginationImpl;
+
+  factory _AttendancePagination.fromJson(Map<String, dynamic> json) =
+      _$AttendancePaginationImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'currentPage')
+  int get currentPage;
+  @override
+  @JsonKey(name: 'totalPages')
+  int get totalPages;
+  @override
+  @JsonKey(name: 'limit')
+  int get limit;
+  @override
+  @JsonKey(name: 'total')
+  int get total;
+
+  /// Create a copy of AttendancePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AttendancePaginationImplCopyWith<_$AttendancePaginationImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }

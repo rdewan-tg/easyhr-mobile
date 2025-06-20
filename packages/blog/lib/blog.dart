@@ -9,6 +9,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 import 'package:common/common.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 part 'presentation/ui/blog_screen.dart';
 part 'presentation/ui/widget/blog_list.dart';

@@ -8,6 +8,7 @@ import 'package:notification/domain/model/notification.dart' as model;
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:common/common.dart';
 import 'package:go_router/go_router.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 part 'presentation/ui/notification_screen.dart';
 part 'presentation/ui/widget/notification_list.dart';

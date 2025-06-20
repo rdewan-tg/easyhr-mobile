@@ -9,6 +9,7 @@ class AttendanceResponse with _$AttendanceResponse {
   const factory AttendanceResponse({
     @JsonKey(name: 'status') required String status,
     @JsonKey(name: 'data') @Default([]) List<AttendanceData> data,
+    @JsonKey(name: 'page') required AttendancePagination page,
   }) = _AttendanceResponse;
 
   factory AttendanceResponse.fromJson(Map<String, dynamic> json) =>
@@ -37,4 +38,17 @@ class AttendanceData with _$AttendanceData {
 
   factory AttendanceData.fromJson(Map<String, dynamic> json) =>
       _$AttendanceDataFromJson(json);
+}
+
+@freezed
+class AttendancePagination with _$AttendancePagination {
+  const factory AttendancePagination({
+    @JsonKey(name: 'currentPage') @Default(1) int currentPage,
+    @JsonKey(name: 'totalPages') @Default(1) int totalPages,
+    @JsonKey(name: 'limit') @Default(0) int limit,
+    @JsonKey(name: 'total') @Default(0) int total,
+  }) = _AttendancePagination;
+
+  factory AttendancePagination.fromJson(Map<String, dynamic> json) =>
+      _$AttendancePaginationFromJson(json);
 }

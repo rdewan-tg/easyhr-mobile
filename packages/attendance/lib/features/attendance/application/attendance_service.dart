@@ -2,6 +2,7 @@ import 'dart:isolate';
 import 'package:attendance/features/attendance/application/iattendance_service.dart';
 import 'package:attendance/features/attendance/data/dto/response/attendance_response.dart';
 import 'package:attendance/features/attendance/data/repository/iattendance_repository.dart';
+import 'package:attendance/features/attendance/domain/model/attendance_list_model.dart';
 import 'package:attendance/features/attendance/domain/model/attendance_model.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
 import 'package:common/common.dart';
@@ -10,6 +11,7 @@ import 'package:common/exception/failure.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:attendance/features/attendance/data/repository/attendance_repository.dart';
 import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
+import 'package:common/dto/pagination/page.dart';
 
 final attendanceServiceProvider = Provider<IAttendanceService>((ref) {
   return AttendanceService(ref.watch(attendanceRepositoryProvider));
@@ -49,15 +51,18 @@ final class AttendanceService implements IAttendanceService {
   }
 
   @override
-  Future<Result<List<AttendanceModel>, Failure>> getAttendances() async {
+  Future<Result<AttendanceListModel, Failure>> getAttendances(
+    int page,
+    int limit,
+  ) async {
     try {
       // call the api here
-      final response = await _attendanceRepository.getAttendance();
+      final response = await _attendanceRepository.getAttendance(page, limit);
       // map the response data
       final result = await Isolate.run(
-        () => _mapToAttendanceModel(response.data),
+        () => _mapToAttendanceListModel(response),
       );
-      // return the formated model
+      // return the  model
       return Success(result);
     } on Failure catch (e) {
       return Error(e);
@@ -116,21 +121,32 @@ final class AttendanceService implements IAttendanceService {
 }
 
 // top level function for isolate
-List<AttendanceModel> _mapToAttendanceModel(List<AttendanceData> data) {
-  return data.map((e) {
-    return AttendanceModel(
-      id: e.id,
-      userId: e.userId,
-      address: e.address,
-      latitude: e.latitude,
-      longitude: e.longitude,
-      zone: e.zone,
-      image: e.image,
-      status: e.status == AttendanceStatus.checkedIn ? "IN" : "OUT",
-      transDay: e.transDay,
-      transMonth: e.transMonth,
-      transYear: e.transYear,
-      date: e.date,
-    );
-  }).toList();
+AttendanceListModel _mapToAttendanceListModel(AttendanceResponse response) {
+  final data =
+      response.data.map((e) {
+        return AttendanceModel(
+          id: e.id,
+          userId: e.userId,
+          address: e.address,
+          latitude: e.latitude,
+          longitude: e.longitude,
+          zone: e.zone,
+          image: e.image,
+          status: e.status == AttendanceStatus.checkedIn ? "IN" : "OUT",
+          transDay: e.transDay,
+          transMonth: e.transMonth,
+          transYear: e.transYear,
+          date: e.date,
+        );
+      }).toList();
+
+  return AttendanceListModel(
+    data: data,
+    page: Page(
+      currentPage: response.page.currentPage,
+      totalPages: response.page.totalPages,
+      limit: response.page.limit,
+      total: response.page.total,
+    ),
+  );
 }
