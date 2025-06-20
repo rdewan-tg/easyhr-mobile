@@ -133,9 +133,11 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             mapControllerProvider.select((value) => value.currentPosition),
           );
           return SafeArea(
+            maintainBottomViewPadding: true,
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(kLarge),
+              margin: const EdgeInsets.only(bottom: kLarge),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -144,7 +146,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                   const SizedBox(height: kSmall),
                   const CurrentAddressWidget(),
                   const SizedBox(height: kMedium),
-                  // if current position is null - remove the checkin and checkout buttons
+                  // if current position is null - remove the check-in and check-out buttons
                   if (currentPosition != null) ...[
                     // if the Zone is enabled - show the zone and capture image button
                     if (isZoneEnabled) ...[
@@ -171,7 +173,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                         const Center(child: AddAttendanceWithNoImage()),
                       ],
                     ],
-                    const SizedBox(height: kMedium),
                   ],
                 ],
               ),
@@ -180,25 +181,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
         },
       ),
     );
-  }
-
-  Future<tz.TZDateTime> _dateTime() async {
-    final scheduleTime =
-        await ref.read(mapControllerProvider.notifier).getScheduleTime();
-    final timeZone = ref.read(mapControllerProvider.notifier).getTimeZone();
-
-    // initialize Time Zone database from latest
-    tz_latest.initializeTimeZones();
-    final location = tz.getLocation(timeZone);
-    tz.setLocalLocation(location);
-    // get the current date and time
-    final now = tz.TZDateTime.now(location);
-    // check for debug mode and add minutes or hours
-    if (kDebugMode) {
-      return now.add(Duration(minutes: scheduleTime));
-    } else {
-      return now.add(Duration(hours: scheduleTime));
-    }
   }
 
   Future<void> _showImageDialog(File imageFile, AttendanceStatus status) async {
@@ -365,19 +347,11 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           // check if status is null
           if (status == null) return;
 
-          // if the status is checkedIn set schedule push notification
-          if (status == AttendanceStatus.checkedIn) {
-            final dateTime = await _dateTime();
-            // check if mounted
-            if (!mounted) return;
-            ref
-                .read(mapControllerProvider.notifier)
-                .setSchedulePushNotification(
-                  dateTime,
-                  context.localizations("attendance.attendanceReminderTitle"),
-                  context.localizations("attendance.attendanceReminderBody"),
-                );
-          }
+          // refresh the attendance list
+          ref
+              .read(attendanceControllerProvider.notifier)
+              .getAttendances(refresh: true);
+
           // check if imageFile is null
           if (imageFile != null) {
             _showImageDialog(File(imageFile), status);

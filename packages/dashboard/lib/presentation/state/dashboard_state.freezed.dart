@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DashboardState {
   int get pageIndex => throw _privateConstructorUsedError;
+  bool get isVisible => throw _privateConstructorUsedError;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,7 @@ abstract class $DashboardStateCopyWith<$Res> {
     $Res Function(DashboardState) then,
   ) = _$DashboardStateCopyWithImpl<$Res, DashboardState>;
   @useResult
-  $Res call({int pageIndex});
+  $Res call({int pageIndex, bool isVisible});
 }
 
 /// @nodoc
@@ -50,7 +51,7 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? pageIndex = null}) {
+  $Res call({Object? pageIndex = null, Object? isVisible = null}) {
     return _then(
       _value.copyWith(
             pageIndex:
@@ -58,6 +59,11 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
                     ? _value.pageIndex
                     : pageIndex // ignore: cast_nullable_to_non_nullable
                         as int,
+            isVisible:
+                null == isVisible
+                    ? _value.isVisible
+                    : isVisible // ignore: cast_nullable_to_non_nullable
+                        as bool,
           )
           as $Val,
     );
@@ -73,7 +79,7 @@ abstract class _$$DashboardStateImplCopyWith<$Res>
   ) = __$$DashboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int pageIndex});
+  $Res call({int pageIndex, bool isVisible});
 }
 
 /// @nodoc
@@ -89,7 +95,7 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? pageIndex = null}) {
+  $Res call({Object? pageIndex = null, Object? isVisible = null}) {
     return _then(
       _$DashboardStateImpl(
         pageIndex:
@@ -97,6 +103,11 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
                 ? _value.pageIndex
                 : pageIndex // ignore: cast_nullable_to_non_nullable
                     as int,
+        isVisible:
+            null == isVisible
+                ? _value.isVisible
+                : isVisible // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -105,15 +116,18 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DashboardStateImpl implements _DashboardState {
-  const _$DashboardStateImpl({this.pageIndex = 0});
+  const _$DashboardStateImpl({this.pageIndex = 0, this.isVisible = true});
 
   @override
   @JsonKey()
   final int pageIndex;
+  @override
+  @JsonKey()
+  final bool isVisible;
 
   @override
   String toString() {
-    return 'DashboardState(pageIndex: $pageIndex)';
+    return 'DashboardState(pageIndex: $pageIndex, isVisible: $isVisible)';
   }
 
   @override
@@ -122,11 +136,13 @@ class _$DashboardStateImpl implements _DashboardState {
         (other.runtimeType == runtimeType &&
             other is _$DashboardStateImpl &&
             (identical(other.pageIndex, pageIndex) ||
-                other.pageIndex == pageIndex));
+                other.pageIndex == pageIndex) &&
+            (identical(other.isVisible, isVisible) ||
+                other.isVisible == isVisible));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pageIndex);
+  int get hashCode => Object.hash(runtimeType, pageIndex, isVisible);
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -141,10 +157,13 @@ class _$DashboardStateImpl implements _DashboardState {
 }
 
 abstract class _DashboardState implements DashboardState {
-  const factory _DashboardState({final int pageIndex}) = _$DashboardStateImpl;
+  const factory _DashboardState({final int pageIndex, final bool isVisible}) =
+      _$DashboardStateImpl;
 
   @override
   int get pageIndex;
+  @override
+  bool get isVisible;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.

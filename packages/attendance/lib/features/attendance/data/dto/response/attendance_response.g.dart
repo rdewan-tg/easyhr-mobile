@@ -15,11 +15,16 @@ _$AttendanceResponseImpl _$$AttendanceResponseImplFromJson(
           ?.map((e) => AttendanceData.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  page: AttendancePagination.fromJson(json['page'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$$AttendanceResponseImplToJson(
   _$AttendanceResponseImpl instance,
-) => <String, dynamic>{'status': instance.status, 'data': instance.data};
+) => <String, dynamic>{
+  'status': instance.status,
+  'data': instance.data,
+  'page': instance.page,
+};
 
 _$AttendanceDataImpl _$$AttendanceDataImplFromJson(Map<String, dynamic> json) =>
     _$AttendanceDataImpl(
@@ -63,4 +68,22 @@ Map<String, dynamic> _$$AttendanceDataImplToJson(
 const _$AttendanceStatusEnumMap = {
   AttendanceStatus.checkedIn: 'in',
   AttendanceStatus.checkedOut: 'out',
+};
+
+_$AttendancePaginationImpl _$$AttendancePaginationImplFromJson(
+  Map<String, dynamic> json,
+) => _$AttendancePaginationImpl(
+  currentPage: (json['currentPage'] as num?)?.toInt() ?? 1,
+  totalPages: (json['totalPages'] as num?)?.toInt() ?? 1,
+  limit: (json['limit'] as num?)?.toInt() ?? 0,
+  total: (json['total'] as num?)?.toInt() ?? 0,
+);
+
+Map<String, dynamic> _$$AttendancePaginationImplToJson(
+  _$AttendancePaginationImpl instance,
+) => <String, dynamic>{
+  'currentPage': instance.currentPage,
+  'totalPages': instance.totalPages,
+  'limit': instance.limit,
+  'total': instance.total,
 };

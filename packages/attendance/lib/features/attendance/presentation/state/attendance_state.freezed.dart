@@ -18,8 +18,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AttendanceState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isPageLoading => throw _privateConstructorUsedError;
   List<AttendanceModel> get attendanceList =>
       throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
+  int get limit => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
   String? get errorMsg => throw _privateConstructorUsedError;
 
   /// Create a copy of AttendanceState
@@ -38,7 +43,12 @@ abstract class $AttendanceStateCopyWith<$Res> {
   @useResult
   $Res call({
     bool isLoading,
+    bool isPageLoading,
     List<AttendanceModel> attendanceList,
+    int currentPage,
+    int totalPages,
+    int limit,
+    int total,
     String? errorMsg,
   });
 }
@@ -59,7 +69,12 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isPageLoading = null,
     Object? attendanceList = null,
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? limit = null,
+    Object? total = null,
     Object? errorMsg = freezed,
   }) {
     return _then(
@@ -69,11 +84,36 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
                         as bool,
+            isPageLoading:
+                null == isPageLoading
+                    ? _value.isPageLoading
+                    : isPageLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
             attendanceList:
                 null == attendanceList
                     ? _value.attendanceList
                     : attendanceList // ignore: cast_nullable_to_non_nullable
                         as List<AttendanceModel>,
+            currentPage:
+                null == currentPage
+                    ? _value.currentPage
+                    : currentPage // ignore: cast_nullable_to_non_nullable
+                        as int,
+            totalPages:
+                null == totalPages
+                    ? _value.totalPages
+                    : totalPages // ignore: cast_nullable_to_non_nullable
+                        as int,
+            limit:
+                null == limit
+                    ? _value.limit
+                    : limit // ignore: cast_nullable_to_non_nullable
+                        as int,
+            total:
+                null == total
+                    ? _value.total
+                    : total // ignore: cast_nullable_to_non_nullable
+                        as int,
             errorMsg:
                 freezed == errorMsg
                     ? _value.errorMsg
@@ -96,7 +136,12 @@ abstract class _$$AttendanceStateImplCopyWith<$Res>
   @useResult
   $Res call({
     bool isLoading,
+    bool isPageLoading,
     List<AttendanceModel> attendanceList,
+    int currentPage,
+    int totalPages,
+    int limit,
+    int total,
     String? errorMsg,
   });
 }
@@ -116,7 +161,12 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isPageLoading = null,
     Object? attendanceList = null,
+    Object? currentPage = null,
+    Object? totalPages = null,
+    Object? limit = null,
+    Object? total = null,
     Object? errorMsg = freezed,
   }) {
     return _then(
@@ -126,11 +176,36 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
                 ? _value.isLoading
                 : isLoading // ignore: cast_nullable_to_non_nullable
                     as bool,
+        isPageLoading:
+            null == isPageLoading
+                ? _value.isPageLoading
+                : isPageLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
         attendanceList:
             null == attendanceList
                 ? _value._attendanceList
                 : attendanceList // ignore: cast_nullable_to_non_nullable
                     as List<AttendanceModel>,
+        currentPage:
+            null == currentPage
+                ? _value.currentPage
+                : currentPage // ignore: cast_nullable_to_non_nullable
+                    as int,
+        totalPages:
+            null == totalPages
+                ? _value.totalPages
+                : totalPages // ignore: cast_nullable_to_non_nullable
+                    as int,
+        limit:
+            null == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                    as int,
+        total:
+            null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                    as int,
         errorMsg:
             freezed == errorMsg
                 ? _value.errorMsg
@@ -146,13 +221,21 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
 class _$AttendanceStateImpl implements _AttendanceState {
   _$AttendanceStateImpl({
     this.isLoading = false,
+    this.isPageLoading = false,
     final List<AttendanceModel> attendanceList = const [],
+    this.currentPage = 0,
+    this.totalPages = 0,
+    this.limit = 20,
+    this.total = 0,
     this.errorMsg,
   }) : _attendanceList = attendanceList;
 
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isPageLoading;
   final List<AttendanceModel> _attendanceList;
   @override
   @JsonKey()
@@ -163,11 +246,23 @@ class _$AttendanceStateImpl implements _AttendanceState {
   }
 
   @override
+  @JsonKey()
+  final int currentPage;
+  @override
+  @JsonKey()
+  final int totalPages;
+  @override
+  @JsonKey()
+  final int limit;
+  @override
+  @JsonKey()
+  final int total;
+  @override
   final String? errorMsg;
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, attendanceList: $attendanceList, errorMsg: $errorMsg)';
+    return 'AttendanceState(isLoading: $isLoading, isPageLoading: $isPageLoading, attendanceList: $attendanceList, currentPage: $currentPage, totalPages: $totalPages, limit: $limit, total: $total, errorMsg: $errorMsg)';
   }
 
   @override
@@ -177,10 +272,18 @@ class _$AttendanceStateImpl implements _AttendanceState {
             other is _$AttendanceStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isPageLoading, isPageLoading) ||
+                other.isPageLoading == isPageLoading) &&
             const DeepCollectionEquality().equals(
               other._attendanceList,
               _attendanceList,
             ) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.total, total) || other.total == total) &&
             (identical(other.errorMsg, errorMsg) ||
                 other.errorMsg == errorMsg));
   }
@@ -189,7 +292,12 @@ class _$AttendanceStateImpl implements _AttendanceState {
   int get hashCode => Object.hash(
     runtimeType,
     isLoading,
+    isPageLoading,
     const DeepCollectionEquality().hash(_attendanceList),
+    currentPage,
+    totalPages,
+    limit,
+    total,
     errorMsg,
   );
 
@@ -208,14 +316,29 @@ class _$AttendanceStateImpl implements _AttendanceState {
 abstract class _AttendanceState implements AttendanceState {
   factory _AttendanceState({
     final bool isLoading,
+    final bool isPageLoading,
     final List<AttendanceModel> attendanceList,
+    final int currentPage,
+    final int totalPages,
+    final int limit,
+    final int total,
     final String? errorMsg,
   }) = _$AttendanceStateImpl;
 
   @override
   bool get isLoading;
   @override
+  bool get isPageLoading;
+  @override
   List<AttendanceModel> get attendanceList;
+  @override
+  int get currentPage;
+  @override
+  int get totalPages;
+  @override
+  int get limit;
+  @override
+  int get total;
   @override
   String? get errorMsg;
 

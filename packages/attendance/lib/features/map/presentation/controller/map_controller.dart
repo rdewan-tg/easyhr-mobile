@@ -98,7 +98,7 @@ class MapController extends AutoDisposeNotifier<MapState> {
         .read(attendanceServiceProvider)
         .addAttendance(body);
 
-    // upda the state
+    // update the state
     addAttendanceResult.when(
       (success) async {
         // save the status to secure storage
@@ -157,7 +157,7 @@ class MapController extends AutoDisposeNotifier<MapState> {
         .read(attendanceServiceProvider)
         .addAttendanceWithoutImage(body);
 
-    // upda the state
+    // update the state
     addAttendanceResult.when(
       (success) async {
         // save the status to secure storage

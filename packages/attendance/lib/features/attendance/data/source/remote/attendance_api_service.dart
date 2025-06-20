@@ -45,5 +45,8 @@ abstract class AttendanceApiService {
   );
 
   @GET(getAttendanceEndPoint)
-  Future<AttendanceResponse> getAttendance();
+  Future<AttendanceResponse> getAttendance(
+    @Query('page') int page,
+    @Query('limit') int limit,
+  );
 }
