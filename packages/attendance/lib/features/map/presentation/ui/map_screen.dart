@@ -132,6 +132,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           final currentPosition = ref.watch(
             mapControllerProvider.select((value) => value.currentPosition),
           );
+          final isConsentStatement = ref.watch(
+            mapControllerProvider.select((value) => value.isConsentStatement),
+          );
           return SafeArea(
             maintainBottomViewPadding: true,
             child: Container(
@@ -142,35 +145,78 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CurrentLocationWidget(),
-                  const SizedBox(height: kSmall),
-                  const CurrentAddressWidget(),
-                  const SizedBox(height: kMedium),
-                  // if current position is null - remove the check-in and check-out buttons
-                  if (currentPosition != null) ...[
-                    // if the Zone is enabled - show the zone and capture image button
-                    if (isZoneEnabled) ...[
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Flexible(flex: 8, child: ZoneWidget()),
-                          const SizedBox(width: kMedium),
-                          // if the camera is enabled - show the capture image button
-                          //else show the add attendance with no image
-                          if (isCameraEnabled) ...[
-                            const CaptureImageButtonWidget(),
-                          ] else ...[
-                            const AddAttendanceWithNoImage(),
+                  // if camera is enable and consent statement is not accepted,
+                  // show the consent statement
+                  if (isCameraEnabled && !isConsentStatement) ...[
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: kMedium,
+                          vertical: kLarge,
+                        ),
+                        padding: const EdgeInsets.all(kMedium),
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).colorScheme.secondaryContainer,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.info_outline_rounded,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                context.localizations(
+                                  "attendance.pleaseReadAndAcceptTheConsentStatement",
+                                ),
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.bodyLarge?.copyWith(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).colorScheme.onSecondaryContainer,
+                                ),
+                              ),
+                            ),
                           ],
-                        ],
+                        ),
                       ),
-                    ] else ...[
-                      //if the camera is enabled - show the capture image button
-                      //else show the add attendance with no image
-                      if (isCameraEnabled) ...[
-                        const Center(child: CaptureImageButtonNoZoneWidget()),
+                    ),
+                  ] else ...[
+                    const CurrentLocationWidget(),
+                    const SizedBox(height: kSmall),
+                    const CurrentAddressWidget(),
+                    const SizedBox(height: kMedium),
+                    // if current position is null - remove the check-in and check-out buttons
+                    if (currentPosition != null) ...[
+                      // if the Zone is enabled - show the zone and capture image button
+                      if (isZoneEnabled) ...[
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Flexible(flex: 8, child: ZoneWidget()),
+                            const SizedBox(width: kMedium),
+                            // if the camera is enabled - show the capture image button
+                            //else show the add attendance with no image
+                            if (isCameraEnabled) ...[
+                              const CaptureImageButtonWidget(),
+                            ] else ...[
+                              const AddAttendanceWithZoneAndNoImage(),
+                            ],
+                          ],
+                        ),
                       ] else ...[
-                        const Center(child: AddAttendanceWithNoImage()),
+                        //if the camera is enabled - show the capture image button
+                        //else show the add attendance with no image
+                        if (isCameraEnabled) ...[
+                          const Center(child: CaptureImageButtonNoZoneWidget()),
+                        ] else ...[
+                          const Center(child: AddAttendanceWithNoImage()),
+                        ],
                       ],
                     ],
                   ],

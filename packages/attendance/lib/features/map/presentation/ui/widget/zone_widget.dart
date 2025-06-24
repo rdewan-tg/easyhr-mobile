@@ -19,7 +19,10 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
     return DropdownMenu(
       width: MediaQuery.of(context).size.width * 0.8,
       controller: controller,
-      label: Text('Select Zone'.hardcoded),
+      label: Text(
+        'Select Zone'.hardcoded,
+        style: Theme.of(context).textTheme.labelSmall,
+      ),
       requestFocusOnTap: false,
       onSelected: (value) {
         if (value == null) return;

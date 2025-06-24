@@ -1,15 +1,15 @@
 part of 'package:attendance/attendance.dart';
 
-class CaptureImageButtonWidget extends ConsumerStatefulWidget {
-  const CaptureImageButtonWidget({super.key});
+class AddAttendanceWithZoneAndNoImage extends ConsumerStatefulWidget {
+  const AddAttendanceWithZoneAndNoImage({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _CaptureImageButtonWidgetState();
+      _AddAttendanceWithZoneAndNoImageState();
 }
 
-class _CaptureImageButtonWidgetState
-    extends ConsumerState<CaptureImageButtonWidget> {
+class _AddAttendanceWithZoneAndNoImageState
+    extends ConsumerState<AddAttendanceWithZoneAndNoImage> {
   @override
   void initState() {
     super.initState();
@@ -30,14 +30,7 @@ class _CaptureImageButtonWidgetState
     /// Text: [status] == AttendanceStatus.checkedIn then "Check Out" else "Check In"
     /// Button Color : [status] == AttendanceStatus.checkedIn then red else null
     return FilledButton.icon(
-      onPressed:
-          zone == null
-              ? null
-              : () async {
-                final currentAddress =
-                    ref.read(mapControllerProvider).currentAddress;
-                context.push("/map/camera", extra: {"address": currentAddress});
-              },
+      onPressed: zone == null ? null : _addAttendance,
       label: Text(
         status == AttendanceStatus.checkedIn
             ? "Check Out".hardcoded
@@ -58,5 +51,31 @@ class _CaptureImageButtonWidgetState
         ),
       ),
     );
+  }
+
+  void _addAttendance() async {
+    final dateTime = _currentDateTime('dd/MM/yyyy - hh:mm a');
+    // upload the image to the server
+    await ref.read(mapControllerProvider.notifier).addAttendanceWithoutImage({
+      "date": dateTime,
+      "transDay": dateTime.split('/')[0],
+      "transMonth": dateTime.split('/')[1],
+      "transYear": dateTime.split('/')[2].split(" ")[0],
+    });
+  }
+
+  String _currentDateTime(String format) {
+    final timeZone = ref.read(mapControllerProvider.notifier).getTimeZone();
+
+    // initialize Time Zone database from latest
+    tz_latest.initializeTimeZones();
+    final location = tz.getLocation(timeZone);
+    tz.setLocalLocation(location);
+    // get the current date and time
+    final now = tz.TZDateTime.now(location);
+    // format the date and time
+    final formattedDateTime = DateFormat(format).format(now);
+
+    return formattedDateTime;
   }
 }
