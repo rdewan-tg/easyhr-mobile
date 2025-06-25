@@ -71,10 +71,9 @@ class StartUpProvider extends FutureProvider<void> {
         (ref) => startUp(ref as StartUpRef, flavor: flavor),
         from: startUpProvider,
         name: r'startUpProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$startUpHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$startUpHash,
         dependencies: StartUpFamily._dependencies,
         allTransitiveDependencies: StartUpFamily._allTransitiveDependencies,
         flavor: flavor,

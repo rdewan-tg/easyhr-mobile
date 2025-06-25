@@ -5,7 +5,7 @@ publish_to: 'none'
 homepage:
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.8.1
   flutter: ">=1.17.0"
 
 dependencies:
@@ -69,7 +69,7 @@ dependencies:
   # https://pub.dev/packages/image
   image: ^4.3.0
   # https://pub.dev/packages/intl
-  intl: ^0.19.0
+  intl: ^0.20.2
   # https://pub.dev/packages/timezone
   timezone: ^0.10.0
   # https://pub.dev/packages/flutter_secure_storage
@@ -118,6 +118,10 @@ dependencies:
   firebase_messaging: ^15.2.6  
   # https://pub.dev/packages/visibility_detector
   visibility_detector: ^0.4.0+2
+  # https://pub.dev/packages/edge_to_edge
+  edge_to_edge: ^0.0.2
+  # https://pub.dev/packages/grouped_list
+  grouped_list: ^6.0.0
   
 dev_dependencies:
   flutter_test:

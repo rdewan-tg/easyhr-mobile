@@ -71,8 +71,9 @@ class LoggerProvider extends AutoDisposeProvider<Logger> {
         (ref) => logger(ref as LoggerRef, value),
         from: loggerProvider,
         name: r'loggerProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product') ? null : _$loggerHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$loggerHash,
         dependencies: LoggerFamily._dependencies,
         allTransitiveDependencies: LoggerFamily._allTransitiveDependencies,
         value: value,

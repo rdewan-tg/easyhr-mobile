@@ -54,16 +54,14 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   $Res call({Object? pageIndex = null, Object? isVisible = null}) {
     return _then(
       _value.copyWith(
-            pageIndex:
-                null == pageIndex
-                    ? _value.pageIndex
-                    : pageIndex // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isVisible:
-                null == isVisible
-                    ? _value.isVisible
-                    : isVisible // ignore: cast_nullable_to_non_nullable
-                        as bool,
+            pageIndex: null == pageIndex
+                ? _value.pageIndex
+                : pageIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isVisible: null == isVisible
+                ? _value.isVisible
+                : isVisible // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -98,16 +96,14 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
   $Res call({Object? pageIndex = null, Object? isVisible = null}) {
     return _then(
       _$DashboardStateImpl(
-        pageIndex:
-            null == pageIndex
-                ? _value.pageIndex
-                : pageIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isVisible:
-            null == isVisible
-                ? _value.isVisible
-                : isVisible // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        pageIndex: null == pageIndex
+            ? _value.pageIndex
+            : pageIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isVisible: null == isVisible
+            ? _value.isVisible
+            : isVisible // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }

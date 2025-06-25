@@ -60,11 +60,10 @@ class _$LogoutRequestCopyWithImpl<$Res, $Val extends LogoutRequest>
   $Res call({Object? refreshToken = null}) {
     return _then(
       _value.copyWith(
-            refreshToken:
-                null == refreshToken
-                    ? _value.refreshToken
-                    : refreshToken // ignore: cast_nullable_to_non_nullable
-                        as String,
+            refreshToken: null == refreshToken
+                ? _value.refreshToken
+                : refreshToken // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -99,11 +98,10 @@ class __$$LogoutRequestImplCopyWithImpl<$Res>
   $Res call({Object? refreshToken = null}) {
     return _then(
       _$LogoutRequestImpl(
-        refreshToken:
-            null == refreshToken
-                ? _value.refreshToken
-                : refreshToken // ignore: cast_nullable_to_non_nullable
-                    as String,
+        refreshToken: null == refreshToken
+            ? _value.refreshToken
+            : refreshToken // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

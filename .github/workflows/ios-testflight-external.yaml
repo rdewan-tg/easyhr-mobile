@@ -37,24 +37,26 @@ jobs:
           while [ $ATTEMPT -le $MAX_ATTEMPTS ] && [ "$BUILD_READY" = false ]; do
             echo "Attempt $ATTEMPT of $MAX_ATTEMPTS: Checking build status..."
             
-            # Check if build is ready for testing
-            BUILD_STATUS=$(fastlane run latest_testflight_build_number api_key_path:"api_key.p8" \
+            # Use the App Store Connect API to get the specific build's status
+            BUILD_INFO_JSON=$(fastlane run app_store_connect_api \
+              operation:get_builds \
+              api_key_path:"api_key.p8" \
               api_key:'{"key_id":"'"$APP_STORE_CONNECT_KEY_ID"'", "issuer_id":"'"$APP_STORE_CONNECT_ISSUER_ID"'"}' \
-              app_identifier:"$APP_APPLE_ID" \
-              live:false \
-              version:"$BUILD_NUMBER" \
-              get_build_info:true)
+              filter:'{"app": "'"$APP_APPLE_ID"'", "buildNumber": "'"$BUILD_NUMBER"'"}')
             
-            echo "Build status: $BUILD_STATUS"
+            # Use jq to get the processing_state from the first build in the response
+            BUILD_STATUS=$(echo "$BUILD_INFO_JSON" | jq -r '.[0].processing_state')
             
-            if echo "$BUILD_STATUS" | grep -q "PROCESSING_EXCEPTION\|INVALID"; then
+            echo "Build status for build $BUILD_NUMBER is: $BUILD_STATUS"
+            
+            if [ "$BUILD_STATUS" = "FAILED" ] || [ "$BUILD_STATUS" = "INVALID" ]; then
               echo "Build processing failed. Exiting."
               exit 1
-            elif echo "$BUILD_STATUS" | grep -q "READY_FOR_BETA_SUBMISSION\|READY_FOR_BETA"; then
+            elif [ "$BUILD_STATUS" = "VALID" ]; then
               echo "Build is ready for external testing submission!"
               BUILD_READY=true
             else
-              echo "Build is still processing. Waiting 60 seconds before next check..."
+              echo "Build is still processing (status: $BUILD_STATUS). Waiting 60 seconds before next check..."
               sleep 60
               ATTEMPT=$((ATTEMPT + 1))
             fi

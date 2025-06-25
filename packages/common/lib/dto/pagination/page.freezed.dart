@@ -58,26 +58,22 @@ class _$PageCopyWithImpl<$Res, $Val extends Page>
   }) {
     return _then(
       _value.copyWith(
-            currentPage:
-                null == currentPage
-                    ? _value.currentPage
-                    : currentPage // ignore: cast_nullable_to_non_nullable
-                        as int,
-            totalPages:
-                null == totalPages
-                    ? _value.totalPages
-                    : totalPages // ignore: cast_nullable_to_non_nullable
-                        as int,
-            limit:
-                null == limit
-                    ? _value.limit
-                    : limit // ignore: cast_nullable_to_non_nullable
-                        as int,
-            total:
-                null == total
-                    ? _value.total
-                    : total // ignore: cast_nullable_to_non_nullable
-                        as int,
+            currentPage: null == currentPage
+                ? _value.currentPage
+                : currentPage // ignore: cast_nullable_to_non_nullable
+                      as int,
+            totalPages: null == totalPages
+                ? _value.totalPages
+                : totalPages // ignore: cast_nullable_to_non_nullable
+                      as int,
+            limit: null == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                      as int,
+            total: null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                      as int,
           )
           as $Val,
     );
@@ -114,26 +110,22 @@ class __$$PageImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PageImpl(
-        currentPage:
-            null == currentPage
-                ? _value.currentPage
-                : currentPage // ignore: cast_nullable_to_non_nullable
-                    as int,
-        totalPages:
-            null == totalPages
-                ? _value.totalPages
-                : totalPages // ignore: cast_nullable_to_non_nullable
-                    as int,
-        limit:
-            null == limit
-                ? _value.limit
-                : limit // ignore: cast_nullable_to_non_nullable
-                    as int,
-        total:
-            null == total
-                ? _value.total
-                : total // ignore: cast_nullable_to_non_nullable
-                    as int,
+        currentPage: null == currentPage
+            ? _value.currentPage
+            : currentPage // ignore: cast_nullable_to_non_nullable
+                  as int,
+        totalPages: null == totalPages
+            ? _value.totalPages
+            : totalPages // ignore: cast_nullable_to_non_nullable
+                  as int,
+        limit: null == limit
+            ? _value.limit
+            : limit // ignore: cast_nullable_to_non_nullable
+                  as int,
+        total: null == total
+            ? _value.total
+            : total // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

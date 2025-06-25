@@ -73,21 +73,18 @@ class _$CustomerResponseCopyWithImpl<$Res, $Val extends CustomerResponse>
   }) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            total:
-                null == total
-                    ? _value.total
-                    : total // ignore: cast_nullable_to_non_nullable
-                        as int,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as List<CustomerData>,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            total: null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                      as int,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as List<CustomerData>,
           )
           as $Val,
     );
@@ -130,21 +127,18 @@ class __$$CustomerResponseImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CustomerResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        total:
-            null == total
-                ? _value.total
-                : total // ignore: cast_nullable_to_non_nullable
-                    as int,
-        data:
-            null == data
-                ? _value._data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as List<CustomerData>,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        total: null == total
+            ? _value.total
+            : total // ignore: cast_nullable_to_non_nullable
+                  as int,
+        data: null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<CustomerData>,
       ),
     );
   }
@@ -379,111 +373,90 @@ class _$CustomerDataCopyWithImpl<$Res, $Val extends CustomerData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            customerId:
-                null == customerId
-                    ? _value.customerId
-                    : customerId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            customerName:
-                null == customerName
-                    ? _value.customerName
-                    : customerName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            address:
-                null == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
-                        as String,
-            salesPersonId:
-                null == salesPersonId
-                    ? _value.salesPersonId
-                    : salesPersonId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            salesPerson:
-                freezed == salesPerson
-                    ? _value.salesPerson
-                    : salesPerson // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            merchandiser:
-                freezed == merchandiser
-                    ? _value.merchandiser
-                    : merchandiser // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            countryId:
-                null == countryId
-                    ? _value.countryId
-                    : countryId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            phoneNumber:
-                freezed == phoneNumber
-                    ? _value.phoneNumber
-                    : phoneNumber // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            latitude:
-                null == latitude
-                    ? _value.latitude
-                    : latitude // ignore: cast_nullable_to_non_nullable
-                        as String,
-            longitude:
-                null == longitude
-                    ? _value.longitude
-                    : longitude // ignore: cast_nullable_to_non_nullable
-                        as String,
-            creditLimit:
-                freezed == creditLimit
-                    ? _value.creditLimit
-                    : creditLimit // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            currencyCode:
-                freezed == currencyCode
-                    ? _value.currencyCode
-                    : currencyCode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            paymentTerm:
-                freezed == paymentTerm
-                    ? _value.paymentTerm
-                    : paymentTerm // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            priceGroup:
-                freezed == priceGroup
-                    ? _value.priceGroup
-                    : priceGroup // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            customreDimension:
-                freezed == customreDimension
-                    ? _value.customreDimension
-                    : customreDimension // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as int,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            companyCode:
-                null == companyCode
-                    ? _value.companyCode
-                    : companyCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            createAt:
-                null == createAt
-                    ? _value.createAt
-                    : createAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            updatedAt:
-                null == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            customerId: null == customerId
+                ? _value.customerId
+                : customerId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            customerName: null == customerName
+                ? _value.customerName
+                : customerName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            address: null == address
+                ? _value.address
+                : address // ignore: cast_nullable_to_non_nullable
+                      as String,
+            salesPersonId: null == salesPersonId
+                ? _value.salesPersonId
+                : salesPersonId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            salesPerson: freezed == salesPerson
+                ? _value.salesPerson
+                : salesPerson // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            merchandiser: freezed == merchandiser
+                ? _value.merchandiser
+                : merchandiser // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            countryId: null == countryId
+                ? _value.countryId
+                : countryId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            phoneNumber: freezed == phoneNumber
+                ? _value.phoneNumber
+                : phoneNumber // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            latitude: null == latitude
+                ? _value.latitude
+                : latitude // ignore: cast_nullable_to_non_nullable
+                      as String,
+            longitude: null == longitude
+                ? _value.longitude
+                : longitude // ignore: cast_nullable_to_non_nullable
+                      as String,
+            creditLimit: freezed == creditLimit
+                ? _value.creditLimit
+                : creditLimit // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            currencyCode: freezed == currencyCode
+                ? _value.currencyCode
+                : currencyCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            paymentTerm: freezed == paymentTerm
+                ? _value.paymentTerm
+                : paymentTerm // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            priceGroup: freezed == priceGroup
+                ? _value.priceGroup
+                : priceGroup // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            customreDimension: freezed == customreDimension
+                ? _value.customreDimension
+                : customreDimension // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as int,
+            companyId: null == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            companyCode: null == companyCode
+                ? _value.companyCode
+                : companyCode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            createAt: null == createAt
+                ? _value.createAt
+                : createAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            updatedAt: null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
           )
           as $Val,
     );
@@ -564,111 +537,90 @@ class __$$CustomerDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CustomerDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        customerId:
-            null == customerId
-                ? _value.customerId
-                : customerId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        customerName:
-            null == customerName
-                ? _value.customerName
-                : customerName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        address:
-            null == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
-                    as String,
-        salesPersonId:
-            null == salesPersonId
-                ? _value.salesPersonId
-                : salesPersonId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        salesPerson:
-            freezed == salesPerson
-                ? _value.salesPerson
-                : salesPerson // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        merchandiser:
-            freezed == merchandiser
-                ? _value.merchandiser
-                : merchandiser // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        countryId:
-            null == countryId
-                ? _value.countryId
-                : countryId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        phoneNumber:
-            freezed == phoneNumber
-                ? _value.phoneNumber
-                : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        latitude:
-            null == latitude
-                ? _value.latitude
-                : latitude // ignore: cast_nullable_to_non_nullable
-                    as String,
-        longitude:
-            null == longitude
-                ? _value.longitude
-                : longitude // ignore: cast_nullable_to_non_nullable
-                    as String,
-        creditLimit:
-            freezed == creditLimit
-                ? _value.creditLimit
-                : creditLimit // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        currencyCode:
-            freezed == currencyCode
-                ? _value.currencyCode
-                : currencyCode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        paymentTerm:
-            freezed == paymentTerm
-                ? _value.paymentTerm
-                : paymentTerm // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        priceGroup:
-            freezed == priceGroup
-                ? _value.priceGroup
-                : priceGroup // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        customreDimension:
-            freezed == customreDimension
-                ? _value.customreDimension
-                : customreDimension // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as int,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        companyCode:
-            null == companyCode
-                ? _value.companyCode
-                : companyCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        createAt:
-            null == createAt
-                ? _value.createAt
-                : createAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        updatedAt:
-            null == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        customerId: null == customerId
+            ? _value.customerId
+            : customerId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        customerName: null == customerName
+            ? _value.customerName
+            : customerName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        address: null == address
+            ? _value.address
+            : address // ignore: cast_nullable_to_non_nullable
+                  as String,
+        salesPersonId: null == salesPersonId
+            ? _value.salesPersonId
+            : salesPersonId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        salesPerson: freezed == salesPerson
+            ? _value.salesPerson
+            : salesPerson // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        merchandiser: freezed == merchandiser
+            ? _value.merchandiser
+            : merchandiser // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        countryId: null == countryId
+            ? _value.countryId
+            : countryId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        phoneNumber: freezed == phoneNumber
+            ? _value.phoneNumber
+            : phoneNumber // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        latitude: null == latitude
+            ? _value.latitude
+            : latitude // ignore: cast_nullable_to_non_nullable
+                  as String,
+        longitude: null == longitude
+            ? _value.longitude
+            : longitude // ignore: cast_nullable_to_non_nullable
+                  as String,
+        creditLimit: freezed == creditLimit
+            ? _value.creditLimit
+            : creditLimit // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        currencyCode: freezed == currencyCode
+            ? _value.currencyCode
+            : currencyCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        paymentTerm: freezed == paymentTerm
+            ? _value.paymentTerm
+            : paymentTerm // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        priceGroup: freezed == priceGroup
+            ? _value.priceGroup
+            : priceGroup // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        customreDimension: freezed == customreDimension
+            ? _value.customreDimension
+            : customreDimension // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as int,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        companyCode: null == companyCode
+            ? _value.companyCode
+            : companyCode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        createAt: null == createAt
+            ? _value.createAt
+            : createAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
       ),
     );
   }

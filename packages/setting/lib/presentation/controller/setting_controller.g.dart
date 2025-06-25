@@ -14,10 +14,9 @@ final settingControllerProvider =
     NotifierProvider<SettingController, SettingState>.internal(
       SettingController.new,
       name: r'settingControllerProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$settingControllerHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$settingControllerHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

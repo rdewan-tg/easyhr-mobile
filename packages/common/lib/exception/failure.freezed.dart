@@ -63,26 +63,22 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure>
   }) {
     return _then(
       _value.copyWith(
-            message:
-                null == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String,
-            statusCode:
-                freezed == statusCode
-                    ? _value.statusCode
-                    : statusCode // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            exception:
-                freezed == exception
-                    ? _value.exception
-                    : exception // ignore: cast_nullable_to_non_nullable
-                        as Exception?,
-            stackTrace:
-                null == stackTrace
-                    ? _value.stackTrace
-                    : stackTrace // ignore: cast_nullable_to_non_nullable
-                        as StackTrace,
+            message: null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                      as String,
+            statusCode: freezed == statusCode
+                ? _value.statusCode
+                : statusCode // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            exception: freezed == exception
+                ? _value.exception
+                : exception // ignore: cast_nullable_to_non_nullable
+                      as Exception?,
+            stackTrace: null == stackTrace
+                ? _value.stackTrace
+                : stackTrace // ignore: cast_nullable_to_non_nullable
+                      as StackTrace,
           )
           as $Val,
     );
@@ -126,26 +122,22 @@ class __$$FailureImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$FailureImpl(
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-        statusCode:
-            freezed == statusCode
-                ? _value.statusCode
-                : statusCode // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        exception:
-            freezed == exception
-                ? _value.exception
-                : exception // ignore: cast_nullable_to_non_nullable
-                    as Exception?,
-        stackTrace:
-            null == stackTrace
-                ? _value.stackTrace
-                : stackTrace // ignore: cast_nullable_to_non_nullable
-                    as StackTrace,
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+        statusCode: freezed == statusCode
+            ? _value.statusCode
+            : statusCode // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        exception: freezed == exception
+            ? _value.exception
+            : exception // ignore: cast_nullable_to_non_nullable
+                  as Exception?,
+        stackTrace: null == stackTrace
+            ? _value.stackTrace
+            : stackTrace // ignore: cast_nullable_to_non_nullable
+                  as StackTrace,
       ),
     );
   }

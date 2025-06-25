@@ -61,16 +61,14 @@ class _$DeleteMeResponseCopyWithImpl<$Res, $Val extends DeleteMeResponse>
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                freezed == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: freezed == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as dynamic,
           )
           as $Val,
     );
@@ -105,16 +103,14 @@ class __$$DeleteMeResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _$DeleteMeResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            freezed == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as dynamic,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as dynamic,
       ),
     );
   }

@@ -46,22 +46,21 @@ class CurrentAddressWidget extends ConsumerWidget {
                 backgroundColor: colorScheme.secondaryContainer,
                 foregroundColor: colorScheme.onSecondaryContainer,
               ),
-              onPressed:
-                  currentAddress?.isEmpty == true
-                      ? null
-                      : () {
-                        Clipboard.setData(
-                          ClipboardData(text: currentAddress ?? ""),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              "Address copied to clipboard".hardcoded,
-                            ),
-                            behavior: SnackBarBehavior.floating,
+              onPressed: currentAddress?.isEmpty == true
+                  ? null
+                  : () {
+                      Clipboard.setData(
+                        ClipboardData(text: currentAddress ?? ""),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Address copied to clipboard".hardcoded,
                           ),
-                        );
-                      },
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    },
               icon: const Icon(Icons.content_copy_rounded),
             ),
           ],

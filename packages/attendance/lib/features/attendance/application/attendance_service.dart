@@ -122,23 +122,22 @@ final class AttendanceService implements IAttendanceService {
 
 // top level function for isolate
 AttendanceListModel _mapToAttendanceListModel(AttendanceResponse response) {
-  final data =
-      response.data.map((e) {
-        return AttendanceModel(
-          id: e.id,
-          userId: e.userId,
-          address: e.address,
-          latitude: e.latitude,
-          longitude: e.longitude,
-          zone: e.zone,
-          image: e.image,
-          status: e.status == AttendanceStatus.checkedIn ? "IN" : "OUT",
-          transDay: e.transDay,
-          transMonth: e.transMonth,
-          transYear: e.transYear,
-          date: e.date,
-        );
-      }).toList();
+  final data = response.data.map((e) {
+    return AttendanceModel(
+      id: e.id,
+      userId: e.userId,
+      address: e.address,
+      latitude: e.latitude,
+      longitude: e.longitude,
+      zone: e.zone,
+      image: e.image,
+      status: e.status == AttendanceStatus.checkedIn ? "IN" : "OUT",
+      transDay: e.transDay,
+      transMonth: e.transMonth,
+      transYear: e.transYear,
+      date: e.date,
+    );
+  }).toList();
 
   return AttendanceListModel(
     data: data,

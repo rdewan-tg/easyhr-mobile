@@ -46,27 +46,26 @@ class CurrentLocationWidget extends ConsumerWidget {
                 backgroundColor: colorScheme.secondaryContainer,
                 foregroundColor: colorScheme.onSecondaryContainer,
               ),
-              onPressed:
-                  currentPosition == null
-                      ? null
-                      : () {
-                        Clipboard.setData(
-                          ClipboardData(
-                            text:
-                                '${currentPosition.latitude.toStringAsFixed(7)},${currentPosition.longitude.toStringAsFixed(7)}',
-                          ),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              context.localizations(
-                                "attendance.copiedToClipboard",
-                              ),
+              onPressed: currentPosition == null
+                  ? null
+                  : () {
+                      Clipboard.setData(
+                        ClipboardData(
+                          text:
+                              '${currentPosition.latitude.toStringAsFixed(7)},${currentPosition.longitude.toStringAsFixed(7)}',
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            context.localizations(
+                              "attendance.copiedToClipboard",
                             ),
-                            behavior: SnackBarBehavior.floating,
                           ),
-                        );
-                      },
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    },
               icon: const Icon(Icons.content_copy_rounded),
             ),
           ],

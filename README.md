@@ -37,10 +37,10 @@ HR App
 
 ```
 # install the flutter version using fvm
-fvm install 3.29.3
+fvm install 3.32.4
 
 # select the flutter version for current project
-fvm use 3.29.3
+fvm use 3.32.4
 
 # use fvm command to proxy your flutter command
 fvm flutter pub get

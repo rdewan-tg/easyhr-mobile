@@ -73,16 +73,14 @@ class _$ForgotPasswordResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as Data,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as Data,
           )
           as $Val,
     );
@@ -134,16 +132,14 @@ class __$$ForgotPasswordResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$ForgotPasswordResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as Data,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Data,
       ),
     );
   }
@@ -270,11 +266,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   $Res call({Object? emailSent = null}) {
     return _then(
       _value.copyWith(
-            emailSent:
-                null == emailSent
-                    ? _value.emailSent
-                    : emailSent // ignore: cast_nullable_to_non_nullable
-                        as bool,
+            emailSent: null == emailSent
+                ? _value.emailSent
+                : emailSent // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -306,11 +301,10 @@ class __$$DataImplCopyWithImpl<$Res>
   $Res call({Object? emailSent = null}) {
     return _then(
       _$DataImpl(
-        emailSent:
-            null == emailSent
-                ? _value.emailSent
-                : emailSent // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        emailSent: null == emailSent
+            ? _value.emailSent
+            : emailSent // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }

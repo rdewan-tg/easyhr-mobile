@@ -44,8 +44,9 @@ Future<void> startUp(Ref ref, {required Flavor flavor}) async {
   }
 
   // first run
-  final isFirstRun =
-      await ref.read(settingControllerProvider.notifier).getFirstRun();
+  final isFirstRun = await ref
+      .read(settingControllerProvider.notifier)
+      .getFirstRun();
   debugPrint("isFirstRun: $isFirstRun");
   if (isFirstRun) {
     await ref.read(settingControllerProvider.notifier).setFirstRun();

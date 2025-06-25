@@ -89,8 +89,9 @@ class _BlogListState extends ConsumerState<BlogList> {
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     height: 120,
-                    color:
-                        Theme.of(context).colorScheme.surfaceContainerHighest,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.surfaceContainerHighest,
                     child: Center(
                       child: Icon(
                         Icons.image_not_supported,
@@ -127,8 +128,9 @@ class _BlogListState extends ConsumerState<BlogList> {
                                   ).textTheme.bodyMedium?.fontSize ??
                                   14,
                             ),
-                            color:
-                                Theme.of(context).textTheme.bodyMedium?.color,
+                            color: Theme.of(
+                              context,
+                            ).textTheme.bodyMedium?.color,
                             maxLines: 3,
                             textOverflow: TextOverflow.ellipsis,
                           ),
