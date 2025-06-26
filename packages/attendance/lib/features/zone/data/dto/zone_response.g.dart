@@ -9,10 +9,9 @@ part of 'zone_response.dart';
 _$ZoneReponseImpl _$$ZoneReponseImplFromJson(Map<String, dynamic> json) =>
     _$ZoneReponseImpl(
       status: json['status'] as String,
-      data:
-          (json['data'] as List<dynamic>)
-              .map((e) => ZoneData.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      data: (json['data'] as List<dynamic>)
+          .map((e) => ZoneData.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$ZoneReponseImplToJson(_$ZoneReponseImpl instance) =>

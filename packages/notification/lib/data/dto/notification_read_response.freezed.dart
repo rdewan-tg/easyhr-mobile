@@ -73,16 +73,14 @@ class _$NotificationReadResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as NotificationReadItem,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as NotificationReadItem,
           )
           as $Val,
     );
@@ -137,16 +135,14 @@ class __$$NotificationReadResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$NotificationReadResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as NotificationReadItem,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as NotificationReadItem,
       ),
     );
   }
@@ -194,9 +190,10 @@ class _$NotificationReadResponseImpl implements _NotificationReadResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$NotificationReadResponseImplCopyWith<_$NotificationReadResponseImpl>
-  get copyWith => __$$NotificationReadResponseImplCopyWithImpl<
-    _$NotificationReadResponseImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$NotificationReadResponseImplCopyWithImpl<
+        _$NotificationReadResponseImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -297,31 +294,26 @@ class _$NotificationReadItemCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            notificationId:
-                null == notificationId
-                    ? _value.notificationId
-                    : notificationId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isRead:
-                null == isRead
-                    ? _value.isRead
-                    : isRead // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            readAt:
-                null == readAt
-                    ? _value.readAt
-                    : readAt // ignore: cast_nullable_to_non_nullable
-                        as String,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            notificationId: null == notificationId
+                ? _value.notificationId
+                : notificationId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isRead: null == isRead
+                ? _value.isRead
+                : isRead // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            readAt: null == readAt
+                ? _value.readAt
+                : readAt // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -368,31 +360,26 @@ class __$$NotificationReadItemImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$NotificationReadItemImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        notificationId:
-            null == notificationId
-                ? _value.notificationId
-                : notificationId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isRead:
-            null == isRead
-                ? _value.isRead
-                : isRead // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        readAt:
-            null == readAt
-                ? _value.readAt
-                : readAt // ignore: cast_nullable_to_non_nullable
-                    as String,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        notificationId: null == notificationId
+            ? _value.notificationId
+            : notificationId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isRead: null == isRead
+            ? _value.isRead
+            : isRead // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        readAt: null == readAt
+            ? _value.readAt
+            : readAt // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

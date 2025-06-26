@@ -50,12 +50,11 @@ class MapController extends AutoDisposeNotifier<MapState> {
   Future<void> getAttendanceStatus() async {
     try {
       final result = await ref.read(mapServiceProvider).getAttendanceStatus();
-      final status =
-          result == "checkedIn"
-              ? AttendanceStatus.checkedIn
-              : result == "checkedOut"
-              ? AttendanceStatus.checkedOut
-              : AttendanceStatus.checkedOut;
+      final status = result == "checkedIn"
+          ? AttendanceStatus.checkedIn
+          : result == "checkedOut"
+          ? AttendanceStatus.checkedOut
+          : AttendanceStatus.checkedOut;
       state = state.copyWith(status: status);
     } on Failure catch (e) {
       state = state.copyWith(errorMsg: e.message);
@@ -74,12 +73,11 @@ class MapController extends AutoDisposeNotifier<MapState> {
     final file = data["file"] as File?;
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
-    final status =
-        result == "checkedIn"
-            ? AttendanceStatus.checkedOut
-            : result == "checkedOut"
-            ? AttendanceStatus.checkedIn
-            : AttendanceStatus.checkedIn;
+    final status = result == "checkedIn"
+        ? AttendanceStatus.checkedOut
+        : result == "checkedOut"
+        ? AttendanceStatus.checkedIn
+        : AttendanceStatus.checkedIn;
 
     final body = CreateAttendanceModel(
       file: file,
@@ -134,12 +132,11 @@ class MapController extends AutoDisposeNotifier<MapState> {
     );
     final mapService = ref.read(mapServiceProvider);
     final result = await mapService.getAttendanceStatus();
-    final status =
-        result == "checkedIn"
-            ? AttendanceStatus.checkedOut
-            : result == "checkedOut"
-            ? AttendanceStatus.checkedIn
-            : AttendanceStatus.checkedIn;
+    final status = result == "checkedIn"
+        ? AttendanceStatus.checkedOut
+        : result == "checkedOut"
+        ? AttendanceStatus.checkedIn
+        : AttendanceStatus.checkedIn;
 
     final body = AddAttendanceWithoutImageRequest(
       address: state.currentAddress ?? "",
@@ -207,11 +204,10 @@ class MapController extends AutoDisposeNotifier<MapState> {
 
     // update the state
     filteredZones.when(
-      (success) =>
-          state = state.copyWith(
-            currentPosition: position,
-            currentZones: success,
-          ),
+      (success) => state = state.copyWith(
+        currentPosition: position,
+        currentZones: success,
+      ),
       (error) => state = state.copyWith(errorMsg: error.message),
     );
   }
@@ -234,14 +230,16 @@ class MapController extends AutoDisposeNotifier<MapState> {
   }
 
   Future<void> getConsentStatement() async {
-    final consentStatement =
-        await ref.read(mapServiceProvider).getConsentStatement();
+    final consentStatement = await ref
+        .read(mapServiceProvider)
+        .getConsentStatement();
     state = state.copyWith(isConsentStatement: consentStatement);
   }
 
   Future<int> getScheduleTime() async {
-    final scheduleTime =
-        await ref.read(attendanceServiceProvider).getScheduleTime();
+    final scheduleTime = await ref
+        .read(attendanceServiceProvider)
+        .getScheduleTime();
     return scheduleTime;
   }
 
@@ -250,8 +248,9 @@ class MapController extends AutoDisposeNotifier<MapState> {
     String title,
     String body,
   ) async {
-    final scheduleTime =
-        await ref.read(attendanceServiceProvider).getScheduleTime();
+    final scheduleTime = await ref
+        .read(attendanceServiceProvider)
+        .getScheduleTime();
     if (scheduleTime > 0) {
       ref
           .read(localPushNotificationProvider)

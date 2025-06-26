@@ -66,16 +66,14 @@ class _$PublicHolidayResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as List<PublicHolidayData>,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as List<PublicHolidayData>,
           )
           as $Val,
     );
@@ -111,16 +109,14 @@ class __$$PublicHolidayResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$PublicHolidayResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value._data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as List<PublicHolidayData>,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<PublicHolidayData>,
       ),
     );
   }
@@ -288,46 +284,38 @@ class _$PublicHolidayDataCopyWithImpl<$Res, $Val extends PublicHolidayData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                freezed == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            date:
-                null == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            year:
-                null == year
-                    ? _value.year
-                    : year // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isRecurring:
-                null == isRecurring
-                    ? _value.isRecurring
-                    : isRecurring // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            states:
-                null == states
-                    ? _value.states
-                    : states // ignore: cast_nullable_to_non_nullable
-                        as List<PublicHolidayState>,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            date: null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            year: null == year
+                ? _value.year
+                : year // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isRecurring: null == isRecurring
+                ? _value.isRecurring
+                : isRecurring // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            companyId: null == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            states: null == states
+                ? _value.states
+                : states // ignore: cast_nullable_to_non_nullable
+                      as List<PublicHolidayState>,
           )
           as $Val,
     );
@@ -380,46 +368,38 @@ class __$$PublicHolidayDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PublicHolidayDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        year:
-            null == year
-                ? _value.year
-                : year // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isRecurring:
-            null == isRecurring
-                ? _value.isRecurring
-                : isRecurring // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        states:
-            null == states
-                ? _value._states
-                : states // ignore: cast_nullable_to_non_nullable
-                    as List<PublicHolidayState>,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        year: null == year
+            ? _value.year
+            : year // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isRecurring: null == isRecurring
+            ? _value.isRecurring
+            : isRecurring // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        states: null == states
+            ? _value._states
+            : states // ignore: cast_nullable_to_non_nullable
+                  as List<PublicHolidayState>,
       ),
     );
   }
@@ -628,21 +608,18 @@ class _$PublicHolidayStateCopyWithImpl<$Res, $Val extends PublicHolidayState>
   $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            code:
-                freezed == code
-                    ? _value.code
-                    : code // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            code: freezed == code
+                ? _value.code
+                : code // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -681,21 +658,18 @@ class __$$PublicHolidayStateImplCopyWithImpl<$Res>
   $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
     return _then(
       _$PublicHolidayStateImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        code:
-            freezed == code
-                ? _value.code
-                : code // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        code: freezed == code
+            ? _value.code
+            : code // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

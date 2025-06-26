@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.0.1
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.8.1
 
 dependencies:
   flutter:
@@ -14,13 +14,6 @@ dependencies:
   core:
     path: packages/core
 
-  flutter_riverpod: any
-  go_router: any
-  upgrader: any
-  loader_overlay: any
-  riverpod_annotation: any
-  timezone: any
-  grouped_list: ^6.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

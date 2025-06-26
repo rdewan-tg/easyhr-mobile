@@ -44,10 +44,9 @@ _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
       photo: json['avatar'] as String?,
       isActive: json['isActive'] as bool,
       uuid: json['uuid'] as String?,
-      role:
-          (json['role'] as List<dynamic>)
-              .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      role: (json['role'] as List<dynamic>)
+          .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       company: CompanyDto.fromJson(json['company'] as Map<String, dynamic>),
     );
 

@@ -6,8 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 part 'notification_schedule_dao.g.dart';
 
-final notificationScheduleDaoProvider =
-    Provider<NotificationScheduleDao>((ref) {
+final notificationScheduleDaoProvider = Provider<NotificationScheduleDao>((
+  ref,
+) {
   return NotificationScheduleDao(ref.watch(appDatabaseProvider));
 });
 
@@ -21,8 +22,9 @@ class NotificationScheduleDao extends DatabaseAccessor<AppDatabase>
     NotificationScheduleEntityCompanion schedule,
   ) async {
     try {
-      return await into(notificationScheduleEntity)
-          .insertOnConflictUpdate(schedule);
+      return await into(
+        notificationScheduleEntity,
+      ).insertOnConflictUpdate(schedule);
     } catch (e, stackTrace) {
       throw Failure(
         message: 'Failed to insert or update notification schedule: $e',
@@ -75,9 +77,9 @@ class NotificationScheduleDao extends DatabaseAccessor<AppDatabase>
   /// Remove a notification schedule by ID
   Future<int> removeScheduleById(int id) async {
     try {
-      return await (delete(notificationScheduleEntity)
-            ..where((tbl) => tbl.id.equals(id)))
-          .go();
+      return await (delete(
+        notificationScheduleEntity,
+      )..where((tbl) => tbl.id.equals(id))).go();
     } catch (e, stackTrace) {
       throw Failure(
         message: 'Failed to remove notification schedule: $e',
@@ -101,14 +103,15 @@ class NotificationScheduleDao extends DatabaseAccessor<AppDatabase>
   /// Update the active status of a notification schedule
   Future<bool> updateScheduleStatus(int id, bool isActive) async {
     try {
-      final rowsAffected = await (update(notificationScheduleEntity)
-            ..where((tbl) => tbl.id.equals(id)))
-          .write(
-        NotificationScheduleEntityCompanion(
-          isActive: Value(isActive),
-          updatedAt: Value(DateTime.now()),
-        ),
-      );
+      final rowsAffected =
+          await (update(
+            notificationScheduleEntity,
+          )..where((tbl) => tbl.id.equals(id))).write(
+            NotificationScheduleEntityCompanion(
+              isActive: Value(isActive),
+              updatedAt: Value(DateTime.now()),
+            ),
+          );
 
       return rowsAffected > 0;
     } catch (e, stackTrace) {

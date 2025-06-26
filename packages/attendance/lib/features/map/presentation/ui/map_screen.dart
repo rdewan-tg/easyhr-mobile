@@ -41,20 +41,21 @@ class _MapScreenState extends ConsumerState<MapScreen> {
         distanceFilter: 0, // meters to move before update
       );
 
-      _positionStreamSubscription = Geolocator.getPositionStream(
-        locationSettings: locationSettings,
-      ).listen((Position position) async {
-        final latLng = LatLng(position.latitude, position.longitude);
+      _positionStreamSubscription =
+          Geolocator.getPositionStream(
+            locationSettings: locationSettings,
+          ).listen((Position position) async {
+            final latLng = LatLng(position.latitude, position.longitude);
 
-        // Update map state
-        ref.read(mapControllerProvider.notifier).setCurrentPosition(latLng);
+            // Update map state
+            ref.read(mapControllerProvider.notifier).setCurrentPosition(latLng);
 
-        // Move camera to the new position if map is initialized
-        _mapController?.animateCamera(CameraUpdate.newLatLng(latLng));
+            // Move camera to the new position if map is initialized
+            _mapController?.animateCamera(CameraUpdate.newLatLng(latLng));
 
-        // Update the address
-        await getAddressFromLatLng(latLng);
-      });
+            // Update the address
+            await getAddressFromLatLng(latLng);
+          });
     }
   }
 
@@ -89,35 +90,33 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             mapControllerProvider.select((value) => value.currentPosition),
           );
           return SafeArea(
-            child:
-                currentPosition == null
-                    ? const Center(child: CircularProgressIndicator())
-                    : GoogleMap(
-                      initialCameraPosition: CameraPosition(
-                        target: currentPosition,
-                        zoom: 19,
-                      ),
-                      markers: {
-                        Marker(
-                          markerId: const MarkerId('currentLocation'),
-                          position: currentPosition,
-                          infoWindow: const InfoWindow(title: 'You are here'),
-                          onTap:
-                              () {}, // Empty onTap to prevent default behavior
-                        ),
-                      },
-                      onMapCreated: (controller) {
-                        _mapController = controller;
-                        // Show info window after a short delay
-                        Future.delayed(const Duration(milliseconds: 500), () {
-                          controller.showMarkerInfoWindow(
-                            const MarkerId('currentLocation'),
-                          );
-                        });
-                      },
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
+            child: currentPosition == null
+                ? const Center(child: CircularProgressIndicator())
+                : GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target: currentPosition,
+                      zoom: 19,
                     ),
+                    markers: {
+                      Marker(
+                        markerId: const MarkerId('currentLocation'),
+                        position: currentPosition,
+                        infoWindow: const InfoWindow(title: 'You are here'),
+                        onTap: () {}, // Empty onTap to prevent default behavior
+                      ),
+                    },
+                    onMapCreated: (controller) {
+                      _mapController = controller;
+                      // Show info window after a short delay
+                      Future.delayed(const Duration(milliseconds: 500), () {
+                        controller.showMarkerInfoWindow(
+                          const MarkerId('currentLocation'),
+                        );
+                      });
+                    },
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: true,
+                  ),
           );
         },
       ),
@@ -132,6 +131,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           final currentPosition = ref.watch(
             mapControllerProvider.select((value) => value.currentPosition),
           );
+          final isConsentStatement = ref.watch(
+            mapControllerProvider.select((value) => value.isConsentStatement),
+          );
           return SafeArea(
             maintainBottomViewPadding: true,
             child: Container(
@@ -142,35 +144,77 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CurrentLocationWidget(),
-                  const SizedBox(height: kSmall),
-                  const CurrentAddressWidget(),
-                  const SizedBox(height: kMedium),
-                  // if current position is null - remove the check-in and check-out buttons
-                  if (currentPosition != null) ...[
-                    // if the Zone is enabled - show the zone and capture image button
-                    if (isZoneEnabled) ...[
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Flexible(flex: 8, child: ZoneWidget()),
-                          const SizedBox(width: kMedium),
-                          // if the camera is enabled - show the capture image button
-                          //else show the add attendance with no image
-                          if (isCameraEnabled) ...[
-                            const CaptureImageButtonWidget(),
-                          ] else ...[
-                            const AddAttendanceWithNoImage(),
+                  // if camera is enable and consent statement is not accepted,
+                  // show the consent statement
+                  if (isCameraEnabled && !isConsentStatement) ...[
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: kMedium,
+                          vertical: kLarge,
+                        ),
+                        padding: const EdgeInsets.all(kMedium),
+                        decoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.secondaryContainer,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.info_outline_rounded,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                context.localizations(
+                                  "attendance.pleaseReadAndAcceptTheConsentStatement",
+                                ),
+                                style: Theme.of(context).textTheme.bodyLarge
+                                    ?.copyWith(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.onSecondaryContainer,
+                                    ),
+                              ),
+                            ),
                           ],
-                        ],
+                        ),
                       ),
-                    ] else ...[
-                      //if the camera is enabled - show the capture image button
-                      //else show the add attendance with no image
-                      if (isCameraEnabled) ...[
-                        const Center(child: CaptureImageButtonNoZoneWidget()),
+                    ),
+                  ] else ...[
+                    const CurrentLocationWidget(),
+                    const SizedBox(height: kSmall),
+                    const CurrentAddressWidget(),
+                    const SizedBox(height: kMedium),
+                    // if current position is null - remove the check-in and check-out buttons
+                    if (currentPosition != null) ...[
+                      // if the Zone is enabled - show the zone and capture image button
+                      if (isZoneEnabled) ...[
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Flexible(flex: 8, child: ZoneWidget()),
+                            const SizedBox(width: kMedium),
+                            // if the camera is enabled - show the capture image button
+                            //else show the add attendance with no image
+                            if (isCameraEnabled) ...[
+                              const CaptureImageButtonWidget(),
+                            ] else ...[
+                              const AddAttendanceWithZoneAndNoImage(),
+                            ],
+                          ],
+                        ),
                       ] else ...[
-                        const Center(child: AddAttendanceWithNoImage()),
+                        //if the camera is enabled - show the capture image button
+                        //else show the add attendance with no image
+                        if (isCameraEnabled) ...[
+                          const Center(child: CaptureImageButtonNoZoneWidget()),
+                        ] else ...[
+                          const Center(child: AddAttendanceWithNoImage()),
+                        ],
                       ],
                     ],
                   ],
@@ -219,16 +263,14 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     children: [
                       const TextSpan(text: ' '),
                       TextSpan(
-                        text:
-                            status == AttendanceStatus.checkedIn
-                                ? "${context.localizations("attendance.checkedIn")} ✅"
-                                : "${context.localizations("attendance.checkedOut")} 🏃",
+                        text: status == AttendanceStatus.checkedIn
+                            ? "${context.localizations("attendance.checkedIn")} ✅"
+                            : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color:
-                              status == AttendanceStatus.checkedIn
-                                  ? Colors.green
-                                  : Colors.red,
+                          color: status == AttendanceStatus.checkedIn
+                              ? Colors.green
+                              : Colors.red,
                         ),
                       ),
                     ],
@@ -278,16 +320,14 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     children: [
                       const TextSpan(text: ' '),
                       TextSpan(
-                        text:
-                            status == AttendanceStatus.checkedIn
-                                ? "${context.localizations("attendance.checkedIn")} ✅"
-                                : "${context.localizations("attendance.checkedOut")} 🏃",
+                        text: status == AttendanceStatus.checkedIn
+                            ? "${context.localizations("attendance.checkedIn")} ✅"
+                            : "${context.localizations("attendance.checkedOut")} 🏃",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color:
-                              status == AttendanceStatus.checkedIn
-                                  ? Colors.green
-                                  : Colors.red,
+                          color: status == AttendanceStatus.checkedIn
+                              ? Colors.green
+                              : Colors.red,
                         ),
                       ),
                     ],
@@ -341,8 +381,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       mapControllerProvider.select((value) => value.isAttendanceAdded),
       (_, next) async {
         if (next) {
-          final imageFile =
-              ref.read(mapControllerProvider.notifier).getImagePath();
+          final imageFile = ref
+              .read(mapControllerProvider.notifier)
+              .getImagePath();
           final status = ref.read(mapControllerProvider.notifier).getStatus();
           // check if status is null
           if (status == null) return;

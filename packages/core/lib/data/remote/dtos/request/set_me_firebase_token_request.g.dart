@@ -7,13 +7,10 @@ part of 'set_me_firebase_token_request.dart';
 // **************************************************************************
 
 _$SetMeFirebaseTokenRequestImpl _$$SetMeFirebaseTokenRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SetMeFirebaseTokenRequestImpl(
-      deviceToken: json['deviceToken'] as String,
-    );
+  Map<String, dynamic> json,
+) =>
+    _$SetMeFirebaseTokenRequestImpl(deviceToken: json['deviceToken'] as String);
 
 Map<String, dynamic> _$$SetMeFirebaseTokenRequestImplToJson(
-        _$SetMeFirebaseTokenRequestImpl instance) =>
-    <String, dynamic>{
-      'deviceToken': instance.deviceToken,
-    };
+  _$SetMeFirebaseTokenRequestImpl instance,
+) => <String, dynamic>{'deviceToken': instance.deviceToken};

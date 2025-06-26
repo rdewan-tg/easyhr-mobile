@@ -71,31 +71,26 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
   }) {
     return _then(
       _value.copyWith(
-            signUpModel:
-                freezed == signUpModel
-                    ? _value.signUpModel
-                    : signUpModel // ignore: cast_nullable_to_non_nullable
-                        as SignUpModel?,
-            isSignUpSuccess:
-                freezed == isSignUpSuccess
-                    ? _value.isSignUpSuccess
-                    : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
-                        as bool?,
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            signUpform:
-                null == signUpform
-                    ? _value.signUpform
-                    : signUpform // ignore: cast_nullable_to_non_nullable
-                        as Map<String, dynamic>,
+            signUpModel: freezed == signUpModel
+                ? _value.signUpModel
+                : signUpModel // ignore: cast_nullable_to_non_nullable
+                      as SignUpModel?,
+            isSignUpSuccess: freezed == isSignUpSuccess
+                ? _value.isSignUpSuccess
+                : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            error: freezed == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            signUpform: null == signUpform
+                ? _value.signUpform
+                : signUpform // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>,
           )
           as $Val,
     );
@@ -159,31 +154,26 @@ class __$$SignUpStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SignUpStateImpl(
-        signUpModel:
-            freezed == signUpModel
-                ? _value.signUpModel
-                : signUpModel // ignore: cast_nullable_to_non_nullable
-                    as SignUpModel?,
-        isSignUpSuccess:
-            freezed == isSignUpSuccess
-                ? _value.isSignUpSuccess
-                : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
-                    as bool?,
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        signUpform:
-            null == signUpform
-                ? _value._signUpform
-                : signUpform // ignore: cast_nullable_to_non_nullable
-                    as Map<String, dynamic>,
+        signUpModel: freezed == signUpModel
+            ? _value.signUpModel
+            : signUpModel // ignore: cast_nullable_to_non_nullable
+                  as SignUpModel?,
+        isSignUpSuccess: freezed == isSignUpSuccess
+            ? _value.isSignUpSuccess
+            : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        signUpform: null == signUpform
+            ? _value._signUpform
+            : signUpform // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
       ),
     );
   }

@@ -245,8 +245,9 @@ final class SettingController extends _$SettingController {
 
   Future<void> removeAllNotificationSchedule() async {
     state = state.copyWith(isLoading: true, errorMsg: null);
-    final result =
-        await ref.read(settingServiceProvider).removeAllNotificationSchedule();
+    final result = await ref
+        .read(settingServiceProvider)
+        .removeAllNotificationSchedule();
     result.when(
       (success) {
         state = state.copyWith(

@@ -12,13 +12,21 @@ class $SettingEntityTable extends SettingEntity
   static const VerificationMeta _keyMeta = const VerificationMeta('key');
   @override
   late final GeneratedColumn<String> key = GeneratedColumn<String>(
-      'key', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _valueMeta = const VerificationMeta('value');
   @override
   late final GeneratedColumn<String> value = GeneratedColumn<String>(
-      'value', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+    'value',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [key, value];
   @override
@@ -27,19 +35,25 @@ class $SettingEntityTable extends SettingEntity
   String get actualTableName => $name;
   static const String $name = 'setting_entity';
   @override
-  VerificationContext validateIntegrity(Insertable<SettingEntityData> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<SettingEntityData> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('key')) {
       context.handle(
-          _keyMeta, key.isAcceptableOrUnknown(data['key']!, _keyMeta));
+        _keyMeta,
+        key.isAcceptableOrUnknown(data['key']!, _keyMeta),
+      );
     } else if (isInserting) {
       context.missing(_keyMeta);
     }
     if (data.containsKey('value')) {
       context.handle(
-          _valueMeta, value.isAcceptableOrUnknown(data['value']!, _valueMeta));
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
     }
     return context;
   }
@@ -50,10 +64,14 @@ class $SettingEntityTable extends SettingEntity
   SettingEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SettingEntityData(
-      key: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}key'])!,
-      value: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}value']),
+      key: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}key'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}value'],
+      ),
     );
   }
 
@@ -81,13 +99,16 @@ class SettingEntityData extends DataClass
   SettingEntityCompanion toCompanion(bool nullToAbsent) {
     return SettingEntityCompanion(
       key: Value(key),
-      value:
-          value == null && nullToAbsent ? const Value.absent() : Value(value),
+      value: value == null && nullToAbsent
+          ? const Value.absent()
+          : Value(value),
     );
   }
 
-  factory SettingEntityData.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory SettingEntityData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return SettingEntityData(
       key: serializer.fromJson<String>(json['key']),
@@ -103,12 +124,13 @@ class SettingEntityData extends DataClass
     };
   }
 
-  SettingEntityData copyWith(
-          {String? key, Value<String?> value = const Value.absent()}) =>
-      SettingEntityData(
-        key: key ?? this.key,
-        value: value.present ? value.value : this.value,
-      );
+  SettingEntityData copyWith({
+    String? key,
+    Value<String?> value = const Value.absent(),
+  }) => SettingEntityData(
+    key: key ?? this.key,
+    value: value.present ? value.value : this.value,
+  );
   SettingEntityData copyWithCompanion(SettingEntityCompanion data) {
     return SettingEntityData(
       key: data.key.present ? data.key.value : this.key,
@@ -161,8 +183,11 @@ class SettingEntityCompanion extends UpdateCompanion<SettingEntityData> {
     });
   }
 
-  SettingEntityCompanion copyWith(
-      {Value<String>? key, Value<String?>? value, Value<int>? rowid}) {
+  SettingEntityCompanion copyWith({
+    Value<String>? key,
+    Value<String?>? value,
+    Value<int>? rowid,
+  }) {
     return SettingEntityCompanion(
       key: key ?? this.key,
       value: value ?? this.value,
@@ -198,8 +223,10 @@ class SettingEntityCompanion extends UpdateCompanion<SettingEntityData> {
 
 class $NotificationScheduleEntityTable extends NotificationScheduleEntity
     with
-        TableInfo<$NotificationScheduleEntityTable,
-            NotificationScheduleEntityData> {
+        TableInfo<
+          $NotificationScheduleEntityTable,
+          NotificationScheduleEntityData
+        > {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -207,83 +234,126 @@ class $NotificationScheduleEntityTable extends NotificationScheduleEntity
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _titleMeta = const VerificationMeta('title');
   @override
   late final GeneratedColumn<String> title = GeneratedColumn<String>(
-      'title', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _bodyMeta = const VerificationMeta('body');
   @override
   late final GeneratedColumn<String> body = GeneratedColumn<String>(
-      'body', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _dayOfWeekMeta =
-      const VerificationMeta('dayOfWeek');
+    'body',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dayOfWeekMeta = const VerificationMeta(
+    'dayOfWeek',
+  );
   @override
   late final GeneratedColumn<int> dayOfWeek = GeneratedColumn<int>(
-      'day_of_week', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+    'day_of_week',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _hourMeta = const VerificationMeta('hour');
   @override
   late final GeneratedColumn<int> hour = GeneratedColumn<int>(
-      'hour', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+    'hour',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _minuteMeta = const VerificationMeta('minute');
   @override
   late final GeneratedColumn<int> minute = GeneratedColumn<int>(
-      'minute', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _notificationIdMeta =
-      const VerificationMeta('notificationId');
+    'minute',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _notificationIdMeta = const VerificationMeta(
+    'notificationId',
+  );
   @override
   late final GeneratedColumn<int> notificationId = GeneratedColumn<int>(
-      'notification_id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _isActiveMeta =
-      const VerificationMeta('isActive');
+    'notification_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _isActiveMeta = const VerificationMeta(
+    'isActive',
+  );
   @override
   late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
-      'is_active', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_active" IN (0, 1))'),
-      defaultValue: const Constant(true));
-  static const VerificationMeta _createdAtMeta =
-      const VerificationMeta('createdAt');
+    'is_active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_active" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
   @override
   late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
-      'created_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      defaultValue: currentDateAndTime);
-  static const VerificationMeta _updatedAtMeta =
-      const VerificationMeta('updatedAt');
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
   @override
   late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
-      'updated_at', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      defaultValue: currentDateAndTime);
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        title,
-        body,
-        dayOfWeek,
-        hour,
-        minute,
-        notificationId,
-        isActive,
-        createdAt,
-        updatedAt
-      ];
+    id,
+    title,
+    body,
+    dayOfWeek,
+    hour,
+    minute,
+    notificationId,
+    isActive,
+    createdAt,
+    updatedAt,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -291,8 +361,9 @@ class $NotificationScheduleEntityTable extends NotificationScheduleEntity
   static const String $name = 'notification_schedule_entity';
   @override
   VerificationContext validateIntegrity(
-      Insertable<NotificationScheduleEntityData> instance,
-      {bool isInserting = false}) {
+    Insertable<NotificationScheduleEntityData> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -300,55 +371,72 @@ class $NotificationScheduleEntityTable extends NotificationScheduleEntity
     }
     if (data.containsKey('title')) {
       context.handle(
-          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
     } else if (isInserting) {
       context.missing(_titleMeta);
     }
     if (data.containsKey('body')) {
       context.handle(
-          _bodyMeta, body.isAcceptableOrUnknown(data['body']!, _bodyMeta));
+        _bodyMeta,
+        body.isAcceptableOrUnknown(data['body']!, _bodyMeta),
+      );
     } else if (isInserting) {
       context.missing(_bodyMeta);
     }
     if (data.containsKey('day_of_week')) {
       context.handle(
-          _dayOfWeekMeta,
-          dayOfWeek.isAcceptableOrUnknown(
-              data['day_of_week']!, _dayOfWeekMeta));
+        _dayOfWeekMeta,
+        dayOfWeek.isAcceptableOrUnknown(data['day_of_week']!, _dayOfWeekMeta),
+      );
     } else if (isInserting) {
       context.missing(_dayOfWeekMeta);
     }
     if (data.containsKey('hour')) {
       context.handle(
-          _hourMeta, hour.isAcceptableOrUnknown(data['hour']!, _hourMeta));
+        _hourMeta,
+        hour.isAcceptableOrUnknown(data['hour']!, _hourMeta),
+      );
     } else if (isInserting) {
       context.missing(_hourMeta);
     }
     if (data.containsKey('minute')) {
-      context.handle(_minuteMeta,
-          minute.isAcceptableOrUnknown(data['minute']!, _minuteMeta));
+      context.handle(
+        _minuteMeta,
+        minute.isAcceptableOrUnknown(data['minute']!, _minuteMeta),
+      );
     } else if (isInserting) {
       context.missing(_minuteMeta);
     }
     if (data.containsKey('notification_id')) {
       context.handle(
+        _notificationIdMeta,
+        notificationId.isAcceptableOrUnknown(
+          data['notification_id']!,
           _notificationIdMeta,
-          notificationId.isAcceptableOrUnknown(
-              data['notification_id']!, _notificationIdMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_notificationIdMeta);
     }
     if (data.containsKey('is_active')) {
-      context.handle(_isActiveMeta,
-          isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta));
+      context.handle(
+        _isActiveMeta,
+        isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta),
+      );
     }
     if (data.containsKey('created_at')) {
-      context.handle(_createdAtMeta,
-          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
     }
     if (data.containsKey('updated_at')) {
-      context.handle(_updatedAtMeta,
-          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
     }
     return context;
   }
@@ -357,33 +445,55 @@ class $NotificationScheduleEntityTable extends NotificationScheduleEntity
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
   List<Set<GeneratedColumn>> get uniqueKeys => [
-        {dayOfWeek, hour, minute},
-      ];
+    {dayOfWeek, hour, minute},
+  ];
   @override
-  NotificationScheduleEntityData map(Map<String, dynamic> data,
-      {String? tablePrefix}) {
+  NotificationScheduleEntityData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return NotificationScheduleEntityData(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      title: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
-      body: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}body'])!,
-      dayOfWeek: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}day_of_week'])!,
-      hour: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}hour'])!,
-      minute: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}minute'])!,
-      notificationId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}notification_id'])!,
-      isActive: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_active'])!,
-      createdAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
-      updatedAt: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      body: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}body'],
+      )!,
+      dayOfWeek: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}day_of_week'],
+      )!,
+      hour: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hour'],
+      )!,
+      minute: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}minute'],
+      )!,
+      notificationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}notification_id'],
+      )!,
+      isActive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_active'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
     );
   }
 
@@ -405,17 +515,18 @@ class NotificationScheduleEntityData extends DataClass
   final bool isActive;
   final DateTime createdAt;
   final DateTime updatedAt;
-  const NotificationScheduleEntityData(
-      {required this.id,
-      required this.title,
-      required this.body,
-      required this.dayOfWeek,
-      required this.hour,
-      required this.minute,
-      required this.notificationId,
-      required this.isActive,
-      required this.createdAt,
-      required this.updatedAt});
+  const NotificationScheduleEntityData({
+    required this.id,
+    required this.title,
+    required this.body,
+    required this.dayOfWeek,
+    required this.hour,
+    required this.minute,
+    required this.notificationId,
+    required this.isActive,
+    required this.createdAt,
+    required this.updatedAt,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -447,8 +558,10 @@ class NotificationScheduleEntityData extends DataClass
     );
   }
 
-  factory NotificationScheduleEntityData.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory NotificationScheduleEntityData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return NotificationScheduleEntityData(
       id: serializer.fromJson<int>(json['id']),
@@ -480,31 +593,32 @@ class NotificationScheduleEntityData extends DataClass
     };
   }
 
-  NotificationScheduleEntityData copyWith(
-          {int? id,
-          String? title,
-          String? body,
-          int? dayOfWeek,
-          int? hour,
-          int? minute,
-          int? notificationId,
-          bool? isActive,
-          DateTime? createdAt,
-          DateTime? updatedAt}) =>
-      NotificationScheduleEntityData(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        body: body ?? this.body,
-        dayOfWeek: dayOfWeek ?? this.dayOfWeek,
-        hour: hour ?? this.hour,
-        minute: minute ?? this.minute,
-        notificationId: notificationId ?? this.notificationId,
-        isActive: isActive ?? this.isActive,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  NotificationScheduleEntityData copyWith({
+    int? id,
+    String? title,
+    String? body,
+    int? dayOfWeek,
+    int? hour,
+    int? minute,
+    int? notificationId,
+    bool? isActive,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => NotificationScheduleEntityData(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    body: body ?? this.body,
+    dayOfWeek: dayOfWeek ?? this.dayOfWeek,
+    hour: hour ?? this.hour,
+    minute: minute ?? this.minute,
+    notificationId: notificationId ?? this.notificationId,
+    isActive: isActive ?? this.isActive,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
   NotificationScheduleEntityData copyWithCompanion(
-      NotificationScheduleEntityCompanion data) {
+    NotificationScheduleEntityCompanion data,
+  ) {
     return NotificationScheduleEntityData(
       id: data.id.present ? data.id.value : this.id,
       title: data.title.present ? data.title.value : this.title,
@@ -539,8 +653,18 @@ class NotificationScheduleEntityData extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, title, body, dayOfWeek, hour, minute,
-      notificationId, isActive, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    id,
+    title,
+    body,
+    dayOfWeek,
+    hour,
+    minute,
+    notificationId,
+    isActive,
+    createdAt,
+    updatedAt,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -592,12 +716,12 @@ class NotificationScheduleEntityCompanion
     this.isActive = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
-  })  : title = Value(title),
-        body = Value(body),
-        dayOfWeek = Value(dayOfWeek),
-        hour = Value(hour),
-        minute = Value(minute),
-        notificationId = Value(notificationId);
+  }) : title = Value(title),
+       body = Value(body),
+       dayOfWeek = Value(dayOfWeek),
+       hour = Value(hour),
+       minute = Value(minute),
+       notificationId = Value(notificationId);
   static Insertable<NotificationScheduleEntityData> custom({
     Expression<int>? id,
     Expression<String>? title,
@@ -624,17 +748,18 @@ class NotificationScheduleEntityCompanion
     });
   }
 
-  NotificationScheduleEntityCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? title,
-      Value<String>? body,
-      Value<int>? dayOfWeek,
-      Value<int>? hour,
-      Value<int>? minute,
-      Value<int>? notificationId,
-      Value<bool>? isActive,
-      Value<DateTime>? createdAt,
-      Value<DateTime>? updatedAt}) {
+  NotificationScheduleEntityCompanion copyWith({
+    Value<int>? id,
+    Value<String>? title,
+    Value<String>? body,
+    Value<int>? dayOfWeek,
+    Value<int>? hour,
+    Value<int>? minute,
+    Value<int>? notificationId,
+    Value<bool>? isActive,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
     return NotificationScheduleEntityCompanion(
       id: id ?? this.id,
       title: title ?? this.title,
@@ -716,25 +841,27 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [settingEntity, notificationScheduleEntity];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    settingEntity,
+    notificationScheduleEntity,
+  ];
   @override
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 }
 
-typedef $$SettingEntityTableCreateCompanionBuilder = SettingEntityCompanion
-    Function({
-  required String key,
-  Value<String?> value,
-  Value<int> rowid,
-});
-typedef $$SettingEntityTableUpdateCompanionBuilder = SettingEntityCompanion
-    Function({
-  Value<String> key,
-  Value<String?> value,
-  Value<int> rowid,
-});
+typedef $$SettingEntityTableCreateCompanionBuilder =
+    SettingEntityCompanion Function({
+      required String key,
+      Value<String?> value,
+      Value<int> rowid,
+    });
+typedef $$SettingEntityTableUpdateCompanionBuilder =
+    SettingEntityCompanion Function({
+      Value<String> key,
+      Value<String?> value,
+      Value<int> rowid,
+    });
 
 class $$SettingEntityTableFilterComposer
     extends Composer<_$AppDatabase, $SettingEntityTable> {
@@ -746,10 +873,14 @@ class $$SettingEntityTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get key => $composableBuilder(
-      column: $table.key, builder: (column) => ColumnFilters(column));
+    column: $table.key,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get value => $composableBuilder(
-      column: $table.value, builder: (column) => ColumnFilters(column));
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$SettingEntityTableOrderingComposer
@@ -762,10 +893,14 @@ class $$SettingEntityTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get key => $composableBuilder(
-      column: $table.key, builder: (column) => ColumnOrderings(column));
+    column: $table.key,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get value => $composableBuilder(
-      column: $table.value, builder: (column) => ColumnOrderings(column));
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$SettingEntityTableAnnotationComposer
@@ -784,23 +919,31 @@ class $$SettingEntityTableAnnotationComposer
       $composableBuilder(column: $table.value, builder: (column) => column);
 }
 
-class $$SettingEntityTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $SettingEntityTable,
-    SettingEntityData,
-    $$SettingEntityTableFilterComposer,
-    $$SettingEntityTableOrderingComposer,
-    $$SettingEntityTableAnnotationComposer,
-    $$SettingEntityTableCreateCompanionBuilder,
-    $$SettingEntityTableUpdateCompanionBuilder,
-    (
-      SettingEntityData,
-      BaseReferences<_$AppDatabase, $SettingEntityTable, SettingEntityData>
-    ),
-    SettingEntityData,
-    PrefetchHooks Function()> {
+class $$SettingEntityTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SettingEntityTable,
+          SettingEntityData,
+          $$SettingEntityTableFilterComposer,
+          $$SettingEntityTableOrderingComposer,
+          $$SettingEntityTableAnnotationComposer,
+          $$SettingEntityTableCreateCompanionBuilder,
+          $$SettingEntityTableUpdateCompanionBuilder,
+          (
+            SettingEntityData,
+            BaseReferences<
+              _$AppDatabase,
+              $SettingEntityTable,
+              SettingEntityData
+            >,
+          ),
+          SettingEntityData,
+          PrefetchHooks Function()
+        > {
   $$SettingEntityTableTableManager(_$AppDatabase db, $SettingEntityTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
@@ -809,74 +952,74 @@ class $$SettingEntityTableTableManager extends RootTableManager<
               $$SettingEntityTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$SettingEntityTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<String> key = const Value.absent(),
-            Value<String?> value = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              SettingEntityCompanion(
-            key: key,
-            value: value,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String key,
-            Value<String?> value = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              SettingEntityCompanion.insert(
-            key: key,
-            value: value,
-            rowid: rowid,
-          ),
+          updateCompanionCallback:
+              ({
+                Value<String> key = const Value.absent(),
+                Value<String?> value = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) =>
+                  SettingEntityCompanion(key: key, value: value, rowid: rowid),
+          createCompanionCallback:
+              ({
+                required String key,
+                Value<String?> value = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SettingEntityCompanion.insert(
+                key: key,
+                value: value,
+                rowid: rowid,
+              ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
               .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$SettingEntityTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $SettingEntityTable,
-    SettingEntityData,
-    $$SettingEntityTableFilterComposer,
-    $$SettingEntityTableOrderingComposer,
-    $$SettingEntityTableAnnotationComposer,
-    $$SettingEntityTableCreateCompanionBuilder,
-    $$SettingEntityTableUpdateCompanionBuilder,
-    (
+typedef $$SettingEntityTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SettingEntityTable,
       SettingEntityData,
-      BaseReferences<_$AppDatabase, $SettingEntityTable, SettingEntityData>
-    ),
-    SettingEntityData,
-    PrefetchHooks Function()>;
-typedef $$NotificationScheduleEntityTableCreateCompanionBuilder
-    = NotificationScheduleEntityCompanion Function({
-  Value<int> id,
-  required String title,
-  required String body,
-  required int dayOfWeek,
-  required int hour,
-  required int minute,
-  required int notificationId,
-  Value<bool> isActive,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
-typedef $$NotificationScheduleEntityTableUpdateCompanionBuilder
-    = NotificationScheduleEntityCompanion Function({
-  Value<int> id,
-  Value<String> title,
-  Value<String> body,
-  Value<int> dayOfWeek,
-  Value<int> hour,
-  Value<int> minute,
-  Value<int> notificationId,
-  Value<bool> isActive,
-  Value<DateTime> createdAt,
-  Value<DateTime> updatedAt,
-});
+      $$SettingEntityTableFilterComposer,
+      $$SettingEntityTableOrderingComposer,
+      $$SettingEntityTableAnnotationComposer,
+      $$SettingEntityTableCreateCompanionBuilder,
+      $$SettingEntityTableUpdateCompanionBuilder,
+      (
+        SettingEntityData,
+        BaseReferences<_$AppDatabase, $SettingEntityTable, SettingEntityData>,
+      ),
+      SettingEntityData,
+      PrefetchHooks Function()
+    >;
+typedef $$NotificationScheduleEntityTableCreateCompanionBuilder =
+    NotificationScheduleEntityCompanion Function({
+      Value<int> id,
+      required String title,
+      required String body,
+      required int dayOfWeek,
+      required int hour,
+      required int minute,
+      required int notificationId,
+      Value<bool> isActive,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
+typedef $$NotificationScheduleEntityTableUpdateCompanionBuilder =
+    NotificationScheduleEntityCompanion Function({
+      Value<int> id,
+      Value<String> title,
+      Value<String> body,
+      Value<int> dayOfWeek,
+      Value<int> hour,
+      Value<int> minute,
+      Value<int> notificationId,
+      Value<bool> isActive,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+    });
 
 class $$NotificationScheduleEntityTableFilterComposer
     extends Composer<_$AppDatabase, $NotificationScheduleEntityTable> {
@@ -888,35 +1031,54 @@ class $$NotificationScheduleEntityTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnFilters(column));
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get body => $composableBuilder(
-      column: $table.body, builder: (column) => ColumnFilters(column));
+    column: $table.body,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get dayOfWeek => $composableBuilder(
-      column: $table.dayOfWeek, builder: (column) => ColumnFilters(column));
+    column: $table.dayOfWeek,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get hour => $composableBuilder(
-      column: $table.hour, builder: (column) => ColumnFilters(column));
+    column: $table.hour,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get minute => $composableBuilder(
-      column: $table.minute, builder: (column) => ColumnFilters(column));
+    column: $table.minute,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get notificationId => $composableBuilder(
-      column: $table.notificationId,
-      builder: (column) => ColumnFilters(column));
+    column: $table.notificationId,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isActive => $composableBuilder(
-      column: $table.isActive, builder: (column) => ColumnFilters(column));
+    column: $table.isActive,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$NotificationScheduleEntityTableOrderingComposer
@@ -929,35 +1091,54 @@ class $$NotificationScheduleEntityTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnOrderings(column));
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get body => $composableBuilder(
-      column: $table.body, builder: (column) => ColumnOrderings(column));
+    column: $table.body,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get dayOfWeek => $composableBuilder(
-      column: $table.dayOfWeek, builder: (column) => ColumnOrderings(column));
+    column: $table.dayOfWeek,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get hour => $composableBuilder(
-      column: $table.hour, builder: (column) => ColumnOrderings(column));
+    column: $table.hour,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get minute => $composableBuilder(
-      column: $table.minute, builder: (column) => ColumnOrderings(column));
+    column: $table.minute,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get notificationId => $composableBuilder(
-      column: $table.notificationId,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.notificationId,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isActive => $composableBuilder(
-      column: $table.isActive, builder: (column) => ColumnOrderings(column));
+    column: $table.isActive,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
-      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$NotificationScheduleEntityTableAnnotationComposer
@@ -988,7 +1169,9 @@ class $$NotificationScheduleEntityTableAnnotationComposer
       $composableBuilder(column: $table.minute, builder: (column) => column);
 
   GeneratedColumn<int> get notificationId => $composableBuilder(
-      column: $table.notificationId, builder: (column) => column);
+    column: $table.notificationId,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get isActive =>
       $composableBuilder(column: $table.isActive, builder: (column) => column);
@@ -1000,108 +1183,127 @@ class $$NotificationScheduleEntityTableAnnotationComposer
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
 }
 
-class $$NotificationScheduleEntityTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $NotificationScheduleEntityTable,
-    NotificationScheduleEntityData,
-    $$NotificationScheduleEntityTableFilterComposer,
-    $$NotificationScheduleEntityTableOrderingComposer,
-    $$NotificationScheduleEntityTableAnnotationComposer,
-    $$NotificationScheduleEntityTableCreateCompanionBuilder,
-    $$NotificationScheduleEntityTableUpdateCompanionBuilder,
-    (
-      NotificationScheduleEntityData,
-      BaseReferences<_$AppDatabase, $NotificationScheduleEntityTable,
-          NotificationScheduleEntityData>
-    ),
-    NotificationScheduleEntityData,
-    PrefetchHooks Function()> {
+class $$NotificationScheduleEntityTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $NotificationScheduleEntityTable,
+          NotificationScheduleEntityData,
+          $$NotificationScheduleEntityTableFilterComposer,
+          $$NotificationScheduleEntityTableOrderingComposer,
+          $$NotificationScheduleEntityTableAnnotationComposer,
+          $$NotificationScheduleEntityTableCreateCompanionBuilder,
+          $$NotificationScheduleEntityTableUpdateCompanionBuilder,
+          (
+            NotificationScheduleEntityData,
+            BaseReferences<
+              _$AppDatabase,
+              $NotificationScheduleEntityTable,
+              NotificationScheduleEntityData
+            >,
+          ),
+          NotificationScheduleEntityData,
+          PrefetchHooks Function()
+        > {
   $$NotificationScheduleEntityTableTableManager(
-      _$AppDatabase db, $NotificationScheduleEntityTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $NotificationScheduleEntityTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
           createFilteringComposer: () =>
               $$NotificationScheduleEntityTableFilterComposer(
-                  $db: db, $table: table),
+                $db: db,
+                $table: table,
+              ),
           createOrderingComposer: () =>
               $$NotificationScheduleEntityTableOrderingComposer(
-                  $db: db, $table: table),
+                $db: db,
+                $table: table,
+              ),
           createComputedFieldComposer: () =>
               $$NotificationScheduleEntityTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> title = const Value.absent(),
-            Value<String> body = const Value.absent(),
-            Value<int> dayOfWeek = const Value.absent(),
-            Value<int> hour = const Value.absent(),
-            Value<int> minute = const Value.absent(),
-            Value<int> notificationId = const Value.absent(),
-            Value<bool> isActive = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              NotificationScheduleEntityCompanion(
-            id: id,
-            title: title,
-            body: body,
-            dayOfWeek: dayOfWeek,
-            hour: hour,
-            minute: minute,
-            notificationId: notificationId,
-            isActive: isActive,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String title,
-            required String body,
-            required int dayOfWeek,
-            required int hour,
-            required int minute,
-            required int notificationId,
-            Value<bool> isActive = const Value.absent(),
-            Value<DateTime> createdAt = const Value.absent(),
-            Value<DateTime> updatedAt = const Value.absent(),
-          }) =>
-              NotificationScheduleEntityCompanion.insert(
-            id: id,
-            title: title,
-            body: body,
-            dayOfWeek: dayOfWeek,
-            hour: hour,
-            minute: minute,
-            notificationId: notificationId,
-            isActive: isActive,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-          ),
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> body = const Value.absent(),
+                Value<int> dayOfWeek = const Value.absent(),
+                Value<int> hour = const Value.absent(),
+                Value<int> minute = const Value.absent(),
+                Value<int> notificationId = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => NotificationScheduleEntityCompanion(
+                id: id,
+                title: title,
+                body: body,
+                dayOfWeek: dayOfWeek,
+                hour: hour,
+                minute: minute,
+                notificationId: notificationId,
+                isActive: isActive,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String title,
+                required String body,
+                required int dayOfWeek,
+                required int hour,
+                required int minute,
+                required int notificationId,
+                Value<bool> isActive = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => NotificationScheduleEntityCompanion.insert(
+                id: id,
+                title: title,
+                body: body,
+                dayOfWeek: dayOfWeek,
+                hour: hour,
+                minute: minute,
+                notificationId: notificationId,
+                isActive: isActive,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
               .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$NotificationScheduleEntityTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $NotificationScheduleEntityTable,
+typedef $$NotificationScheduleEntityTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $NotificationScheduleEntityTable,
+      NotificationScheduleEntityData,
+      $$NotificationScheduleEntityTableFilterComposer,
+      $$NotificationScheduleEntityTableOrderingComposer,
+      $$NotificationScheduleEntityTableAnnotationComposer,
+      $$NotificationScheduleEntityTableCreateCompanionBuilder,
+      $$NotificationScheduleEntityTableUpdateCompanionBuilder,
+      (
         NotificationScheduleEntityData,
-        $$NotificationScheduleEntityTableFilterComposer,
-        $$NotificationScheduleEntityTableOrderingComposer,
-        $$NotificationScheduleEntityTableAnnotationComposer,
-        $$NotificationScheduleEntityTableCreateCompanionBuilder,
-        $$NotificationScheduleEntityTableUpdateCompanionBuilder,
-        (
-          NotificationScheduleEntityData,
-          BaseReferences<_$AppDatabase, $NotificationScheduleEntityTable,
-              NotificationScheduleEntityData>
-        ),
-        NotificationScheduleEntityData,
-        PrefetchHooks Function()>;
+        BaseReferences<
+          _$AppDatabase,
+          $NotificationScheduleEntityTable,
+          NotificationScheduleEntityData
+        >,
+      ),
+      NotificationScheduleEntityData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -1109,9 +1311,11 @@ class $AppDatabaseManager {
   $$SettingEntityTableTableManager get settingEntity =>
       $$SettingEntityTableTableManager(_db, _db.settingEntity);
   $$NotificationScheduleEntityTableTableManager
-      get notificationScheduleEntity =>
-          $$NotificationScheduleEntityTableTableManager(
-              _db, _db.notificationScheduleEntity);
+  get notificationScheduleEntity =>
+      $$NotificationScheduleEntityTableTableManager(
+        _db,
+        _db.notificationScheduleEntity,
+      );
 }
 
 // **************************************************************************
@@ -1125,8 +1329,9 @@ String _$appDatabaseHash() => r'98a09c6cfd43966155dfbdb0787fa18c85438e13';
 final appDatabaseProvider = Provider<AppDatabase>.internal(
   appDatabase,
   name: r'appDatabaseProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$appDatabaseHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$appDatabaseHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

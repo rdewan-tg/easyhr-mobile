@@ -68,16 +68,14 @@ class _$DeviceSettingResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as DeviceSettingData,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as DeviceSettingData,
           )
           as $Val,
     );
@@ -126,16 +124,14 @@ class __$$DeviceSettingResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$DeviceSettingResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as DeviceSettingData,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as DeviceSettingData,
       ),
     );
   }
@@ -285,51 +281,42 @@ class _$DeviceSettingDataCopyWithImpl<$Res, $Val extends DeviceSettingData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            deviceId:
-                null == deviceId
-                    ? _value.deviceId
-                    : deviceId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            userId:
-                null == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            userName:
-                null == userName
-                    ? _value.userName
-                    : userName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            salesPersonCode:
-                null == salesPersonCode
-                    ? _value.salesPersonCode
-                    : salesPersonCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            orderNumberFormat:
-                null == orderNumberFormat
-                    ? _value.orderNumberFormat
-                    : orderNumberFormat // ignore: cast_nullable_to_non_nullable
-                        as String,
-            createAt:
-                null == createAt
-                    ? _value.createAt
-                    : createAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            updatedAt:
-                null == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deviceId: null == deviceId
+                ? _value.deviceId
+                : deviceId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            userName: null == userName
+                ? _value.userName
+                : userName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            salesPersonCode: null == salesPersonCode
+                ? _value.salesPersonCode
+                : salesPersonCode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            orderNumberFormat: null == orderNumberFormat
+                ? _value.orderNumberFormat
+                : orderNumberFormat // ignore: cast_nullable_to_non_nullable
+                      as String,
+            createAt: null == createAt
+                ? _value.createAt
+                : createAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            updatedAt: null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            companyId: null == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                      as int,
           )
           as $Val,
     );
@@ -384,51 +371,42 @@ class __$$DeviceSettingDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$DeviceSettingDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        deviceId:
-            null == deviceId
-                ? _value.deviceId
-                : deviceId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        userId:
-            null == userId
-                ? _value.userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        userName:
-            null == userName
-                ? _value.userName
-                : userName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        salesPersonCode:
-            null == salesPersonCode
-                ? _value.salesPersonCode
-                : salesPersonCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        orderNumberFormat:
-            null == orderNumberFormat
-                ? _value.orderNumberFormat
-                : orderNumberFormat // ignore: cast_nullable_to_non_nullable
-                    as String,
-        createAt:
-            null == createAt
-                ? _value.createAt
-                : createAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        updatedAt:
-            null == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        deviceId: null == deviceId
+            ? _value.deviceId
+            : deviceId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        userName: null == userName
+            ? _value.userName
+            : userName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        salesPersonCode: null == salesPersonCode
+            ? _value.salesPersonCode
+            : salesPersonCode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        orderNumberFormat: null == orderNumberFormat
+            ? _value.orderNumberFormat
+            : orderNumberFormat // ignore: cast_nullable_to_non_nullable
+                  as String,
+        createAt: null == createAt
+            ? _value.createAt
+            : createAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        updatedAt: null == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

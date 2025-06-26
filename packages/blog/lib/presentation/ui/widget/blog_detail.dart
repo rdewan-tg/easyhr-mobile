@@ -28,8 +28,9 @@ class BlogDetail extends ConsumerWidget {
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     height: 200,
-                    color:
-                        Theme.of(context).colorScheme.surfaceContainerHighest,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.surfaceContainerHighest,
                     child: Center(
                       child: Icon(
                         Icons.image_not_supported,

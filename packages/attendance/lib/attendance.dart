@@ -39,3 +39,4 @@ part 'features/attendance/presentation/ui/attendance_screen.dart';
 part 'features/attendance/presentation/ui/widget/attendance_list.dart';
 part 'features/map/presentation/ui/widget/current_location_widget.dart';
 part 'features/map/presentation/ui/widget/add_attendance_with_no_image.dart';
+part 'features/map/presentation/ui/widget/add_attendance_with_zone_and_no_image.dart';

@@ -41,6 +41,6 @@ class NotificationScheduleEntity extends Table {
 
   @override
   List<Set<Column<Object>>> get uniqueKeys => [
-        {dayOfWeek, hour, minute}, // Ensure no duplicate schedules
-      ];
+    {dayOfWeek, hour, minute}, // Ensure no duplicate schedules
+  ];
 }

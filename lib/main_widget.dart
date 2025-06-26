@@ -60,10 +60,9 @@ class _MainWidgetState extends ConsumerState<MainWidget> {
         return UpgradeAlert(
           shouldPopScope: () => true,
           navigatorKey: router.routerDelegate.navigatorKey,
-          dialogStyle:
-              Platform.isIOS
-                  ? UpgradeDialogStyle.cupertino
-                  : UpgradeDialogStyle.material,
+          dialogStyle: Platform.isIOS
+              ? UpgradeDialogStyle.cupertino
+              : UpgradeDialogStyle.material,
           upgrader: Upgrader(
             messages: UpgraderTranslationMessages(code: language),
           ),

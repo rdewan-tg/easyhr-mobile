@@ -79,46 +79,38 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isPageLoading:
-                null == isPageLoading
-                    ? _value.isPageLoading
-                    : isPageLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            attendanceList:
-                null == attendanceList
-                    ? _value.attendanceList
-                    : attendanceList // ignore: cast_nullable_to_non_nullable
-                        as List<AttendanceModel>,
-            currentPage:
-                null == currentPage
-                    ? _value.currentPage
-                    : currentPage // ignore: cast_nullable_to_non_nullable
-                        as int,
-            totalPages:
-                null == totalPages
-                    ? _value.totalPages
-                    : totalPages // ignore: cast_nullable_to_non_nullable
-                        as int,
-            limit:
-                null == limit
-                    ? _value.limit
-                    : limit // ignore: cast_nullable_to_non_nullable
-                        as int,
-            total:
-                null == total
-                    ? _value.total
-                    : total // ignore: cast_nullable_to_non_nullable
-                        as int,
-            errorMsg:
-                freezed == errorMsg
-                    ? _value.errorMsg
-                    : errorMsg // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isPageLoading: null == isPageLoading
+                ? _value.isPageLoading
+                : isPageLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            attendanceList: null == attendanceList
+                ? _value.attendanceList
+                : attendanceList // ignore: cast_nullable_to_non_nullable
+                      as List<AttendanceModel>,
+            currentPage: null == currentPage
+                ? _value.currentPage
+                : currentPage // ignore: cast_nullable_to_non_nullable
+                      as int,
+            totalPages: null == totalPages
+                ? _value.totalPages
+                : totalPages // ignore: cast_nullable_to_non_nullable
+                      as int,
+            limit: null == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                      as int,
+            total: null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                      as int,
+            errorMsg: freezed == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -171,46 +163,38 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AttendanceStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isPageLoading:
-            null == isPageLoading
-                ? _value.isPageLoading
-                : isPageLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        attendanceList:
-            null == attendanceList
-                ? _value._attendanceList
-                : attendanceList // ignore: cast_nullable_to_non_nullable
-                    as List<AttendanceModel>,
-        currentPage:
-            null == currentPage
-                ? _value.currentPage
-                : currentPage // ignore: cast_nullable_to_non_nullable
-                    as int,
-        totalPages:
-            null == totalPages
-                ? _value.totalPages
-                : totalPages // ignore: cast_nullable_to_non_nullable
-                    as int,
-        limit:
-            null == limit
-                ? _value.limit
-                : limit // ignore: cast_nullable_to_non_nullable
-                    as int,
-        total:
-            null == total
-                ? _value.total
-                : total // ignore: cast_nullable_to_non_nullable
-                    as int,
-        errorMsg:
-            freezed == errorMsg
-                ? _value.errorMsg
-                : errorMsg // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isPageLoading: null == isPageLoading
+            ? _value.isPageLoading
+            : isPageLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        attendanceList: null == attendanceList
+            ? _value._attendanceList
+            : attendanceList // ignore: cast_nullable_to_non_nullable
+                  as List<AttendanceModel>,
+        currentPage: null == currentPage
+            ? _value.currentPage
+            : currentPage // ignore: cast_nullable_to_non_nullable
+                  as int,
+        totalPages: null == totalPages
+            ? _value.totalPages
+            : totalPages // ignore: cast_nullable_to_non_nullable
+                  as int,
+        limit: null == limit
+            ? _value.limit
+            : limit // ignore: cast_nullable_to_non_nullable
+                  as int,
+        total: null == total
+            ? _value.total
+            : total // ignore: cast_nullable_to_non_nullable
+                  as int,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

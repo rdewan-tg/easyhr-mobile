@@ -12,10 +12,12 @@ part of 'set_me_firebase_token_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 SetMeFirebaseTokenResponse _$SetMeFirebaseTokenResponseFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _SetMeFirebaseTokenResponse.fromJson(json);
 }
 
@@ -31,22 +33,28 @@ mixin _$SetMeFirebaseTokenResponse {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $SetMeFirebaseTokenResponseCopyWith<SetMeFirebaseTokenResponse>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetMeFirebaseTokenResponseCopyWith<$Res> {
-  factory $SetMeFirebaseTokenResponseCopyWith(SetMeFirebaseTokenResponse value,
-          $Res Function(SetMeFirebaseTokenResponse) then) =
-      _$SetMeFirebaseTokenResponseCopyWithImpl<$Res,
-          SetMeFirebaseTokenResponse>;
+  factory $SetMeFirebaseTokenResponseCopyWith(
+    SetMeFirebaseTokenResponse value,
+    $Res Function(SetMeFirebaseTokenResponse) then,
+  ) =
+      _$SetMeFirebaseTokenResponseCopyWithImpl<
+        $Res,
+        SetMeFirebaseTokenResponse
+      >;
   @useResult
   $Res call({String status, bool data});
 }
 
 /// @nodoc
-class _$SetMeFirebaseTokenResponseCopyWithImpl<$Res,
-        $Val extends SetMeFirebaseTokenResponse>
+class _$SetMeFirebaseTokenResponseCopyWithImpl<
+  $Res,
+  $Val extends SetMeFirebaseTokenResponse
+>
     implements $SetMeFirebaseTokenResponseCopyWith<$Res> {
   _$SetMeFirebaseTokenResponseCopyWithImpl(this._value, this._then);
 
@@ -59,20 +67,20 @@ class _$SetMeFirebaseTokenResponseCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? status = null, Object? data = null}) {
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -80,9 +88,9 @@ class _$SetMeFirebaseTokenResponseCopyWithImpl<$Res,
 abstract class _$$SetMeFirebaseTokenResponseImplCopyWith<$Res>
     implements $SetMeFirebaseTokenResponseCopyWith<$Res> {
   factory _$$SetMeFirebaseTokenResponseImplCopyWith(
-          _$SetMeFirebaseTokenResponseImpl value,
-          $Res Function(_$SetMeFirebaseTokenResponseImpl) then) =
-      __$$SetMeFirebaseTokenResponseImplCopyWithImpl<$Res>;
+    _$SetMeFirebaseTokenResponseImpl value,
+    $Res Function(_$SetMeFirebaseTokenResponseImpl) then,
+  ) = __$$SetMeFirebaseTokenResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, bool data});
@@ -90,32 +98,34 @@ abstract class _$$SetMeFirebaseTokenResponseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SetMeFirebaseTokenResponseImplCopyWithImpl<$Res>
-    extends _$SetMeFirebaseTokenResponseCopyWithImpl<$Res,
-        _$SetMeFirebaseTokenResponseImpl>
+    extends
+        _$SetMeFirebaseTokenResponseCopyWithImpl<
+          $Res,
+          _$SetMeFirebaseTokenResponseImpl
+        >
     implements _$$SetMeFirebaseTokenResponseImplCopyWith<$Res> {
   __$$SetMeFirebaseTokenResponseImplCopyWithImpl(
-      _$SetMeFirebaseTokenResponseImpl _value,
-      $Res Function(_$SetMeFirebaseTokenResponseImpl) _then)
-      : super(_value, _then);
+    _$SetMeFirebaseTokenResponseImpl _value,
+    $Res Function(_$SetMeFirebaseTokenResponseImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SetMeFirebaseTokenResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? data = null,
-  }) {
-    return _then(_$SetMeFirebaseTokenResponseImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? status = null, Object? data = null}) {
+    return _then(
+      _$SetMeFirebaseTokenResponseImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -125,8 +135,8 @@ class _$SetMeFirebaseTokenResponseImpl implements _SetMeFirebaseTokenResponse {
   _$SetMeFirebaseTokenResponseImpl({required this.status, required this.data});
 
   factory _$SetMeFirebaseTokenResponseImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$SetMeFirebaseTokenResponseImplFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$$SetMeFirebaseTokenResponseImplFromJson(json);
 
   @override
   final String status;
@@ -157,22 +167,23 @@ class _$SetMeFirebaseTokenResponseImpl implements _SetMeFirebaseTokenResponse {
   @override
   @pragma('vm:prefer-inline')
   _$$SetMeFirebaseTokenResponseImplCopyWith<_$SetMeFirebaseTokenResponseImpl>
-      get copyWith => __$$SetMeFirebaseTokenResponseImplCopyWithImpl<
-          _$SetMeFirebaseTokenResponseImpl>(this, _$identity);
+  get copyWith =>
+      __$$SetMeFirebaseTokenResponseImplCopyWithImpl<
+        _$SetMeFirebaseTokenResponseImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SetMeFirebaseTokenResponseImplToJson(
-      this,
-    );
+    return _$$SetMeFirebaseTokenResponseImplToJson(this);
   }
 }
 
 abstract class _SetMeFirebaseTokenResponse
     implements SetMeFirebaseTokenResponse {
-  factory _SetMeFirebaseTokenResponse(
-      {required final String status,
-      required final bool data}) = _$SetMeFirebaseTokenResponseImpl;
+  factory _SetMeFirebaseTokenResponse({
+    required final String status,
+    required final bool data,
+  }) = _$SetMeFirebaseTokenResponseImpl;
 
   factory _SetMeFirebaseTokenResponse.fromJson(Map<String, dynamic> json) =
       _$SetMeFirebaseTokenResponseImpl.fromJson;
@@ -187,5 +198,5 @@ abstract class _SetMeFirebaseTokenResponse
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetMeFirebaseTokenResponseImplCopyWith<_$SetMeFirebaseTokenResponseImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

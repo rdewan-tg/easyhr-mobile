@@ -15,8 +15,9 @@ class PublicHolidayController extends AutoDisposeNotifier<PublicHolidayState> {
 
   Future<void> getPublicHoliday() async {
     state = state.copyWith(isLoading: true, error: null);
-    final result =
-        await ref.read(publicHolidayServiceProvider).getPublicHoliday();
+    final result = await ref
+        .read(publicHolidayServiceProvider)
+        .getPublicHoliday();
     result.when(
       (success) {
         state = state.copyWith(isLoading: false, publicHolidays: success);

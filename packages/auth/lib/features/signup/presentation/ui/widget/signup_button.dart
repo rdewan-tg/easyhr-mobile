@@ -22,10 +22,9 @@ class SignUpButton extends ConsumerWidget {
           'Sign Up'.hardcoded,
           style: const TextStyle(fontSize: kMedium),
         ),
-        icon:
-            isLoading
-                ? const CircularProgressIndicator.adaptive()
-                : const Icon(Icons.person_add),
+        icon: isLoading
+            ? const CircularProgressIndicator.adaptive()
+            : const Icon(Icons.person_add),
         onPressed: isLoading ? null : onPressed,
       ),
     );

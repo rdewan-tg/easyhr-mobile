@@ -56,16 +56,14 @@ class _$AttendanceListModelCopyWithImpl<$Res, $Val extends AttendanceListModel>
   $Res call({Object? data = null, Object? page = null}) {
     return _then(
       _value.copyWith(
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as List<AttendanceModel>,
-            page:
-                null == page
-                    ? _value.page
-                    : page // ignore: cast_nullable_to_non_nullable
-                        as Page,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as List<AttendanceModel>,
+            page: null == page
+                ? _value.page
+                : page // ignore: cast_nullable_to_non_nullable
+                      as Page,
           )
           as $Val,
     );
@@ -113,16 +111,14 @@ class __$$AttendanceListModelImplCopyWithImpl<$Res>
   $Res call({Object? data = null, Object? page = null}) {
     return _then(
       _$AttendanceListModelImpl(
-        data:
-            null == data
-                ? _value._data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as List<AttendanceModel>,
-        page:
-            null == page
-                ? _value.page
-                : page // ignore: cast_nullable_to_non_nullable
-                    as Page,
+        data: null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<AttendanceModel>,
+        page: null == page
+            ? _value.page
+            : page // ignore: cast_nullable_to_non_nullable
+                  as Page,
       ),
     );
   }

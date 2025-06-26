@@ -63,21 +63,18 @@ class _$PublicHolidayStateCopyWithImpl<$Res, $Val extends PublicHolidayState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            publicHolidays:
-                null == publicHolidays
-                    ? _value.publicHolidays
-                    : publicHolidays // ignore: cast_nullable_to_non_nullable
-                        as List<PublicHoliday>,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            publicHolidays: null == publicHolidays
+                ? _value.publicHolidays
+                : publicHolidays // ignore: cast_nullable_to_non_nullable
+                      as List<PublicHoliday>,
+            error: freezed == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -120,21 +117,18 @@ class __$$PublicHolidayStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PublicHolidayStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        publicHolidays:
-            null == publicHolidays
-                ? _value._publicHolidays
-                : publicHolidays // ignore: cast_nullable_to_non_nullable
-                    as List<PublicHoliday>,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        publicHolidays: null == publicHolidays
+            ? _value._publicHolidays
+            : publicHolidays // ignore: cast_nullable_to_non_nullable
+                  as List<PublicHoliday>,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
