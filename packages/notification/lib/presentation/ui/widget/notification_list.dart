@@ -35,7 +35,11 @@ class _NotificationListState extends ConsumerState<NotificationList> {
     );
 
     if (notifications.isEmpty) {
-      return const EmptyDataWidget();
+      return EmptyDataWidget(
+        onRefresh: () {
+          ref.read(notificationControllerProvider.notifier).getNotifications();
+        },
+      );
     }
     final colorScheme = context.themeColor.colorScheme;
     final textTheme = context.themeColor.textTheme;

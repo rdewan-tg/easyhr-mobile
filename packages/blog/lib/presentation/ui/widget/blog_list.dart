@@ -34,7 +34,11 @@ class _BlogListState extends ConsumerState<BlogList> {
     );
 
     if (blogs.isEmpty) {
-      return const EmptyDataWidget();
+      return EmptyDataWidget(
+        onRefresh: () {
+          ref.read(blogControllerProvider.notifier).getBlogs();
+        },
+      );
     }
 
     return VisibilityDetector(
