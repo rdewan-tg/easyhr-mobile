@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:common/common.dart';
 import 'package:core/core.dart';
 import 'package:easy_hr/main_widget.dart';
@@ -15,17 +16,18 @@ FutureOr<void> mainApp(Flavor flavor) async {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       // configure edge to edge on android 15 and above
-      EdgeToEdge.configure(
-        statusBarColor: Colors.transparent, // set color of status bar
-        navigationBarColor: Colors.black, // set color of navigation bar
-        statusBarIconBrightness:
-            Brightness.dark, // set icon color of status bar
-        navigationBarIconBrightness:
-            Brightness.dark, // set icon color of navigation bar
-        enableTop: false, //for manage status bar
-        enableBottom:
-            false, // for manage navigation bar (only when 3 button navbar enabled)
-      );
+      if (Platform.isAndroid) {
+        EdgeToEdge.configure(
+          statusBarColor: Colors.transparent, // set color of status bar
+          navigationBarColor: Colors.black, // set color of navigation bar
+          statusBarIconBrightness:
+              Brightness.dark, // set icon color of status bar
+          navigationBarIconBrightness:
+              Brightness.dark, // set icon color of navigation bar
+          enableTop: false,
+          enableBottom: false,
+        );
+      }
       // When an error occurs while building a widget, the broken widget is
       // replaced by the widget returned by this function.
       // By default, an [ErrorWidget] is returned.
