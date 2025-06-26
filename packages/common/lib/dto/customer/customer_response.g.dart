@@ -11,10 +11,9 @@ _$CustomerResponseImpl _$$CustomerResponseImplFromJson(
 ) => _$CustomerResponseImpl(
   status: json['status'] as String,
   total: (json['total'] as num).toInt(),
-  data:
-      (json['data'] as List<dynamic>)
-          .map((e) => CustomerData.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  data: (json['data'] as List<dynamic>)
+      .map((e) => CustomerData.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$$CustomerResponseImplToJson(

@@ -10,12 +10,9 @@ _$LastAttendanceStateResponseImpl _$$LastAttendanceStateResponseImplFromJson(
   Map<String, dynamic> json,
 ) => _$LastAttendanceStateResponseImpl(
   status: json['status'] as String,
-  data:
-      json['data'] == null
-          ? null
-          : LastAttendanceStateData.fromJson(
-            json['data'] as Map<String, dynamic>,
-          ),
+  data: json['data'] == null
+      ? null
+      : LastAttendanceStateData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$$LastAttendanceStateResponseImplToJson(

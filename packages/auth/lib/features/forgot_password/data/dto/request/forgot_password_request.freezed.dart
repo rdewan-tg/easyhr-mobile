@@ -66,11 +66,10 @@ class _$ForgotPasswordRequestCopyWithImpl<
   $Res call({Object? email = null}) {
     return _then(
       _value.copyWith(
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -106,11 +105,10 @@ class __$$ForgotPasswordRequestImplCopyWithImpl<$Res>
   $Res call({Object? email = null}) {
     return _then(
       _$ForgotPasswordRequestImpl(
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

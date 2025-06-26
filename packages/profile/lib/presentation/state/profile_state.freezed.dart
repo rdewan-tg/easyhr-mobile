@@ -66,26 +66,22 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                freezed == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
-            isAccountDeleted:
-                freezed == isAccountDeleted
-                    ? _value.isAccountDeleted
-                    : isAccountDeleted // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
-            settings:
-                null == settings
-                    ? _value.settings
-                    : settings // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            errorMsg:
-                freezed == errorMsg
-                    ? _value.errorMsg
-                    : errorMsg // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            isLoading: freezed == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as dynamic,
+            isAccountDeleted: freezed == isAccountDeleted
+                ? _value.isAccountDeleted
+                : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+                      as dynamic,
+            settings: null == settings
+                ? _value.settings
+                : settings // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            errorMsg: freezed == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -131,20 +127,17 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     return _then(
       _$ProfileStateImpl(
         isLoading: freezed == isLoading ? _value.isLoading! : isLoading,
-        isAccountDeleted:
-            freezed == isAccountDeleted
-                ? _value.isAccountDeleted!
-                : isAccountDeleted,
-        settings:
-            null == settings
-                ? _value._settings
-                : settings // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        errorMsg:
-            freezed == errorMsg
-                ? _value.errorMsg
-                : errorMsg // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isAccountDeleted: freezed == isAccountDeleted
+            ? _value.isAccountDeleted!
+            : isAccountDeleted,
+        settings: null == settings
+            ? _value._settings
+            : settings // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

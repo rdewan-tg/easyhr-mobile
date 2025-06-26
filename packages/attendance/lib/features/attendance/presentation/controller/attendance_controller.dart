@@ -35,10 +35,9 @@ class AttendanceController extends AutoDisposeNotifier<AttendanceState> {
         state = state.copyWith(
           isLoading: false,
           isPageLoading: false,
-          attendanceList:
-              refresh
-                  ? success.data
-                  : [...state.attendanceList, ...success.data],
+          attendanceList: refresh
+              ? success.data
+              : [...state.attendanceList, ...success.data],
           currentPage: pageValue,
           totalPages: success.page.totalPages,
           limit: success.page.limit,

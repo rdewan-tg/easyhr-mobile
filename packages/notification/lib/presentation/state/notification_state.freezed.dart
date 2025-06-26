@@ -66,26 +66,22 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
   }) {
     return _then(
       _value.copyWith(
-            notifications:
-                null == notifications
-                    ? _value.notifications
-                    : notifications // ignore: cast_nullable_to_non_nullable
-                        as List<Notification>,
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            newNotificationCount:
-                null == newNotificationCount
-                    ? _value.newNotificationCount
-                    : newNotificationCount // ignore: cast_nullable_to_non_nullable
-                        as int,
-            error:
-                freezed == error
-                    ? _value.error
-                    : error // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            notifications: null == notifications
+                ? _value.notifications
+                : notifications // ignore: cast_nullable_to_non_nullable
+                      as List<Notification>,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            newNotificationCount: null == newNotificationCount
+                ? _value.newNotificationCount
+                : newNotificationCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            error: freezed == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -130,26 +126,22 @@ class __$$NotificationStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$NotificationStateImpl(
-        notifications:
-            null == notifications
-                ? _value._notifications
-                : notifications // ignore: cast_nullable_to_non_nullable
-                    as List<Notification>,
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        newNotificationCount:
-            null == newNotificationCount
-                ? _value.newNotificationCount
-                : newNotificationCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        error:
-            freezed == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        notifications: null == notifications
+            ? _value._notifications
+            : notifications // ignore: cast_nullable_to_non_nullable
+                  as List<Notification>,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        newNotificationCount: null == newNotificationCount
+            ? _value.newNotificationCount
+            : newNotificationCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        error: freezed == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

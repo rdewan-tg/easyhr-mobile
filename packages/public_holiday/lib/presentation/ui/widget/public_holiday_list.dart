@@ -61,11 +61,8 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
       body: GroupedListView<dynamic, String>(
         elements: holidays,
         groupBy: (holiday) => holiday.month,
-        groupSeparatorBuilder:
-            (String month) => _buildMonthHeader(
-              month,
-              isPastMonth: pastMonths[month] ?? false,
-            ),
+        groupSeparatorBuilder: (String month) =>
+            _buildMonthHeader(month, isPastMonth: pastMonths[month] ?? false),
         itemBuilder: (context, holiday) => _buildHolidayItem(holiday),
         order: GroupedListOrder.ASC,
         groupComparator: (String a, String b) {
@@ -172,14 +169,12 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                 child: Text(
                   holiday.name,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight:
-                        holiday.isInCurrentMonth
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                    color:
-                        holiday.isPast
-                            ? Theme.of(context).colorScheme.onSurfaceVariant
-                            : Theme.of(context).colorScheme.onSurface,
+                    fontWeight: holiday.isInCurrentMonth
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                    color: holiday.isPast
+                        ? Theme.of(context).colorScheme.onSurfaceVariant
+                        : Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),
@@ -192,21 +187,19 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                     vertical: kXSmall,
                   ),
                   decoration: BoxDecoration(
-                    color:
-                        holiday.isPast
-                            ? Theme.of(context).colorScheme.secondaryContainer
-                                .withValues(alpha: 0.5)
-                            : Theme.of(context).colorScheme.secondaryContainer,
+                    color: holiday.isPast
+                        ? Theme.of(context).colorScheme.secondaryContainer
+                              .withValues(alpha: 0.5)
+                        : Theme.of(context).colorScheme.secondaryContainer,
                     borderRadius: BorderRadius.circular(kMedium),
                     border: Border.all(
-                      color:
-                          holiday.isPast
-                              ? Theme.of(
-                                context,
-                              ).colorScheme.secondary.withValues(alpha: 0.3)
-                              : Theme.of(
-                                context,
-                              ).colorScheme.secondary.withValues(alpha: 0.5),
+                      color: holiday.isPast
+                          ? Theme.of(
+                              context,
+                            ).colorScheme.secondary.withValues(alpha: 0.3)
+                          : Theme.of(
+                              context,
+                            ).colorScheme.secondary.withValues(alpha: 0.5),
                       width: 1,
                     ),
                   ),
@@ -214,15 +207,10 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                     context.localizations('publicHoliday.recurring'),
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       fontSize: 10,
-                      color:
-                          holiday.isPast
-                              ? Theme.of(context)
-                                  .colorScheme
-                                  .onSecondaryContainer
-                                  .withValues(alpha: 0.7)
-                              : Theme.of(
-                                context,
-                              ).colorScheme.onSecondaryContainer,
+                      color: holiday.isPast
+                          ? Theme.of(context).colorScheme.onSecondaryContainer
+                                .withValues(alpha: 0.7)
+                          : Theme.of(context).colorScheme.onSecondaryContainer,
                     ),
                   ),
                 ),
@@ -238,11 +226,10 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                   child: Text(
                     holiday.description!,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color:
-                          holiday.isPast
-                              ? Theme.of(context).colorScheme.onSurfaceVariant
-                                  .withValues(alpha: 0.7)
-                              : Theme.of(context).colorScheme.onSurfaceVariant,
+                      color: holiday.isPast
+                          ? Theme.of(context).colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.7)
+                          : Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ),
@@ -251,11 +238,11 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                 child: Text(
                   '${holiday.day}, ${holiday.date}',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color:
-                        holiday.isPast
-                            ? Theme.of(context).colorScheme.onSurfaceVariant
-                                .withValues(alpha: 0.7)
-                            : Theme.of(context).colorScheme.onSurfaceVariant,
+                    color: holiday.isPast
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.onSurfaceVariant.withValues(alpha: 0.7)
+                        : Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
               ),
@@ -266,61 +253,52 @@ class _PublicHolidayListState extends ConsumerState<PublicHolidayList> {
                   child: Wrap(
                     spacing: kXSmall,
                     runSpacing: kXSmall,
-                    children:
-                        holiday.states
-                            .map(
-                              (state) => Container(
-                                height: 24,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: kSmall,
-                                  vertical: kXSmall,
-                                ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      holiday.isPast
-                                          ? Theme.of(context)
-                                              .colorScheme
-                                              .primaryContainer
-                                              .withValues(alpha: 0.2)
-                                          : Theme.of(context)
-                                              .colorScheme
-                                              .primaryContainer
-                                              .withValues(alpha: 0.7),
-                                  borderRadius: BorderRadius.circular(kMedium),
-                                  border: Border.all(
-                                    color:
-                                        holiday.isPast
-                                            ? Theme.of(context)
-                                                .colorScheme
-                                                .primary
-                                                .withValues(alpha: 0.3)
-                                            : Theme.of(context)
-                                                .colorScheme
-                                                .primary
-                                                .withValues(alpha: 0.5),
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Text(
-                                  state,
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.labelSmall?.copyWith(
-                                    fontSize: 10,
-                                    color:
-                                        holiday.isPast
-                                            ? Theme.of(context)
-                                                .colorScheme
-                                                .onTertiaryContainer
-                                                .withValues(alpha: 0.7)
-                                            : Theme.of(
-                                              context,
-                                            ).colorScheme.onTertiaryContainer,
-                                  ),
-                                ),
+                    children: holiday.states
+                        .map(
+                          (state) => Container(
+                            height: 24,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: kSmall,
+                              vertical: kXSmall,
+                            ),
+                            decoration: BoxDecoration(
+                              color: holiday.isPast
+                                  ? Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer
+                                        .withValues(alpha: 0.2)
+                                  : Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer
+                                        .withValues(alpha: 0.7),
+                              borderRadius: BorderRadius.circular(kMedium),
+                              border: Border.all(
+                                color: holiday.isPast
+                                    ? Theme.of(context).colorScheme.primary
+                                          .withValues(alpha: 0.3)
+                                    : Theme.of(context).colorScheme.primary
+                                          .withValues(alpha: 0.5),
+                                width: 1,
                               ),
-                            )
-                            .toList(),
+                            ),
+                            child: Text(
+                              state,
+                              style: Theme.of(context).textTheme.labelSmall
+                                  ?.copyWith(
+                                    fontSize: 10,
+                                    color: holiday.isPast
+                                        ? Theme.of(context)
+                                              .colorScheme
+                                              .onTertiaryContainer
+                                              .withValues(alpha: 0.7)
+                                        : Theme.of(
+                                            context,
+                                          ).colorScheme.onTertiaryContainer,
+                                  ),
+                            ),
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
             ],

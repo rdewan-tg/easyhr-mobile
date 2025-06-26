@@ -19,7 +19,10 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
     return DropdownMenu(
       width: MediaQuery.of(context).size.width * 0.8,
       controller: controller,
-      label: Text('Select Zone'.hardcoded),
+      label: Text(
+        'Select Zone'.hardcoded,
+        style: Theme.of(context).textTheme.labelSmall,
+      ),
       requestFocusOnTap: false,
       onSelected: (value) {
         if (value == null) return;
@@ -35,15 +38,12 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
         constraints: BoxConstraints(maxHeight: 40),
         border: OutlineInputBorder(),
       ),
-      dropdownMenuEntries:
-          zones
-              .map(
-                (zone) => DropdownMenuEntry<String>(
-                  value: zone.name,
-                  label: zone.name,
-                ),
-              )
-              .toList(),
+      dropdownMenuEntries: zones
+          .map(
+            (zone) =>
+                DropdownMenuEntry<String>(value: zone.name, label: zone.name),
+          )
+          .toList(),
     );
   }
 }

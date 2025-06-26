@@ -73,16 +73,14 @@ class _$CompanySettingResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as CompanySettingData,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as CompanySettingData,
           )
           as $Val,
     );
@@ -134,16 +132,14 @@ class __$$CompanySettingResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$CompanySettingResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as CompanySettingData,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as CompanySettingData,
       ),
     );
   }
@@ -305,46 +301,38 @@ class _$CompanySettingDataCopyWithImpl<$Res, $Val extends CompanySettingData>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            timeZone:
-                null == timeZone
-                    ? _value.timeZone
-                    : timeZone // ignore: cast_nullable_to_non_nullable
-                        as String,
-            gpsRadius:
-                null == gpsRadius
-                    ? _value.gpsRadius
-                    : gpsRadius // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isLocationData:
-                null == isLocationData
-                    ? _value.isLocationData
-                    : isLocationData // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isZoneEnabled:
-                null == isZoneEnabled
-                    ? _value.isZoneEnabled
-                    : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            currencyCode:
-                null == currencyCode
-                    ? _value.currencyCode
-                    : currencyCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            companyId:
-                null == companyId
-                    ? _value.companyId
-                    : companyId // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isCameraEnabled:
-                null == isCameraEnabled
-                    ? _value.isCameraEnabled
-                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            timeZone: null == timeZone
+                ? _value.timeZone
+                : timeZone // ignore: cast_nullable_to_non_nullable
+                      as String,
+            gpsRadius: null == gpsRadius
+                ? _value.gpsRadius
+                : gpsRadius // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isLocationData: null == isLocationData
+                ? _value.isLocationData
+                : isLocationData // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isZoneEnabled: null == isZoneEnabled
+                ? _value.isZoneEnabled
+                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            currencyCode: null == currencyCode
+                ? _value.currencyCode
+                : currencyCode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            companyId: null == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isCameraEnabled: null == isCameraEnabled
+                ? _value.isCameraEnabled
+                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -397,46 +385,38 @@ class __$$CompanySettingDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CompanySettingDataImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        timeZone:
-            null == timeZone
-                ? _value.timeZone
-                : timeZone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        gpsRadius:
-            null == gpsRadius
-                ? _value.gpsRadius
-                : gpsRadius // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isLocationData:
-            null == isLocationData
-                ? _value.isLocationData
-                : isLocationData // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isZoneEnabled:
-            null == isZoneEnabled
-                ? _value.isZoneEnabled
-                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        currencyCode:
-            null == currencyCode
-                ? _value.currencyCode
-                : currencyCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        companyId:
-            null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isCameraEnabled:
-            null == isCameraEnabled
-                ? _value.isCameraEnabled
-                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        timeZone: null == timeZone
+            ? _value.timeZone
+            : timeZone // ignore: cast_nullable_to_non_nullable
+                  as String,
+        gpsRadius: null == gpsRadius
+            ? _value.gpsRadius
+            : gpsRadius // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isLocationData: null == isLocationData
+            ? _value.isLocationData
+            : isLocationData // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isZoneEnabled: null == isZoneEnabled
+            ? _value.isZoneEnabled
+            : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        currencyCode: null == currencyCode
+            ? _value.currencyCode
+            : currencyCode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        companyId: null == companyId
+            ? _value.companyId
+            : companyId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isCameraEnabled: null == isCameraEnabled
+            ? _value.isCameraEnabled
+            : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }

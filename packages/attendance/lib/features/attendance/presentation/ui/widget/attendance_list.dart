@@ -25,10 +25,12 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
   Future<void> _pagination() async {
     final maxScrollExtent = _scrollController.position.maxScrollExtent;
     final currentScrollPosition = _scrollController.position.pixels;
-    final currentPage =
-        ref.read(attendanceControllerProvider.notifier).getCurrentPage();
-    final totalPages =
-        ref.read(attendanceControllerProvider.notifier).getTotalPages();
+    final currentPage = ref
+        .read(attendanceControllerProvider.notifier)
+        .getCurrentPage();
+    final totalPages = ref
+        .read(attendanceControllerProvider.notifier)
+        .getTotalPages();
     if (currentPage < totalPages) {
       if (currentScrollPosition >= maxScrollExtent - 200) {
         await ref.read(attendanceControllerProvider.notifier).getAttendances();
@@ -122,30 +124,22 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                                   vertical: kXSmall,
                                 ),
                                 decoration: BoxDecoration(
-                                  color:
-                                      data.status == "IN"
-                                          ? context
-                                              .themeColor
-                                              .colorScheme
-                                              .tertiary
-                                              .withValues(alpha: 0.1)
-                                          : context.themeColor.colorScheme.error
-                                              .withValues(alpha: 0.1),
+                                  color: data.status == "IN"
+                                      ? context.themeColor.colorScheme.tertiary
+                                            .withValues(alpha: 0.1)
+                                      : context.themeColor.colorScheme.error
+                                            .withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
                                   data.status,
                                   style: context.textTheme.labelSmall?.copyWith(
-                                    color:
-                                        data.status == "IN"
-                                            ? context
-                                                .themeColor
-                                                .colorScheme
-                                                .tertiary
-                                            : context
-                                                .themeColor
-                                                .colorScheme
-                                                .error,
+                                    color: data.status == "IN"
+                                        ? context
+                                              .themeColor
+                                              .colorScheme
+                                              .tertiary
+                                        : context.themeColor.colorScheme.error,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -163,11 +157,10 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                                   ),
                                   value: data.address,
                                   color: context.themeColor.colorScheme.primary,
-                                  onTap:
-                                      () => _launchGoogleMaps(
-                                        data.latitude,
-                                        data.longitude,
-                                      ),
+                                  onTap: () => _launchGoogleMaps(
+                                    data.latitude,
+                                    data.longitude,
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: kMedium),
@@ -201,13 +194,13 @@ class _AttendanceListState extends ConsumerState<AttendanceList> {
                 );
                 return isPageLoading
                     ? const Positioned(
-                      bottom: 60,
-                      left: 0,
-                      right: 0,
-                      child: Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      ),
-                    )
+                        bottom: 60,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        ),
+                      )
                     : const SizedBox.shrink();
               },
             ),

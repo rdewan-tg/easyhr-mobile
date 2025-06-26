@@ -91,61 +91,50 @@ class _$PublicHolidayCopyWithImpl<$Res, $Val extends PublicHoliday>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                freezed == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            date:
-                null == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as String,
-            day:
-                null == day
-                    ? _value.day
-                    : day // ignore: cast_nullable_to_non_nullable
-                        as String,
-            month:
-                null == month
-                    ? _value.month
-                    : month // ignore: cast_nullable_to_non_nullable
-                        as String,
-            year:
-                null == year
-                    ? _value.year
-                    : year // ignore: cast_nullable_to_non_nullable
-                        as int,
-            isRecurring:
-                null == isRecurring
-                    ? _value.isRecurring
-                    : isRecurring // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isPast:
-                null == isPast
-                    ? _value.isPast
-                    : isPast // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isInCurrentMonth:
-                null == isInCurrentMonth
-                    ? _value.isInCurrentMonth
-                    : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            states:
-                null == states
-                    ? _value.states
-                    : states // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            date: null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                      as String,
+            day: null == day
+                ? _value.day
+                : day // ignore: cast_nullable_to_non_nullable
+                      as String,
+            month: null == month
+                ? _value.month
+                : month // ignore: cast_nullable_to_non_nullable
+                      as String,
+            year: null == year
+                ? _value.year
+                : year // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isRecurring: null == isRecurring
+                ? _value.isRecurring
+                : isRecurring // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isPast: null == isPast
+                ? _value.isPast
+                : isPast // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isInCurrentMonth: null == isInCurrentMonth
+                ? _value.isInCurrentMonth
+                : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            states: null == states
+                ? _value.states
+                : states // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
           )
           as $Val,
     );
@@ -204,61 +193,50 @@ class __$$PublicHolidayImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PublicHolidayImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as String,
-        day:
-            null == day
-                ? _value.day
-                : day // ignore: cast_nullable_to_non_nullable
-                    as String,
-        month:
-            null == month
-                ? _value.month
-                : month // ignore: cast_nullable_to_non_nullable
-                    as String,
-        year:
-            null == year
-                ? _value.year
-                : year // ignore: cast_nullable_to_non_nullable
-                    as int,
-        isRecurring:
-            null == isRecurring
-                ? _value.isRecurring
-                : isRecurring // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isPast:
-            null == isPast
-                ? _value.isPast
-                : isPast // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isInCurrentMonth:
-            null == isInCurrentMonth
-                ? _value.isInCurrentMonth
-                : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        states:
-            null == states
-                ? _value._states
-                : states // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                  as String,
+        day: null == day
+            ? _value.day
+            : day // ignore: cast_nullable_to_non_nullable
+                  as String,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as String,
+        year: null == year
+            ? _value.year
+            : year // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isRecurring: null == isRecurring
+            ? _value.isRecurring
+            : isRecurring // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isPast: null == isPast
+            ? _value.isPast
+            : isPast // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isInCurrentMonth: null == isInCurrentMonth
+            ? _value.isInCurrentMonth
+            : isInCurrentMonth // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        states: null == states
+            ? _value._states
+            : states // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
       ),
     );
   }

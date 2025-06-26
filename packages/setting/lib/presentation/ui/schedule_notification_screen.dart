@@ -66,8 +66,9 @@ class _ScheduleNotificationScreenState
 
   // Check alarm permission
   Future<void> _checkAlarmPermission() async {
-    final result =
-        await ref.read(localPushNotificationProvider).requestAlarmPermission();
+    final result = await ref
+        .read(localPushNotificationProvider)
+        .requestAlarmPermission();
     if (!result) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,8 +112,9 @@ class _ScheduleNotificationScreenState
 
   // Save notification schedule
   void _saveSchedule() async {
-    final result =
-        await ref.read(localPushNotificationProvider).requestAlarmPermission();
+    final result = await ref
+        .read(localPushNotificationProvider)
+        .requestAlarmPermission();
     // if permission is not granted, return
     if (!result) return;
     // Check if at least one day is selected
@@ -311,19 +313,17 @@ class _ScheduleNotificationScreenState
         height: 40,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color:
-              _selectedDays[dayIndex]
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.surfaceContainerHighest,
+          color: _selectedDays[dayIndex]
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.surfaceContainerHighest,
         ),
         child: Center(
           child: Text(
             _daysOfWeek[dayIndex],
             style: TextStyle(
-              color:
-                  _selectedDays[dayIndex]
-                      ? Theme.of(context).colorScheme.onPrimary
-                      : Theme.of(context).colorScheme.onSurfaceVariant,
+              color: _selectedDays[dayIndex]
+                  ? Theme.of(context).colorScheme.onPrimary
+                  : Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.bold,
             ),
           ),

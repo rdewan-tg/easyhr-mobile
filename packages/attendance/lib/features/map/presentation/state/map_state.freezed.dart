@@ -94,76 +94,62 @@ class _$MapStateCopyWithImpl<$Res, $Val extends MapState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading:
-                null == isLoading
-                    ? _value.isLoading
-                    : isLoading // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isZoneEnabled:
-                null == isZoneEnabled
-                    ? _value.isZoneEnabled
-                    : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isCameraEnabled:
-                null == isCameraEnabled
-                    ? _value.isCameraEnabled
-                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isAttendanceAdded:
-                null == isAttendanceAdded
-                    ? _value.isAttendanceAdded
-                    : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isConsentStatement:
-                null == isConsentStatement
-                    ? _value.isConsentStatement
-                    : isConsentStatement // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            settings:
-                null == settings
-                    ? _value.settings
-                    : settings // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            status:
-                freezed == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AttendanceStatus?,
-            currentPosition:
-                freezed == currentPosition
-                    ? _value.currentPosition
-                    : currentPosition // ignore: cast_nullable_to_non_nullable
-                        as LatLng?,
-            imagePath:
-                freezed == imagePath
-                    ? _value.imagePath
-                    : imagePath // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            zones:
-                null == zones
-                    ? _value.zones
-                    : zones // ignore: cast_nullable_to_non_nullable
-                        as List<ZoneModel>,
-            currentZones:
-                null == currentZones
-                    ? _value.currentZones
-                    : currentZones // ignore: cast_nullable_to_non_nullable
-                        as List<ZoneModel>,
-            currentAddress:
-                freezed == currentAddress
-                    ? _value.currentAddress
-                    : currentAddress // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            zone:
-                freezed == zone
-                    ? _value.zone
-                    : zone // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            errorMsg:
-                freezed == errorMsg
-                    ? _value.errorMsg
-                    : errorMsg // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isZoneEnabled: null == isZoneEnabled
+                ? _value.isZoneEnabled
+                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isCameraEnabled: null == isCameraEnabled
+                ? _value.isCameraEnabled
+                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isAttendanceAdded: null == isAttendanceAdded
+                ? _value.isAttendanceAdded
+                : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isConsentStatement: null == isConsentStatement
+                ? _value.isConsentStatement
+                : isConsentStatement // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            settings: null == settings
+                ? _value.settings
+                : settings // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            status: freezed == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as AttendanceStatus?,
+            currentPosition: freezed == currentPosition
+                ? _value.currentPosition
+                : currentPosition // ignore: cast_nullable_to_non_nullable
+                      as LatLng?,
+            imagePath: freezed == imagePath
+                ? _value.imagePath
+                : imagePath // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            zones: null == zones
+                ? _value.zones
+                : zones // ignore: cast_nullable_to_non_nullable
+                      as List<ZoneModel>,
+            currentZones: null == currentZones
+                ? _value.currentZones
+                : currentZones // ignore: cast_nullable_to_non_nullable
+                      as List<ZoneModel>,
+            currentAddress: freezed == currentAddress
+                ? _value.currentAddress
+                : currentAddress // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            zone: freezed == zone
+                ? _value.zone
+                : zone // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            errorMsg: freezed == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -228,76 +214,62 @@ class __$$MapStateImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$MapStateImpl(
-        isLoading:
-            null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isZoneEnabled:
-            null == isZoneEnabled
-                ? _value.isZoneEnabled
-                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isCameraEnabled:
-            null == isCameraEnabled
-                ? _value.isCameraEnabled
-                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isAttendanceAdded:
-            null == isAttendanceAdded
-                ? _value.isAttendanceAdded
-                : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isConsentStatement:
-            null == isConsentStatement
-                ? _value.isConsentStatement
-                : isConsentStatement // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        settings:
-            null == settings
-                ? _value._settings
-                : settings // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        status:
-            freezed == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AttendanceStatus?,
-        currentPosition:
-            freezed == currentPosition
-                ? _value.currentPosition
-                : currentPosition // ignore: cast_nullable_to_non_nullable
-                    as LatLng?,
-        imagePath:
-            freezed == imagePath
-                ? _value.imagePath
-                : imagePath // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        zones:
-            null == zones
-                ? _value._zones
-                : zones // ignore: cast_nullable_to_non_nullable
-                    as List<ZoneModel>,
-        currentZones:
-            null == currentZones
-                ? _value._currentZones
-                : currentZones // ignore: cast_nullable_to_non_nullable
-                    as List<ZoneModel>,
-        currentAddress:
-            freezed == currentAddress
-                ? _value.currentAddress
-                : currentAddress // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        zone:
-            freezed == zone
-                ? _value.zone
-                : zone // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        errorMsg:
-            freezed == errorMsg
-                ? _value.errorMsg
-                : errorMsg // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isZoneEnabled: null == isZoneEnabled
+            ? _value.isZoneEnabled
+            : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isCameraEnabled: null == isCameraEnabled
+            ? _value.isCameraEnabled
+            : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isAttendanceAdded: null == isAttendanceAdded
+            ? _value.isAttendanceAdded
+            : isAttendanceAdded // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isConsentStatement: null == isConsentStatement
+            ? _value.isConsentStatement
+            : isConsentStatement // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        settings: null == settings
+            ? _value._settings
+            : settings // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        status: freezed == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as AttendanceStatus?,
+        currentPosition: freezed == currentPosition
+            ? _value.currentPosition
+            : currentPosition // ignore: cast_nullable_to_non_nullable
+                  as LatLng?,
+        imagePath: freezed == imagePath
+            ? _value.imagePath
+            : imagePath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        zones: null == zones
+            ? _value._zones
+            : zones // ignore: cast_nullable_to_non_nullable
+                  as List<ZoneModel>,
+        currentZones: null == currentZones
+            ? _value._currentZones
+            : currentZones // ignore: cast_nullable_to_non_nullable
+                  as List<ZoneModel>,
+        currentAddress: freezed == currentAddress
+            ? _value.currentAddress
+            : currentAddress // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        zone: freezed == zone
+            ? _value.zone
+            : zone // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        errorMsg: freezed == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

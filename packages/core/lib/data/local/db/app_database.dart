@@ -14,14 +14,8 @@ part 'app_database.g.dart';
 AppDatabase appDatabase(Ref ref) => AppDatabase();
 
 @DriftDatabase(
-  tables: [
-    SettingEntity,
-    NotificationScheduleEntity,
-  ],
-  daos: [
-    SettingDao,
-    NotificationScheduleDao,
-  ],
+  tables: [SettingEntity, NotificationScheduleEntity],
+  daos: [SettingDao, NotificationScheduleDao],
 )
 class AppDatabase extends _$AppDatabase {
   // After generating code, this class needs to define a `schemaVersion` getter
@@ -39,22 +33,22 @@ class AppDatabase extends _$AppDatabase {
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-        beforeOpen: (details) async {
-          if (details.wasCreated) {
-            // This database is being created for the first time.
-          }
-          if (details.hadUpgrade) {
-            // This database was upgraded from a previous version.
-          }
-          //  sqlite3, foreign key references aren't enabled by default.
-          // To enable them, run:
-          await customStatement('PRAGMA foreign_keys = ON');
-        },
-        //onCreate: (migrator) {},
-        // onUpgrade: stepByStep(
-        //   from1To2: (m, schema) async {
+    beforeOpen: (details) async {
+      if (details.wasCreated) {
+        // This database is being created for the first time.
+      }
+      if (details.hadUpgrade) {
+        // This database was upgraded from a previous version.
+      }
+      //  sqlite3, foreign key references aren't enabled by default.
+      // To enable them, run:
+      await customStatement('PRAGMA foreign_keys = ON');
+    },
+    //onCreate: (migrator) {},
+    // onUpgrade: stepByStep(
+    //   from1To2: (m, schema) async {
 
-        //   },
-        // ),
-      );
+    //   },
+    // ),
+  );
 }

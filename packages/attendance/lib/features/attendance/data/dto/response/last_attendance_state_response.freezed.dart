@@ -77,16 +77,14 @@ class _$LastAttendanceStateResponseCopyWithImpl<
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                freezed == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as LastAttendanceStateData?,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: freezed == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as LastAttendanceStateData?,
           )
           as $Val,
     );
@@ -145,16 +143,14 @@ class __$$LastAttendanceStateResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = freezed}) {
     return _then(
       _$LastAttendanceStateResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            freezed == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as LastAttendanceStateData?,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LastAttendanceStateData?,
       ),
     );
   }
@@ -204,9 +200,10 @@ class _$LastAttendanceStateResponseImpl
   @override
   @pragma('vm:prefer-inline')
   _$$LastAttendanceStateResponseImplCopyWith<_$LastAttendanceStateResponseImpl>
-  get copyWith => __$$LastAttendanceStateResponseImplCopyWithImpl<
-    _$LastAttendanceStateResponseImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$LastAttendanceStateResponseImplCopyWithImpl<
+        _$LastAttendanceStateResponseImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -290,11 +287,10 @@ class _$LastAttendanceStateDataCopyWithImpl<
   $Res call({Object? status = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AttendanceStatus,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as AttendanceStatus,
           )
           as $Val,
     );
@@ -333,11 +329,10 @@ class __$$LastAttendanceStateDataImplCopyWithImpl<$Res>
   $Res call({Object? status = null}) {
     return _then(
       _$LastAttendanceStateDataImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AttendanceStatus,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as AttendanceStatus,
       ),
     );
   }
@@ -380,9 +375,10 @@ class _$LastAttendanceStateDataImpl implements _LastAttendanceStateData {
   @override
   @pragma('vm:prefer-inline')
   _$$LastAttendanceStateDataImplCopyWith<_$LastAttendanceStateDataImpl>
-  get copyWith => __$$LastAttendanceStateDataImplCopyWithImpl<
-    _$LastAttendanceStateDataImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$LastAttendanceStateDataImplCopyWithImpl<
+        _$LastAttendanceStateDataImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

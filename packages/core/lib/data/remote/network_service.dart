@@ -15,13 +15,12 @@ final networkServiceProvider = Provider<Dio>((ref) {
   );
 
   final dio = Dio(options);
-  final networkServiceInterceptor =
-      ref.watch(networkServiceInterceptorProvider(dio));
+  final networkServiceInterceptor = ref.watch(
+    networkServiceInterceptorProvider(dio),
+  );
 
   dio.interceptors.addAll([
-    HttpFormatter(
-      loggingFilter: (request, response, error) => kDebugMode,
-    ),
+    HttpFormatter(loggingFilter: (request, response, error) => kDebugMode),
     networkServiceInterceptor,
   ]);
 

@@ -68,16 +68,14 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _value.copyWith(
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as String,
-            data:
-                null == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as Data,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String,
+            data: null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as Data,
           )
           as $Val,
     );
@@ -128,16 +126,14 @@ class __$$LoginResponseImplCopyWithImpl<$Res>
   $Res call({Object? status = null, Object? data = null}) {
     return _then(
       _$LoginResponseImpl(
-        status:
-            null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as String,
-        data:
-            null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as Data,
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String,
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Data,
       ),
     );
   }
@@ -268,16 +264,14 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   $Res call({Object? token = null, Object? user = null}) {
     return _then(
       _value.copyWith(
-            token:
-                null == token
-                    ? _value.token
-                    : token // ignore: cast_nullable_to_non_nullable
-                        as TokenDto,
-            user:
-                null == user
-                    ? _value.user
-                    : user // ignore: cast_nullable_to_non_nullable
-                        as UserDto,
+            token: null == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                      as TokenDto,
+            user: null == user
+                ? _value.user
+                : user // ignore: cast_nullable_to_non_nullable
+                      as UserDto,
           )
           as $Val,
     );
@@ -337,16 +331,14 @@ class __$$DataImplCopyWithImpl<$Res>
   $Res call({Object? token = null, Object? user = null}) {
     return _then(
       _$DataImpl(
-        token:
-            null == token
-                ? _value.token
-                : token // ignore: cast_nullable_to_non_nullable
-                    as TokenDto,
-        user:
-            null == user
-                ? _value.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as UserDto,
+        token: null == token
+            ? _value.token
+            : token // ignore: cast_nullable_to_non_nullable
+                  as TokenDto,
+        user: null == user
+            ? _value.user
+            : user // ignore: cast_nullable_to_non_nullable
+                  as UserDto,
       ),
     );
   }
@@ -474,16 +466,14 @@ class _$TokenDtoCopyWithImpl<$Res, $Val extends TokenDto>
   $Res call({Object? accessToken = null, Object? refreshToken = null}) {
     return _then(
       _value.copyWith(
-            accessToken:
-                null == accessToken
-                    ? _value.accessToken
-                    : accessToken // ignore: cast_nullable_to_non_nullable
-                        as String,
-            refreshToken:
-                null == refreshToken
-                    ? _value.refreshToken
-                    : refreshToken // ignore: cast_nullable_to_non_nullable
-                        as String,
+            accessToken: null == accessToken
+                ? _value.accessToken
+                : accessToken // ignore: cast_nullable_to_non_nullable
+                      as String,
+            refreshToken: null == refreshToken
+                ? _value.refreshToken
+                : refreshToken // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -521,16 +511,14 @@ class __$$TokenDtoImplCopyWithImpl<$Res>
   $Res call({Object? accessToken = null, Object? refreshToken = null}) {
     return _then(
       _$TokenDtoImpl(
-        accessToken:
-            null == accessToken
-                ? _value.accessToken
-                : accessToken // ignore: cast_nullable_to_non_nullable
-                    as String,
-        refreshToken:
-            null == refreshToken
-                ? _value.refreshToken
-                : refreshToken // ignore: cast_nullable_to_non_nullable
-                    as String,
+        accessToken: null == accessToken
+            ? _value.accessToken
+            : accessToken // ignore: cast_nullable_to_non_nullable
+                  as String,
+        refreshToken: null == refreshToken
+            ? _value.refreshToken
+            : refreshToken // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -693,51 +681,42 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            email:
-                null == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String,
-            phoneNumber:
-                freezed == phoneNumber
-                    ? _value.phoneNumber
-                    : phoneNumber // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            photo:
-                freezed == photo
-                    ? _value.photo
-                    : photo // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            isActive:
-                null == isActive
-                    ? _value.isActive
-                    : isActive // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            uuid:
-                freezed == uuid
-                    ? _value.uuid
-                    : uuid // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            role:
-                null == role
-                    ? _value.role
-                    : role // ignore: cast_nullable_to_non_nullable
-                        as List<RoleDto>,
-            company:
-                null == company
-                    ? _value.company
-                    : company // ignore: cast_nullable_to_non_nullable
-                        as CompanyDto,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            phoneNumber: freezed == phoneNumber
+                ? _value.phoneNumber
+                : phoneNumber // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            photo: freezed == photo
+                ? _value.photo
+                : photo // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            isActive: null == isActive
+                ? _value.isActive
+                : isActive // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            uuid: freezed == uuid
+                ? _value.uuid
+                : uuid // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            role: null == role
+                ? _value.role
+                : role // ignore: cast_nullable_to_non_nullable
+                      as List<RoleDto>,
+            company: null == company
+                ? _value.company
+                : company // ignore: cast_nullable_to_non_nullable
+                      as CompanyDto,
           )
           as $Val,
     );
@@ -804,51 +783,42 @@ class __$$UserDtoImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$UserDtoImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        phoneNumber:
-            freezed == phoneNumber
-                ? _value.phoneNumber
-                : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        photo:
-            freezed == photo
-                ? _value.photo
-                : photo // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        isActive:
-            null == isActive
-                ? _value.isActive
-                : isActive // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        uuid:
-            freezed == uuid
-                ? _value.uuid
-                : uuid // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        role:
-            null == role
-                ? _value._role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as List<RoleDto>,
-        company:
-            null == company
-                ? _value.company
-                : company // ignore: cast_nullable_to_non_nullable
-                    as CompanyDto,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        phoneNumber: freezed == phoneNumber
+            ? _value.phoneNumber
+            : phoneNumber // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        photo: freezed == photo
+            ? _value.photo
+            : photo // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        isActive: null == isActive
+            ? _value.isActive
+            : isActive // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        uuid: freezed == uuid
+            ? _value.uuid
+            : uuid // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        role: null == role
+            ? _value._role
+            : role // ignore: cast_nullable_to_non_nullable
+                  as List<RoleDto>,
+        company: null == company
+            ? _value.company
+            : company // ignore: cast_nullable_to_non_nullable
+                  as CompanyDto,
       ),
     );
   }
@@ -1057,16 +1027,14 @@ class _$RoleDtoCopyWithImpl<$Res, $Val extends RoleDto>
   $Res call({Object? id = null, Object? name = null}) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as UserRole,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as UserRole,
           )
           as $Val,
     );
@@ -1103,16 +1071,14 @@ class __$$RoleDtoImplCopyWithImpl<$Res>
   $Res call({Object? id = null, Object? name = null}) {
     return _then(
       _$RoleDtoImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as UserRole,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as UserRole,
       ),
     );
   }
@@ -1269,46 +1235,38 @@ class _$CompanyDtoCopyWithImpl<$Res, $Val extends CompanyDto>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            companyCode:
-                freezed == companyCode
-                    ? _value.companyCode
-                    : companyCode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            countryCode:
-                freezed == countryCode
-                    ? _value.countryCode
-                    : countryCode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            gpsRadius:
-                null == gpsRadius
-                    ? _value.gpsRadius
-                    : gpsRadius // ignore: cast_nullable_to_non_nullable
-                        as int,
-            timeZone:
-                null == timeZone
-                    ? _value.timeZone
-                    : timeZone // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isZoneEnabled:
-                null == isZoneEnabled
-                    ? _value.isZoneEnabled
-                    : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            isCameraEnabled:
-                null == isCameraEnabled
-                    ? _value.isCameraEnabled
-                    : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                        as bool,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            companyCode: freezed == companyCode
+                ? _value.companyCode
+                : companyCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            countryCode: freezed == countryCode
+                ? _value.countryCode
+                : countryCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            gpsRadius: null == gpsRadius
+                ? _value.gpsRadius
+                : gpsRadius // ignore: cast_nullable_to_non_nullable
+                      as int,
+            timeZone: null == timeZone
+                ? _value.timeZone
+                : timeZone // ignore: cast_nullable_to_non_nullable
+                      as String,
+            isZoneEnabled: null == isZoneEnabled
+                ? _value.isZoneEnabled
+                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isCameraEnabled: null == isCameraEnabled
+                ? _value.isCameraEnabled
+                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -1361,46 +1319,38 @@ class __$$CompanyDtoImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CompanyDtoImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        companyCode:
-            freezed == companyCode
-                ? _value.companyCode
-                : companyCode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        countryCode:
-            freezed == countryCode
-                ? _value.countryCode
-                : countryCode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        gpsRadius:
-            null == gpsRadius
-                ? _value.gpsRadius
-                : gpsRadius // ignore: cast_nullable_to_non_nullable
-                    as int,
-        timeZone:
-            null == timeZone
-                ? _value.timeZone
-                : timeZone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isZoneEnabled:
-            null == isZoneEnabled
-                ? _value.isZoneEnabled
-                : isZoneEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        isCameraEnabled:
-            null == isCameraEnabled
-                ? _value.isCameraEnabled
-                : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        companyCode: freezed == companyCode
+            ? _value.companyCode
+            : companyCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        countryCode: freezed == countryCode
+            ? _value.countryCode
+            : countryCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        gpsRadius: null == gpsRadius
+            ? _value.gpsRadius
+            : gpsRadius // ignore: cast_nullable_to_non_nullable
+                  as int,
+        timeZone: null == timeZone
+            ? _value.timeZone
+            : timeZone // ignore: cast_nullable_to_non_nullable
+                  as String,
+        isZoneEnabled: null == isZoneEnabled
+            ? _value.isZoneEnabled
+            : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isCameraEnabled: null == isCameraEnabled
+            ? _value.isCameraEnabled
+            : isCameraEnabled // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -1608,21 +1558,18 @@ class _$DeviceSettingDtoCopyWithImpl<$Res, $Val extends DeviceSettingDto>
   }) {
     return _then(
       _value.copyWith(
-            deviceId:
-                freezed == deviceId
-                    ? _value.deviceId
-                    : deviceId // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            salesPersonCode:
-                freezed == salesPersonCode
-                    ? _value.salesPersonCode
-                    : salesPersonCode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            orderNumberFormat:
-                freezed == orderNumberFormat
-                    ? _value.orderNumberFormat
-                    : orderNumberFormat // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            deviceId: freezed == deviceId
+                ? _value.deviceId
+                : deviceId // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            salesPersonCode: freezed == salesPersonCode
+                ? _value.salesPersonCode
+                : salesPersonCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            orderNumberFormat: freezed == orderNumberFormat
+                ? _value.orderNumberFormat
+                : orderNumberFormat // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -1665,21 +1612,18 @@ class __$$DeviceSettingDtoImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$DeviceSettingDtoImpl(
-        deviceId:
-            freezed == deviceId
-                ? _value.deviceId
-                : deviceId // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        salesPersonCode:
-            freezed == salesPersonCode
-                ? _value.salesPersonCode
-                : salesPersonCode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        orderNumberFormat:
-            freezed == orderNumberFormat
-                ? _value.orderNumberFormat
-                : orderNumberFormat // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        deviceId: freezed == deviceId
+            ? _value.deviceId
+            : deviceId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        salesPersonCode: freezed == salesPersonCode
+            ? _value.salesPersonCode
+            : salesPersonCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        orderNumberFormat: freezed == orderNumberFormat
+            ? _value.orderNumberFormat
+            : orderNumberFormat // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

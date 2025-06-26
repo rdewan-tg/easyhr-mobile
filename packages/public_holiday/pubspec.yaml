@@ -5,7 +5,7 @@ publish_to: 'none'
 homepage:
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.8.1
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,7 +14,6 @@ dependencies:
   
   core:
     path: ../core
-  grouped_list: ^6.0.0
 
 dependency_overrides:
   custom_lint_visitor: 1.0.0+7.3.0
