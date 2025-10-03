@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'customer_address.freezed.dart';
 
 @freezed
-class CustomerAddress with _$CustomerAddress {
-  factory CustomerAddress({
+abstract class CustomerAddress with _$CustomerAddress {
+  const factory CustomerAddress({
     required int id,
     required String customerId,
     String? deliveryName,

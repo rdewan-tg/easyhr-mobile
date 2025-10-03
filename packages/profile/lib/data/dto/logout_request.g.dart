@@ -6,8 +6,8 @@ part of 'logout_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogoutRequestImpl _$$LogoutRequestImplFromJson(Map<String, dynamic> json) =>
-    _$LogoutRequestImpl(refreshToken: json['refreshToken'] as String);
+_LogoutRequest _$LogoutRequestFromJson(Map<String, dynamic> json) =>
+    _LogoutRequest(refreshToken: json['refreshToken'] as String);
 
-Map<String, dynamic> _$$LogoutRequestImplToJson(_$LogoutRequestImpl instance) =>
+Map<String, dynamic> _$LogoutRequestToJson(_LogoutRequest instance) =>
     <String, dynamic>{'refreshToken': instance.refreshToken};

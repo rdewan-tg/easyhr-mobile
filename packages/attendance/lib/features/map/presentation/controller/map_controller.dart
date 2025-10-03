@@ -13,10 +13,11 @@ import 'package:common/exception/failure.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:timezone/timezone.dart' as tz;
 
-final mapControllerProvider =
-    AutoDisposeNotifierProvider<MapController, MapState>(MapController.new);
+final mapControllerProvider = NotifierProvider<MapController, MapState>(
+  MapController.new,
+);
 
-class MapController extends AutoDisposeNotifier<MapState> {
+class MapController extends Notifier<MapState> {
   @override
   MapState build() {
     return MapState();

@@ -5,7 +5,7 @@ part 'attendance_response.freezed.dart';
 part 'attendance_response.g.dart';
 
 @freezed
-class AttendanceResponse with _$AttendanceResponse {
+abstract class AttendanceResponse with _$AttendanceResponse {
   const factory AttendanceResponse({
     @JsonKey(name: 'status') required String status,
     @JsonKey(name: 'data') @Default([]) List<AttendanceData> data,
@@ -17,7 +17,7 @@ class AttendanceResponse with _$AttendanceResponse {
 }
 
 @freezed
-class AttendanceData with _$AttendanceData {
+abstract class AttendanceData with _$AttendanceData {
   const factory AttendanceData({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'userId') required int userId,
@@ -41,7 +41,7 @@ class AttendanceData with _$AttendanceData {
 }
 
 @freezed
-class AttendancePagination with _$AttendancePagination {
+abstract class AttendancePagination with _$AttendancePagination {
   const factory AttendancePagination({
     @JsonKey(name: 'currentPage') @Default(1) int currentPage,
     @JsonKey(name: 'totalPages') @Default(1) int totalPages,

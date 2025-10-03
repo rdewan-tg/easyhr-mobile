@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'attendance_model.freezed.dart';
 
 @freezed
-class AttendanceModel with _$AttendanceModel {
-  factory AttendanceModel({
+abstract class AttendanceModel with _$AttendanceModel {
+  const factory AttendanceModel({
     required int id,
     required int userId,
     required String address,

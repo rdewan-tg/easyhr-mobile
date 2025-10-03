@@ -6,20 +6,20 @@ part of 'notification_read_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationReadResponseImpl _$$NotificationReadResponseImplFromJson(
+_NotificationReadResponse _$NotificationReadResponseFromJson(
   Map<String, dynamic> json,
-) => _$NotificationReadResponseImpl(
+) => _NotificationReadResponse(
   status: json['status'] as String,
   data: NotificationReadItem.fromJson(json['data'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$$NotificationReadResponseImplToJson(
-  _$NotificationReadResponseImpl instance,
+Map<String, dynamic> _$NotificationReadResponseToJson(
+  _NotificationReadResponse instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};
 
-_$NotificationReadItemImpl _$$NotificationReadItemImplFromJson(
+_NotificationReadItem _$NotificationReadItemFromJson(
   Map<String, dynamic> json,
-) => _$NotificationReadItemImpl(
+) => _NotificationReadItem(
   id: (json['id'] as num).toInt(),
   userId: (json['userId'] as num).toInt(),
   notificationId: (json['notificationId'] as num).toInt(),
@@ -27,8 +27,8 @@ _$NotificationReadItemImpl _$$NotificationReadItemImplFromJson(
   readAt: json['readAt'] as String,
 );
 
-Map<String, dynamic> _$$NotificationReadItemImplToJson(
-  _$NotificationReadItemImpl instance,
+Map<String, dynamic> _$NotificationReadItemToJson(
+  _NotificationReadItem instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'userId': instance.userId,

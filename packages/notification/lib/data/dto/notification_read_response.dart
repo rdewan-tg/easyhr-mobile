@@ -4,7 +4,7 @@ part 'notification_read_response.freezed.dart';
 part 'notification_read_response.g.dart';
 
 @freezed
-class NotificationReadResponse with _$NotificationReadResponse {
+abstract class NotificationReadResponse with _$NotificationReadResponse {
   const factory NotificationReadResponse({
     @JsonKey(name: 'status') required String status,
     @JsonKey(name: 'data') required NotificationReadItem data,
@@ -15,7 +15,7 @@ class NotificationReadResponse with _$NotificationReadResponse {
 }
 
 @freezed
-class NotificationReadItem with _$NotificationReadItem {
+abstract class NotificationReadItem with _$NotificationReadItem {
   const factory NotificationReadItem({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'userId') required int userId,

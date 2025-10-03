@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,173 +9,269 @@ part of 'set_me_firebase_token_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-SetMeFirebaseTokenRequest _$SetMeFirebaseTokenRequestFromJson(
-  Map<String, dynamic> json,
-) {
-  return _SetMeFirebaseTokenRequest.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SetMeFirebaseTokenRequest {
-  String get deviceToken => throw _privateConstructorUsedError;
+
+ String get deviceToken;
+/// Create a copy of SetMeFirebaseTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SetMeFirebaseTokenRequestCopyWith<SetMeFirebaseTokenRequest> get copyWith => _$SetMeFirebaseTokenRequestCopyWithImpl<SetMeFirebaseTokenRequest>(this as SetMeFirebaseTokenRequest, _$identity);
 
   /// Serializes this SetMeFirebaseTokenRequest to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SetMeFirebaseTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SetMeFirebaseTokenRequestCopyWith<SetMeFirebaseTokenRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetMeFirebaseTokenRequest&&(identical(other.deviceToken, deviceToken) || other.deviceToken == deviceToken));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,deviceToken);
+
+@override
+String toString() {
+  return 'SetMeFirebaseTokenRequest(deviceToken: $deviceToken)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SetMeFirebaseTokenRequestCopyWith<$Res> {
-  factory $SetMeFirebaseTokenRequestCopyWith(
-    SetMeFirebaseTokenRequest value,
-    $Res Function(SetMeFirebaseTokenRequest) then,
-  ) = _$SetMeFirebaseTokenRequestCopyWithImpl<$Res, SetMeFirebaseTokenRequest>;
-  @useResult
-  $Res call({String deviceToken});
-}
+abstract mixin class $SetMeFirebaseTokenRequestCopyWith<$Res>  {
+  factory $SetMeFirebaseTokenRequestCopyWith(SetMeFirebaseTokenRequest value, $Res Function(SetMeFirebaseTokenRequest) _then) = _$SetMeFirebaseTokenRequestCopyWithImpl;
+@useResult
+$Res call({
+ String deviceToken
+});
 
+
+
+
+}
 /// @nodoc
-class _$SetMeFirebaseTokenRequestCopyWithImpl<
-  $Res,
-  $Val extends SetMeFirebaseTokenRequest
->
+class _$SetMeFirebaseTokenRequestCopyWithImpl<$Res>
     implements $SetMeFirebaseTokenRequestCopyWith<$Res> {
-  _$SetMeFirebaseTokenRequestCopyWithImpl(this._value, this._then);
+  _$SetMeFirebaseTokenRequestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SetMeFirebaseTokenRequest _self;
+  final $Res Function(SetMeFirebaseTokenRequest) _then;
 
-  /// Create a copy of SetMeFirebaseTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? deviceToken = null}) {
-    return _then(
-      _value.copyWith(
-            deviceToken: null == deviceToken
-                ? _value.deviceToken
-                : deviceToken // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of SetMeFirebaseTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? deviceToken = null,}) {
+  return _then(_self.copyWith(
+deviceToken: null == deviceToken ? _self.deviceToken : deviceToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SetMeFirebaseTokenRequestImplCopyWith<$Res>
-    implements $SetMeFirebaseTokenRequestCopyWith<$Res> {
-  factory _$$SetMeFirebaseTokenRequestImplCopyWith(
-    _$SetMeFirebaseTokenRequestImpl value,
-    $Res Function(_$SetMeFirebaseTokenRequestImpl) then,
-  ) = __$$SetMeFirebaseTokenRequestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String deviceToken});
 }
 
-/// @nodoc
-class __$$SetMeFirebaseTokenRequestImplCopyWithImpl<$Res>
-    extends
-        _$SetMeFirebaseTokenRequestCopyWithImpl<
-          $Res,
-          _$SetMeFirebaseTokenRequestImpl
-        >
-    implements _$$SetMeFirebaseTokenRequestImplCopyWith<$Res> {
-  __$$SetMeFirebaseTokenRequestImplCopyWithImpl(
-    _$SetMeFirebaseTokenRequestImpl _value,
-    $Res Function(_$SetMeFirebaseTokenRequestImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of SetMeFirebaseTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? deviceToken = null}) {
-    return _then(
-      _$SetMeFirebaseTokenRequestImpl(
-        deviceToken: null == deviceToken
-            ? _value.deviceToken
-            : deviceToken // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [SetMeFirebaseTokenRequest].
+extension SetMeFirebaseTokenRequestPatterns on SetMeFirebaseTokenRequest {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SetMeFirebaseTokenRequest value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SetMeFirebaseTokenRequest value)  $default,){
+final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SetMeFirebaseTokenRequest value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String deviceToken)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest() when $default != null:
+return $default(_that.deviceToken);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String deviceToken)  $default,) {final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest():
+return $default(_that.deviceToken);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String deviceToken)?  $default,) {final _that = this;
+switch (_that) {
+case _SetMeFirebaseTokenRequest() when $default != null:
+return $default(_that.deviceToken);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SetMeFirebaseTokenRequestImpl implements _SetMeFirebaseTokenRequest {
-  _$SetMeFirebaseTokenRequestImpl({required this.deviceToken});
 
-  factory _$SetMeFirebaseTokenRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SetMeFirebaseTokenRequestImplFromJson(json);
+class _SetMeFirebaseTokenRequest implements SetMeFirebaseTokenRequest {
+  const _SetMeFirebaseTokenRequest({required this.deviceToken});
+  factory _SetMeFirebaseTokenRequest.fromJson(Map<String, dynamic> json) => _$SetMeFirebaseTokenRequestFromJson(json);
 
-  @override
-  final String deviceToken;
+@override final  String deviceToken;
 
-  @override
-  String toString() {
-    return 'SetMeFirebaseTokenRequest(deviceToken: $deviceToken)';
-  }
+/// Create a copy of SetMeFirebaseTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SetMeFirebaseTokenRequestCopyWith<_SetMeFirebaseTokenRequest> get copyWith => __$SetMeFirebaseTokenRequestCopyWithImpl<_SetMeFirebaseTokenRequest>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetMeFirebaseTokenRequestImpl &&
-            (identical(other.deviceToken, deviceToken) ||
-                other.deviceToken == deviceToken));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, deviceToken);
-
-  /// Create a copy of SetMeFirebaseTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetMeFirebaseTokenRequestImplCopyWith<_$SetMeFirebaseTokenRequestImpl>
-  get copyWith =>
-      __$$SetMeFirebaseTokenRequestImplCopyWithImpl<
-        _$SetMeFirebaseTokenRequestImpl
-      >(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SetMeFirebaseTokenRequestImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SetMeFirebaseTokenRequestToJson(this, );
 }
 
-abstract class _SetMeFirebaseTokenRequest implements SetMeFirebaseTokenRequest {
-  factory _SetMeFirebaseTokenRequest({required final String deviceToken}) =
-      _$SetMeFirebaseTokenRequestImpl;
-
-  factory _SetMeFirebaseTokenRequest.fromJson(Map<String, dynamic> json) =
-      _$SetMeFirebaseTokenRequestImpl.fromJson;
-
-  @override
-  String get deviceToken;
-
-  /// Create a copy of SetMeFirebaseTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetMeFirebaseTokenRequestImplCopyWith<_$SetMeFirebaseTokenRequestImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SetMeFirebaseTokenRequest&&(identical(other.deviceToken, deviceToken) || other.deviceToken == deviceToken));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,deviceToken);
+
+@override
+String toString() {
+  return 'SetMeFirebaseTokenRequest(deviceToken: $deviceToken)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SetMeFirebaseTokenRequestCopyWith<$Res> implements $SetMeFirebaseTokenRequestCopyWith<$Res> {
+  factory _$SetMeFirebaseTokenRequestCopyWith(_SetMeFirebaseTokenRequest value, $Res Function(_SetMeFirebaseTokenRequest) _then) = __$SetMeFirebaseTokenRequestCopyWithImpl;
+@override @useResult
+$Res call({
+ String deviceToken
+});
+
+
+
+
+}
+/// @nodoc
+class __$SetMeFirebaseTokenRequestCopyWithImpl<$Res>
+    implements _$SetMeFirebaseTokenRequestCopyWith<$Res> {
+  __$SetMeFirebaseTokenRequestCopyWithImpl(this._self, this._then);
+
+  final _SetMeFirebaseTokenRequest _self;
+  final $Res Function(_SetMeFirebaseTokenRequest) _then;
+
+/// Create a copy of SetMeFirebaseTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? deviceToken = null,}) {
+  return _then(_SetMeFirebaseTokenRequest(
+deviceToken: null == deviceToken ? _self.deviceToken : deviceToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

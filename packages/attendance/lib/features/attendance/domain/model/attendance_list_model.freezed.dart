@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,189 +9,290 @@ part of 'attendance_list_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$AttendanceListModel {
-  List<AttendanceModel> get data => throw _privateConstructorUsedError;
-  Page get page => throw _privateConstructorUsedError;
 
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AttendanceListModelCopyWith<AttendanceListModel> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<AttendanceModel> get data; Page get page;
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AttendanceListModelCopyWith<AttendanceListModel> get copyWith => _$AttendanceListModelCopyWithImpl<AttendanceListModel>(this as AttendanceListModel, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AttendanceListModel&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.page, page) || other.page == page));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data),page);
+
+@override
+String toString() {
+  return 'AttendanceListModel(data: $data, page: $page)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AttendanceListModelCopyWith<$Res> {
-  factory $AttendanceListModelCopyWith(
-    AttendanceListModel value,
-    $Res Function(AttendanceListModel) then,
-  ) = _$AttendanceListModelCopyWithImpl<$Res, AttendanceListModel>;
-  @useResult
-  $Res call({List<AttendanceModel> data, Page page});
+abstract mixin class $AttendanceListModelCopyWith<$Res>  {
+  factory $AttendanceListModelCopyWith(AttendanceListModel value, $Res Function(AttendanceListModel) _then) = _$AttendanceListModelCopyWithImpl;
+@useResult
+$Res call({
+ List<AttendanceModel> data, Page page
+});
 
-  $PageCopyWith<$Res> get page;
+
+$PageCopyWith<$Res> get page;
+
 }
-
 /// @nodoc
-class _$AttendanceListModelCopyWithImpl<$Res, $Val extends AttendanceListModel>
+class _$AttendanceListModelCopyWithImpl<$Res>
     implements $AttendanceListModelCopyWith<$Res> {
-  _$AttendanceListModelCopyWithImpl(this._value, this._then);
+  _$AttendanceListModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AttendanceListModel _self;
+  final $Res Function(AttendanceListModel) _then;
 
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null, Object? page = null}) {
-    return _then(
-      _value.copyWith(
-            data: null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                      as List<AttendanceModel>,
-            page: null == page
-                ? _value.page
-                : page // ignore: cast_nullable_to_non_nullable
-                      as Page,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,Object? page = null,}) {
+  return _then(_self.copyWith(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as List<AttendanceModel>,page: null == page ? _self.page : page // ignore: cast_nullable_to_non_nullable
+as Page,
+  ));
+}
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PageCopyWith<$Res> get page {
+  
+  return $PageCopyWith<$Res>(_self.page, (value) {
+    return _then(_self.copyWith(page: value));
+  });
+}
+}
 
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PageCopyWith<$Res> get page {
-    return $PageCopyWith<$Res>(_value.page, (value) {
-      return _then(_value.copyWith(page: value) as $Val);
-    });
-  }
+
+/// Adds pattern-matching-related methods to [AttendanceListModel].
+extension AttendanceListModelPatterns on AttendanceListModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AttendanceListModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AttendanceListModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AttendanceListModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _AttendanceListModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AttendanceListModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AttendanceListModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<AttendanceModel> data,  Page page)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AttendanceListModel() when $default != null:
+return $default(_that.data,_that.page);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<AttendanceModel> data,  Page page)  $default,) {final _that = this;
+switch (_that) {
+case _AttendanceListModel():
+return $default(_that.data,_that.page);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<AttendanceModel> data,  Page page)?  $default,) {final _that = this;
+switch (_that) {
+case _AttendanceListModel() when $default != null:
+return $default(_that.data,_that.page);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$AttendanceListModelImplCopyWith<$Res>
-    implements $AttendanceListModelCopyWith<$Res> {
-  factory _$$AttendanceListModelImplCopyWith(
-    _$AttendanceListModelImpl value,
-    $Res Function(_$AttendanceListModelImpl) then,
-  ) = __$$AttendanceListModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<AttendanceModel> data, Page page});
 
-  @override
-  $PageCopyWith<$Res> get page;
+
+class _AttendanceListModel implements AttendanceListModel {
+  const _AttendanceListModel({final  List<AttendanceModel> data = const [], required this.page}): _data = data;
+  
+
+ final  List<AttendanceModel> _data;
+@override@JsonKey() List<AttendanceModel> get data {
+  if (_data is EqualUnmodifiableListView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_data);
+}
+
+@override final  Page page;
+
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AttendanceListModelCopyWith<_AttendanceListModel> get copyWith => __$AttendanceListModelCopyWithImpl<_AttendanceListModel>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AttendanceListModel&&const DeepCollectionEquality().equals(other._data, _data)&&(identical(other.page, page) || other.page == page));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data),page);
+
+@override
+String toString() {
+  return 'AttendanceListModel(data: $data, page: $page)';
+}
+
+
 }
 
 /// @nodoc
-class __$$AttendanceListModelImplCopyWithImpl<$Res>
-    extends _$AttendanceListModelCopyWithImpl<$Res, _$AttendanceListModelImpl>
-    implements _$$AttendanceListModelImplCopyWith<$Res> {
-  __$$AttendanceListModelImplCopyWithImpl(
-    _$AttendanceListModelImpl _value,
-    $Res Function(_$AttendanceListModelImpl) _then,
-  ) : super(_value, _then);
+abstract mixin class _$AttendanceListModelCopyWith<$Res> implements $AttendanceListModelCopyWith<$Res> {
+  factory _$AttendanceListModelCopyWith(_AttendanceListModel value, $Res Function(_AttendanceListModel) _then) = __$AttendanceListModelCopyWithImpl;
+@override @useResult
+$Res call({
+ List<AttendanceModel> data, Page page
+});
 
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null, Object? page = null}) {
-    return _then(
-      _$AttendanceListModelImpl(
-        data: null == data
-            ? _value._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<AttendanceModel>,
-        page: null == page
-            ? _value.page
-            : page // ignore: cast_nullable_to_non_nullable
-                  as Page,
-      ),
-    );
-  }
+
+@override $PageCopyWith<$Res> get page;
+
 }
-
 /// @nodoc
+class __$AttendanceListModelCopyWithImpl<$Res>
+    implements _$AttendanceListModelCopyWith<$Res> {
+  __$AttendanceListModelCopyWithImpl(this._self, this._then);
 
-class _$AttendanceListModelImpl implements _AttendanceListModel {
-  _$AttendanceListModelImpl({
-    final List<AttendanceModel> data = const [],
-    required this.page,
-  }) : _data = data;
+  final _AttendanceListModel _self;
+  final $Res Function(_AttendanceListModel) _then;
 
-  final List<AttendanceModel> _data;
-  @override
-  @JsonKey()
-  List<AttendanceModel> get data {
-    if (_data is EqualUnmodifiableListView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
-  }
-
-  @override
-  final Page page;
-
-  @override
-  String toString() {
-    return 'AttendanceListModel(data: $data, page: $page)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AttendanceListModelImpl &&
-            const DeepCollectionEquality().equals(other._data, _data) &&
-            (identical(other.page, page) || other.page == page));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_data),
-    page,
-  );
-
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AttendanceListModelImplCopyWith<_$AttendanceListModelImpl> get copyWith =>
-      __$$AttendanceListModelImplCopyWithImpl<_$AttendanceListModelImpl>(
-        this,
-        _$identity,
-      );
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,Object? page = null,}) {
+  return _then(_AttendanceListModel(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as List<AttendanceModel>,page: null == page ? _self.page : page // ignore: cast_nullable_to_non_nullable
+as Page,
+  ));
 }
 
-abstract class _AttendanceListModel implements AttendanceListModel {
-  factory _AttendanceListModel({
-    final List<AttendanceModel> data,
-    required final Page page,
-  }) = _$AttendanceListModelImpl;
-
-  @override
-  List<AttendanceModel> get data;
-  @override
-  Page get page;
-
-  /// Create a copy of AttendanceListModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AttendanceListModelImplCopyWith<_$AttendanceListModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+/// Create a copy of AttendanceListModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PageCopyWith<$Res> get page {
+  
+  return $PageCopyWith<$Res>(_self.page, (value) {
+    return _then(_self.copyWith(page: value));
+  });
 }
+}
+
+// dart format on
