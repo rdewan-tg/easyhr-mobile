@@ -6,9 +6,9 @@ part of 'public_holiday_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PublicHolidayResponseImpl _$$PublicHolidayResponseImplFromJson(
+_PublicHolidayResponse _$PublicHolidayResponseFromJson(
   Map<String, dynamic> json,
-) => _$PublicHolidayResponseImpl(
+) => _PublicHolidayResponse(
   status: json['status'] as String,
   data:
       (json['data'] as List<dynamic>?)
@@ -17,52 +17,50 @@ _$PublicHolidayResponseImpl _$$PublicHolidayResponseImplFromJson(
       const [],
 );
 
-Map<String, dynamic> _$$PublicHolidayResponseImplToJson(
-  _$PublicHolidayResponseImpl instance,
+Map<String, dynamic> _$PublicHolidayResponseToJson(
+  _PublicHolidayResponse instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};
 
-_$PublicHolidayDataImpl _$$PublicHolidayDataImplFromJson(
-  Map<String, dynamic> json,
-) => _$PublicHolidayDataImpl(
-  id: (json['id'] as num).toInt(),
-  name: json['name'] as String,
-  description: json['description'] as String?,
-  date: DateTime.parse(json['date'] as String),
-  year: (json['year'] as num).toInt(),
-  isRecurring: json['isRecurring'] as bool,
-  companyId: (json['companyId'] as num).toInt(),
-  states:
-      (json['states'] as List<dynamic>?)
-          ?.map((e) => PublicHolidayState.fromJson(e as Map<String, dynamic>))
-          .toList() ??
-      const [],
-);
+_PublicHolidayData _$PublicHolidayDataFromJson(Map<String, dynamic> json) =>
+    _PublicHolidayData(
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      date: DateTime.parse(json['date'] as String),
+      year: (json['year'] as num).toInt(),
+      isRecurring: json['isRecurring'] as bool,
+      companyId: (json['companyId'] as num).toInt(),
+      states:
+          (json['states'] as List<dynamic>?)
+              ?.map(
+                (e) => PublicHolidayState.fromJson(e as Map<String, dynamic>),
+              )
+              .toList() ??
+          const [],
+    );
 
-Map<String, dynamic> _$$PublicHolidayDataImplToJson(
-  _$PublicHolidayDataImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'description': instance.description,
-  'date': instance.date.toIso8601String(),
-  'year': instance.year,
-  'isRecurring': instance.isRecurring,
-  'companyId': instance.companyId,
-  'states': instance.states,
-};
+Map<String, dynamic> _$PublicHolidayDataToJson(_PublicHolidayData instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+      'date': instance.date.toIso8601String(),
+      'year': instance.year,
+      'isRecurring': instance.isRecurring,
+      'companyId': instance.companyId,
+      'states': instance.states,
+    };
 
-_$PublicHolidayStateImpl _$$PublicHolidayStateImplFromJson(
-  Map<String, dynamic> json,
-) => _$PublicHolidayStateImpl(
-  id: (json['id'] as num).toInt(),
-  name: json['name'] as String,
-  code: json['code'] as String?,
-);
+_PublicHolidayState _$PublicHolidayStateFromJson(Map<String, dynamic> json) =>
+    _PublicHolidayState(
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String,
+      code: json['code'] as String?,
+    );
 
-Map<String, dynamic> _$$PublicHolidayStateImplToJson(
-  _$PublicHolidayStateImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'code': instance.code,
-};
+Map<String, dynamic> _$PublicHolidayStateToJson(_PublicHolidayState instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'code': instance.code,
+    };

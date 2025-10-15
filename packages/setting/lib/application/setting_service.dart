@@ -1,7 +1,6 @@
 import 'package:common/exception/failure.dart';
 import 'package:core/data/local/db/app_database.dart';
 import 'package:setting/application/isetting_service.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:setting/data/repository/isetting_repository.dart';
 import 'package:setting/data/repository/setting_repository.dart';
 import 'package:multiple_result/multiple_result.dart';

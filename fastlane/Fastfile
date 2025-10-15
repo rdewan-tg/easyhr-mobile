@@ -1,0 +1,64 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Poll TestFlight and submit to external testers"
+  lane :submit_to_testflight do |options|
+    api_key = app_store_connect_api_key(
+      key_id: options[:key_id],
+      issuer_id: options[:issuer_id],
+      key_content: options[:key_content],
+      duration: 1200,
+      in_house: false
+    )
+
+    app_id = options[:app_id]
+    build_number = options[:build_number]
+    testflight_groups = options[:groups]
+
+    require 'spaceship'
+    Spaceship::ConnectAPI.token = api_key
+
+    UI.message("Checking status of build #{build_number} for app #{app_id}")
+
+    max_attempts = 30
+    sleep_duration = 60
+    attempt = 1
+
+    loop do
+      UI.message("Attempt #{attempt}/#{max_attempts}...")
+
+      builds = Spaceship::ConnectAPI::Build.all(
+        app_id: app_id,
+        filter: { 'buildNumber' => build_number }
+      )
+
+      build = builds.first
+
+      if build.nil?
+        UI.message("No build found for build number #{build_number}. Retrying...")
+      elsif build.processing_state == "VALID"
+        UI.success("Build is VALID! Submitting for external testing...")
+
+        pilot(
+          api_key: api_key,
+          app_identifier: app_id,
+          groups: testflight_groups
+        )
+
+        UI.success("Build submitted to external testers.")
+        break
+      elsif ["FAILED", "INVALID"].include?(build.processing_state)
+        UI.user_error!("Build processing failed with state: #{build.processing_state}")
+      else
+        UI.message("Build state: #{build.processing_state}. Waiting #{sleep_duration}s...")
+      end
+
+      attempt += 1
+      if attempt > max_attempts
+        UI.user_error!("Timeout: Build not ready after #{max_attempts * sleep_duration / 60} minutes.")
+      end
+
+      sleep(sleep_duration)
+    end
+  end
+end

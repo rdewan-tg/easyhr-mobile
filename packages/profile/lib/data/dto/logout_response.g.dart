@@ -6,9 +6,8 @@ part of 'logout_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogoutResponseImpl _$$LogoutResponseImplFromJson(Map<String, dynamic> json) =>
-    _$LogoutResponseImpl(status: json['status'] as String);
+_LogoutResponse _$LogoutResponseFromJson(Map<String, dynamic> json) =>
+    _LogoutResponse(status: json['status'] as String);
 
-Map<String, dynamic> _$$LogoutResponseImplToJson(
-  _$LogoutResponseImpl instance,
-) => <String, dynamic>{'status': instance.status};
+Map<String, dynamic> _$LogoutResponseToJson(_LogoutResponse instance) =>
+    <String, dynamic>{'status': instance.status};

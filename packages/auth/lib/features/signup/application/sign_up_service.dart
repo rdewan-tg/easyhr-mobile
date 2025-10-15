@@ -42,7 +42,7 @@ final class SignUpService implements ISignUpService, ISignUpModelMapper {
     return SignUpModel(
       name: user.name,
       email: user.email,
-      isSugnUpSuccess: true,
+      isSignUpSuccess: true,
     );
   }
 }

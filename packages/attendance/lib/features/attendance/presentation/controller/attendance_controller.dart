@@ -3,11 +3,11 @@ import 'package:attendance/features/attendance/application/attendance_service.da
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final attendanceControllerProvider =
-    AutoDisposeNotifierProvider<AttendanceController, AttendanceState>(
+    NotifierProvider<AttendanceController, AttendanceState>(
       AttendanceController.new,
     );
 
-class AttendanceController extends AutoDisposeNotifier<AttendanceState> {
+class AttendanceController extends Notifier<AttendanceState> {
   @override
   AttendanceState build() {
     return AttendanceState();

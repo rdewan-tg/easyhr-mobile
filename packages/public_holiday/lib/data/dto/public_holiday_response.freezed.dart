@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,754 +9,837 @@ part of 'public_holiday_response.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-PublicHolidayResponse _$PublicHolidayResponseFromJson(
-  Map<String, dynamic> json,
-) {
-  return _PublicHolidayResponse.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PublicHolidayResponse {
-  String get status => throw _privateConstructorUsedError;
-  List<PublicHolidayData> get data => throw _privateConstructorUsedError;
+
+ String get status; List<PublicHolidayData> get data;
+/// Create a copy of PublicHolidayResponse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PublicHolidayResponseCopyWith<PublicHolidayResponse> get copyWith => _$PublicHolidayResponseCopyWithImpl<PublicHolidayResponse>(this as PublicHolidayResponse, _$identity);
 
   /// Serializes this PublicHolidayResponse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of PublicHolidayResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PublicHolidayResponseCopyWith<PublicHolidayResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PublicHolidayResponse&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'PublicHolidayResponse(status: $status, data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PublicHolidayResponseCopyWith<$Res> {
-  factory $PublicHolidayResponseCopyWith(
-    PublicHolidayResponse value,
-    $Res Function(PublicHolidayResponse) then,
-  ) = _$PublicHolidayResponseCopyWithImpl<$Res, PublicHolidayResponse>;
-  @useResult
-  $Res call({String status, List<PublicHolidayData> data});
-}
+abstract mixin class $PublicHolidayResponseCopyWith<$Res>  {
+  factory $PublicHolidayResponseCopyWith(PublicHolidayResponse value, $Res Function(PublicHolidayResponse) _then) = _$PublicHolidayResponseCopyWithImpl;
+@useResult
+$Res call({
+ String status, List<PublicHolidayData> data
+});
 
+
+
+
+}
 /// @nodoc
-class _$PublicHolidayResponseCopyWithImpl<
-  $Res,
-  $Val extends PublicHolidayResponse
->
+class _$PublicHolidayResponseCopyWithImpl<$Res>
     implements $PublicHolidayResponseCopyWith<$Res> {
-  _$PublicHolidayResponseCopyWithImpl(this._value, this._then);
+  _$PublicHolidayResponseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PublicHolidayResponse _self;
+  final $Res Function(PublicHolidayResponse) _then;
 
-  /// Create a copy of PublicHolidayResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? status = null, Object? data = null}) {
-    return _then(
-      _value.copyWith(
-            status: null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                      as String,
-            data: null == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                      as List<PublicHolidayData>,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of PublicHolidayResponse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? data = null,}) {
+  return _then(_self.copyWith(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as List<PublicHolidayData>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PublicHolidayResponseImplCopyWith<$Res>
-    implements $PublicHolidayResponseCopyWith<$Res> {
-  factory _$$PublicHolidayResponseImplCopyWith(
-    _$PublicHolidayResponseImpl value,
-    $Res Function(_$PublicHolidayResponseImpl) then,
-  ) = __$$PublicHolidayResponseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String status, List<PublicHolidayData> data});
 }
 
-/// @nodoc
-class __$$PublicHolidayResponseImplCopyWithImpl<$Res>
-    extends
-        _$PublicHolidayResponseCopyWithImpl<$Res, _$PublicHolidayResponseImpl>
-    implements _$$PublicHolidayResponseImplCopyWith<$Res> {
-  __$$PublicHolidayResponseImplCopyWithImpl(
-    _$PublicHolidayResponseImpl _value,
-    $Res Function(_$PublicHolidayResponseImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of PublicHolidayResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? status = null, Object? data = null}) {
-    return _then(
-      _$PublicHolidayResponseImpl(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _value._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<PublicHolidayData>,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [PublicHolidayResponse].
+extension PublicHolidayResponsePatterns on PublicHolidayResponse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PublicHolidayResponse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _PublicHolidayResponse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PublicHolidayResponse value)  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayResponse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PublicHolidayResponse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayResponse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String status,  List<PublicHolidayData> data)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _PublicHolidayResponse() when $default != null:
+return $default(_that.status,_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String status,  List<PublicHolidayData> data)  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayResponse():
+return $default(_that.status,_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String status,  List<PublicHolidayData> data)?  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayResponse() when $default != null:
+return $default(_that.status,_that.data);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PublicHolidayResponseImpl implements _PublicHolidayResponse {
-  _$PublicHolidayResponseImpl({
-    required this.status,
-    final List<PublicHolidayData> data = const [],
-  }) : _data = data;
 
-  factory _$PublicHolidayResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PublicHolidayResponseImplFromJson(json);
+class _PublicHolidayResponse implements PublicHolidayResponse {
+   _PublicHolidayResponse({required this.status, final  List<PublicHolidayData> data = const []}): _data = data;
+  factory _PublicHolidayResponse.fromJson(Map<String, dynamic> json) => _$PublicHolidayResponseFromJson(json);
 
-  @override
-  final String status;
-  final List<PublicHolidayData> _data;
-  @override
-  @JsonKey()
-  List<PublicHolidayData> get data {
-    if (_data is EqualUnmodifiableListView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
-  }
-
-  @override
-  String toString() {
-    return 'PublicHolidayResponse(status: $status, data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PublicHolidayResponseImpl &&
-            (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    status,
-    const DeepCollectionEquality().hash(_data),
-  );
-
-  /// Create a copy of PublicHolidayResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PublicHolidayResponseImplCopyWith<_$PublicHolidayResponseImpl>
-  get copyWith =>
-      __$$PublicHolidayResponseImplCopyWithImpl<_$PublicHolidayResponseImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PublicHolidayResponseImplToJson(this);
-  }
+@override final  String status;
+ final  List<PublicHolidayData> _data;
+@override@JsonKey() List<PublicHolidayData> get data {
+  if (_data is EqualUnmodifiableListView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_data);
 }
 
-abstract class _PublicHolidayResponse implements PublicHolidayResponse {
-  factory _PublicHolidayResponse({
-    required final String status,
-    final List<PublicHolidayData> data,
-  }) = _$PublicHolidayResponseImpl;
 
-  factory _PublicHolidayResponse.fromJson(Map<String, dynamic> json) =
-      _$PublicHolidayResponseImpl.fromJson;
+/// Create a copy of PublicHolidayResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PublicHolidayResponseCopyWith<_PublicHolidayResponse> get copyWith => __$PublicHolidayResponseCopyWithImpl<_PublicHolidayResponse>(this, _$identity);
 
-  @override
-  String get status;
-  @override
-  List<PublicHolidayData> get data;
-
-  /// Create a copy of PublicHolidayResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PublicHolidayResponseImplCopyWith<_$PublicHolidayResponseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$PublicHolidayResponseToJson(this, );
 }
 
-PublicHolidayData _$PublicHolidayDataFromJson(Map<String, dynamic> json) {
-  return _PublicHolidayData.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PublicHolidayResponse&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._data, _data));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'PublicHolidayResponse(status: $status, data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PublicHolidayResponseCopyWith<$Res> implements $PublicHolidayResponseCopyWith<$Res> {
+  factory _$PublicHolidayResponseCopyWith(_PublicHolidayResponse value, $Res Function(_PublicHolidayResponse) _then) = __$PublicHolidayResponseCopyWithImpl;
+@override @useResult
+$Res call({
+ String status, List<PublicHolidayData> data
+});
+
+
+
+
+}
+/// @nodoc
+class __$PublicHolidayResponseCopyWithImpl<$Res>
+    implements _$PublicHolidayResponseCopyWith<$Res> {
+  __$PublicHolidayResponseCopyWithImpl(this._self, this._then);
+
+  final _PublicHolidayResponse _self;
+  final $Res Function(_PublicHolidayResponse) _then;
+
+/// Create a copy of PublicHolidayResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? data = null,}) {
+  return _then(_PublicHolidayResponse(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as List<PublicHolidayData>,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$PublicHolidayData {
-  @JsonKey(name: 'id')
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
-  String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'description')
-  String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'date')
-  DateTime get date => throw _privateConstructorUsedError;
-  @JsonKey(name: 'year')
-  int get year => throw _privateConstructorUsedError;
-  @JsonKey(name: 'isRecurring')
-  bool get isRecurring => throw _privateConstructorUsedError;
-  @JsonKey(name: 'companyId')
-  int get companyId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'states')
-  List<PublicHolidayState> get states => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'name') String get name;@JsonKey(name: 'description') String? get description;@JsonKey(name: 'date') DateTime get date;@JsonKey(name: 'year') int get year;@JsonKey(name: 'isRecurring') bool get isRecurring;@JsonKey(name: 'companyId') int get companyId;@JsonKey(name: 'states') List<PublicHolidayState> get states;
+/// Create a copy of PublicHolidayData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PublicHolidayDataCopyWith<PublicHolidayData> get copyWith => _$PublicHolidayDataCopyWithImpl<PublicHolidayData>(this as PublicHolidayData, _$identity);
 
   /// Serializes this PublicHolidayData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of PublicHolidayData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PublicHolidayDataCopyWith<PublicHolidayData> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PublicHolidayData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.date, date) || other.date == date)&&(identical(other.year, year) || other.year == year)&&(identical(other.isRecurring, isRecurring) || other.isRecurring == isRecurring)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&const DeepCollectionEquality().equals(other.states, states));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,description,date,year,isRecurring,companyId,const DeepCollectionEquality().hash(states));
+
+@override
+String toString() {
+  return 'PublicHolidayData(id: $id, name: $name, description: $description, date: $date, year: $year, isRecurring: $isRecurring, companyId: $companyId, states: $states)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PublicHolidayDataCopyWith<$Res> {
-  factory $PublicHolidayDataCopyWith(
-    PublicHolidayData value,
-    $Res Function(PublicHolidayData) then,
-  ) = _$PublicHolidayDataCopyWithImpl<$Res, PublicHolidayData>;
-  @useResult
-  $Res call({
-    @JsonKey(name: 'id') int id,
-    @JsonKey(name: 'name') String name,
-    @JsonKey(name: 'description') String? description,
-    @JsonKey(name: 'date') DateTime date,
-    @JsonKey(name: 'year') int year,
-    @JsonKey(name: 'isRecurring') bool isRecurring,
-    @JsonKey(name: 'companyId') int companyId,
-    @JsonKey(name: 'states') List<PublicHolidayState> states,
-  });
-}
+abstract mixin class $PublicHolidayDataCopyWith<$Res>  {
+  factory $PublicHolidayDataCopyWith(PublicHolidayData value, $Res Function(PublicHolidayData) _then) = _$PublicHolidayDataCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'description') String? description,@JsonKey(name: 'date') DateTime date,@JsonKey(name: 'year') int year,@JsonKey(name: 'isRecurring') bool isRecurring,@JsonKey(name: 'companyId') int companyId,@JsonKey(name: 'states') List<PublicHolidayState> states
+});
 
+
+
+
+}
 /// @nodoc
-class _$PublicHolidayDataCopyWithImpl<$Res, $Val extends PublicHolidayData>
+class _$PublicHolidayDataCopyWithImpl<$Res>
     implements $PublicHolidayDataCopyWith<$Res> {
-  _$PublicHolidayDataCopyWithImpl(this._value, this._then);
+  _$PublicHolidayDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PublicHolidayData _self;
+  final $Res Function(PublicHolidayData) _then;
 
-  /// Create a copy of PublicHolidayData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? date = null,
-    Object? year = null,
-    Object? isRecurring = null,
-    Object? companyId = null,
-    Object? states = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as int,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            date: null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-            year: null == year
-                ? _value.year
-                : year // ignore: cast_nullable_to_non_nullable
-                      as int,
-            isRecurring: null == isRecurring
-                ? _value.isRecurring
-                : isRecurring // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            companyId: null == companyId
-                ? _value.companyId
-                : companyId // ignore: cast_nullable_to_non_nullable
-                      as int,
-            states: null == states
-                ? _value.states
-                : states // ignore: cast_nullable_to_non_nullable
-                      as List<PublicHolidayState>,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of PublicHolidayData
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = freezed,Object? date = null,Object? year = null,Object? isRecurring = null,Object? companyId = null,Object? states = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
+as int,isRecurring: null == isRecurring ? _self.isRecurring : isRecurring // ignore: cast_nullable_to_non_nullable
+as bool,companyId: null == companyId ? _self.companyId : companyId // ignore: cast_nullable_to_non_nullable
+as int,states: null == states ? _self.states : states // ignore: cast_nullable_to_non_nullable
+as List<PublicHolidayState>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PublicHolidayDataImplCopyWith<$Res>
-    implements $PublicHolidayDataCopyWith<$Res> {
-  factory _$$PublicHolidayDataImplCopyWith(
-    _$PublicHolidayDataImpl value,
-    $Res Function(_$PublicHolidayDataImpl) then,
-  ) = __$$PublicHolidayDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    @JsonKey(name: 'id') int id,
-    @JsonKey(name: 'name') String name,
-    @JsonKey(name: 'description') String? description,
-    @JsonKey(name: 'date') DateTime date,
-    @JsonKey(name: 'year') int year,
-    @JsonKey(name: 'isRecurring') bool isRecurring,
-    @JsonKey(name: 'companyId') int companyId,
-    @JsonKey(name: 'states') List<PublicHolidayState> states,
-  });
 }
 
-/// @nodoc
-class __$$PublicHolidayDataImplCopyWithImpl<$Res>
-    extends _$PublicHolidayDataCopyWithImpl<$Res, _$PublicHolidayDataImpl>
-    implements _$$PublicHolidayDataImplCopyWith<$Res> {
-  __$$PublicHolidayDataImplCopyWithImpl(
-    _$PublicHolidayDataImpl _value,
-    $Res Function(_$PublicHolidayDataImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of PublicHolidayData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? date = null,
-    Object? year = null,
-    Object? isRecurring = null,
-    Object? companyId = null,
-    Object? states = null,
-  }) {
-    return _then(
-      _$PublicHolidayDataImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: freezed == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        date: null == date
-            ? _value.date
-            : date // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        year: null == year
-            ? _value.year
-            : year // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isRecurring: null == isRecurring
-            ? _value.isRecurring
-            : isRecurring // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        companyId: null == companyId
-            ? _value.companyId
-            : companyId // ignore: cast_nullable_to_non_nullable
-                  as int,
-        states: null == states
-            ? _value._states
-            : states // ignore: cast_nullable_to_non_nullable
-                  as List<PublicHolidayState>,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [PublicHolidayData].
+extension PublicHolidayDataPatterns on PublicHolidayData {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PublicHolidayData value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _PublicHolidayData() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PublicHolidayData value)  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayData():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PublicHolidayData value)?  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayData() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'date')  DateTime date, @JsonKey(name: 'year')  int year, @JsonKey(name: 'isRecurring')  bool isRecurring, @JsonKey(name: 'companyId')  int companyId, @JsonKey(name: 'states')  List<PublicHolidayState> states)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _PublicHolidayData() when $default != null:
+return $default(_that.id,_that.name,_that.description,_that.date,_that.year,_that.isRecurring,_that.companyId,_that.states);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'date')  DateTime date, @JsonKey(name: 'year')  int year, @JsonKey(name: 'isRecurring')  bool isRecurring, @JsonKey(name: 'companyId')  int companyId, @JsonKey(name: 'states')  List<PublicHolidayState> states)  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayData():
+return $default(_that.id,_that.name,_that.description,_that.date,_that.year,_that.isRecurring,_that.companyId,_that.states);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'description')  String? description, @JsonKey(name: 'date')  DateTime date, @JsonKey(name: 'year')  int year, @JsonKey(name: 'isRecurring')  bool isRecurring, @JsonKey(name: 'companyId')  int companyId, @JsonKey(name: 'states')  List<PublicHolidayState> states)?  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayData() when $default != null:
+return $default(_that.id,_that.name,_that.description,_that.date,_that.year,_that.isRecurring,_that.companyId,_that.states);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PublicHolidayDataImpl implements _PublicHolidayData {
-  _$PublicHolidayDataImpl({
-    @JsonKey(name: 'id') required this.id,
-    @JsonKey(name: 'name') required this.name,
-    @JsonKey(name: 'description') this.description,
-    @JsonKey(name: 'date') required this.date,
-    @JsonKey(name: 'year') required this.year,
-    @JsonKey(name: 'isRecurring') required this.isRecurring,
-    @JsonKey(name: 'companyId') required this.companyId,
-    @JsonKey(name: 'states') final List<PublicHolidayState> states = const [],
-  }) : _states = states;
 
-  factory _$PublicHolidayDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PublicHolidayDataImplFromJson(json);
+class _PublicHolidayData implements PublicHolidayData {
+   _PublicHolidayData({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'name') required this.name, @JsonKey(name: 'description') this.description, @JsonKey(name: 'date') required this.date, @JsonKey(name: 'year') required this.year, @JsonKey(name: 'isRecurring') required this.isRecurring, @JsonKey(name: 'companyId') required this.companyId, @JsonKey(name: 'states') final  List<PublicHolidayState> states = const []}): _states = states;
+  factory _PublicHolidayData.fromJson(Map<String, dynamic> json) => _$PublicHolidayDataFromJson(json);
 
-  @override
-  @JsonKey(name: 'id')
-  final int id;
-  @override
-  @JsonKey(name: 'name')
-  final String name;
-  @override
-  @JsonKey(name: 'description')
-  final String? description;
-  @override
-  @JsonKey(name: 'date')
-  final DateTime date;
-  @override
-  @JsonKey(name: 'year')
-  final int year;
-  @override
-  @JsonKey(name: 'isRecurring')
-  final bool isRecurring;
-  @override
-  @JsonKey(name: 'companyId')
-  final int companyId;
-  final List<PublicHolidayState> _states;
-  @override
-  @JsonKey(name: 'states')
-  List<PublicHolidayState> get states {
-    if (_states is EqualUnmodifiableListView) return _states;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_states);
-  }
-
-  @override
-  String toString() {
-    return 'PublicHolidayData(id: $id, name: $name, description: $description, date: $date, year: $year, isRecurring: $isRecurring, companyId: $companyId, states: $states)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PublicHolidayDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.isRecurring, isRecurring) ||
-                other.isRecurring == isRecurring) &&
-            (identical(other.companyId, companyId) ||
-                other.companyId == companyId) &&
-            const DeepCollectionEquality().equals(other._states, _states));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    description,
-    date,
-    year,
-    isRecurring,
-    companyId,
-    const DeepCollectionEquality().hash(_states),
-  );
-
-  /// Create a copy of PublicHolidayData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PublicHolidayDataImplCopyWith<_$PublicHolidayDataImpl> get copyWith =>
-      __$$PublicHolidayDataImplCopyWithImpl<_$PublicHolidayDataImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PublicHolidayDataImplToJson(this);
-  }
+@override@JsonKey(name: 'id') final  int id;
+@override@JsonKey(name: 'name') final  String name;
+@override@JsonKey(name: 'description') final  String? description;
+@override@JsonKey(name: 'date') final  DateTime date;
+@override@JsonKey(name: 'year') final  int year;
+@override@JsonKey(name: 'isRecurring') final  bool isRecurring;
+@override@JsonKey(name: 'companyId') final  int companyId;
+ final  List<PublicHolidayState> _states;
+@override@JsonKey(name: 'states') List<PublicHolidayState> get states {
+  if (_states is EqualUnmodifiableListView) return _states;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_states);
 }
 
-abstract class _PublicHolidayData implements PublicHolidayData {
-  factory _PublicHolidayData({
-    @JsonKey(name: 'id') required final int id,
-    @JsonKey(name: 'name') required final String name,
-    @JsonKey(name: 'description') final String? description,
-    @JsonKey(name: 'date') required final DateTime date,
-    @JsonKey(name: 'year') required final int year,
-    @JsonKey(name: 'isRecurring') required final bool isRecurring,
-    @JsonKey(name: 'companyId') required final int companyId,
-    @JsonKey(name: 'states') final List<PublicHolidayState> states,
-  }) = _$PublicHolidayDataImpl;
 
-  factory _PublicHolidayData.fromJson(Map<String, dynamic> json) =
-      _$PublicHolidayDataImpl.fromJson;
+/// Create a copy of PublicHolidayData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PublicHolidayDataCopyWith<_PublicHolidayData> get copyWith => __$PublicHolidayDataCopyWithImpl<_PublicHolidayData>(this, _$identity);
 
-  @override
-  @JsonKey(name: 'id')
-  int get id;
-  @override
-  @JsonKey(name: 'name')
-  String get name;
-  @override
-  @JsonKey(name: 'description')
-  String? get description;
-  @override
-  @JsonKey(name: 'date')
-  DateTime get date;
-  @override
-  @JsonKey(name: 'year')
-  int get year;
-  @override
-  @JsonKey(name: 'isRecurring')
-  bool get isRecurring;
-  @override
-  @JsonKey(name: 'companyId')
-  int get companyId;
-  @override
-  @JsonKey(name: 'states')
-  List<PublicHolidayState> get states;
-
-  /// Create a copy of PublicHolidayData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PublicHolidayDataImplCopyWith<_$PublicHolidayDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$PublicHolidayDataToJson(this, );
 }
 
-PublicHolidayState _$PublicHolidayStateFromJson(Map<String, dynamic> json) {
-  return _PublicHolidayState.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PublicHolidayData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.date, date) || other.date == date)&&(identical(other.year, year) || other.year == year)&&(identical(other.isRecurring, isRecurring) || other.isRecurring == isRecurring)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&const DeepCollectionEquality().equals(other._states, _states));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,description,date,year,isRecurring,companyId,const DeepCollectionEquality().hash(_states));
+
+@override
+String toString() {
+  return 'PublicHolidayData(id: $id, name: $name, description: $description, date: $date, year: $year, isRecurring: $isRecurring, companyId: $companyId, states: $states)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PublicHolidayDataCopyWith<$Res> implements $PublicHolidayDataCopyWith<$Res> {
+  factory _$PublicHolidayDataCopyWith(_PublicHolidayData value, $Res Function(_PublicHolidayData) _then) = __$PublicHolidayDataCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'description') String? description,@JsonKey(name: 'date') DateTime date,@JsonKey(name: 'year') int year,@JsonKey(name: 'isRecurring') bool isRecurring,@JsonKey(name: 'companyId') int companyId,@JsonKey(name: 'states') List<PublicHolidayState> states
+});
+
+
+
+
+}
+/// @nodoc
+class __$PublicHolidayDataCopyWithImpl<$Res>
+    implements _$PublicHolidayDataCopyWith<$Res> {
+  __$PublicHolidayDataCopyWithImpl(this._self, this._then);
+
+  final _PublicHolidayData _self;
+  final $Res Function(_PublicHolidayData) _then;
+
+/// Create a copy of PublicHolidayData
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? description = freezed,Object? date = null,Object? year = null,Object? isRecurring = null,Object? companyId = null,Object? states = null,}) {
+  return _then(_PublicHolidayData(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
+as int,isRecurring: null == isRecurring ? _self.isRecurring : isRecurring // ignore: cast_nullable_to_non_nullable
+as bool,companyId: null == companyId ? _self.companyId : companyId // ignore: cast_nullable_to_non_nullable
+as int,states: null == states ? _self._states : states // ignore: cast_nullable_to_non_nullable
+as List<PublicHolidayState>,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$PublicHolidayState {
-  @JsonKey(name: 'id')
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
-  String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'code')
-  String? get code => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'name') String get name;@JsonKey(name: 'code') String? get code;
+/// Create a copy of PublicHolidayState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PublicHolidayStateCopyWith<PublicHolidayState> get copyWith => _$PublicHolidayStateCopyWithImpl<PublicHolidayState>(this as PublicHolidayState, _$identity);
 
   /// Serializes this PublicHolidayState to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of PublicHolidayState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PublicHolidayStateCopyWith<PublicHolidayState> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PublicHolidayState&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.code, code) || other.code == code));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,code);
+
+@override
+String toString() {
+  return 'PublicHolidayState(id: $id, name: $name, code: $code)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PublicHolidayStateCopyWith<$Res> {
-  factory $PublicHolidayStateCopyWith(
-    PublicHolidayState value,
-    $Res Function(PublicHolidayState) then,
-  ) = _$PublicHolidayStateCopyWithImpl<$Res, PublicHolidayState>;
-  @useResult
-  $Res call({
-    @JsonKey(name: 'id') int id,
-    @JsonKey(name: 'name') String name,
-    @JsonKey(name: 'code') String? code,
-  });
-}
+abstract mixin class $PublicHolidayStateCopyWith<$Res>  {
+  factory $PublicHolidayStateCopyWith(PublicHolidayState value, $Res Function(PublicHolidayState) _then) = _$PublicHolidayStateCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'code') String? code
+});
 
+
+
+
+}
 /// @nodoc
-class _$PublicHolidayStateCopyWithImpl<$Res, $Val extends PublicHolidayState>
+class _$PublicHolidayStateCopyWithImpl<$Res>
     implements $PublicHolidayStateCopyWith<$Res> {
-  _$PublicHolidayStateCopyWithImpl(this._value, this._then);
+  _$PublicHolidayStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PublicHolidayState _self;
+  final $Res Function(PublicHolidayState) _then;
 
-  /// Create a copy of PublicHolidayState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as int,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            code: freezed == code
-                ? _value.code
-                : code // ignore: cast_nullable_to_non_nullable
-                      as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of PublicHolidayState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? code = freezed,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PublicHolidayStateImplCopyWith<$Res>
-    implements $PublicHolidayStateCopyWith<$Res> {
-  factory _$$PublicHolidayStateImplCopyWith(
-    _$PublicHolidayStateImpl value,
-    $Res Function(_$PublicHolidayStateImpl) then,
-  ) = __$$PublicHolidayStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    @JsonKey(name: 'id') int id,
-    @JsonKey(name: 'name') String name,
-    @JsonKey(name: 'code') String? code,
-  });
 }
 
-/// @nodoc
-class __$$PublicHolidayStateImplCopyWithImpl<$Res>
-    extends _$PublicHolidayStateCopyWithImpl<$Res, _$PublicHolidayStateImpl>
-    implements _$$PublicHolidayStateImplCopyWith<$Res> {
-  __$$PublicHolidayStateImplCopyWithImpl(
-    _$PublicHolidayStateImpl _value,
-    $Res Function(_$PublicHolidayStateImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of PublicHolidayState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? id = null, Object? name = null, Object? code = freezed}) {
-    return _then(
-      _$PublicHolidayStateImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        code: freezed == code
-            ? _value.code
-            : code // ignore: cast_nullable_to_non_nullable
-                  as String?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [PublicHolidayState].
+extension PublicHolidayStatePatterns on PublicHolidayState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PublicHolidayState value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _PublicHolidayState() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PublicHolidayState value)  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayState():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PublicHolidayState value)?  $default,){
+final _that = this;
+switch (_that) {
+case _PublicHolidayState() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'code')  String? code)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _PublicHolidayState() when $default != null:
+return $default(_that.id,_that.name,_that.code);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'code')  String? code)  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayState():
+return $default(_that.id,_that.name,_that.code);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'code')  String? code)?  $default,) {final _that = this;
+switch (_that) {
+case _PublicHolidayState() when $default != null:
+return $default(_that.id,_that.name,_that.code);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PublicHolidayStateImpl implements _PublicHolidayState {
-  _$PublicHolidayStateImpl({
-    @JsonKey(name: 'id') required this.id,
-    @JsonKey(name: 'name') required this.name,
-    @JsonKey(name: 'code') this.code,
-  });
 
-  factory _$PublicHolidayStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PublicHolidayStateImplFromJson(json);
+class _PublicHolidayState implements PublicHolidayState {
+   _PublicHolidayState({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'name') required this.name, @JsonKey(name: 'code') this.code});
+  factory _PublicHolidayState.fromJson(Map<String, dynamic> json) => _$PublicHolidayStateFromJson(json);
 
-  @override
-  @JsonKey(name: 'id')
-  final int id;
-  @override
-  @JsonKey(name: 'name')
-  final String name;
-  @override
-  @JsonKey(name: 'code')
-  final String? code;
+@override@JsonKey(name: 'id') final  int id;
+@override@JsonKey(name: 'name') final  String name;
+@override@JsonKey(name: 'code') final  String? code;
 
-  @override
-  String toString() {
-    return 'PublicHolidayState(id: $id, name: $name, code: $code)';
-  }
+/// Create a copy of PublicHolidayState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PublicHolidayStateCopyWith<_PublicHolidayState> get copyWith => __$PublicHolidayStateCopyWithImpl<_PublicHolidayState>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PublicHolidayStateImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.code, code) || other.code == code));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, code);
-
-  /// Create a copy of PublicHolidayState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PublicHolidayStateImplCopyWith<_$PublicHolidayStateImpl> get copyWith =>
-      __$$PublicHolidayStateImplCopyWithImpl<_$PublicHolidayStateImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PublicHolidayStateImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PublicHolidayStateToJson(this, );
 }
 
-abstract class _PublicHolidayState implements PublicHolidayState {
-  factory _PublicHolidayState({
-    @JsonKey(name: 'id') required final int id,
-    @JsonKey(name: 'name') required final String name,
-    @JsonKey(name: 'code') final String? code,
-  }) = _$PublicHolidayStateImpl;
-
-  factory _PublicHolidayState.fromJson(Map<String, dynamic> json) =
-      _$PublicHolidayStateImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'id')
-  int get id;
-  @override
-  @JsonKey(name: 'name')
-  String get name;
-  @override
-  @JsonKey(name: 'code')
-  String? get code;
-
-  /// Create a copy of PublicHolidayState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PublicHolidayStateImplCopyWith<_$PublicHolidayStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PublicHolidayState&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.code, code) || other.code == code));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,code);
+
+@override
+String toString() {
+  return 'PublicHolidayState(id: $id, name: $name, code: $code)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PublicHolidayStateCopyWith<$Res> implements $PublicHolidayStateCopyWith<$Res> {
+  factory _$PublicHolidayStateCopyWith(_PublicHolidayState value, $Res Function(_PublicHolidayState) _then) = __$PublicHolidayStateCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'code') String? code
+});
+
+
+
+
+}
+/// @nodoc
+class __$PublicHolidayStateCopyWithImpl<$Res>
+    implements _$PublicHolidayStateCopyWith<$Res> {
+  __$PublicHolidayStateCopyWithImpl(this._self, this._then);
+
+  final _PublicHolidayState _self;
+  final $Res Function(_PublicHolidayState) _then;
+
+/// Create a copy of PublicHolidayState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? code = freezed,}) {
+  return _then(_PublicHolidayState(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

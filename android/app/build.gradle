@@ -27,7 +27,7 @@ if (flutterVersionName == null) {
 
 def flutterCompileSdkVersion = localProperties.getProperty('flutter.compileSdkVersion')
 if (flutterCompileSdkVersion == null) {
-    flutterCompileSdkVersion = 35
+    flutterCompileSdkVersion = 36
 }
 
 def flutterMinSdkVersion = localProperties.getProperty('flutter.minSdkVersion')
@@ -37,7 +37,7 @@ if (flutterMinSdkVersion == null) {
 
 def flutterTargetSdkVersion = localProperties.getProperty('flutter.targetSdkVersion')
 if (flutterTargetSdkVersion == null) {
-    flutterTargetSdkVersion = 35
+    flutterTargetSdkVersion = 36
 }
 
 
@@ -66,7 +66,7 @@ android {
         jvmTarget = JavaVersion.VERSION_17
     }
 
-    // Singning
+    // Signing
     signingConfigs {
         debug {
             if (System.getenv()["CM_BUILD_ID"]) {                

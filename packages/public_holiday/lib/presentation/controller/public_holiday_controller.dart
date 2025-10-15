@@ -3,11 +3,11 @@ import 'package:public_holiday/application/public_holiday_service.dart';
 import 'package:public_holiday/presentation/state/public_holiday_state.dart';
 
 final publicHolidayControllerProvider =
-    AutoDisposeNotifierProvider<PublicHolidayController, PublicHolidayState>(
+    NotifierProvider<PublicHolidayController, PublicHolidayState>(
       () => PublicHolidayController(),
     );
 
-class PublicHolidayController extends AutoDisposeNotifier<PublicHolidayState> {
+class PublicHolidayController extends Notifier<PublicHolidayState> {
   @override
   PublicHolidayState build() {
     return PublicHolidayState();

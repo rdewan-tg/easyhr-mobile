@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'attendance_state.freezed.dart';
 
 @freezed
-class AttendanceState with _$AttendanceState {
-  factory AttendanceState({
+abstract class AttendanceState with _$AttendanceState {
+  const factory AttendanceState({
     @Default(false) bool isLoading,
     @Default(false) bool isPageLoading,
     @Default([]) List<AttendanceModel> attendanceList,

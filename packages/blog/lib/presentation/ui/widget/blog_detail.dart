@@ -93,7 +93,7 @@ class BlogDetail extends ConsumerWidget {
                     "img": Style(margin: Margins.only(bottom: 8, top: 8)),
                     "ul,ol": Style(margin: Margins.only(left: 20)),
                   },
-                  onLinkTap: (url, _, __) {
+                  onLinkTap: (url, _, _) {
                     if (url != null) {
                       // Handle link taps if needed
                       // You could use url_launcher package here

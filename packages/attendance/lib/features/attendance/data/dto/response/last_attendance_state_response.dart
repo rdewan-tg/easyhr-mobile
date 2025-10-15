@@ -16,7 +16,7 @@ abstract class LastAttendanceStateResponse with _$LastAttendanceStateResponse {
 }
 
 @freezed
-class LastAttendanceStateData with _$LastAttendanceStateData {
+abstract class LastAttendanceStateData with _$LastAttendanceStateData {
   const factory LastAttendanceStateData({
     @JsonKey(name: 'status') required AttendanceStatus status,
   }) = _LastAttendanceStateData;
