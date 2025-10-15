@@ -1,5 +1,5 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.32.4",
+  "dart.flutterSdkPath": ".fvm/versions/3.35.5",
   "search.exclude": {
     "**/.fvm": true
   },
@@ -21,7 +21,21 @@
     "retrofit",
     "upgrader",
     "reorderable",
-    "geolocator"
+    "geolocator",
+    "elif",
+    "TESTFLIGHT",
+    "showsdks",
+    "xcrun",
+    "iphoneos",
+    "r0adkll",
+    "tonggarden",
+    "whatsnew",
+    "signUpform",
+    "COCOAPODS",
+    "podfile",
+    "xcconfig",
+    "podhelper",
+    "WHENINUSE"
   ],
   "yaml.schemaStore.enable": false
 }

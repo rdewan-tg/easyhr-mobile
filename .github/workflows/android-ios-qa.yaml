@@ -229,7 +229,7 @@ jobs:
           name: qa-release-ipa
           path: build/ios/ipa
 
-       # Find the IPA file path after Shorebird build
+      # Find the IPA file path after Shorebird build
       - name: Find IPA file path
         id: find-ipa
         run: |

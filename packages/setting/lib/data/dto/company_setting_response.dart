@@ -8,7 +8,7 @@ CompanySettingResponse deserializeCompanySettingResponse(
 ) => CompanySettingResponse.fromJson(json);
 
 @freezed
-class CompanySettingResponse with _$CompanySettingResponse {
+abstract class CompanySettingResponse with _$CompanySettingResponse {
   const factory CompanySettingResponse({
     @JsonKey(name: "status") required String status,
     @JsonKey(name: "data") required CompanySettingData data,
@@ -19,7 +19,7 @@ class CompanySettingResponse with _$CompanySettingResponse {
 }
 
 @freezed
-class CompanySettingData with _$CompanySettingData {
+abstract class CompanySettingData with _$CompanySettingData {
   const factory CompanySettingData({
     @JsonKey(name: "id") required int id,
     @JsonKey(name: "timeZone") required String timeZone,

@@ -4,8 +4,8 @@ part 'set_me_firebase_token_response.freezed.dart';
 part 'set_me_firebase_token_response.g.dart';
 
 @freezed
-class SetMeFirebaseTokenResponse with _$SetMeFirebaseTokenResponse {
-  factory SetMeFirebaseTokenResponse({
+abstract class SetMeFirebaseTokenResponse with _$SetMeFirebaseTokenResponse {
+  const factory SetMeFirebaseTokenResponse({
     required String status,
     required bool data,
   }) = _SetMeFirebaseTokenResponse;

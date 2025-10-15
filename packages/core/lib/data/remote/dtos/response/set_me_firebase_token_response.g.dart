@@ -6,13 +6,13 @@ part of 'set_me_firebase_token_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetMeFirebaseTokenResponseImpl _$$SetMeFirebaseTokenResponseImplFromJson(
+_SetMeFirebaseTokenResponse _$SetMeFirebaseTokenResponseFromJson(
   Map<String, dynamic> json,
-) => _$SetMeFirebaseTokenResponseImpl(
+) => _SetMeFirebaseTokenResponse(
   status: json['status'] as String,
   data: json['data'] as bool,
 );
 
-Map<String, dynamic> _$$SetMeFirebaseTokenResponseImplToJson(
-  _$SetMeFirebaseTokenResponseImpl instance,
+Map<String, dynamic> _$SetMeFirebaseTokenResponseToJson(
+  _SetMeFirebaseTokenResponse instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};

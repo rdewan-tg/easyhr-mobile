@@ -6,8 +6,8 @@ import 'package:common/common.dart';
 part 'create_attendance_model.freezed.dart';
 
 @freezed
-class CreateAttendanceModel with _$CreateAttendanceModel {
-  factory CreateAttendanceModel({
+abstract class CreateAttendanceModel with _$CreateAttendanceModel {
+  const factory CreateAttendanceModel({
     required File? file,
     required String address,
     required double latitude,

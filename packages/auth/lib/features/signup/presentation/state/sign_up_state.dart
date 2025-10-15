@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'sign_up_state.freezed.dart';
 
 @freezed
-class SignUpState with _$SignUpState {
-  factory SignUpState({
+abstract class SignUpState with _$SignUpState {
+  const factory SignUpState({
     SignUpModel? signUpModel,
     bool? isSignUpSuccess,
     @Default(false) bool isLoading,

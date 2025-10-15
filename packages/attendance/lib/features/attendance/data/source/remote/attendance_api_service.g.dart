@@ -2,11 +2,13 @@
 
 part of 'attendance_api_service.dart';
 
+// dart format off
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
 class _AttendanceApiService implements AttendanceApiService {
   _AttendanceApiService(this._dio, {this.baseUrl, this.errorLogger});
@@ -80,7 +82,7 @@ class _AttendanceApiService implements AttendanceApiService {
     _data.fields.add(MapEntry('latitude', latitude.toString()));
     _data.fields.add(MapEntry('longitude', longitude.toString()));
     _data.fields.add(MapEntry('zone', zone));
-    _data.fields.add(MapEntry('status', status.name));
+    _data.fields.add(MapEntry('status', status.toString()));
     _data.fields.add(MapEntry('transDay', transDay.toString()));
     _data.fields.add(MapEntry('transMonth', transMonth.toString()));
     _data.fields.add(MapEntry('transYear', transYear.toString()));
@@ -195,3 +197,5 @@ class _AttendanceApiService implements AttendanceApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// dart format on

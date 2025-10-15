@@ -4,8 +4,8 @@ part 'set_me_firebase_token_request.freezed.dart';
 part 'set_me_firebase_token_request.g.dart';
 
 @freezed
-class SetMeFirebaseTokenRequest with _$SetMeFirebaseTokenRequest {
-  factory SetMeFirebaseTokenRequest({required String deviceToken}) =
+abstract class SetMeFirebaseTokenRequest with _$SetMeFirebaseTokenRequest {
+  const factory SetMeFirebaseTokenRequest({required String deviceToken}) =
       _SetMeFirebaseTokenRequest;
 
   factory SetMeFirebaseTokenRequest.fromJson(Map<String, dynamic> json) =>

@@ -6,27 +6,27 @@ part of 'last_attendance_state_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LastAttendanceStateResponseImpl _$$LastAttendanceStateResponseImplFromJson(
+_LastAttendanceStateResponse _$LastAttendanceStateResponseFromJson(
   Map<String, dynamic> json,
-) => _$LastAttendanceStateResponseImpl(
+) => _LastAttendanceStateResponse(
   status: json['status'] as String,
   data: json['data'] == null
       ? null
       : LastAttendanceStateData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$$LastAttendanceStateResponseImplToJson(
-  _$LastAttendanceStateResponseImpl instance,
+Map<String, dynamic> _$LastAttendanceStateResponseToJson(
+  _LastAttendanceStateResponse instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};
 
-_$LastAttendanceStateDataImpl _$$LastAttendanceStateDataImplFromJson(
+_LastAttendanceStateData _$LastAttendanceStateDataFromJson(
   Map<String, dynamic> json,
-) => _$LastAttendanceStateDataImpl(
+) => _LastAttendanceStateData(
   status: $enumDecode(_$AttendanceStatusEnumMap, json['status']),
 );
 
-Map<String, dynamic> _$$LastAttendanceStateDataImplToJson(
-  _$LastAttendanceStateDataImpl instance,
+Map<String, dynamic> _$LastAttendanceStateDataToJson(
+  _LastAttendanceStateData instance,
 ) => <String, dynamic>{'status': _$AttendanceStatusEnumMap[instance.status]!};
 
 const _$AttendanceStatusEnumMap = {

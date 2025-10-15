@@ -6,13 +6,13 @@ part of 'notification_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationResponseImpl _$$NotificationResponseImplFromJson(
+_NotificationResponse _$NotificationResponseFromJson(
   Map<String, dynamic> json,
-) => _$NotificationResponseImpl(
+) => _NotificationResponse(
   status: json['status'] as String,
   data: NotificationItem.fromJson(json['data'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$$NotificationResponseImplToJson(
-  _$NotificationResponseImpl instance,
+Map<String, dynamic> _$NotificationResponseToJson(
+  _NotificationResponse instance,
 ) => <String, dynamic>{'status': instance.status, 'data': instance.data};

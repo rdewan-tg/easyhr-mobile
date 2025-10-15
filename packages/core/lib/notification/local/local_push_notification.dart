@@ -171,7 +171,7 @@ class LocalPushNotification {
     );
   }
 
-  // schedulr notification
+  // schedule notification
   void scheduleLocalNotification(
     tz.TZDateTime scheduledDate,
     String title,
@@ -223,7 +223,7 @@ class LocalPushNotification {
   /// - [hour]: Hour of the day (0-23)
   /// - [minute]: Minute of the hour (0-59)
   ///
-  /// Returns a Future<bool> indicating whether the notification was scheduled
+  /// Returns a `Future<bool>` indicating whether the notification was scheduled
   Future<bool> scheduleWeeklyNotification({
     required int id,
     required String title,

@@ -5,8 +5,8 @@ import 'package:common/dto/pagination/page.dart';
 part 'attendance_list_model.freezed.dart';
 
 @freezed
-class AttendanceListModel with _$AttendanceListModel {
-  factory AttendanceListModel({
+abstract class AttendanceListModel with _$AttendanceListModel {
+  const factory AttendanceListModel({
     @Default([]) List<AttendanceModel> data,
     required Page page,
   }) = _AttendanceListModel;

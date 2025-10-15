@@ -5,8 +5,9 @@ part 'add_attendance_without_image_request.freezed.dart';
 part 'add_attendance_without_image_request.g.dart';
 
 @freezed
-class AddAttendanceWithoutImageRequest with _$AddAttendanceWithoutImageRequest {
-  factory AddAttendanceWithoutImageRequest({
+abstract class AddAttendanceWithoutImageRequest
+    with _$AddAttendanceWithoutImageRequest {
+  const factory AddAttendanceWithoutImageRequest({
     @JsonKey(name: "address") required String address,
     @JsonKey(name: "latitude") required double latitude,
     @JsonKey(name: "longitude") required double longitude,

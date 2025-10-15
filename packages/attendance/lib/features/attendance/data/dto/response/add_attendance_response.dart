@@ -5,7 +5,7 @@ part 'add_attendance_response.freezed.dart';
 part 'add_attendance_response.g.dart';
 
 @freezed
-class AddAttendanceResponse with _$AddAttendanceResponse {
+abstract class AddAttendanceResponse with _$AddAttendanceResponse {
   const factory AddAttendanceResponse({
     @JsonKey(name: 'status') required String status,
     @JsonKey(name: 'data') required AddAttendanceData data,
@@ -16,7 +16,7 @@ class AddAttendanceResponse with _$AddAttendanceResponse {
 }
 
 @freezed
-class AddAttendanceData with _$AddAttendanceData {
+abstract class AddAttendanceData with _$AddAttendanceData {
   const factory AddAttendanceData({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'userId') required int userId,
