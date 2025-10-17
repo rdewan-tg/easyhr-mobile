@@ -227,20 +227,28 @@ jobs:
           echo "Version Code: ${{ steps.fetch_version_info.outputs.version_code }}"
           echo "Version Name: ${{ steps.fetch_version_info.outputs.version_name }}"
 
-      - name: Shorebird Android Build
+      - name: Shorebird Android Patch
         uses: shorebirdtech/shorebird-patch@v1
         id: shorebird-android-patch
         with:
-          args: --platforms=android --flavor=prod --target=lib/main_prod.dart
+          args: --platforms=android --flavor=prod --target=lib/main_prod.dart 
+          release-version: latest
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
-      - name: Shorebird iOS Build
+      - name: Shorebird iOS Patch
         uses: shorebirdtech/shorebird-patch@v1
         id: shorebird-ios-patch
         with:
           args: --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          release-version: latest
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
+
+      - run: echo patch-number ${{ steps.shorebird-android-patch.outputs.patch-number }}
+        shell: bash
+      
+      - run: echo patch-number ${{ steps.shorebird-ios-patch.outputs.patch-number }}
+        shell: bash
 
        
