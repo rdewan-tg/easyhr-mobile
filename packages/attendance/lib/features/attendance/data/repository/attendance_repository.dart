@@ -38,7 +38,7 @@ final class AttendanceRepository
         latitude: data.latitude,
         longitude: data.longitude,
         zone: data.zone,
-        status: data.status,
+        status: data.status.name,
         transDay: data.transDay,
         transMonth: data.transMonth,
         transYear: data.transYear,
