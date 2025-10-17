@@ -1,0 +1,254 @@
+
+name: Flutter - Build Prod Patch | Android & iOS
+
+on:
+  # Build release after merge
+  push:
+    branches:
+      - patch
+
+env:
+  SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+  ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+  ANDROID_KEY_PROPERTIES: ${{ secrets.ANDROID_KEY_PROPERTIES }}
+  ANDROID_LOCAL_PROPERTIES: ${{ secrets.ANDROID_LOCAL_PROPERTIES }}
+  APPLE_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
+  APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+  FLUTTER_TRANSLATION_SHEET_CREDENTIALS: ${{ secrets.FLUTTER_TRANSLATION_SHEET_CREDENTIALS }}
+  APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+  APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+  APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+  APP_APPLE_ID: "${{ secrets.APP_APPLE_ID }}"
+  TESTFLIGHT_GROUPS: ${{ secrets.TESTFLIGHT_GROUPS }}
+  ENV_DEV: ${{ secrets.ENV_DEV }}
+  ENV_QA: ${{ secrets.ENV_QA }}
+  ENV_PROD: ${{ secrets.ENV_PROD }}
+
+jobs:
+  build:
+    runs-on: macos-15
+    environment: PROD
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print macOS and iOS SDK versions
+        run: |
+          echo "macOS Version:"
+          sw_vers
+          echo "\nXcode Version:"
+          xcodebuild -version
+          echo "\nAvailable SDKs:"
+          xcodebuild -showsdks
+          echo "\nDefault iOS SDK Version:"
+          xcrun --sdk iphoneos --show-sdk-version
+          echo "\nDefault iOS SDK Path:"
+          xcrun --sdk iphoneos --show-sdk-path
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: gradle
+
+      # Use the setup-shorebird action to configure Shorebird
+      - name: 🐦 Setup Shorebird
+        uses: shorebirdtech/setup-shorebird@v1
+        with:
+          cache: true # Optionally cache your Shorebird installation
+
+      # Now we're able to use Shorebird CLI in our workflow
+      - name: 🚀 Use Shorebird
+        run: shorebird --version
+
+      # Set Build Number
+      # echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV: This makes BUILD_NUMBER available as an environment variable for later steps.
+      - name: Set Build Number
+        run: |
+          BUILD_NUMBER=${{ github.run_number }}
+          echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV     
+
+      - name: Setup key.properties file
+        run: |
+          echo "${{env.ANDROID_KEY_PROPERTIES}}" | base64 --decode > android/key.properties
+
+      - name: Setup local.properties file
+        run: |
+          echo "${{env.ANDROID_LOCAL_PROPERTIES}}" | base64 --decode > android/local.properties
+
+      - name: Setup keystore file
+        run: |
+          echo "${{env.ANDROID_KEYSTORE}}" | base64 --decode > android/keystore/tonggarden.jks
+
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - Dev
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/dev/google-services.json
+
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - QA
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/qa/google-services.json
+
+      # Setup Google Service JSON - Android
+      - name: Setup Google Service JSON for Firebase - Prod
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_JSON}}" | base64 --decode > android/app/src/prod/google-services.json
+
+      # Setup Google Service PLIST - iOS - Dev
+      - name: Setup Google Service PLIST for Firebase - Dev
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Dev/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - QA
+      - name: Setup Google Service PLIST for Firebase - QA
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/QA/GoogleService-Info.plist
+
+      # Setup Google Service PLIST - iOS - Prod
+      - name: Setup Google Service PLIST for Firebase - Prod
+        run: |
+          echo "${{secrets.FIREBASE_GOOGLE_SERVICE_PLIST}}" | base64 --decode > ios/Runner/Firebase/Prod/GoogleService-Info.plist
+
+      # Flutter Translation Sheet Credentials
+      - name: Setup Flutter Translation Sheet Credentials
+        run: |
+          echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json 
+          
+      - name: Setup .env file
+        run: |
+          echo "${{env.ENV_DEV}}" | base64 --decode > packages/core/.dev.env
+          echo "${{env.ENV_QA}}" | base64 --decode > packages/core/.qa.env
+          echo "${{env.ENV_PROD}}" | base64 --decode > packages/core/.prod.env
+
+      - name: Setup FVM
+        uses: kuhnroyal/flutter-fvm-config-action/config@v3
+        id: fvm-config-action
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+      # Install Flutter dependencies only if cache was not restored
+      - name: Install Flutter Dependencies
+        run: |
+          flutter pub get >> /dev/null    
+
+      # Cache CocoaPods
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        id: pods-cache
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      # iOS specific - install dependencies
+      - name: Install iOS dependencies
+        run: |
+          cd ios
+          pod repo update 
+          pod install --repo-update 
+          cd ..
+
+      # setup iOS certificates
+      - name: Install iOS Certificates and Provisioning Profile
+        uses: apple-actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ env.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          p12-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+
+      # setup iOS provisioning profile
+      - name: Install Provisioning Profile
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "${{ secrets.APPLE_PROVISION_PROD_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Prod-ProvisioningProfile.mobileprovision
+    
+
+      - name: Setup Flutter Translation Sheet
+        run: |
+          cd packages/common
+          dart run flutter_translation_sheet:main fetch
+          cd ../../
+
+      - name: Build Runner Setup
+        run: |
+          cd packages/core
+          pwd
+          
+          echo Getting dependencies
+          flutter pub get >> /dev/null
+
+          echo Running build_runner in packages/core
+          flutter pub run build_runner build -d 
+          
+          echo Done running build_runner. Navigating up to root directory
+          cd ../../    
+          flutter pub get >> /dev/null
+
+      # Formats the dart code
+      - name: Auto-format Dart code
+        run: dart format .
+
+      # Verifies if the dart code is formatted well
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+        # --set-exit-if-changed stops execution if the any code is not well formatted
+        # --output=none prints files which needs to be formatted
+
+      # Checks for Semantic errors. Can be configured using analysis_options.yaml
+      - name: Analyze project source
+        run: flutter analyze --fatal-warnings
+        # optionally use --fatal-warnings to stop execution if any warnings are found
+
+      # Runs unit test
+      - name: Run tests
+        run: flutter test
+
+      - name: Setup Google Play Service Account JSON
+        run: echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_BASE64 }}" | base64 --decode > easyhr-production-google-play-api.json
+
+      - name: Install Python Dependencies
+        run: pip install google-api-python-client google-auth google-auth-oauthlib
+
+      - name: Fetch Version Info from Google Play (Closed Testing)
+        id: fetch_version_info
+        run: |
+          cd scripts
+          python fetch_version_info.py
+          cd ..
+
+      - name: Display Version Info
+        run: |
+          echo "Version Code: ${{ steps.fetch_version_info.outputs.version_code }}"
+          echo "Version Name: ${{ steps.fetch_version_info.outputs.version_name }}"
+
+      - name: Shorebird Android Patch
+        uses: shorebirdtech/shorebird-patch@v1
+        id: shorebird-android-patch
+        with:
+          args: --platforms=android --flavor=prod --target=lib/main_prod.dart 
+          release-version: latest
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          platform: android
+
+      - name: Shorebird iOS Patch
+        uses: shorebirdtech/shorebird-patch@v1
+        id: shorebird-ios-patch
+        with:
+          args: --export-options-plist ios/export_options_prod.plist --flavor=prod --target=lib/main_prod.dart
+          release-version: latest
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          platform: ios
+
+      - run: echo patch-number ${{ steps.shorebird-android-patch.outputs.patch-number }}
+        shell: bash
+      
+      - run: echo patch-number ${{ steps.shorebird-ios-patch.outputs.patch-number }}
+        shell: bash
+
+       
