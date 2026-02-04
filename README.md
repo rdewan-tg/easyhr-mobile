@@ -83,7 +83,7 @@ fvm flutter pub run build_runner build -d
 ### Setup Android
 
 *   Android google-services.json
-    1. Downlaod the google-services.json
+    1. Download the google-services.json
     2. Add the download file to 
     ``` 
     android/app/src/dev
@@ -125,7 +125,7 @@ fvm flutter pub run build_runner build -d
 ### Setup iOS
 
 *   iOS GoogleService-Info.plist
-    1. Downlaod the GoogleService-Info.plist
+    1. Download the GoogleService-Info.plist
     2. Add the download file to 
     ``` 
     ios/Runner/Dev
