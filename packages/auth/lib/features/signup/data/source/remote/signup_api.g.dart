@@ -2,8 +2,6 @@
 
 part of 'signup_api.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -74,5 +72,3 @@ class _SignUpApi implements SignUpApi {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on

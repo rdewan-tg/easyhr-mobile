@@ -6,8 +6,8 @@ part of 'blogs_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlogsResponseImpl _$$BlogsResponseImplFromJson(Map<String, dynamic> json) =>
-    _$BlogsResponseImpl(
+_BlogsResponse _$BlogsResponseFromJson(Map<String, dynamic> json) =>
+    _BlogsResponse(
       status: json['status'] as String,
       data:
           (json['data'] as List<dynamic>?)
@@ -16,5 +16,5 @@ _$BlogsResponseImpl _$$BlogsResponseImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$BlogsResponseImplToJson(_$BlogsResponseImpl instance) =>
+Map<String, dynamic> _$BlogsResponseToJson(_BlogsResponse instance) =>
     <String, dynamic>{'status': instance.status, 'data': instance.data};

@@ -2,8 +2,6 @@
 
 part of 'zone_api_service.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -73,5 +71,3 @@ class _ZoneApiService implements ZoneApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on

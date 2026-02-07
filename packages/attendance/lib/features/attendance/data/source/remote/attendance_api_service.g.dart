@@ -2,8 +2,6 @@
 
 part of 'attendance_api_service.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -53,7 +51,7 @@ class _AttendanceApiService implements AttendanceApiService {
     required double latitude,
     required double longitude,
     required String zone,
-    required AttendanceStatus status,
+    required String status,
     required int transDay,
     required int transMonth,
     required int transYear,
@@ -82,7 +80,7 @@ class _AttendanceApiService implements AttendanceApiService {
     _data.fields.add(MapEntry('latitude', latitude.toString()));
     _data.fields.add(MapEntry('longitude', longitude.toString()));
     _data.fields.add(MapEntry('zone', zone));
-    _data.fields.add(MapEntry('status', status.toString()));
+    _data.fields.add(MapEntry('status', status));
     _data.fields.add(MapEntry('transDay', transDay.toString()));
     _data.fields.add(MapEntry('transMonth', transMonth.toString()));
     _data.fields.add(MapEntry('transYear', transYear.toString()));
@@ -197,5 +195,3 @@ class _AttendanceApiService implements AttendanceApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on

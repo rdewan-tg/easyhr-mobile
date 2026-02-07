@@ -2,8 +2,6 @@
 
 part of 'setting_api.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -100,5 +98,3 @@ class _SettingApi implements SettingApi {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on

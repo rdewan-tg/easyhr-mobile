@@ -41,7 +41,7 @@ dependencies:
   # https://pub.dev/packages/dio_http_formatter
   dio_http_formatter: ^3.3.1
   # https://pub.dev/packages/retrofit
-  retrofit: ^4.7.3
+  retrofit: 4.7.3
   # https://pub.dev/packages/go_router
   go_router: ^16.2.4
   # https://pub.dev/packages/logger
@@ -93,7 +93,7 @@ dependencies:
   # https://pub.dev/packages/flutter_gen
   flutter_gen: ^5.12.0
   # https://pub.dev/packages/flutter_svg
-  flutter_svg: ^2.2.1
+  flutter_svg: ^2.2.3
   # https://pub.dev/packages/uuid
   uuid: ^4.5.1
   # https://pub.dev/packages/google_maps_flutter
@@ -126,14 +126,14 @@ dependencies:
   new_version_plus: ^0.1.1
   
 dependency_overrides:
-  analyzer: 8.1.1
+  # analyzer: 8.1.1
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
   # https://pub.dev/packages/retrofit_generator
-  retrofit_generator: '10.0.6' # for Dart 3.3 use ^9.0.0
+  retrofit_generator: '10.0.0' # for Dart 3.3 use ^9.0.0
   # https://pub.dev/packages/build_runner
   build_runner: ^2.7.1
   # https://pub.dev/packages/json_serializable
@@ -148,6 +148,8 @@ dev_dependencies:
   drift_dev: ^2.28.2
   # https://pub.dev/packages/flutter_gen_runner
   flutter_gen_runner: ^5.11.0
+  
+
   
 
 flutter:

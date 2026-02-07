@@ -2,8 +2,6 @@
 
 part of 'core_api_service.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -76,5 +74,3 @@ class _CoreApiService implements CoreApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on

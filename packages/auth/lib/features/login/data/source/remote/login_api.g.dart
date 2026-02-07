@@ -2,8 +2,6 @@
 
 part of 'login_api.dart';
 
-// dart format off
-
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -74,5 +72,3 @@ class _LoginApi implements LoginApi {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// dart format on
