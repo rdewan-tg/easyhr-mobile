@@ -44,8 +44,8 @@ dev_dependencies:
   riverpod_lint: ^3.1.0
   # https://pub.dev/packages/custom_lint
   custom_lint: ^0.8.1
-  # # https://pub.dev/packages/flutter_translation_sheet
-  # flutter_translation_sheet: ^1.0.34
+  # https://pub.dev/packages/flutter_translation_sheet
+  flutter_translation_sheet: ^1.0.34
   # https://pub.dev/packages/flutter_gen_runner
   flutter_gen_runner: ^5.11.0
 
