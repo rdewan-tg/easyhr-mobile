@@ -31,7 +31,7 @@ abstract class AttendanceApiService {
     @Part(name: "latitude") required double latitude,
     @Part(name: "longitude") required double longitude,
     @Part(name: "zone") required String zone,
-    @Part(name: "status") required  String status,
+    @Part(name: "status") required String status,
     @Part(name: "transDay") required int transDay,
     @Part(name: "transMonth") required int transMonth,
     @Part(name: "transYear") required int transYear,
