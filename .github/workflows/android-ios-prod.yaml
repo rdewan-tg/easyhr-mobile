@@ -51,17 +51,7 @@ jobs:
           java-version: '17'
           cache: gradle
 
-      # Install Android SDK 36 (Fix compileSdk 35 issue)
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install Android 36 SDK
-        run: |
-          yes | sdkmanager --licenses
-          sdkmanager --install "platforms;android-36"
-          sdkmanager --install "build-tools;36.0.0"
-
-
+      
 
 
       # Use the setup-shorebird action to configure Shorebird
