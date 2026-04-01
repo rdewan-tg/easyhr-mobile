@@ -5,7 +5,7 @@ publish_to: 'none'
 homepage:
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.10.9
   flutter: ">=1.17.0"
 
 dependencies:
@@ -33,9 +33,9 @@ dependencies:
   public_holiday:
     path: ../public_holiday
   # https://pub.dev/packages/flutter_riverpod
-  flutter_riverpod: ^3.1.0
+  flutter_riverpod: ^3.0.3
   # https://pub.dev/packages/riverpod_annotation
-  riverpod_annotation: ^4.0.0
+  riverpod_annotation: 3.0.3
   # https://pub.dev/packages/freezed_annotation
   freezed_annotation: ^3.1.0
   # https://pub.dev/packages/dio
@@ -43,7 +43,7 @@ dependencies:
   # https://pub.dev/packages/dio_http_formatter
   dio_http_formatter: ^3.3.1
   # https://pub.dev/packages/retrofit
-  retrofit: 4.9.2
+  retrofit: 4.9.1
   # https://pub.dev/packages/go_router
   go_router: ^17.0.1
   # https://pub.dev/packages/logger
@@ -61,7 +61,7 @@ dependencies:
   # https://pub.dev/packages/loading_animation_widget
   loading_animation_widget: ^1.3.0
   # https://pub.dev/packages/google_fonts
-  google_fonts: ^8.0.0
+  google_fonts: ^6.3.3
   # https://pub.dev/packages/gal
   gal: ^2.3.2
   # https://pub.dev/packages/open_file
@@ -109,7 +109,7 @@ dependencies:
   # https://pub.dev/packages/flutter_html
   flutter_html: ^3.0.0
    # https://pub.dev/packages/flutter_local_notifications
-  flutter_local_notifications: ^20.0.0
+  flutter_local_notifications: ^21.0.0
   # https://pub.dev/packages/logging
   logging: ^1.3.0
   # https://pub.dev/packages/firebase_core
@@ -121,24 +121,22 @@ dependencies:
   # https://pub.dev/packages/edge_to_edge
   edge_to_edge: ^0.0.2
   # https://pub.dev/packages/device_info_plus
-  device_info_plus: ^12.3.0
+  device_info_plus: 11.2.0 # ^12.3.0 & ^12.4.0 didnt work on iOS simulator
   # https://pub.dev/packages/grouped_list
   grouped_list: ^6.0.0
   # https://pub.dev/packages/new_version_plus
-  new_version_plus: ^1.0.1
+  new_version_plus: ^0.1.2
   
 dependency_overrides:
-  # analyzer: 8.1.1
-  timezone: ^0.10.0
-  device_info_plus: ^10.0.0
-  new_version_plus: 1.0.0
+  # analyzer: 9.0.0
+ 
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
   # https://pub.dev/packages/retrofit_generator
-  retrofit_generator: 10.2.1 # for Dart 3.3 use ^9.0.0
+  retrofit_generator: 10.2.0
   # https://pub.dev/packages/build_runner
   build_runner: ^2.10.4
   # https://pub.dev/packages/json_serializable
@@ -146,7 +144,7 @@ dev_dependencies:
   # https://pub.dev/packages/freezed
   freezed: ^3.2.3
   # https://pub.dev/packages/riverpod_generator
-  riverpod_generator: ^4.0.0+1
+  riverpod_generator: 3.0.3
   # https://pub.dev/packages/envied_generator
   envied_generator: ^1.3.2
   # https://pub.dev/packages/drift_dev
@@ -154,7 +152,7 @@ dev_dependencies:
   # https://pub.dev/packages/flutter_gen_runner
   flutter_gen_runner: ^5.11.0
   # https://pub.dev/packages/riverpod_lint
-  riverpod_lint: ^3.1.0
+  riverpod_lint: 3.0.3
   # https://pub.dev/packages/custom_lint
   custom_lint: ^0.8.1  
   

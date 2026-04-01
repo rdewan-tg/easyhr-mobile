@@ -40,7 +40,7 @@ class _BlogApi implements BlogApi {
     try {
       _value = BlogsResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -67,7 +67,7 @@ class _BlogApi implements BlogApi {
     try {
       _value = BlogResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;

@@ -40,7 +40,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = LastAttendanceStateResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -105,7 +105,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AddAttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -135,7 +135,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AddAttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -162,7 +162,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;

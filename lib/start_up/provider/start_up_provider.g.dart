@@ -10,12 +10,12 @@ part of 'start_up_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(startUp)
-final startUpProvider = StartUpFamily._();
+const startUpProvider = StartUpFamily._();
 
 final class StartUpProvider
     extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
     with $FutureModifier<void>, $FutureProvider<void> {
-  StartUpProvider._({
+  const StartUpProvider._({
     required StartUpFamily super.from,
     required Flavor super.argument,
   }) : super(
@@ -62,7 +62,7 @@ String _$startUpHash() => r'746ba08f05a64202c2f7328f8c8c8a0f4a56ae84';
 
 final class StartUpFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<void>, Flavor> {
-  StartUpFamily._()
+  const StartUpFamily._()
     : super(
         retry: null,
         name: r'startUpProvider',
