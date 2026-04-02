@@ -8,7 +8,7 @@ part of 'attendance_api_service.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
 
 class _AttendanceApiService implements AttendanceApiService {
   _AttendanceApiService(this._dio, {this.baseUrl, this.errorLogger});
@@ -40,7 +40,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = LastAttendanceStateResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -65,18 +65,16 @@ class _AttendanceApiService implements AttendanceApiService {
     final _headers = <String, dynamic>{};
     final _data = FormData();
     if (file != null) {
-      if (file != null) {
-        _data.files.add(
-          MapEntry(
-            'file',
-            MultipartFile.fromFileSync(
-              file.path,
-              filename: file.path.split(Platform.pathSeparator).last,
-              contentType: DioMediaType.parse('image/*'),
-            ),
+      _data.files.add(
+        MapEntry(
+          'file',
+          MultipartFile.fromFileSync(
+            file.path,
+            filename: file.path.split(Platform.pathSeparator).last,
+            contentType: DioMediaType.parse('image/*'),
           ),
-        );
-      }
+        ),
+      );
     }
     _data.fields.add(MapEntry('address', address));
     _data.fields.add(MapEntry('latitude', latitude.toString()));
@@ -107,7 +105,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AddAttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -137,7 +135,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AddAttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
@@ -164,7 +162,7 @@ class _AttendanceApiService implements AttendanceApiService {
     try {
       _value = AttendanceResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;
