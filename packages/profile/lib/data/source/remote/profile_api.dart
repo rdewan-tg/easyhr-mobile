@@ -2,6 +2,7 @@ import 'package:core/data/remote/endpoint.dart';
 import 'package:core/data/remote/network_service.dart';
 import 'package:dio/dio.dart';
 import 'package:profile/data/dto/delete_me_response.dart';
+import 'package:profile/data/dto/profile_response.dart';
 import 'package:profile/data/dto/logout_request.dart';
 import 'package:profile/data/dto/logout_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -24,4 +25,7 @@ abstract class ProfileApi {
 
   @POST(logoutEndPoint)
   Future<LogoutResponse> logout(@Body() LogoutRequest logoutRequest);
+
+  @GET("/v1/me")
+  Future<ProfileResponse> getProfile();
 }

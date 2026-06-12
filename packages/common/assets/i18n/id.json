@@ -37,7 +37,7 @@
     "profile.btnNo": "TIDAK",
     "common.noData": "Tidak ada data yang tersedia.",
     "attendance.title": "Kehadiran",
-    "setting.isZonedEnabled": "Apakah Zona Diaktifkan?",
+    "setting.companyIsZoneEnabled": "Apakah Zona Diaktifkan?",
     "setting.gpsRadius": "Radius GPS",
     "setting.currencyCode": "Kode Mata Uang",
     "setting.companyCode": "Kode Perusahaan",
@@ -103,5 +103,6 @@
     "drawer.contactUs": "Hubungi kami",
     "drawer.signOut": "Keluar",
     "publicHoliday.title": "Hari Libur Nasional",
-    "publicHoliday.recurring": "Berulang"
+    "publicHoliday.recurring": "Berulang",
+    "profile.userIsZoneEnabled": "Apakah Zona Diaktifkan?"
 }

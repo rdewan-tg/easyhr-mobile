@@ -9,7 +9,7 @@ final settingStorageProvider = Provider<ISettingStorage>((ref) {
 });
 
 class SettingStorage implements ISettingStorage {
-  final SettingDao _settingDao;
+  final SettingDao  _settingDao;
 
   SettingStorage(this._settingDao);
 

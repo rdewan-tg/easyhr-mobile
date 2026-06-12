@@ -37,7 +37,7 @@
     "profile.btnNo": "不",
     "common.noData": "暂无数据",
     "attendance.title": "出勤率",
-    "setting.isZonedEnabled": "是否启用分区功能",
+    "setting.companyIsZoneEnabled": "是否启用分区功能",
     "setting.gpsRadius": "GPS半径",
     "setting.currencyCode": "货币代码",
     "setting.companyCode": "公司代码",
@@ -103,5 +103,6 @@
     "drawer.contactUs": "联系我们",
     "drawer.signOut": "登出",
     "publicHoliday.title": "公众假期",
-    "publicHoliday.recurring": "再次发生的"
+    "publicHoliday.recurring": "再次发生的",
+    "profile.userIsZoneEnabled": "是否启用分区功能"
 }

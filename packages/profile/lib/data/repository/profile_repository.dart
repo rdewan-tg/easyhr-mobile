@@ -1,15 +1,16 @@
+import 'package:common/common.dart';
+import 'package:common/exception/failure.dart';
 import 'package:core/data/local/db/dao/setting_dao.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:profile/data/dto/delete_me_response.dart';
 import 'package:profile/data/dto/logout_request.dart';
 import 'package:profile/data/dto/logout_response.dart';
+import 'package:profile/data/dto/profile_response.dart';
 import 'package:profile/data/repository/iprofile_repository.dart';
 import 'package:profile/data/source/local/iprofile_storage.dart';
 import 'package:profile/data/source/local/profile_storage.dart';
 import 'package:profile/data/source/remote/profile_api.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:common/common.dart';
-import 'package:common/exception/failure.dart';
-import 'package:dio/dio.dart';
 
 final profileRepositoryProvider = Provider<IProfileRepository>((ref) {
   final ProfileApi profileApi = ref.watch(profileApiProvider);
@@ -89,6 +90,35 @@ final class ProfileRepository
             "An unexpected error occurred. Please try again later".hardcoded,
         exception: e as Exception,
         stackTrace: s,
+      );
+    }
+  }
+
+  @override
+  Future<ProfileResponse> getProfile() async {
+    try {
+      return await _profileApi.getProfile();
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } catch (e, s) {
+      throw Failure(
+        message:
+            "An unexpected error occurred. Please try again later".hardcoded,
+        exception: e as Exception,
+        stackTrace: s,
+      );
+    }
+  }
+
+  @override
+  Future<void> upsertMultipleSettings(Map<String, String> settings) async {
+    try {
+      await _settingDao.upsertMultipleSettings(settings);
+    } catch (e, stackTrace) {
+      throw Failure(
+        message: 'An unexpected error occurred'.hardcoded,
+        exception: e as Exception,
+        stackTrace: stackTrace,
       );
     }
   }
