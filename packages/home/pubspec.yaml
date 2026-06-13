@@ -26,7 +26,7 @@ dev_dependencies:
   # https://pub.dev/packages/retrofit_generator
   retrofit_generator: 10.2.0
   # https://pub.dev/packages/build_runner
-  build_runner: ^2.10.4
+  build_runner: ^2.14.0
   # https://pub.dev/packages/json_serializable
   json_serializable: ^6.11.2
   # https://pub.dev/packages/freezed
