@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:attendance/features/attendance/application/attendance_service.dart';
 import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
-import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
-import 'package:attendance/features/zone/application/zone_service.dart';
-import 'package:core/notification/local/local_push_notification.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/map/presentation/state/map_state.dart';
+import 'package:attendance/features/zone/application/zone_service.dart';
 import 'package:common/common.dart';
 import 'package:common/exception/failure.dart';
+import 'package:core/notification/local/local_push_notification.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -38,8 +38,11 @@ class MapController extends Notifier<MapState> {
 
   Future<void> getAllSetting() async {
     final settings = await ref.read(mapServiceProvider).getAllSetting();
-    final isZoneEnabled = settings['isZoneEnabled'] == 'true';
+    final userIsZoneEnabled = settings['userIsZoneEnabled'] == 'true';
+    final companyIsZoneEnabled = settings['companyIsZoneEnabled'] == 'true';
     final isCameraEnabled = settings['isCameraEnabled'] == 'true';
+    final isZoneEnabled = userIsZoneEnabled || companyIsZoneEnabled;
+    // final isZoneEnabled = userIsZoneEnabled ?? companyIsZoneEnabled;
 
     state = state.copyWith(
       settings: settings,

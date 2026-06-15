@@ -1,7 +1,7 @@
 import 'package:common/exception/failure.dart';
-import 'package:profile/application/iprofile_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multiple_result/multiple_result.dart';
+import 'package:profile/application/iprofile_service.dart';
 import 'package:profile/data/repository/iprofile_repository.dart';
 import 'package:profile/data/repository/profile_repository.dart';
 
@@ -75,6 +75,29 @@ final class ProfileService implements IProfileService {
           exception: e as Exception,
           stackTrace: s,
         ),
+      );
+    }
+  }
+
+
+  @override
+  Future<void> getProfile() async {
+    try {
+      final response = await _profileRepository.getProfile();
+      await _profileRepository.upsertMultipleSettings({
+        'companyId': response.data.id.toString(),
+        'timeZone': response.data.timeZone,
+        'gpsRadius': response.data.gpsRadius.toString(),
+        'isZoneEnabled': response.data.isZoneEnabled.toString(),
+        'isLocationData': response.data.isLocationData.toString(),
+      });
+    } on Failure catch (_) {
+      rethrow;
+    } catch (e, s) {
+      throw Failure(
+        message: e.toString(),
+        exception: e as Exception,
+        stackTrace: s,
       );
     }
   }

@@ -46,6 +46,7 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: gradle
+
       
       # Set Build Number
       # echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV: This makes BUILD_NUMBER available as an environment variable for later steps.
@@ -192,15 +193,12 @@ jobs:
         run: |
           cd packages/core
           pwd
-
-          echo "flutter clean"
-          flutter clean
           
-          echo Getting flutter dependencies
+          echo Getting dependencies
           flutter pub get >> /dev/null
 
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d 
+          flutter pub run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    

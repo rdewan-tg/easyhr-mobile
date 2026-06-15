@@ -2,9 +2,9 @@ import 'package:attendance/features/zone/data/dto/zone_response.dart';
 import 'package:core/data/remote/endpoint.dart';
 import 'package:core/data/remote/network_service.dart';
 import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'zone_api_service.g.dart';
 

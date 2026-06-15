@@ -1,4 +1,3 @@
-
 name: Flutter - Android Build Prod
 
 on:
@@ -51,6 +50,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: gradle
+
+      
+
 
       # Use the setup-shorebird action to configure Shorebird
       - name: 🐦 Setup Shorebird
@@ -184,7 +186,7 @@ jobs:
           flutter pub get >> /dev/null
 
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d 
+          flutter pub  run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    

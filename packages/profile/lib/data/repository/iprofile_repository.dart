@@ -1,5 +1,6 @@
 import 'package:profile/data/dto/delete_me_response.dart';
 import 'package:profile/data/dto/logout_response.dart';
+import 'package:profile/data/dto/profile_response.dart';
 
 abstract interface class IProfileRepository {
   Future<DeleteMeResponse> deleteMe();
@@ -9,4 +10,8 @@ abstract interface class IProfileRepository {
   Future<void> clearToken();
 
   Future<Map<String, String>> getAllSettings();
+
+  Future<ProfileResponse> getProfile();
+
+  Future<void> upsertMultipleSettings(Map<String, String> settings);
 }
