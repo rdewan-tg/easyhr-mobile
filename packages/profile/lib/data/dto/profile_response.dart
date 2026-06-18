@@ -3,9 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_response.freezed.dart';
 part 'profile_response.g.dart';
 
-ProfileResponse deserializeProfileResponse(
-  Map<String, dynamic> json,
-) => ProfileResponse.fromJson(json);
+ProfileResponse deserializeProfileResponse(Map<String, dynamic> json) =>
+    ProfileResponse.fromJson(json);
 
 @freezed
 abstract class ProfileResponse with _$ProfileResponse {
@@ -33,5 +32,3 @@ abstract class ProfileData with _$ProfileData {
   factory ProfileData.fromJson(Map<String, dynamic> json) =>
       _$ProfileDataFromJson(json);
 }
-
-

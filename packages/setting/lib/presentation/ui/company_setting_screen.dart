@@ -48,7 +48,9 @@ class _CompanySettingScreenState extends ConsumerState<CompanySettingScreen> {
                 subtitle: Text(settings['timeZone'] ?? ''),
               ),
               SwitchListTile.adaptive(
-                title: Text(context.localizations('setting.companyIsZoneEnabled')),
+                title: Text(
+                  context.localizations('setting.companyIsZoneEnabled'),
+                ),
                 value: settings['companyIsZoneEnabled'] == 'true',
                 onChanged: (value) {},
               ),

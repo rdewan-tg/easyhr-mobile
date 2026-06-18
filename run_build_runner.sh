@@ -7,7 +7,7 @@ run_flutter_commands() {
   flutter pub get
   dart run build_runner clean
   # Redirect stdout and stderr from build_runner to /dev/null to hide the output
-  dart run build_runner build -d 
+  dart run build_runner build -d --force-jit
   cd "$OLDPWD"  # Return to the previous directory
   echo "Exiting directory: $1"
 }
