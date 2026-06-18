@@ -197,24 +197,35 @@ jobs:
       # setup iOS provisioning profile
       - name: Install Provisioning Profile
         run: |
+          # Decode profile to get UUID
+          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > /tmp/profile.mobileprovision
+          security cms -D -i /tmp/profile.mobileprovision > /tmp/profile.plist 2>/dev/null || true
+          PROFILE_UUID=$(plutil -extract UUID raw /tmp/profile.plist 2>/dev/null || echo "")
+          echo "Profile UUID: $PROFILE_UUID"
+          
+          if [ -z "$PROFILE_UUID" ]; then
+            echo "ERROR: Could not extract UUID from profile"
+            exit 1
+          fi
+          
+          # Xcode expects profile files named with UUID (not profile name)
           # Traditional location (pre-Xcode 16)
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
+          cp /tmp/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
           
           # Xcode 16+ location
           mkdir -p ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles
-          cp ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/
+          cp /tmp/profile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
           
-          # Verify the profile was created
+          # Also keep the named version for compatibility
+          cp /tmp/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
+          cp /tmp/profile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
+          
+          # Verify the profiles were created
           echo "Profiles in MobileDevice location:"
           ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
           echo "Profiles in Xcode UserData location:"
           ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/
-          
-          # Decode and verify profile
-          security cms -D -i ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision > /tmp/profile.plist 2>/dev/null || true
-          echo "Profile UUID:"
-          plutil -extract UUID raw /tmp/profile.plist 2>/dev/null || echo "Could not extract UUID"
           
           # For macOS 15 / Xcode 16: ensure keychain is unlocked during build
           security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
