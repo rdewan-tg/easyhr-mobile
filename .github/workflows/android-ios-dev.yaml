@@ -180,13 +180,19 @@ jobs:
       # Prepare keychain for macOS 15 / Xcode 16
       - name: Prepare Keychain
         run: |
-          # Set default keychain to login keychain for provisioning profile access
-          security default-keychain -s login.keychain || true
-          security unlock-keychain -p "" login.keychain || true
-          security list-keychains -s login.keychain || true
+          # The import-codesign-certs action creates signing_temp.keychain
+          # We need to keep it as default and ensure it's unlocked for Xcode to access
+          security default-keychain -s signing_temp.keychain
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          # Add both keychains to search list so Xcode can find everything
+          security list-keychains -s signing_temp.keychain login.keychain
           # Show keychain info for debugging
+          echo "Keychains in search list:"
           security list-keychains
+          echo "Default keychain:"
           security default-keychain
+          echo "Certificate in keychain:"
+          security find-identity -v signing_temp.keychain
 
       # setup iOS provisioning profile
       - name: Install Provisioning Profile
@@ -194,16 +200,20 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
           
-          # Verify the profile was created and has content
+          # Verify the profile was created
           ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
           
-          # For macOS 15 / Xcode 16, also need to import into keychain for Xcode to find it
+          # Decode and verify profile
           security cms -D -i ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision > /tmp/profile.plist 2>/dev/null || true
           echo "Profile UUID:"
           plutil -extract UUID raw /tmp/profile.plist 2>/dev/null || echo "Could not extract UUID"
           
-          # Force Xcode to recognize profiles (Xcode 16 fix)
-          xcrun simctl list devices 2>/dev/null || true
+          # For macOS 15 / Xcode 16: ensure keychain is unlocked during build
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          
+          # Verify Xcode can see the profile
+          echo "Installed profiles:"
+          ls ~/Library/MobileDevice/Provisioning\ Profiles/
 
       # setup flutter translation sheet
       - name: Setup Flutter Translation Sheet
@@ -251,6 +261,17 @@ jobs:
           args: --artifact=apk --build-name=2.0.0 --build-number=${{ env.BUILD_NUMBER }} --flavor=dev --target=lib/main_dev.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
+
+      - name: Unlock Keychain for iOS Build
+        run: |
+          # Ensure keychain is unlocked and set to not timeout during build
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          security set-keychain-settings -t 3600 -u signing_temp.keychain
+          security list-keychains -s signing_temp.keychain login.keychain
+          security default-keychain -s signing_temp.keychain
+          echo "Keychain prepared for build:"
+          security default-keychain
+          security find-identity -v signing_temp.keychain | head -5
 
       - name: Shorebird iOS Build
         uses: shorebirdtech/shorebird-release@v1
