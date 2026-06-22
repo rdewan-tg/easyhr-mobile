@@ -200,6 +200,11 @@ jobs:
           cp /tmp/profile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
           echo "Installed profiles:"
           ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/
+          # Replace profile name with UUID in export plist and pbxproj so Xcode 16 can resolve by UUID
+          sed -i '' "s/EasyHR-Dev-ProvisioningProfile/${PROFILE_UUID}/g" ios/export_options_dev.plist
+          sed -i '' "s/EasyHR-Dev-ProvisioningProfile/${PROFILE_UUID}/g" ios/Runner.xcodeproj/project.pbxproj
+          echo "export_options_dev.plist after update:"
+          cat ios/export_options_dev.plist
           security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
 
       # setup flutter translation sheet
