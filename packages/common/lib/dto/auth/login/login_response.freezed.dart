@@ -867,7 +867,7 @@ as String,
 /// @nodoc
 mixin _$UserDto {
 
-@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "email") String get email;@JsonKey(name: "phoneNumber") String? get phoneNumber;@JsonKey(name: "avatar") String? get photo;@JsonKey(name: "isActive") bool get isActive;@JsonKey(name: "uuid") String? get uuid;@JsonKey(name: "role") List<RoleDto> get role;@JsonKey(name: "company") CompanyDto get company;
+@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "email") String get email;@JsonKey(name: "phoneNumber") String? get phoneNumber;@JsonKey(name: "avatar") String? get photo;@JsonKey(name: "isActive") bool get isActive;@JsonKey(name: "uuid") String? get uuid;@JsonKey(name: "gpsRadius") int? get gpsRadius;@JsonKey(name: "isZoneEnabled") bool? get isZoneEnabled;@JsonKey(name: "role") List<RoleDto> get role;@JsonKey(name: "company") CompanyDto get company;
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -880,16 +880,16 @@ $UserDtoCopyWith<UserDto> get copyWith => _$UserDtoCopyWithImpl<UserDto>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&const DeepCollectionEquality().equals(other.role, role)&&(identical(other.company, company) || other.company == company));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&const DeepCollectionEquality().equals(other.role, role)&&(identical(other.company, company) || other.company == company));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,isActive,uuid,const DeepCollectionEquality().hash(role),company);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,isActive,uuid,gpsRadius,isZoneEnabled,const DeepCollectionEquality().hash(role),company);
 
 @override
 String toString() {
-  return 'UserDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, isActive: $isActive, uuid: $uuid, role: $role, company: $company)';
+  return 'UserDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, isActive: $isActive, uuid: $uuid, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, role: $role, company: $company)';
 }
 
 
@@ -900,7 +900,7 @@ abstract mixin class $UserDtoCopyWith<$Res>  {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) _then) = _$UserDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "avatar") String? photo,@JsonKey(name: "isActive") bool isActive,@JsonKey(name: "uuid") String? uuid,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "avatar") String? photo,@JsonKey(name: "isActive") bool isActive,@JsonKey(name: "uuid") String? uuid,@JsonKey(name: "gpsRadius") int? gpsRadius,@JsonKey(name: "isZoneEnabled") bool? isZoneEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
 });
 
 
@@ -917,7 +917,7 @@ class _$UserDtoCopyWithImpl<$Res>
 
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? isActive = null,Object? uuid = freezed,Object? role = null,Object? company = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? isActive = null,Object? uuid = freezed,Object? gpsRadius = freezed,Object? isZoneEnabled = freezed,Object? role = null,Object? company = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -926,7 +926,9 @@ as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber 
 as String?,photo: freezed == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
 as String?,isActive: null == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool,uuid: freezed == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
-as String?,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
+as String?,gpsRadius: freezed == gpsRadius ? _self.gpsRadius : gpsRadius // ignore: cast_nullable_to_non_nullable
+as int?,isZoneEnabled: freezed == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+as bool?,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
 as List<RoleDto>,company: null == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as CompanyDto,
   ));
@@ -1022,10 +1024,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "gpsRadius")  int? gpsRadius, @JsonKey(name: "isZoneEnabled")  bool? isZoneEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserDto() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.gpsRadius,_that.isZoneEnabled,_that.role,_that.company);case _:
   return orElse();
 
 }
@@ -1043,10 +1045,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "gpsRadius")  int? gpsRadius, @JsonKey(name: "isZoneEnabled")  bool? isZoneEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)  $default,) {final _that = this;
 switch (_that) {
 case _UserDto():
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.gpsRadius,_that.isZoneEnabled,_that.role,_that.company);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1063,10 +1065,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "avatar")  String? photo, @JsonKey(name: "isActive")  bool isActive, @JsonKey(name: "uuid")  String? uuid, @JsonKey(name: "gpsRadius")  int? gpsRadius, @JsonKey(name: "isZoneEnabled")  bool? isZoneEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,) {final _that = this;
 switch (_that) {
 case _UserDto() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.isActive,_that.uuid,_that.gpsRadius,_that.isZoneEnabled,_that.role,_that.company);case _:
   return null;
 
 }
@@ -1078,7 +1080,7 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 @JsonSerializable()
 
 class _UserDto implements UserDto {
-  const _UserDto({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "email") required this.email, @JsonKey(name: "phoneNumber") this.phoneNumber, @JsonKey(name: "avatar") this.photo, @JsonKey(name: "isActive") required this.isActive, @JsonKey(name: "uuid") this.uuid, @JsonKey(name: "role") required final  List<RoleDto> role, @JsonKey(name: "company") required this.company}): _role = role;
+  const _UserDto({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "email") required this.email, @JsonKey(name: "phoneNumber") this.phoneNumber, @JsonKey(name: "avatar") this.photo, @JsonKey(name: "isActive") required this.isActive, @JsonKey(name: "uuid") this.uuid, @JsonKey(name: "gpsRadius") this.gpsRadius, @JsonKey(name: "isZoneEnabled") this.isZoneEnabled, @JsonKey(name: "role") required final  List<RoleDto> role, @JsonKey(name: "company") required this.company}): _role = role;
   factory _UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
 
 @override@JsonKey(name: "id") final  int id;
@@ -1088,6 +1090,8 @@ class _UserDto implements UserDto {
 @override@JsonKey(name: "avatar") final  String? photo;
 @override@JsonKey(name: "isActive") final  bool isActive;
 @override@JsonKey(name: "uuid") final  String? uuid;
+@override@JsonKey(name: "gpsRadius") final  int? gpsRadius;
+@override@JsonKey(name: "isZoneEnabled") final  bool? isZoneEnabled;
  final  List<RoleDto> _role;
 @override@JsonKey(name: "role") List<RoleDto> get role {
   if (_role is EqualUnmodifiableListView) return _role;
@@ -1110,16 +1114,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&const DeepCollectionEquality().equals(other._role, _role)&&(identical(other.company, company) || other.company == company));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.uuid, uuid) || other.uuid == uuid)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&const DeepCollectionEquality().equals(other._role, _role)&&(identical(other.company, company) || other.company == company));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,isActive,uuid,const DeepCollectionEquality().hash(_role),company);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,isActive,uuid,gpsRadius,isZoneEnabled,const DeepCollectionEquality().hash(_role),company);
 
 @override
 String toString() {
-  return 'UserDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, isActive: $isActive, uuid: $uuid, role: $role, company: $company)';
+  return 'UserDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, isActive: $isActive, uuid: $uuid, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, role: $role, company: $company)';
 }
 
 
@@ -1130,7 +1134,7 @@ abstract mixin class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) _then) = __$UserDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "avatar") String? photo,@JsonKey(name: "isActive") bool isActive,@JsonKey(name: "uuid") String? uuid,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "avatar") String? photo,@JsonKey(name: "isActive") bool isActive,@JsonKey(name: "uuid") String? uuid,@JsonKey(name: "gpsRadius") int? gpsRadius,@JsonKey(name: "isZoneEnabled") bool? isZoneEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
 });
 
 
@@ -1147,7 +1151,7 @@ class __$UserDtoCopyWithImpl<$Res>
 
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? isActive = null,Object? uuid = freezed,Object? role = null,Object? company = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? isActive = null,Object? uuid = freezed,Object? gpsRadius = freezed,Object? isZoneEnabled = freezed,Object? role = null,Object? company = null,}) {
   return _then(_UserDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -1156,7 +1160,9 @@ as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber 
 as String?,photo: freezed == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
 as String?,isActive: null == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool,uuid: freezed == uuid ? _self.uuid : uuid // ignore: cast_nullable_to_non_nullable
-as String?,role: null == role ? _self._role : role // ignore: cast_nullable_to_non_nullable
+as String?,gpsRadius: freezed == gpsRadius ? _self.gpsRadius : gpsRadius // ignore: cast_nullable_to_non_nullable
+as int?,isZoneEnabled: freezed == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+as bool?,role: null == role ? _self._role : role // ignore: cast_nullable_to_non_nullable
 as List<RoleDto>,company: null == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as CompanyDto,
   ));
@@ -1444,7 +1450,7 @@ as UserRole,
 /// @nodoc
 mixin _$CompanyDto {
 
-@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "companyCode") String? get companyCode;@JsonKey(name: "countryCode") String? get countryCode;@JsonKey(name: "gpsRadius") int get gpsRadius;@JsonKey(name: "timeZone") String get timeZone;@JsonKey(name: "isZoneEnabled") bool get isZoneEnabled;@JsonKey(name: "isCameraEnabled") bool get isCameraEnabled;
+@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "companyCode") String? get companyCode;@JsonKey(name: "countryCode") String? get countryCode;@JsonKey(name: "gpsRadius") int get gpsRadius;@JsonKey(name: "timeZone") String get timeZone;@JsonKey(name: "isZoneEnabled") bool get isZoneEnabled;@JsonKey(name: "isCameraEnabled") bool get isCameraEnabled;@JsonKey(name: "currencyCode") String get currencyCode;
 /// Create a copy of CompanyDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1457,16 +1463,16 @@ $CompanyDtoCopyWith<CompanyDto> get copyWith => _$CompanyDtoCopyWithImpl<Company
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompanyDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.timeZone, timeZone) || other.timeZone == timeZone)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompanyDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.timeZone, timeZone) || other.timeZone == timeZone)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled)&&(identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,companyCode,countryCode,gpsRadius,timeZone,isZoneEnabled,isCameraEnabled);
+int get hashCode => Object.hash(runtimeType,id,name,companyCode,countryCode,gpsRadius,timeZone,isZoneEnabled,isCameraEnabled,currencyCode);
 
 @override
 String toString() {
-  return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled)';
+  return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, currencyCode: $currencyCode)';
 }
 
 
@@ -1477,7 +1483,7 @@ abstract mixin class $CompanyDtoCopyWith<$Res>  {
   factory $CompanyDtoCopyWith(CompanyDto value, $Res Function(CompanyDto) _then) = _$CompanyDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "companyCode") String? companyCode,@JsonKey(name: "countryCode") String? countryCode,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "timeZone") String timeZone,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "companyCode") String? companyCode,@JsonKey(name: "countryCode") String? countryCode,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "timeZone") String timeZone,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled,@JsonKey(name: "currencyCode") String currencyCode
 });
 
 
@@ -1494,7 +1500,7 @@ class _$CompanyDtoCopyWithImpl<$Res>
 
 /// Create a copy of CompanyDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? companyCode = freezed,Object? countryCode = freezed,Object? gpsRadius = null,Object? timeZone = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? companyCode = freezed,Object? countryCode = freezed,Object? gpsRadius = null,Object? timeZone = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,Object? currencyCode = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -1504,7 +1510,8 @@ as String?,gpsRadius: null == gpsRadius ? _self.gpsRadius : gpsRadius // ignore:
 as int,timeZone: null == timeZone ? _self.timeZone : timeZone // ignore: cast_nullable_to_non_nullable
 as String,isZoneEnabled: null == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
 as bool,isCameraEnabled: null == isCameraEnabled ? _self.isCameraEnabled : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,currencyCode: null == currencyCode ? _self.currencyCode : currencyCode // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -1589,10 +1596,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "currencyCode")  String currencyCode)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CompanyDto() when $default != null:
-return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled);case _:
+return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled,_that.currencyCode);case _:
   return orElse();
 
 }
@@ -1610,10 +1617,10 @@ return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gp
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "currencyCode")  String currencyCode)  $default,) {final _that = this;
 switch (_that) {
 case _CompanyDto():
-return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled);case _:
+return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled,_that.currencyCode);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1630,10 +1637,10 @@ return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gp
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "companyCode")  String? companyCode, @JsonKey(name: "countryCode")  String? countryCode, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "timeZone")  String timeZone, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "currencyCode")  String currencyCode)?  $default,) {final _that = this;
 switch (_that) {
 case _CompanyDto() when $default != null:
-return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled);case _:
+return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gpsRadius,_that.timeZone,_that.isZoneEnabled,_that.isCameraEnabled,_that.currencyCode);case _:
   return null;
 
 }
@@ -1645,7 +1652,7 @@ return $default(_that.id,_that.name,_that.companyCode,_that.countryCode,_that.gp
 @JsonSerializable()
 
 class _CompanyDto implements CompanyDto {
-  const _CompanyDto({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "companyCode") this.companyCode, @JsonKey(name: "countryCode") this.countryCode, @JsonKey(name: "gpsRadius") required this.gpsRadius, @JsonKey(name: "timeZone") required this.timeZone, @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled, @JsonKey(name: "isCameraEnabled") required this.isCameraEnabled});
+  const _CompanyDto({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "companyCode") this.companyCode, @JsonKey(name: "countryCode") this.countryCode, @JsonKey(name: "gpsRadius") required this.gpsRadius, @JsonKey(name: "timeZone") required this.timeZone, @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled, @JsonKey(name: "isCameraEnabled") required this.isCameraEnabled, @JsonKey(name: "currencyCode") required this.currencyCode});
   factory _CompanyDto.fromJson(Map<String, dynamic> json) => _$CompanyDtoFromJson(json);
 
 @override@JsonKey(name: "id") final  int id;
@@ -1656,6 +1663,7 @@ class _CompanyDto implements CompanyDto {
 @override@JsonKey(name: "timeZone") final  String timeZone;
 @override@JsonKey(name: "isZoneEnabled") final  bool isZoneEnabled;
 @override@JsonKey(name: "isCameraEnabled") final  bool isCameraEnabled;
+@override@JsonKey(name: "currencyCode") final  String currencyCode;
 
 /// Create a copy of CompanyDto
 /// with the given fields replaced by the non-null parameter values.
@@ -1670,16 +1678,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompanyDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.timeZone, timeZone) || other.timeZone == timeZone)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompanyDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.timeZone, timeZone) || other.timeZone == timeZone)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled)&&(identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,companyCode,countryCode,gpsRadius,timeZone,isZoneEnabled,isCameraEnabled);
+int get hashCode => Object.hash(runtimeType,id,name,companyCode,countryCode,gpsRadius,timeZone,isZoneEnabled,isCameraEnabled,currencyCode);
 
 @override
 String toString() {
-  return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled)';
+  return 'CompanyDto(id: $id, name: $name, companyCode: $companyCode, countryCode: $countryCode, gpsRadius: $gpsRadius, timeZone: $timeZone, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, currencyCode: $currencyCode)';
 }
 
 
@@ -1690,7 +1698,7 @@ abstract mixin class _$CompanyDtoCopyWith<$Res> implements $CompanyDtoCopyWith<$
   factory _$CompanyDtoCopyWith(_CompanyDto value, $Res Function(_CompanyDto) _then) = __$CompanyDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "companyCode") String? companyCode,@JsonKey(name: "countryCode") String? countryCode,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "timeZone") String timeZone,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "companyCode") String? companyCode,@JsonKey(name: "countryCode") String? countryCode,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "timeZone") String timeZone,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled,@JsonKey(name: "currencyCode") String currencyCode
 });
 
 
@@ -1707,7 +1715,7 @@ class __$CompanyDtoCopyWithImpl<$Res>
 
 /// Create a copy of CompanyDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? companyCode = freezed,Object? countryCode = freezed,Object? gpsRadius = null,Object? timeZone = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? companyCode = freezed,Object? countryCode = freezed,Object? gpsRadius = null,Object? timeZone = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,Object? currencyCode = null,}) {
   return _then(_CompanyDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -1717,7 +1725,8 @@ as String?,gpsRadius: null == gpsRadius ? _self.gpsRadius : gpsRadius // ignore:
 as int,timeZone: null == timeZone ? _self.timeZone : timeZone // ignore: cast_nullable_to_non_nullable
 as String,isZoneEnabled: null == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
 as bool,isCameraEnabled: null == isCameraEnabled ? _self.isCameraEnabled : isCameraEnabled // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,currencyCode: null == currencyCode ? _self.currencyCode : currencyCode // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

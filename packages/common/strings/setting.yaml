@@ -22,7 +22,7 @@ importMerchandiserCustomerSubTitle: Import Merchandiser Customer from API
 importProductAndPrice: Import Product and Price
 importProductAndPriceSubTitle: Import Product and Price from API
 save: Save
-isZonedEnabled: Is Zoned Enabled
+companyIsZoneEnabled: Is Zoned Enabled
 gpsRadius: GPS Radius
 currencyCode: Currency Code
 companyCode: Company Code

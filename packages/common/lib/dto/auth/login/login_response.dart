@@ -46,6 +46,8 @@ abstract class UserDto with _$UserDto {
     @JsonKey(name: "avatar") String? photo,
     @JsonKey(name: "isActive") required bool isActive,
     @JsonKey(name: "uuid") String? uuid,
+    @JsonKey(name: "gpsRadius") int? gpsRadius,
+    @JsonKey(name: "isZoneEnabled") bool? isZoneEnabled,
     @JsonKey(name: "role") required List<RoleDto> role,
     @JsonKey(name: "company") required CompanyDto company,
   }) = _UserDto;
@@ -76,6 +78,7 @@ abstract class CompanyDto with _$CompanyDto {
     @JsonKey(name: "timeZone") required String timeZone,
     @JsonKey(name: "isZoneEnabled") required bool isZoneEnabled,
     @JsonKey(name: "isCameraEnabled") required bool isCameraEnabled,
+    @JsonKey(name: "currencyCode") required String currencyCode,
   }) = _CompanyDto;
 
   factory CompanyDto.fromJson(Map<String, dynamic> json) =>

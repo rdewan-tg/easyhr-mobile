@@ -70,4 +70,22 @@ final class ProfileController extends Notifier<ProfileState> {
       },
     );
   }
+
+  Future<void> getProfile() async {
+    try {
+      state = state.copyWith(isLoading: true, errorMsg: null);
+      await ref.read(profileServiceProvider).getProfile();
+      await getAllSettings();
+    } catch (e) {
+      state = state.copyWith(errorMsg: e.toString());
+    } finally {
+      state = state.copyWith(isLoading: false);
+    }
+  }
+
+  Future<void> updateZoneEnabled(bool value) async {
+    final updatedSettings = Map<String, String>.from(state.settings)
+      ..['isZoneEnabled'] = value.toString();
+    state = state.copyWith(settings: updatedSettings);
+  }
 }
