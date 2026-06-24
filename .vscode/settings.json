@@ -31,11 +31,9 @@
     "tonggarden",
     "whatsnew",
     "signUpform",
-    "COCOAPODS",
-    "podfile",
-    "xcconfig",
-    "podhelper",
-    "WHENINUSE"
+    "getenv",
+    "proguard",
+    "armeabi"
   ],
   "yaml.schemaStore.enable": false
 }

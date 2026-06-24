@@ -11,5 +11,4 @@ abstract class BlogState with _$BlogState {
     BlogModel? blog,
     String? error,
   }) = _BlogState;
-  
 }

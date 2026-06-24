@@ -19,7 +19,7 @@ class _PublicHolidayScreenState extends ConsumerState<PublicHolidayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _listner();
+    _listener();
 
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +30,7 @@ class _PublicHolidayScreenState extends ConsumerState<PublicHolidayScreen> {
     );
   }
 
-  void _listner() {
+  void _listener() {
     // listen for error
     ref.listen(publicHolidayControllerProvider.select((value) => value.error), (
       _,

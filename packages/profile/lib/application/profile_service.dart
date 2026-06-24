@@ -79,7 +79,6 @@ final class ProfileService implements IProfileService {
     }
   }
 
-
   @override
   Future<void> getProfile() async {
     try {

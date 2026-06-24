@@ -83,7 +83,7 @@ fvm flutter pub run build_runner build -d
 ### Setup Android
 
 *   Android google-services.json
-    1. Downlaod the google-services.json
+    1. Download the google-services.json
     2. Add the download file to 
     ``` 
     android/app/src/dev
@@ -125,7 +125,7 @@ fvm flutter pub run build_runner build -d
 ### Setup iOS
 
 *   iOS GoogleService-Info.plist
-    1. Downlaod the GoogleService-Info.plist
+    1. Download the GoogleService-Info.plist
     2. Add the download file to 
     ``` 
     ios/Runner/Dev
@@ -275,4 +275,19 @@ Follow these steps to enable automated app releases via GitHub Actions:
    - Open Users and permissions.
    - Click invite new user and add the email of the service account created in the previous step.
    - Grant permissions to the app that you want the service account to deploy in app permissions.
+
+
+   ### Base64 Encoding with PowerShell (Run from core directory)
+*   `.prod.env`
+    ```bash
+    [Convert]::ToBase64String([System.IO.File]::ReadAllBytes(".prod.env")) | Set-Clipboard
+    ```
+*   `.dev.env`
+    ```bash
+    [Convert]::ToBase64String([System.IO.File]::ReadAllBytes(".dev.env")) | Set-Clipboard
+    ```
+*   `.qa.env`
+    ```bash
+    [Convert]::ToBase64String([System.IO.File]::ReadAllBytes(".qa.env")) | Set-Clipboard
+    ```
    
