@@ -85,11 +85,12 @@ final class ProfileService implements IProfileService {
     try {
       final response = await _profileRepository.getProfile();
       await _profileRepository.upsertMultipleSettings({
-        'companyId': response.data.id.toString(),
-        'timeZone': response.data.timeZone,
+        'companyId': response.data.company.id.toString(),
         'gpsRadius': response.data.gpsRadius.toString(),
         'isZoneEnabled': response.data.isZoneEnabled.toString(),
-        'isLocationData': response.data.isLocationData.toString(),
+        'dashboardPath': response.data.dashboardPath,
+        'isWebLoginEnabled': response.data.isWebLoginEnabled.toString(),
+        'timeZone': response.data.company.timeZone,
       });
     } on Failure catch (_) {
       rethrow;

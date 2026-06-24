@@ -10,8 +10,7 @@ class ProfileDataWidget extends ConsumerWidget {
     );
     return RefreshIndicator(
       onRefresh: () async {
-        ref.read(profileControllerProvider.notifier).getProfile();
-        await ref.read(profileControllerProvider.notifier).getAllSettings();
+        await ref.read(profileControllerProvider.notifier).getProfile();
       },
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),

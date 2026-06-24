@@ -23,14 +23,16 @@ class _CaptureImageButtonWidgetState
     final status = ref.watch(
       mapControllerProvider.select((value) => value.status),
     );
-    final zone = ref.watch(mapControllerProvider.select((value) => value.zone));
+    final selectedZone = ref.watch(
+      mapControllerProvider.select((value) => value.zone),
+    );
 
     /// [status] == AttendanceStatus.checkedIn means the user previously checked-in and is ready to check-out
     /// [status] == AttendanceStatus.checkedOut means the user previously checked-out and is ready to check-in
     /// Text: [status] == AttendanceStatus.checkedIn then "Check Out" else "Check In"
     /// Button Color : [status] == AttendanceStatus.checkedIn then red else null
     return FilledButton.icon(
-      onPressed: zone == null
+      onPressed: selectedZone == null
           ? null
           : () async {
               final currentAddress = ref

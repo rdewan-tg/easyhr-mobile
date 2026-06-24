@@ -157,7 +157,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
     });
 
     // Save the modified image to the original file path
-    File(file.path).writeAsBytesSync(modifiedImageBytes);
+    File(file.path).writeAsBytes(modifiedImageBytes);
 
     // upload the image to the server
     await ref.read(mapControllerProvider.notifier).addAttendance({
@@ -194,7 +194,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
       });
 
       // Save the modified image to the original file path
-      File(file.path).writeAsBytesSync(modifiedImageBytes);
+      File(file.path).writeAsBytes(modifiedImageBytes);
 
       // save the image to the gallery
       // save the image to the gallery
@@ -277,6 +277,12 @@ Uint8List processImage(Map<String, dynamic> args) {
     throw StateError('Invalid image data');
   }
 
+  // Resize to a smaller width so drawing/encoding is fast and uses less memory
+  const maxWidth = 1024;
+  final resized = image.width > maxWidth
+      ? img.copyResize(image, width: maxWidth)
+      : image;
+
   final data =
       '''
     $dateTime \n   
@@ -285,11 +291,11 @@ Uint8List processImage(Map<String, dynamic> args) {
 
   //Draw the date and time
   final modifiedImage = img.drawString(
-    image,
+    resized,
     data,
     font: img.arial48,
     x: 10,
-    y: image.height - 300,
+    y: resized.height - 150,
   );
 
   // Return the encoded modified image

@@ -17,21 +17,52 @@ Map<String, dynamic> _$ProfileResponseToJson(_ProfileResponse instance) =>
 
 _ProfileData _$ProfileDataFromJson(Map<String, dynamic> json) => _ProfileData(
   id: (json['id'] as num).toInt(),
-  timeZone: json['timeZone'] as String,
+  name: json['name'] as String,
+  email: json['email'] as String,
+  phoneNumber: json['phoneNumber'] as String?,
+  photo: json['photo'] as String?,
   gpsRadius: (json['gpsRadius'] as num).toInt(),
-  isLocationData: json['isLocationData'] as bool,
   isZoneEnabled: json['isZoneEnabled'] as bool,
-  currencyCode: json['currencyCode'] as String,
-  companyId: (json['companyId'] as num).toInt(),
+  dashboardPath: json['dashboardPath'] as String,
+  isWebLoginEnabled: json['isWebLoginEnabled'] as bool,
+  role: (json['role'] as List<dynamic>)
+      .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  company: CompanyDto.fromJson(json['company'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ProfileDataToJson(_ProfileData instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'timeZone': instance.timeZone,
+      'name': instance.name,
+      'email': instance.email,
+      'phoneNumber': instance.phoneNumber,
+      'photo': instance.photo,
       'gpsRadius': instance.gpsRadius,
-      'isLocationData': instance.isLocationData,
       'isZoneEnabled': instance.isZoneEnabled,
-      'currencyCode': instance.currencyCode,
-      'companyId': instance.companyId,
+      'dashboardPath': instance.dashboardPath,
+      'isWebLoginEnabled': instance.isWebLoginEnabled,
+      'role': instance.role,
+      'company': instance.company,
+    };
+
+_RoleDto _$RoleDtoFromJson(Map<String, dynamic> json) =>
+    _RoleDto(id: (json['id'] as num).toInt(), name: json['name'] as String);
+
+Map<String, dynamic> _$RoleDtoToJson(_RoleDto instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+};
+
+_CompanyDto _$CompanyDtoFromJson(Map<String, dynamic> json) => _CompanyDto(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  timeZone: json['timeZone'] as String,
+);
+
+Map<String, dynamic> _$CompanyDtoToJson(_CompanyDto instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'timeZone': instance.timeZone,
     };

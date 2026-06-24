@@ -22,16 +22,44 @@ abstract class ProfileResponse with _$ProfileResponse {
 abstract class ProfileData with _$ProfileData {
   const factory ProfileData({
     @JsonKey(name: "id") required int id,
-    @JsonKey(name: "timeZone") required String timeZone,
+    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "email") required String email,
+    @JsonKey(name: "phoneNumber") String? phoneNumber,
+    @JsonKey(name: "photo") String? photo,
     @JsonKey(name: "gpsRadius") required int gpsRadius,
-    @JsonKey(name: "isLocationData") required bool isLocationData,
     @JsonKey(name: "isZoneEnabled") required bool isZoneEnabled,
-    @JsonKey(name: "currencyCode") required String currencyCode,
-    @JsonKey(name: "companyId") required int companyId,
+    @JsonKey(name: "dashboardPath") required String dashboardPath,
+    @JsonKey(name: "isWebLoginEnabled") required bool isWebLoginEnabled,
+    @JsonKey(name: "role") required List<RoleDto> role,
+    @JsonKey(name: "company") required CompanyDto company,
   }) = _ProfileData;
 
   factory ProfileData.fromJson(Map<String, dynamic> json) =>
       _$ProfileDataFromJson(json);
 }
+
+@freezed
+abstract class RoleDto with _$RoleDto {
+  const factory RoleDto({
+    @JsonKey(name: "id") required int id,
+    @JsonKey(name: "name") required String name,
+  }) = _RoleDto;
+
+  factory RoleDto.fromJson(Map<String, dynamic> json) =>
+      _$RoleDtoFromJson(json);
+}
+
+@freezed
+abstract class CompanyDto with _$CompanyDto {
+  const factory CompanyDto({
+    @JsonKey(name: "id") required int id,
+    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "timeZone") required String timeZone,
+  }) = _CompanyDto;
+
+  factory CompanyDto.fromJson(Map<String, dynamic> json) =>
+      _$CompanyDtoFromJson(json);
+}
+
 
 
