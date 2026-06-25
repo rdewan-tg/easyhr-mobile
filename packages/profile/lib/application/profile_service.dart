@@ -87,6 +87,7 @@ final class ProfileService implements IProfileService {
         'companyId': response.data.company.id.toString(),
         'gpsRadius': response.data.gpsRadius.toString(),
         'isZoneEnabled': response.data.isZoneEnabled.toString(),
+        'isCameraEnabled': response.data.isCameraEnabled.toString(),
         'dashboardPath': response.data.dashboardPath,
         'isWebLoginEnabled': response.data.isWebLoginEnabled.toString(),
         'timeZone': response.data.company.timeZone,

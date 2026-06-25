@@ -23,6 +23,7 @@ _ProfileData _$ProfileDataFromJson(Map<String, dynamic> json) => _ProfileData(
   photo: json['photo'] as String?,
   gpsRadius: (json['gpsRadius'] as num).toInt(),
   isZoneEnabled: json['isZoneEnabled'] as bool,
+  isCameraEnabled: json['isCameraEnabled'] as bool,
   dashboardPath: json['dashboardPath'] as String,
   isWebLoginEnabled: json['isWebLoginEnabled'] as bool,
   role: (json['role'] as List<dynamic>)
@@ -40,6 +41,7 @@ Map<String, dynamic> _$ProfileDataToJson(_ProfileData instance) =>
       'photo': instance.photo,
       'gpsRadius': instance.gpsRadius,
       'isZoneEnabled': instance.isZoneEnabled,
+      'isCameraEnabled': instance.isCameraEnabled,
       'dashboardPath': instance.dashboardPath,
       'isWebLoginEnabled': instance.isWebLoginEnabled,
       'role': instance.role,

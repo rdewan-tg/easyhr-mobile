@@ -299,7 +299,7 @@ $ProfileDataCopyWith<$Res> get data {
 /// @nodoc
 mixin _$ProfileData {
 
-@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "email") String get email;@JsonKey(name: "phoneNumber") String? get phoneNumber;@JsonKey(name: "photo") String? get photo;@JsonKey(name: "gpsRadius") int get gpsRadius;@JsonKey(name: "isZoneEnabled") bool get isZoneEnabled;@JsonKey(name: "dashboardPath") String get dashboardPath;@JsonKey(name: "isWebLoginEnabled") bool get isWebLoginEnabled;@JsonKey(name: "role") List<RoleDto> get role;@JsonKey(name: "company") CompanyDto get company;
+@JsonKey(name: "id") int get id;@JsonKey(name: "name") String get name;@JsonKey(name: "email") String get email;@JsonKey(name: "phoneNumber") String? get phoneNumber;@JsonKey(name: "photo") String? get photo;@JsonKey(name: "gpsRadius") int get gpsRadius;@JsonKey(name: "isZoneEnabled") bool get isZoneEnabled;@JsonKey(name: "isCameraEnabled") bool get isCameraEnabled;@JsonKey(name: "dashboardPath") String get dashboardPath;@JsonKey(name: "isWebLoginEnabled") bool get isWebLoginEnabled;@JsonKey(name: "role") List<RoleDto> get role;@JsonKey(name: "company") CompanyDto get company;
 /// Create a copy of ProfileData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -312,16 +312,16 @@ $ProfileDataCopyWith<ProfileData> get copyWith => _$ProfileDataCopyWithImpl<Prof
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.dashboardPath, dashboardPath) || other.dashboardPath == dashboardPath)&&(identical(other.isWebLoginEnabled, isWebLoginEnabled) || other.isWebLoginEnabled == isWebLoginEnabled)&&const DeepCollectionEquality().equals(other.role, role)&&(identical(other.company, company) || other.company == company));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled)&&(identical(other.dashboardPath, dashboardPath) || other.dashboardPath == dashboardPath)&&(identical(other.isWebLoginEnabled, isWebLoginEnabled) || other.isWebLoginEnabled == isWebLoginEnabled)&&const DeepCollectionEquality().equals(other.role, role)&&(identical(other.company, company) || other.company == company));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,gpsRadius,isZoneEnabled,dashboardPath,isWebLoginEnabled,const DeepCollectionEquality().hash(role),company);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,gpsRadius,isZoneEnabled,isCameraEnabled,dashboardPath,isWebLoginEnabled,const DeepCollectionEquality().hash(role),company);
 
 @override
 String toString() {
-  return 'ProfileData(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, dashboardPath: $dashboardPath, isWebLoginEnabled: $isWebLoginEnabled, role: $role, company: $company)';
+  return 'ProfileData(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, dashboardPath: $dashboardPath, isWebLoginEnabled: $isWebLoginEnabled, role: $role, company: $company)';
 }
 
 
@@ -332,7 +332,7 @@ abstract mixin class $ProfileDataCopyWith<$Res>  {
   factory $ProfileDataCopyWith(ProfileData value, $Res Function(ProfileData) _then) = _$ProfileDataCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "photo") String? photo,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "dashboardPath") String dashboardPath,@JsonKey(name: "isWebLoginEnabled") bool isWebLoginEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "photo") String? photo,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled,@JsonKey(name: "dashboardPath") String dashboardPath,@JsonKey(name: "isWebLoginEnabled") bool isWebLoginEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
 });
 
 
@@ -349,7 +349,7 @@ class _$ProfileDataCopyWithImpl<$Res>
 
 /// Create a copy of ProfileData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? gpsRadius = null,Object? isZoneEnabled = null,Object? dashboardPath = null,Object? isWebLoginEnabled = null,Object? role = null,Object? company = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? gpsRadius = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,Object? dashboardPath = null,Object? isWebLoginEnabled = null,Object? role = null,Object? company = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -358,6 +358,7 @@ as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber 
 as String?,photo: freezed == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
 as String?,gpsRadius: null == gpsRadius ? _self.gpsRadius : gpsRadius // ignore: cast_nullable_to_non_nullable
 as int,isZoneEnabled: null == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+as bool,isCameraEnabled: null == isCameraEnabled ? _self.isCameraEnabled : isCameraEnabled // ignore: cast_nullable_to_non_nullable
 as bool,dashboardPath: null == dashboardPath ? _self.dashboardPath : dashboardPath // ignore: cast_nullable_to_non_nullable
 as String,isWebLoginEnabled: null == isWebLoginEnabled ? _self.isWebLoginEnabled : isWebLoginEnabled // ignore: cast_nullable_to_non_nullable
 as bool,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
@@ -456,10 +457,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileData() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.isCameraEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
   return orElse();
 
 }
@@ -477,10 +478,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileData():
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.isCameraEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -497,10 +498,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  int id, @JsonKey(name: "name")  String name, @JsonKey(name: "email")  String email, @JsonKey(name: "phoneNumber")  String? phoneNumber, @JsonKey(name: "photo")  String? photo, @JsonKey(name: "gpsRadius")  int gpsRadius, @JsonKey(name: "isZoneEnabled")  bool isZoneEnabled, @JsonKey(name: "isCameraEnabled")  bool isCameraEnabled, @JsonKey(name: "dashboardPath")  String dashboardPath, @JsonKey(name: "isWebLoginEnabled")  bool isWebLoginEnabled, @JsonKey(name: "role")  List<RoleDto> role, @JsonKey(name: "company")  CompanyDto company)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileData() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_that.gpsRadius,_that.isZoneEnabled,_that.isCameraEnabled,_that.dashboardPath,_that.isWebLoginEnabled,_that.role,_that.company);case _:
   return null;
 
 }
@@ -512,7 +513,7 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.photo,_t
 @JsonSerializable()
 
 class _ProfileData implements ProfileData {
-  const _ProfileData({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "email") required this.email, @JsonKey(name: "phoneNumber") this.phoneNumber, @JsonKey(name: "photo") this.photo, @JsonKey(name: "gpsRadius") required this.gpsRadius, @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled, @JsonKey(name: "dashboardPath") required this.dashboardPath, @JsonKey(name: "isWebLoginEnabled") required this.isWebLoginEnabled, @JsonKey(name: "role") required final  List<RoleDto> role, @JsonKey(name: "company") required this.company}): _role = role;
+  const _ProfileData({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name, @JsonKey(name: "email") required this.email, @JsonKey(name: "phoneNumber") this.phoneNumber, @JsonKey(name: "photo") this.photo, @JsonKey(name: "gpsRadius") required this.gpsRadius, @JsonKey(name: "isZoneEnabled") required this.isZoneEnabled, @JsonKey(name: "isCameraEnabled") required this.isCameraEnabled, @JsonKey(name: "dashboardPath") required this.dashboardPath, @JsonKey(name: "isWebLoginEnabled") required this.isWebLoginEnabled, @JsonKey(name: "role") required final  List<RoleDto> role, @JsonKey(name: "company") required this.company}): _role = role;
   factory _ProfileData.fromJson(Map<String, dynamic> json) => _$ProfileDataFromJson(json);
 
 @override@JsonKey(name: "id") final  int id;
@@ -522,6 +523,7 @@ class _ProfileData implements ProfileData {
 @override@JsonKey(name: "photo") final  String? photo;
 @override@JsonKey(name: "gpsRadius") final  int gpsRadius;
 @override@JsonKey(name: "isZoneEnabled") final  bool isZoneEnabled;
+@override@JsonKey(name: "isCameraEnabled") final  bool isCameraEnabled;
 @override@JsonKey(name: "dashboardPath") final  String dashboardPath;
 @override@JsonKey(name: "isWebLoginEnabled") final  bool isWebLoginEnabled;
  final  List<RoleDto> _role;
@@ -546,16 +548,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.dashboardPath, dashboardPath) || other.dashboardPath == dashboardPath)&&(identical(other.isWebLoginEnabled, isWebLoginEnabled) || other.isWebLoginEnabled == isWebLoginEnabled)&&const DeepCollectionEquality().equals(other._role, _role)&&(identical(other.company, company) || other.company == company));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.photo, photo) || other.photo == photo)&&(identical(other.gpsRadius, gpsRadius) || other.gpsRadius == gpsRadius)&&(identical(other.isZoneEnabled, isZoneEnabled) || other.isZoneEnabled == isZoneEnabled)&&(identical(other.isCameraEnabled, isCameraEnabled) || other.isCameraEnabled == isCameraEnabled)&&(identical(other.dashboardPath, dashboardPath) || other.dashboardPath == dashboardPath)&&(identical(other.isWebLoginEnabled, isWebLoginEnabled) || other.isWebLoginEnabled == isWebLoginEnabled)&&const DeepCollectionEquality().equals(other._role, _role)&&(identical(other.company, company) || other.company == company));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,gpsRadius,isZoneEnabled,dashboardPath,isWebLoginEnabled,const DeepCollectionEquality().hash(_role),company);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,photo,gpsRadius,isZoneEnabled,isCameraEnabled,dashboardPath,isWebLoginEnabled,const DeepCollectionEquality().hash(_role),company);
 
 @override
 String toString() {
-  return 'ProfileData(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, dashboardPath: $dashboardPath, isWebLoginEnabled: $isWebLoginEnabled, role: $role, company: $company)';
+  return 'ProfileData(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, photo: $photo, gpsRadius: $gpsRadius, isZoneEnabled: $isZoneEnabled, isCameraEnabled: $isCameraEnabled, dashboardPath: $dashboardPath, isWebLoginEnabled: $isWebLoginEnabled, role: $role, company: $company)';
 }
 
 
@@ -566,7 +568,7 @@ abstract mixin class _$ProfileDataCopyWith<$Res> implements $ProfileDataCopyWith
   factory _$ProfileDataCopyWith(_ProfileData value, $Res Function(_ProfileData) _then) = __$ProfileDataCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "photo") String? photo,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "dashboardPath") String dashboardPath,@JsonKey(name: "isWebLoginEnabled") bool isWebLoginEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
+@JsonKey(name: "id") int id,@JsonKey(name: "name") String name,@JsonKey(name: "email") String email,@JsonKey(name: "phoneNumber") String? phoneNumber,@JsonKey(name: "photo") String? photo,@JsonKey(name: "gpsRadius") int gpsRadius,@JsonKey(name: "isZoneEnabled") bool isZoneEnabled,@JsonKey(name: "isCameraEnabled") bool isCameraEnabled,@JsonKey(name: "dashboardPath") String dashboardPath,@JsonKey(name: "isWebLoginEnabled") bool isWebLoginEnabled,@JsonKey(name: "role") List<RoleDto> role,@JsonKey(name: "company") CompanyDto company
 });
 
 
@@ -583,7 +585,7 @@ class __$ProfileDataCopyWithImpl<$Res>
 
 /// Create a copy of ProfileData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? gpsRadius = null,Object? isZoneEnabled = null,Object? dashboardPath = null,Object? isWebLoginEnabled = null,Object? role = null,Object? company = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? photo = freezed,Object? gpsRadius = null,Object? isZoneEnabled = null,Object? isCameraEnabled = null,Object? dashboardPath = null,Object? isWebLoginEnabled = null,Object? role = null,Object? company = null,}) {
   return _then(_ProfileData(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -592,6 +594,7 @@ as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber 
 as String?,photo: freezed == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
 as String?,gpsRadius: null == gpsRadius ? _self.gpsRadius : gpsRadius // ignore: cast_nullable_to_non_nullable
 as int,isZoneEnabled: null == isZoneEnabled ? _self.isZoneEnabled : isZoneEnabled // ignore: cast_nullable_to_non_nullable
+as bool,isCameraEnabled: null == isCameraEnabled ? _self.isCameraEnabled : isCameraEnabled // ignore: cast_nullable_to_non_nullable
 as bool,dashboardPath: null == dashboardPath ? _self.dashboardPath : dashboardPath // ignore: cast_nullable_to_non_nullable
 as String,isWebLoginEnabled: null == isWebLoginEnabled ? _self.isWebLoginEnabled : isWebLoginEnabled // ignore: cast_nullable_to_non_nullable
 as bool,role: null == role ? _self._role : role // ignore: cast_nullable_to_non_nullable

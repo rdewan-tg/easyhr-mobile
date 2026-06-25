@@ -14,6 +14,8 @@ dependencies:
 
   core:
     path: ../core
+  profile:
+    path: ../profile
 
 dependency_overrides:
   # analyzer: 8.1.1

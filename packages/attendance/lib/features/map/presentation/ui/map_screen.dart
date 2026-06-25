@@ -15,15 +15,22 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      ref.read(mapControllerProvider.notifier).clearZone();
-      // get all the setting from local db
-      ref.read(mapControllerProvider.notifier).getAllSetting();
-      // get the zone from api
-      ref.read(mapControllerProvider.notifier).getZones();
-      // get the consent statement
-      ref.read(mapControllerProvider.notifier).getConsentStatement();
+      _init();
     });
     _initLocation();
+  }
+
+  void _init() async {
+    // get the zone from api
+    ref.read(mapControllerProvider.notifier).getZones();
+    // get user profile
+    await ref.read(profileControllerProvider.notifier).getProfile();
+    // clear zone
+    ref.read(mapControllerProvider.notifier).clearZone();
+    // get all the setting from local db
+    ref.read(mapControllerProvider.notifier).getAllSetting();
+    // get the consent statement
+    ref.read(mapControllerProvider.notifier).getConsentStatement();
   }
 
   @override

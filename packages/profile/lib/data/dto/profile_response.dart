@@ -27,6 +27,7 @@ abstract class ProfileData with _$ProfileData {
     @JsonKey(name: "photo") String? photo,
     @JsonKey(name: "gpsRadius") required int gpsRadius,
     @JsonKey(name: "isZoneEnabled") required bool isZoneEnabled,
+    @JsonKey(name: "isCameraEnabled") required bool isCameraEnabled,
     @JsonKey(name: "dashboardPath") required String dashboardPath,
     @JsonKey(name: "isWebLoginEnabled") required bool isWebLoginEnabled,
     @JsonKey(name: "role") required List<RoleDto> role,
