@@ -208,6 +208,11 @@ jobs:
           echo Getting dependencies
           dart pub get >> /dev/null
 
+          echo Debug: Showing .prod.env with line numbers
+          if [ -f ".prod.env" ]; then
+            cat -n .prod.env
+          fi
+          
           echo Exporting environment variables from .prod.env
           if [ -f ".prod.env" ]; then
             set -a

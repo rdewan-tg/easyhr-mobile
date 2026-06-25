@@ -189,6 +189,11 @@ jobs:
           echo Getting dependencies
           dart pub get >> /dev/null
 
+          echo Debug: Showing .qa.env with line numbers
+          if [ -f ".qa.env" ]; then
+            cat -n .qa.env
+          fi
+          
           echo Exporting environment variables from .qa.env
           if [ -f ".qa.env" ]; then
             set -a

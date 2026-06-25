@@ -235,6 +235,11 @@ jobs:
           echo Getting dependencies
           dart pub get >> /dev/null   
 
+          echo Debug: Showing .dev.env with line numbers
+          if [ -f ".dev.env" ]; then
+            cat -n .dev.env
+          fi
+          
           echo Exporting environment variables from .dev.env
           if [ -f ".dev.env" ]; then
             set -a
