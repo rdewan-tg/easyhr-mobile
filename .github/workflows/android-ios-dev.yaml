@@ -214,14 +214,17 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
-      - name: Export Environment Variables
+      
+      # check .dev.env content
+      - name: Check .dev.env Content
         run: |
-          # Export environment variables for envied_generator
+          echo "=== Checking .dev.env file ==="
           if [ -f "packages/core/.dev.env" ]; then
-            set -a
-            source packages/core/.dev.env
-            set +a
+            cat packages/core/.dev.env
+          else
+            echo ".dev.env file not found"
           fi
+          echo "================================"
 
       # setup build runner
       - name: Build Runner Setup
