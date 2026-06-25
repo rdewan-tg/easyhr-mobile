@@ -214,6 +214,15 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      - name: Export Environment Variables
+        run: |
+          # Export environment variables for envied_generator
+          if [ -f "packages/core/.dev.env" ]; then
+            set -a
+            source packages/core/.dev.env
+            set +a
+          fi
+
       # setup build runner
       - name: Build Runner Setup
         run: |
