@@ -24,6 +24,7 @@ jobs:
   build:
     runs-on: macos-15
     environment: DEV
+    if: github.event_name == 'push' || github.head_ref != github.ref
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -234,11 +235,21 @@ jobs:
           echo Getting dependencies
           dart pub get >> /dev/null   
 
+          echo Exporting environment variables from .dev.env
+          if [ -f ".dev.env" ]; then
+            set -a
+            source .dev.env
+            set +a
+            echo "Environment variables exported"
+          else
+            echo ".dev.env file not found"
+          fi
+
           echo Cleaning build_runner
-          dart pub run build_runner clean
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          dart pub run build_runner build -d --force-jit
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../

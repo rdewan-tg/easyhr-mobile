@@ -189,11 +189,21 @@ jobs:
           echo Getting dependencies
           dart pub get >> /dev/null
 
+          echo Exporting environment variables from .qa.env
+          if [ -f ".qa.env" ]; then
+            set -a
+            source .qa.env
+            set +a
+            echo "Environment variables exported"
+          else
+            echo ".qa.env file not found"
+          fi
+
           echo Cleaning build_runner
-          dart pub run build_runner clean
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          dart pub run build_runner build -d --force-jit
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    
