@@ -80,7 +80,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen>
     );
     return SwitchListTile.adaptive(
       title: Text(context.localizations('profile.userIsZoneEnabled')),
-      value: settings['userIsZoneEnabled'] == 'true',
+      value: settings['isZoneEnabled'] == 'true',
       onChanged: (value) {},
     );
   }
