@@ -205,14 +205,17 @@ jobs:
           pwd
           
           echo Getting dependencies
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
+
+          echo Cleaning build_runner
+          dart pub run build_runner clean
 
           echo Running build_runner in packages/core
-          flutter pub  run build_runner build -d --force-jit
+          dart pub  run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
 
       # Formats the dart code
       - name: Auto-format Dart code
