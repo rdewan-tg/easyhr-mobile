@@ -30,13 +30,13 @@ jobs:
         uses: actions/checkout@v4
 
       # Use the setup-shorebird action to configure Shorebird
-      - name: ?? Setup Shorebird
+      - name: Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
         with:
           cache: true
 
       # Now we're able to use Shorebird CLI in our workflow
-      - name: ?? Use Shorebird
+      - name: Use Shorebird
         run: shorebird --version
 
       # Android specific setup
