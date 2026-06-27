@@ -29,6 +29,10 @@ class MapController extends Notifier<MapState> {
     result.when(
       (success) {
         state = state.copyWith(zones: success);
+        final currentPosition = state.currentPosition;
+        if (currentPosition != null) {
+          setCurrentPosition(currentPosition);
+        }
       },
       (error) {
         state = state.copyWith(errorMsg: error.message);
@@ -38,11 +42,8 @@ class MapController extends Notifier<MapState> {
 
   Future<void> getAllSetting() async {
     final settings = await ref.read(mapServiceProvider).getAllSetting();
-    final userIsZoneEnabled = settings['userIsZoneEnabled'] == 'true';
-    final companyIsZoneEnabled = settings['companyIsZoneEnabled'] == 'true';
+    final isZoneEnabled = settings['isZoneEnabled'] == 'true';
     final isCameraEnabled = settings['isCameraEnabled'] == 'true';
-    final isZoneEnabled = userIsZoneEnabled || companyIsZoneEnabled;
-    // final isZoneEnabled = userIsZoneEnabled ?? companyIsZoneEnabled;
 
     state = state.copyWith(
       settings: settings,
@@ -189,6 +190,10 @@ class MapController extends Notifier<MapState> {
 
   void setZone(String value) {
     state = state.copyWith(zone: value);
+  }
+
+  void clearZone() {
+    state = state.copyWith(zone: null);
   }
 
   void _setImagePath(String value) {

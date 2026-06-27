@@ -24,6 +24,7 @@ jobs:
   build:
     runs-on: macos-15
     environment: DEV
+    if: github.event_name == 'push' || github.head_ref != github.ref
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -214,18 +215,52 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      
+      # check .dev.env content
+      - name: Check .dev.env Content
+        run: |
+          echo "=== Checking .dev.env file ==="
+          if [ -f "packages/core/.dev.env" ]; then
+            cat packages/core/.dev.env
+          else
+            echo ".dev.env file not found"
+          fi
+          echo "================================"
+
       # setup build runner
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
           echo Getting dependencies
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null   
+
+          echo Debug: Showing .dev.env with line numbers
+          if [ -f ".dev.env" ]; then
+            cat -n .dev.env
+          fi
+          
+          echo Exporting environment variables from .dev.env
+          if [ -f ".dev.env" ]; then
+            sed 's/\r$//' .dev.env > .dev.env.lf
+            set -a
+            source .dev.env.lf
+            set +a
+            rm .dev.env.lf
+            echo "Environment variables exported"
+          else
+            echo ".dev.env file not found"
+          fi
+
+          echo Cleaning build_runner
+          dart run build_runner clean
+
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d --force-jit
+          dart run build_runner build -d --force-jit
+          
           echo Done running build_runner. Navigating up to root directory
           cd ../../
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
 
       # format dart code
       - name: Auto-format Dart code

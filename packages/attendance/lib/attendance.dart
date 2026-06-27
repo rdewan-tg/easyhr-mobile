@@ -15,6 +15,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:common/common.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
+import 'package:profile/presentation/controller/profile_controller.dart';
 import 'package:timezone/data/latest.dart' as tz_latest;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:intl/intl.dart';

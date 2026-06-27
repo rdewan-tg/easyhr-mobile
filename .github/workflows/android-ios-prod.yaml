@@ -199,20 +199,41 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
           
           echo Getting dependencies
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
+
+          echo Debug: Showing .prod.env with line numbers
+          if [ -f ".prod.env" ]; then
+            cat -n .prod.env
+          fi
+          
+          echo Exporting environment variables from .prod.env
+          if [ -f ".prod.env" ]; then
+            sed 's/\r$//' .prod.env > .prod.env.lf
+            set -a
+            source .prod.env.lf
+            set +a
+            rm .prod.env.lf
+            echo "Environment variables exported"
+          else
+            echo ".prod.env file not found"
+          fi
+
+          echo Cleaning build_runner
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          flutter pub  run build_runner build -d --force-jit
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
 
       # Formats the dart code
       - name: Auto-format Dart code

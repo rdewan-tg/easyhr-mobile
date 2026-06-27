@@ -15,9 +15,13 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
     final zones = ref.watch(
       mapControllerProvider.select((value) => value.currentZones),
     );
+    final isZoneEnabled = ref.watch(
+      mapControllerProvider.select((value) => value.isZoneEnabled),
+    );
 
     return DropdownMenu(
       width: MediaQuery.of(context).size.width * 0.8,
+      enabled: isZoneEnabled,
       controller: controller,
       label: Text(
         'Select Zone'.hardcoded,

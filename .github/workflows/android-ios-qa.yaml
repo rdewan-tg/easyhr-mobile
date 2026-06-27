@@ -180,20 +180,41 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
           
           echo Getting dependencies
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
+
+          echo Debug: Showing .qa.env with line numbers
+          if [ -f ".qa.env" ]; then
+            cat -n .qa.env
+          fi
+          
+          echo Exporting environment variables from .qa.env
+          if [ -f ".qa.env" ]; then
+            sed 's/\r$//' .qa.env > .qa.env.lf
+            set -a
+            source .qa.env.lf
+            set +a
+            rm .qa.env.lf
+            echo "Environment variables exported"
+          else
+            echo ".qa.env file not found"
+          fi
+
+          echo Cleaning build_runner
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d --force-jit
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
 
       # Formats the dart code
       - name: Auto-format Dart code
