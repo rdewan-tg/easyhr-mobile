@@ -196,9 +196,11 @@ jobs:
           
           echo Exporting environment variables from .qa.env
           if [ -f ".qa.env" ]; then
+            sed 's/\r$//' .qa.env > .qa.env.lf
             set -a
-            source .qa.env
+            source .qa.env.lf
             set +a
+            rm .qa.env.lf
             echo "Environment variables exported"
           else
             echo ".qa.env file not found"

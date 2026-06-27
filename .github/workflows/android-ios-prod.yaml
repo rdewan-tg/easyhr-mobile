@@ -215,9 +215,11 @@ jobs:
           
           echo Exporting environment variables from .prod.env
           if [ -f ".prod.env" ]; then
+            sed 's/\r$//' .prod.env > .prod.env.lf
             set -a
-            source .prod.env
+            source .prod.env.lf
             set +a
+            rm .prod.env.lf
             echo "Environment variables exported"
           else
             echo ".prod.env file not found"
