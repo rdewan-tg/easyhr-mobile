@@ -19,7 +19,7 @@ class SignUpButton extends ConsumerWidget {
           ),
         ),
         label: Text(
-          'Sign Up'.hardcoded,
+          context.localizations('auth.signUp'),
           style: const TextStyle(fontSize: kMedium),
         ),
         icon: isLoading

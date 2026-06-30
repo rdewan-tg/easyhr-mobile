@@ -20,7 +20,7 @@ class LoginButton extends ConsumerWidget {
           ),
         ),
         label: Text(
-          'Login'.hardcoded,
+          context.localizations('auth.login'),
           style: const TextStyle(fontSize: kMedium),
         ),
         icon: isLoading

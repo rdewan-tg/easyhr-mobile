@@ -24,7 +24,7 @@ class _ZoneWidgetState extends ConsumerState<ZoneWidget> {
       enabled: isZoneEnabled,
       controller: controller,
       label: Text(
-        'Select Zone'.hardcoded,
+        context.localizations('attendance.selectZone'),
         style: Theme.of(context).textTheme.labelSmall,
       ),
       requestFocusOnTap: false,

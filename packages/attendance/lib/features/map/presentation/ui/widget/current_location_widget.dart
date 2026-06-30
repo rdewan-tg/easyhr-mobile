@@ -24,7 +24,7 @@ class CurrentLocationWidget extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Current Location".hardcoded,
+                    context.localizations('attendance.currentLocation'),
                     style: context.textTheme.titleSmall?.copyWith(
                       color: colorScheme.onSurfaceVariant,
                     ),
@@ -59,7 +59,7 @@ class CurrentLocationWidget extends ConsumerWidget {
                         SnackBar(
                           content: Text(
                             context.localizations(
-                              "attendance.copiedToClipboard",
+                              "attendance.locationCopy",
                             ),
                           ),
                           behavior: SnackBarBehavior.floating,

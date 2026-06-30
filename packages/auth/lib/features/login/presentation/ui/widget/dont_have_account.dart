@@ -9,7 +9,7 @@ class DontHaveAccount extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an account?".hardcoded,
+          context.localizations("auth.don'tHaveAccount"),
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
         TextButton(
@@ -18,7 +18,7 @@ class DontHaveAccount extends ConsumerWidget {
             context.push('/signup');
           },
           child: Text(
-            "Sign up".hardcoded,
+            context.localizations("auth.signUp"),
             style: const TextStyle(
               color: Colors.blue,
               fontWeight: FontWeight.w700,

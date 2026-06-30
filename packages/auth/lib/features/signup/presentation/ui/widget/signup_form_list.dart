@@ -51,7 +51,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               controller: _nameController,
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
-                labelText: 'Name'.hardcoded,
+                labelText: context.localizations('auth.name'),
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                 ),
@@ -59,7 +59,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your name'.hardcoded;
+                  return context.localizations('auth.nameMessage');
                 }
                 return null;
               },
@@ -69,7 +69,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Email'.hardcoded,
+                labelText: context.localizations('auth.email'),
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                 ),
@@ -77,9 +77,9 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your email'.hardcoded;
+                  return context.localizations('auth.emailMessage');
                 } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                  return 'Please enter a valid email'.hardcoded;
+                  return context.localizations('auth.emailValidation');
                 }
                 return null;
               },
@@ -89,7 +89,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Password'.hardcoded,
+                labelText: context.localizations('auth.password'),
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                 ),
@@ -97,10 +97,9 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your password'.hardcoded;
+                  return context.localizations('auth.passwordMessage');
                 } else if (value.length < 8) {
-                  return 'Password must be at least 8 characters long'
-                      .hardcoded;
+                  return context.localizations('auth.passwordValidation');
                 }
                 return null;
               },
@@ -110,7 +109,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               controller: _confirmPasswordController,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Confirm Password'.hardcoded,
+                labelText: context.localizations('auth.confirmPassword'),
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                 ),
@@ -118,12 +117,11 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your password'.hardcoded;
+                  return context.localizations('auth.confirmPasswordMessage');
                 } else if (value.length < 8) {
-                  return 'Password must be at least 8 characters long'
-                      .hardcoded;
+                  return context.localizations('auth.passwordValidation');
                 } else if (value != _passwordController.text) {
-                  return 'Passwords do not match'.hardcoded;
+                  return context.localizations('auth.passwordMismatch');
                 }
                 return null;
               },
@@ -164,10 +162,9 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
             barrierDismissible: false,
             builder: (context) {
               return AlertDialog(
-                title: Text('Sign Up Successful'.hardcoded),
+                title: Text(context.localizations('auth.signUpSuccess')),
                 content: Text(
-                  'Please check your email for verification and please  verify your account'
-                      .hardcoded,
+                  context.localizations('auth.pleaseCheckEmailForVerification'),
                 ),
                 actions: [
                   TextButton(
@@ -179,7 +176,7 @@ class _SignUpFormListState extends ConsumerState<SignUpFormList> {
                       // navigate to login
                       _navigateToLogin();
                     },
-                    child: Text('Ok'.hardcoded),
+                    child: Text(context.localizations('auth.ok')),
                   ),
                 ],
               );
