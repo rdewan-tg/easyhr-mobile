@@ -14,7 +14,7 @@ class ForgotPassword extends ConsumerWidget {
             context.push('/login/forgotPassword');
           },
           child: Text(
-            "Forgot Password?".hardcoded,
+            context.localizations('auth.forgotPassword'),
             style: const TextStyle(
               color: Colors.blue,
               fontWeight: FontWeight.w500,

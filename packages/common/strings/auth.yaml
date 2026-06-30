@@ -1,0 +1,23 @@
+name: Name
+nameMessage: Please enter your name
+email: Email
+emailMessage: Please enter your email
+emailValidation: Please enter a valid email
+emailSuccess: Email Sent Successfully
+emailCheckInstruction: Please check your email for further instructions
+ok: OK
+send: Send
+login: Login
+don'tHaveAccount: Don't have an account?
+signUp: Sign Up
+signUpSuccess: Sign Up Successful
+forgotPassword: Forgot Password
+password: Password
+confirmPassword: Confirm Password
+passwordMessage: Please enter your password
+passwordValidation: Password must be at least 8 characters long
+passwordMismatch: Password do not match
+alreadyHaveAccount: Already have an account?
+pleaseCheckEmailForVerification: Please check your email for verification and please verify your account
+
+
