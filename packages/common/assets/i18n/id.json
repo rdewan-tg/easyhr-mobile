@@ -122,7 +122,7 @@
     "auth.ok": "Oke",
     "auth.send": "Mengirim",
     "auth.login": "Login",
-    "auth.don'tHaveAccount": "Belum punya akun?",
+    "auth.dontHaveAccount": "Belum punya akun?",
     "auth.signUp": "Mendaftar",
     "auth.signUpSuccess": "Pendaftaran Berhasil",
     "auth.forgotPassword": "Lupa Kata Sandi",

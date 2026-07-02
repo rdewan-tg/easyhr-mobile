@@ -122,7 +122,7 @@
     "auth.ok": "好的",
     "auth.send": "发送",
     "auth.login": "登录",
-    "auth.don'tHaveAccount": "还没有账号？",
+    "auth.dontHaveAccount": "还没有账号？",
     "auth.signUp": "报名",
     "auth.signUpSuccess": "注册成功",
     "auth.forgotPassword": "忘记密码",
