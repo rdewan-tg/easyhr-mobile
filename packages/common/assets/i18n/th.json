@@ -122,7 +122,7 @@
     "auth.ok": "ตกลง",
     "auth.send": "ส่ง",
     "auth.login": "เข้าสู่ระบบ",
-    "auth.don'tHaveAccount": "ยังไม่มีบัญชีใช่ไหม?",
+    "auth.dontHaveAccount": "ยังไม่มีบัญชีใช่ไหม?",
     "auth.signUp": "ลงทะเบียน",
     "auth.signUpSuccess": "ลงทะเบียนสำเร็จ",
     "auth.forgotPassword": "ลืมรหัสผ่าน",

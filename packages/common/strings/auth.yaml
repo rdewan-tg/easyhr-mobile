@@ -8,7 +8,7 @@ emailCheckInstruction: Please check your email for further instructions
 ok: OK
 send: Send
 login: Login
-don'tHaveAccount: Don't have an account?
+dontHaveAccount: Don't have an account?
 signUp: Sign Up
 signUpSuccess: Sign Up Successful
 forgotPassword: Forgot Password

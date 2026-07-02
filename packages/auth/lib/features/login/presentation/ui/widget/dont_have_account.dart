@@ -9,7 +9,7 @@ class DontHaveAccount extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          context.localizations("auth.don'tHaveAccount"),
+          context.localizations("auth.dontHaveAccount"),
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
         TextButton(
