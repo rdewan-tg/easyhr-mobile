@@ -33,21 +33,19 @@ printf "\e[32;1m%s\e[0m\n" 'Finished running dart format'
 # \e[0m resets the color back to the terminal's default. 
 # \n is a newline character that moves the terminal cursor to the next line.
 printf "\e[33;1m%s\e[0m\n" 'Running flutter analyze'
-analyze=$(flutter analyze)
-analyzet_lines=$(echo "$analyze" | wc -l)
-# Subtract 2 from the line count
-real_analyzet_lines=$((analyzet_lines - 2))
+analyze=$(flutter analyze --no-pub --fatal-warnings 2>&1)
+analyze_exit=$?
 
-if [ "$real_analyzet_lines" -gt 1 ]; then
+if [ $analyze_exit -ne 0 ]; then
   echo -e "$analyze \n"
-  printf "\e[31;1m%s %s\e[0m\n" "Flutter analyze found issues"
-  printf "\e[31;1m%s %s\e[0m\n" "$real_analyzet_lines" "issues"
+  printf "\e[31;1m%s\e[0m\n" 'Flutter analyze found issues'
 
   printf "\e[33;1m%s\e[0m\n" 'Running dart fix - Trying to fix above issues'
   dart_fix=$(dart fix --apply)
-  if [ $? -ne 0 ]; then
+  dart_fix_exit=$?
+  if [ $dart_fix_exit -ne 0 ]; then
     echo -e "$dart_fix \n"
-    printf "\e[31;1m%s\e[0m\n" 'Dart fix applied changes, please recommit'
+    printf "\e[31;1m%s\e[0m\n" 'Dart fix failed'
     exit 1
   fi
 
