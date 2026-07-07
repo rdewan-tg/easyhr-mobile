@@ -10,7 +10,7 @@ class AlreadyHaveAccount extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Already have an account?'.hardcoded,
+          context.localizations('auth.alreadyHaveAccount'),
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w500,
@@ -19,7 +19,7 @@ class AlreadyHaveAccount extends ConsumerWidget {
         TextButton(
           onPressed: onPressed,
           child: Text(
-            "LogIn".hardcoded,
+            context.localizations('auth.login'),
             style: const TextStyle(
               color: Colors.blue,
               fontWeight: FontWeight.w700,

@@ -30,7 +30,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Forgot Password'.hardcoded)),
+      appBar: AppBar(title: Text(context.localizations('auth.forgotPassword'))),
       body: Padding(
         padding: const EdgeInsets.all(kMedium),
         child: Form(
@@ -42,7 +42,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Email'.hardcoded,
+                  labelText: context.localizations('auth.email'),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                   ),
@@ -50,9 +50,9 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email'.hardcoded;
+                    return context.localizations('auth.emailMessage');
                   } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Please enter a valid email'.hardcoded;
+                    return context.localizations('auth.emailValidation');
                   }
                   return null;
                 },
@@ -112,9 +112,9 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
             barrierDismissible: false,
             builder: (context) {
               return AlertDialog(
-                title: Text('Email Sent Successfuly'.hardcoded),
+                title: Text(context.localizations('auth.emailSuccess')),
                 content: Text(
-                  'Please check your email for further instructions'.hardcoded,
+                  context.localizations('auth.emailCheckInstruction'),
                 ),
                 actions: [
                   TextButton(
@@ -126,7 +126,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                       // navigate to login
                       _navigateToLogin();
                     },
-                    child: Text('Ok'.hardcoded),
+                    child: Text(context.localizations('auth.ok')),
                   ),
                 ],
               );

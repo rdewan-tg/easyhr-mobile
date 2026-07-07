@@ -121,7 +121,7 @@ dependencies:
   # https://pub.dev/packages/edge_to_edge
   edge_to_edge: ^0.0.2
   # https://pub.dev/packages/device_info_plus
-  device_info_plus: 11.2.0 # ^12.3.0 & ^12.4.0 didnt work on iOS simulator
+  device_info_plus: 11.2.0 # ^12.3.0 & ^12.4.0 didn't work on iOS simulator
   # https://pub.dev/packages/grouped_list
   grouped_list: ^6.0.0
   # https://pub.dev/packages/new_version_plus
