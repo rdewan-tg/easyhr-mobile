@@ -58,9 +58,7 @@ class CurrentLocationWidget extends ConsumerWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            context.localizations(
-                              "attendance.locationCopy",
-                            ),
+                            context.localizations("attendance.locationCopy"),
                           ),
                           behavior: SnackBarBehavior.floating,
                         ),
