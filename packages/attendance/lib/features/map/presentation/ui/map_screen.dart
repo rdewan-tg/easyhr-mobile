@@ -91,7 +91,10 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: Text(context.localizations("attendance.title")), centerTitle: true),
+      appBar: AppBar(
+        title: Text(context.localizations("attendance.title")),
+        centerTitle: true,
+      ),
       body: Consumer(
         builder: (context, ref, child) {
           final currentPosition = ref.watch(
