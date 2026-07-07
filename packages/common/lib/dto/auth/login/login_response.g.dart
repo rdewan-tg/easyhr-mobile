@@ -43,6 +43,8 @@ _UserDto _$UserDtoFromJson(Map<String, dynamic> json) => _UserDto(
   photo: json['avatar'] as String?,
   isActive: json['isActive'] as bool,
   uuid: json['uuid'] as String?,
+  gpsRadius: (json['gpsRadius'] as num?)?.toInt(),
+  isZoneEnabled: json['isZoneEnabled'] as bool?,
   role: (json['role'] as List<dynamic>)
       .map((e) => RoleDto.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -57,6 +59,8 @@ Map<String, dynamic> _$UserDtoToJson(_UserDto instance) => <String, dynamic>{
   'avatar': instance.photo,
   'isActive': instance.isActive,
   'uuid': instance.uuid,
+  'gpsRadius': instance.gpsRadius,
+  'isZoneEnabled': instance.isZoneEnabled,
   'role': instance.role,
   'company': instance.company,
 };
@@ -72,13 +76,14 @@ Map<String, dynamic> _$RoleDtoToJson(_RoleDto instance) => <String, dynamic>{
 };
 
 const _$UserRoleEnumMap = {
-  UserRole.superAdmin: 'superAdmin',
-  UserRole.admin: 'admin',
-  UserRole.manager: 'manager',
-  UserRole.supervisor: 'supervisor',
-  UserRole.operator: 'operator',
-  UserRole.user: 'user',
-  UserRole.guest: 'guest',
+  UserRole.superAdmin: 'SUPER_ADMIN',
+  UserRole.admin: 'ADMIN',
+  UserRole.manager: 'MANAGER',
+  UserRole.supervisor: 'SUPERVISOR',
+  UserRole.operator: 'OPERATOR',
+  UserRole.user: 'USER',
+  UserRole.guest: 'GUEST',
+  UserRole.employee: 'EMPLOYEE',
 };
 
 _CompanyDto _$CompanyDtoFromJson(Map<String, dynamic> json) => _CompanyDto(
@@ -90,6 +95,7 @@ _CompanyDto _$CompanyDtoFromJson(Map<String, dynamic> json) => _CompanyDto(
   timeZone: json['timeZone'] as String,
   isZoneEnabled: json['isZoneEnabled'] as bool,
   isCameraEnabled: json['isCameraEnabled'] as bool,
+  currencyCode: json['currencyCode'] as String,
 );
 
 Map<String, dynamic> _$CompanyDtoToJson(_CompanyDto instance) =>
@@ -102,6 +108,7 @@ Map<String, dynamic> _$CompanyDtoToJson(_CompanyDto instance) =>
       'timeZone': instance.timeZone,
       'isZoneEnabled': instance.isZoneEnabled,
       'isCameraEnabled': instance.isCameraEnabled,
+      'currencyCode': instance.currencyCode,
     };
 
 _DeviceSettingDto _$DeviceSettingDtoFromJson(Map<String, dynamic> json) =>

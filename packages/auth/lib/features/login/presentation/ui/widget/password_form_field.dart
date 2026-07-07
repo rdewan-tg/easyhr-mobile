@@ -14,7 +14,7 @@ class PasswordFormField extends ConsumerWidget {
       controller: passwordController,
       obscureText: isObscure ? false : true,
       decoration: InputDecoration(
-        labelText: 'Password'.hardcoded,
+        labelText: context.localizations('auth.password'),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(kSmall)),
         ),
@@ -22,9 +22,9 @@ class PasswordFormField extends ConsumerWidget {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter your password'.hardcoded;
+          return context.localizations('auth.passwordMessage');
         } else if (value.length < 8) {
-          return 'Password must be at least 8 characters long'.hardcoded;
+          return context.localizations('auth.passwordValidation');
         }
         return null;
       },

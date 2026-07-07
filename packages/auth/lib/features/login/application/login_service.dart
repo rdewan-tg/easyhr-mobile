@@ -2,8 +2,8 @@ import 'package:auth/features/login/application/ilogin_service.dart';
 import 'package:auth/features/login/data/dto/request/login_request.dart';
 import 'package:auth/features/login/data/repository/ilogin_repository.dart';
 import 'package:auth/features/login/data/repository/login_repository.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:common/exception/failure.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 final loginServiceProvider = Provider.autoDispose<ILoginService>((ref) {
@@ -30,8 +30,12 @@ final class LoginService implements ILoginService {
         'companyName': result.data.user.company.name,
         'companyCode': result.data.user.company.companyCode ?? '-',
         'timeZone': result.data.user.company.timeZone,
-        'gpsRadius': result.data.user.company.gpsRadius.toString(),
-        'isZoneEnabled': result.data.user.company.isZoneEnabled.toString(),
+        // Store both user and company settings separately
+        'userGpsRadius': result.data.user.gpsRadius?.toString() ?? '',
+        'userIsZoneEnabled': result.data.user.isZoneEnabled?.toString() ?? '',
+        'companyGpsRadius': result.data.user.company.gpsRadius.toString(),
+        'companyIsZoneEnabled': result.data.user.company.isZoneEnabled
+            .toString(),
         'isCameraEnabled': result.data.user.company.isCameraEnabled.toString(),
       });
 

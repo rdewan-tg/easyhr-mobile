@@ -24,7 +24,7 @@ class CurrentAddressWidget extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Current Address".hardcoded,
+                    context.localizations('attendance.currentAddress'),
                     style: context.textTheme.titleSmall?.copyWith(
                       color: colorScheme.onSurfaceVariant,
                     ),
@@ -32,7 +32,7 @@ class CurrentAddressWidget extends ConsumerWidget {
                   const SizedBox(height: 4),
                   Text(
                     currentAddress?.isEmpty == true
-                        ? "No address available".hardcoded
+                        ? context.localizations('attendance.noAddress')
                         : currentAddress ?? "",
                     style: context.textTheme.bodyMedium?.copyWith(
                       color: colorScheme.onSurface,
@@ -55,7 +55,7 @@ class CurrentAddressWidget extends ConsumerWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            "Address copied to clipboard".hardcoded,
+                            context.localizations('attendance.addressCopy'),
                           ),
                           behavior: SnackBarBehavior.floating,
                         ),

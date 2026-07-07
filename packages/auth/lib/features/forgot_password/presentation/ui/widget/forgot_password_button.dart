@@ -20,7 +20,7 @@ class ForgotPasswordButton extends ConsumerWidget {
           ),
         ),
         label: Text(
-          'Send'.hardcoded,
+          context.localizations('auth.send'),
           style: const TextStyle(fontSize: kMedium),
         ),
         icon: isLoading

@@ -4,6 +4,8 @@ home:
   $ref: home.yaml
 attendance:
   $ref: attendance.yaml
+auth:
+  $ref: auth.yaml
 setting:
   $ref: setting.yaml
 profile:

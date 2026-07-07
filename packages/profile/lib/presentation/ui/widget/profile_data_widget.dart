@@ -8,30 +8,44 @@ class ProfileDataWidget extends ConsumerWidget {
     final settings = ref.watch(
       profileControllerProvider.select((value) => value.settings),
     );
-    return Column(
-      children: [
-        Column(
+    return RefreshIndicator(
+      onRefresh: () async {
+        await ref.read(profileControllerProvider.notifier).getProfile();
+      },
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: Column(
           children: [
-            const SizedBox(height: kMedium),
-            const ProfileImageWidget(photo: null),
-            const SizedBox(height: kMedium),
-            Text(
-              settings['companyName'] ?? '',
-              style: context.textTheme.titleLarge,
+            Column(
+              children: [
+                const SizedBox(height: kMedium),
+                const ProfileImageWidget(photo: null),
+                const SizedBox(height: kMedium),
+                Text(
+                  settings['companyName'] ?? '',
+                  style: context.textTheme.titleLarge,
+                ),
+                const SizedBox(height: kMedium),
+                Text(
+                  settings['name'] ?? '',
+                  style: context.textTheme.titleSmall,
+                ),
+                Text(
+                  settings['email'] ?? '',
+                  style: context.textTheme.titleSmall,
+                ),
+                if (settings['phoneNumber'] != null &&
+                    settings['phoneNumber'] != '-') ...[
+                  Text(
+                    settings['phoneNumber'] ?? '',
+                    style: context.textTheme.titleSmall,
+                  ),
+                ],
+              ],
             ),
-            const SizedBox(height: kMedium),
-            Text(settings['name'] ?? '', style: context.textTheme.titleSmall),
-            Text(settings['email'] ?? '', style: context.textTheme.titleSmall),
-            if (settings['phoneNumber'] != null &&
-                settings['phoneNumber'] != '-') ...[
-              Text(
-                settings['phoneNumber'] ?? '',
-                style: context.textTheme.titleSmall,
-              ),
-            ],
           ],
         ),
-      ],
+      ),
     );
   }
 }

@@ -1,18 +1,20 @@
 part of common;
 
 enum UserRole {
-  @JsonValue('superAdmin')
+  @JsonValue('SUPER_ADMIN')
   superAdmin,
-  @JsonValue('admin')
+  @JsonValue('ADMIN')
   admin,
-  @JsonValue('manager')
+  @JsonValue('MANAGER')
   manager,
-  @JsonValue('supervisor')
+  @JsonValue('SUPERVISOR')
   supervisor,
-  @JsonValue('operator')
+  @JsonValue('OPERATOR')
   operator,
-  @JsonValue('user')
+  @JsonValue('USER')
   user,
-  @JsonValue('guest')
+  @JsonValue('GUEST')
   guest,
+  @JsonValue('EMPLOYEE')
+  employee,
 }

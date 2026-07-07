@@ -32,8 +32,8 @@ class _AddAttendanceWithNoImageState
       onPressed: _addAttendance,
       label: Text(
         status == AttendanceStatus.checkedIn
-            ? "Check Out".hardcoded
-            : "Check In".hardcoded,
+            ? context.localizations("attendance.checkOut")
+            : context.localizations("attendance.checkIn"),
       ),
       icon: status == AttendanceStatus.checkedIn
           ? const Icon(Icons.logout_outlined)

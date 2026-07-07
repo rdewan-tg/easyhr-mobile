@@ -1,4 +1,3 @@
-
 name: Flutter - Android Build Prod
 
 on:
@@ -51,6 +50,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: gradle
+
+      
+
 
       # Use the setup-shorebird action to configure Shorebird
       - name: 🐦 Setup Shorebird
@@ -157,16 +159,38 @@ jobs:
 
       # setup iOS certificates
       - name: Install iOS Certificates and Provisioning Profile
-        uses: apple-actions/import-codesign-certs@v1
+        uses: apple-actions/import-codesign-certs@v2
         with:
           p12-file-base64: ${{ env.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
           p12-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+          keychain-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+
+      # Prepare keychain for macOS 15 / Xcode 16
+      - name: Prepare Keychain
+        run: |
+          security default-keychain -s signing_temp.keychain
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          security list-keychains -s signing_temp.keychain login.keychain
+          security find-identity -v signing_temp.keychain
 
       # setup iOS provisioning profile
       - name: Install Provisioning Profile
         run: |
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "${{ secrets.APPLE_PROVISION_PROD_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Prod-ProvisioningProfile.mobileprovision
+          echo "${{ secrets.APPLE_PROVISION_PROD_PROFILE_BASE64 }}" | base64 --decode > /tmp/profile.mobileprovision
+          security cms -D -i /tmp/profile.mobileprovision > /tmp/profile.plist 2>/dev/null || true
+          PROFILE_UUID=$(plutil -extract UUID raw /tmp/profile.plist 2>/dev/null || echo "")
+          echo "Profile UUID: $PROFILE_UUID"
+          if [ -z "$PROFILE_UUID" ]; then
+            echo "ERROR: Could not extract UUID from profile"
+            exit 1
+          fi
+          mkdir -p ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles
+          cp /tmp/profile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
+          echo "Installed profiles:"
+          ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/
+          sed -i '' "s/EasyHR-Prod-ProvisioningProfile/${PROFILE_UUID}/g" ios/export_options_prod.plist
+          sed -i '' "s/EasyHR-Prod-ProvisioningProfile/${PROFILE_UUID}/g" ios/Runner.xcodeproj/project.pbxproj
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
     
 
       - name: Setup Flutter Translation Sheet
@@ -175,20 +199,41 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
           
           echo Getting dependencies
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
+
+          echo Debug: Showing .prod.env with line numbers
+          if [ -f ".prod.env" ]; then
+            cat -n .prod.env
+          fi
+          
+          echo Exporting environment variables from .prod.env
+          if [ -f ".prod.env" ]; then
+            sed 's/\r$//' .prod.env > .prod.env.lf
+            set -a
+            source .prod.env.lf
+            set +a
+            rm .prod.env.lf
+            echo "Environment variables exported"
+          else
+            echo ".prod.env file not found"
+          fi
+
+          echo Cleaning build_runner
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d 
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
           cd ../../    
-          flutter pub get >> /dev/null
+          dart pub get >> /dev/null
 
       # Formats the dart code
       - name: Auto-format Dart code
@@ -234,6 +279,13 @@ jobs:
           args: --build-name=2.0.${{ steps.fetch_version_info.outputs.version_code }} --build-number=${{ steps.fetch_version_info.outputs.version_code }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
+
+      - name: Unlock Keychain for iOS Build
+        run: |
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          security set-keychain-settings -t 3600 -u signing_temp.keychain
+          security list-keychains -s signing_temp.keychain login.keychain
+          security default-keychain -s signing_temp.keychain
 
       - name: Shorebird iOS Build
         uses: shorebirdtech/shorebird-release@v1

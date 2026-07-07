@@ -22,20 +22,21 @@ env:
 
 jobs:
   build:
-    runs-on:  macos-15
+    runs-on: macos-15
     environment: DEV
+    if: github.event_name == 'push' || github.head_ref != github.ref
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       # Use the setup-shorebird action to configure Shorebird
-      - name: 🐦 Setup Shorebird
+      - name: Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
         with:
-          cache: true # Optionally cache your Shorebird installation
+          cache: true
 
       # Now we're able to use Shorebird CLI in our workflow
-      - name: 🚀 Use Shorebird
+      - name: Use Shorebird
         run: shorebird --version
 
       # Android specific setup
@@ -46,14 +47,13 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: gradle
-      
+
       # Set Build Number
-      # echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV: This makes BUILD_NUMBER available as an environment variable for later steps.
       - name: Set Build Number
         run: |
           BUILD_NUMBER=${{ github.run_number }}
-          echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV     
-      
+          echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV
+
       # Cache Gradle
       - name: Cache Gradle
         uses: actions/cache@v4
@@ -62,8 +62,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: |
-            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
@@ -115,9 +114,9 @@ jobs:
       # Setup Flutter Translation Sheet Credentials
       - name: Setup Flutter Translation Sheet Credentials
         run: |
-          echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json 
+          echo "${{env.FLUTTER_TRANSLATION_SHEET_CREDENTIALS}}" | base64 --decode > packages/common/credentials.json
 
-      # Setup .env files    
+      # Setup .env files
       - name: Setup .env file
         run: |
           echo "${{env.ENV_DEV}}" | base64 --decode > packages/core/.dev.env
@@ -143,12 +142,11 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
-     
-      # Install Flutter dependencies only if cache was not restored
+      # Install Flutter dependencies
       - name: Install Flutter Dependencies
         run: |
           flutter pub get >> /dev/null
-      
+
       # Cache CocoaPods
       - name: Cache CocoaPods
         uses: actions/cache@v4
@@ -163,22 +161,52 @@ jobs:
       - name: Install iOS dependencies
         run: |
           cd ios
-          pod repo update 
-          pod install --repo-update 
+          pod repo update
+          pod install --repo-update
           cd ..
 
       # setup iOS certificates
       - name: Install iOS Certificates and Provisioning Profile
-        uses: apple-actions/import-codesign-certs@v1
+        uses: apple-actions/import-codesign-certs@v2
         with:
           p12-file-base64: ${{ env.APPLE_DEVELOPMENT_CERTIFICATE_BASE64 }}
           p12-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+          keychain-password: ${{ env.APPLE_CERTIFICATE_PASSWORD }}
+
+      # Prepare keychain for macOS 15 / Xcode 16
+      - name: Prepare Keychain
+        run: |
+          security default-keychain -s signing_temp.keychain
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          security list-keychains -s signing_temp.keychain login.keychain
+          echo "Keychains in search list:"
+          security list-keychains
+          echo "Default keychain:"
+          security default-keychain
+          echo "Certificate in keychain:"
+          security find-identity -v signing_temp.keychain
 
       # setup iOS provisioning profile
       - name: Install Provisioning Profile
         run: |
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/EasyHR-Dev-ProvisioningProfile.mobileprovision
+          echo "${{ secrets.APPLE_PROVISION_DEV_PROFILE_BASE64 }}" | base64 --decode > /tmp/profile.mobileprovision
+          security cms -D -i /tmp/profile.mobileprovision > /tmp/profile.plist 2>/dev/null || true
+          PROFILE_UUID=$(plutil -extract UUID raw /tmp/profile.plist 2>/dev/null || echo "")
+          echo "Profile UUID: $PROFILE_UUID"
+          if [ -z "$PROFILE_UUID" ]; then
+            echo "ERROR: Could not extract UUID from profile"
+            exit 1
+          fi
+          mkdir -p ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles
+          cp /tmp/profile.mobileprovision ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
+          echo "Installed profiles:"
+          ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/
+          # Replace profile name with UUID in export plist and pbxproj so Xcode 16 can resolve by UUID
+          sed -i '' "s/EasyHR-Dev-ProvisioningProfile/${PROFILE_UUID}/g" ios/export_options_dev.plist
+          sed -i '' "s/EasyHR-Dev-ProvisioningProfile/${PROFILE_UUID}/g" ios/Runner.xcodeproj/project.pbxproj
+          echo "export_options_dev.plist after update:"
+          cat ios/export_options_dev.plist
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
 
       # setup flutter translation sheet
       - name: Setup Flutter Translation Sheet
@@ -187,24 +215,52 @@ jobs:
           dart run flutter_translation_sheet:main fetch
           cd ../../
 
+      
+      # check .dev.env content
+      - name: Check .dev.env Content
+        run: |
+          echo "=== Checking .dev.env file ==="
+          if [ -f "packages/core/.dev.env" ]; then
+            cat packages/core/.dev.env
+          else
+            echo ".dev.env file not found"
+          fi
+          echo "================================"
+
       # setup build runner
       - name: Build Runner Setup
         run: |
           cd packages/core
           pwd
+          echo Getting dependencies
+          dart pub get >> /dev/null   
 
-          echo "flutter clean"
-          flutter clean
+          echo Debug: Showing .dev.env with line numbers
+          if [ -f ".dev.env" ]; then
+            cat -n .dev.env
+          fi
           
-          echo Getting flutter dependencies
-          flutter pub get >> /dev/null
+          echo Exporting environment variables from .dev.env
+          if [ -f ".dev.env" ]; then
+            sed 's/\r$//' .dev.env > .dev.env.lf
+            set -a
+            source .dev.env.lf
+            set +a
+            rm .dev.env.lf
+            echo "Environment variables exported"
+          else
+            echo ".dev.env file not found"
+          fi
+
+          echo Cleaning build_runner
+          dart run build_runner clean
 
           echo Running build_runner in packages/core
-          flutter pub run build_runner build -d 
+          dart run build_runner build -d --force-jit
           
           echo Done running build_runner. Navigating up to root directory
-          cd ../../    
-          flutter pub get >> /dev/null
+          cd ../../
+          dart pub get >> /dev/null
 
       # format dart code
       - name: Auto-format Dart code
@@ -226,18 +282,24 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
         with:
-          args: --artifact=apk --build-name=1.0.2 --build-number=${{ env.BUILD_NUMBER }} --flavor=dev --target=lib/main_dev.dart -- --obfuscate --split-debug-info=build/app/symbols 
+          args: --artifact=apk --build-name=2.0.0 --build-number=${{ env.BUILD_NUMBER }} --flavor=dev --target=lib/main_dev.dart -- --obfuscate --split-debug-info=build/app/symbols
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
+
+      - name: Unlock Keychain for iOS Build
+        run: |
+          security unlock-keychain -p "${{ env.APPLE_CERTIFICATE_PASSWORD }}" signing_temp.keychain
+          security set-keychain-settings -t 3600 -u signing_temp.keychain
+          security list-keychains -s signing_temp.keychain login.keychain
+          security default-keychain -s signing_temp.keychain
 
       - name: Shorebird iOS Build
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=1.0.2 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_dev.plist --flavor=dev --target=lib/main_dev.dart
+          args: --build-name=2.0.0 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_dev.plist --flavor=dev --target=lib/main_dev.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
-
 
       # upload artifacts - android
       - name: Upload APK
@@ -252,4 +314,3 @@ jobs:
         with:
           name: dev-ipa
           path: build/ios/ipa
-

@@ -1,11 +1,25 @@
 part of profile;
 
-class ProfileScreen extends ConsumerWidget with ConfirmDialogMixin {
+class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    _listener(ref, context);
+  ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends ConsumerState<ProfileScreen>
+    with ConfirmDialogMixin {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ref.read(profileControllerProvider.notifier).getAllSettings();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _listener();
 
     return AppScaffoldScrollable(
       title: Text(context.localizations('setting.profile')),
@@ -14,11 +28,11 @@ class ProfileScreen extends ConsumerWidget with ConfirmDialogMixin {
         MenuAnchor(
           menuChildren: [
             MenuItemButton(
-              onPressed: () => _logout(ref, context),
+              onPressed: () => _logout(context),
               child: Text(context.localizations('profile.signout')),
             ),
             MenuItemButton(
-              onPressed: () => _deleteMe(ref, context),
+              onPressed: () => _deleteMe(context),
               child: Text(context.localizations('profile.deleteMyAccount')),
             ),
           ],
@@ -38,23 +52,40 @@ class ProfileScreen extends ConsumerWidget with ConfirmDialogMixin {
       ],
       widget: Padding(
         padding: const EdgeInsets.all(kMedium),
-        child: Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shadowColor: context.themeColor.primaryColorLight,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(kMedium),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(kSmall),
-            child: ProfileDataWidget(),
-          ),
+        child: Column(
+          children: [
+            Card(
+              elevation: 4,
+              clipBehavior: Clip.antiAlias,
+              shadowColor: context.themeColor.primaryColorLight,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(kMedium),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(kSmall),
+                child: ProfileDataWidget(),
+              ),
+            ),
+            const SizedBox(height: kMedium),
+            _buildZoneSwitchTile(),
+          ],
         ),
       ),
     );
   }
 
-  void _listener(WidgetRef ref, BuildContext context) {
+  Widget _buildZoneSwitchTile() {
+    final settings = ref.watch(
+      profileControllerProvider.select((value) => value.settings),
+    );
+    return SwitchListTile.adaptive(
+      title: Text(context.localizations('profile.userIsZoneEnabled')),
+      value: settings['isZoneEnabled'] == 'true',
+      onChanged: (value) {},
+    );
+  }
+
+  void _listener() {
     ref.listen(profileControllerProvider.select((value) => value.isLoading), (
       _,
       next,
@@ -67,7 +98,7 @@ class ProfileScreen extends ConsumerWidget with ConfirmDialogMixin {
     });
   }
 
-  void _logout(WidgetRef ref, BuildContext context) {
+  void _logout(BuildContext context) {
     showConfirmDialog(
       context: context,
       title: context.localizations('profile.signOutDialogTitle'),
@@ -91,7 +122,7 @@ class ProfileScreen extends ConsumerWidget with ConfirmDialogMixin {
     );
   }
 
-  void _deleteMe(WidgetRef ref, BuildContext context) {
+  void _deleteMe(BuildContext context) {
     showConfirmDialog(
       context: context,
       title: context.localizations('profile.deleteDialogTitle'),

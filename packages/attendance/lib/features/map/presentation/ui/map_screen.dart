@@ -15,14 +15,22 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // get all the setting from local db
-      ref.read(mapControllerProvider.notifier).getAllSetting();
-      // get the zone from api
-      ref.read(mapControllerProvider.notifier).getZones();
-      // get the consent statement
-      ref.read(mapControllerProvider.notifier).getConsentStatement();
+      _init();
     });
     _initLocation();
+  }
+
+  void _init() async {
+    // get the zone from api
+    ref.read(mapControllerProvider.notifier).getZones();
+    // get user profile
+    await ref.read(profileControllerProvider.notifier).getProfile();
+    // clear zone
+    ref.read(mapControllerProvider.notifier).clearZone();
+    // get all the setting from local db
+    ref.read(mapControllerProvider.notifier).getAllSetting();
+    // get the consent statement
+    ref.read(mapControllerProvider.notifier).getConsentStatement();
   }
 
   @override
@@ -83,7 +91,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     _listener();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Attendance'), centerTitle: true),
+      appBar: AppBar(title: Text(context.localizations("attendance.title")), centerTitle: true),
       body: Consumer(
         builder: (context, ref, child) {
           final currentPosition = ref.watch(
@@ -122,9 +130,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       ),
       bottomSheet: Consumer(
         builder: (context, ref, child) {
-          final isZoneEnabled = ref.watch(
-            mapControllerProvider.select((value) => value.isZoneEnabled),
-          );
           final isCameraEnabled = ref.watch(
             mapControllerProvider.select((value) => value.isCameraEnabled),
           );
@@ -133,6 +138,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           );
           final isConsentStatement = ref.watch(
             mapControllerProvider.select((value) => value.isConsentStatement),
+          );
+          final isZoneEnabled = ref.watch(
+            mapControllerProvider.select((value) => value.isZoneEnabled),
           );
           return SafeArea(
             maintainBottomViewPadding: true,
@@ -191,7 +199,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                     const SizedBox(height: kMedium),
                     // if current position is null - remove the check-in and check-out buttons
                     if (currentPosition != null) ...[
-                      // if the Zone is enabled - show the zone and capture image button
                       if (isZoneEnabled) ...[
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -208,13 +215,11 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                           ],
                         ),
                       ] else ...[
-                        //if the camera is enabled - show the capture image button
-                        //else show the add attendance with no image
-                        if (isCameraEnabled) ...[
-                          const Center(child: CaptureImageButtonNoZoneWidget()),
-                        ] else ...[
-                          const Center(child: AddAttendanceWithNoImage()),
-                        ],
+                        Center(
+                          child: isCameraEnabled
+                              ? const CaptureImageButtonNoZoneWidget()
+                              : const AddAttendanceWithNoImage(),
+                        ),
                       ],
                     ],
                   ],

@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- Developement method -->
+    <!-- Development method -->
     <key>method</key>
     <string>development</string>
 
@@ -17,7 +17,7 @@
     <!-- Provisioning profiles -->
     <key>provisioningProfiles</key>
     <dict>
-        <!-- Bundle ID and corresponding provisioning profile -->
+        <!-- Bundle ID and corresponding provisioning profile name -->
         <key>com.tonggarden.easyhr.dev</key>
         <string>EasyHR-Dev-ProvisioningProfile</string>
     </dict>

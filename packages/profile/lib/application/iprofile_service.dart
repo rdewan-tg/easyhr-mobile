@@ -7,4 +7,6 @@ abstract interface class IProfileService {
   Future<Result<bool, Failure>> logout();
 
   Future<Result<Map<String, String>, Failure>> getAllSetting();
+
+  Future<void> getProfile();
 }

@@ -43,16 +43,16 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Email'.hardcoded,
+                  labelText: context.localizations('auth.email'),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(kSmall)),
                   ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email'.hardcoded;
+                    return context.localizations('auth.emailMessage');
                   } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Please enter a valid email'.hardcoded;
+                    return context.localizations('auth.emailValidation');
                   }
                   return null;
                 },

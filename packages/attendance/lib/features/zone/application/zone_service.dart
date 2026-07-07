@@ -6,10 +6,10 @@ import 'package:attendance/features/zone/data/repository/izone_repository.dart';
 import 'package:attendance/features/zone/data/repository/zone_repository.dart';
 import 'package:attendance/features/zone/domain/model/zone_model.dart';
 import 'package:common/exception/failure.dart';
-import 'package:multiple_result/multiple_result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:multiple_result/multiple_result.dart';
 
 final zoneServiceProvider = Provider.autoDispose<IZoneService>((ref) {
   return ZoneService(ref.watch(zoneRepositoryProvider));
@@ -40,7 +40,7 @@ final class ZoneService implements IZoneService {
       // Get all settings from local storage
       final settings = await _repository.getAllSettings();
       // extract gps radius from setting
-      final radius = double.parse(settings['gpsRadius'] ?? '0.0');
+      final radius = double.parse(settings['userGpsRadius'] ?? '0.0');
       // Filter stores within radius
       final filtered = await Isolate.run(
         () => _filterZones(position, radius, zones),

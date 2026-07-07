@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:attendance/features/attendance/application/attendance_service.dart';
 import 'package:attendance/features/attendance/data/dto/request/add_attendance_without_image_request.dart';
-import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/attendance/domain/model/create_attendance_model.dart';
-import 'package:attendance/features/zone/application/zone_service.dart';
-import 'package:core/notification/local/local_push_notification.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:attendance/features/map/application/map_service.dart';
 import 'package:attendance/features/map/presentation/state/map_state.dart';
+import 'package:attendance/features/zone/application/zone_service.dart';
 import 'package:common/common.dart';
 import 'package:common/exception/failure.dart';
+import 'package:core/notification/local/local_push_notification.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -29,6 +29,10 @@ class MapController extends Notifier<MapState> {
     result.when(
       (success) {
         state = state.copyWith(zones: success);
+        final currentPosition = state.currentPosition;
+        if (currentPosition != null) {
+          setCurrentPosition(currentPosition);
+        }
       },
       (error) {
         state = state.copyWith(errorMsg: error.message);
@@ -186,6 +190,10 @@ class MapController extends Notifier<MapState> {
 
   void setZone(String value) {
     state = state.copyWith(zone: value);
+  }
+
+  void clearZone() {
+    state = state.copyWith(zone: null);
   }
 
   void _setImagePath(String value) {

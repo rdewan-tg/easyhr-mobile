@@ -9,3 +9,11 @@ checkedIn: Checked-in
 checkedOut: Checked-out
 attendanceReminderTitle: Attendance Reminder ⏰
 attendanceReminderBody: Hey, it's time to check out! ⌚ Don't forget to mark your attendance!
+currentAddress: Current Address
+currentLocation: Current Location
+selectZone: Select Zone
+addressCopy: Address copied to clipboard
+locationCopy: Location copied to clipboard
+noAddress: No address available
+checkIn: Check In
+checkOut: Check Out
