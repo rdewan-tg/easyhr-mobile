@@ -36,7 +36,7 @@ platform :ios do
 
       builds = Spaceship::ConnectAPI::Build.all(
         app_id: app_id,
-        filter: { 'buildNumber' => build_number }
+        build_number: build_number
       )
 
       build = builds.first
