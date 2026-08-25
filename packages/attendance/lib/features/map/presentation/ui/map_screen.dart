@@ -69,7 +69,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
 
   Future<void> getAddressFromLatLng(LatLng position) async {
     try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
+      List<Placemark> placemarks = await Geocoding().placemarkFromCoordinates(
         position.latitude,
         position.longitude,
       );
