@@ -36,7 +36,7 @@ platform :ios do
 
       builds = Spaceship::ConnectAPI::Build.all(
         app_id: app_id,
-        filter: { 'buildNumber' => build_number }
+        build_number: build_number
       )
 
       build = builds.first
@@ -46,11 +46,16 @@ platform :ios do
       elsif build.processing_state == "VALID"
         UI.success("Build is VALID! Submitting for external testing...")
 
-        pilot(
-          api_key: api_key,
-          app_identifier: app_id,
-          groups: testflight_groups
-        )
+        group_names = testflight_groups.to_s.split(',').map(&:strip).reject(&:empty?)
+        group_names.each do |group_name|
+          group = Spaceship::ConnectAPI::BetaGroup.all(app_id: app_id).find { |g| g.name == group_name }
+          if group.nil?
+            UI.error("Beta group '#{group_name}' not found. Skipping.")
+          else
+            build.add_beta_groups(beta_groups: [group])
+            UI.success("Build added to group '#{group_name}'.")
+          end
+        end
 
         UI.success("Build submitted to external testers.")
         break
