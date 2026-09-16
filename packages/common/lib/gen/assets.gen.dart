@@ -414,9 +414,7 @@ class $AssetsImagesGen {
   List<SvgGenImage> get values => [emptyBox];
 }
 
-class Assets {
-  const Assets._();
-
+abstract final class Assets {
   static const String package = 'common';
 
   static const $AssetsI18nGen i18n = $AssetsI18nGen();
