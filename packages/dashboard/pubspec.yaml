@@ -14,6 +14,8 @@ dependencies:
 
   core:
     path: ../core
+  ads:
+    path: ../ads
 
 dependency_overrides:
   package_info_plus: ^9.0.0

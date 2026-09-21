@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">EasyHR</string>
     <string name="google_maps_key">AIzaSyCDCcF2VxfsSk-e7YH5b0jp7eTp1lkCkc8</string>
+    <string name="admob_app_id">ca-app-pub-7317993351535057~7117981183</string>
 </resources>

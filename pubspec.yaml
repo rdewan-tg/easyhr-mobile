@@ -13,6 +13,8 @@ dependencies:
   
   core:
     path: packages/core
+  ads:
+    path: packages/ads  
   edge_to_edge: ^0.0.2
 
 dependency_overrides:

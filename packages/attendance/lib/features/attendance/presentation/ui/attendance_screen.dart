@@ -25,6 +25,10 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
 
     return MainAppScaffoldSliver(
       slivers: const [SliverFillRemaining(child: AttendanceList())],
+      bottomNavigationBar: const SafeArea(
+        top: false,
+        child: Center(child: BannerAdWidget()),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         label: Text(context.localizations("attendance.add")),
         icon: const Icon(Icons.add),

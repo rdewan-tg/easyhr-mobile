@@ -1,3 +1,3 @@
-part of '../core.dart';
+part of core;
 
 enum Flavor { dev, qa, prod }
