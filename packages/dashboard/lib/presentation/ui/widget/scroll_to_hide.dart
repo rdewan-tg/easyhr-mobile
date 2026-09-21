@@ -41,8 +41,13 @@ class _ScrollToHideState extends ConsumerState<ScrollToHide> {
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 600),
-      height: isVisible ? 80 + MediaQuery.viewPaddingOf(context).bottom : 0,
-      child: Wrap(children: [widget.child]),
+      height: isVisible ? 140 + MediaQuery.viewPaddingOf(context).bottom : 0,
+      child: Wrap(
+        children: [
+          Center(child: BannerAdWidget()),
+          widget.child,
+        ],
+      ),
     );
   }
 

@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:ads/ads.dart';
 import 'package:attendance/features/attendance/application/attendance_service.dart';
+import 'package:blog/presentation/controller/blog_controller.dart';
 import 'package:common/common.dart';
 import 'package:core/core.dart';
 import 'package:core/data/local/db/app_database.dart';
@@ -8,12 +10,11 @@ import 'package:core/data/local/secure_storage/secure_storage.dart';
 import 'package:core/data/local/secure_storage/secure_storage_const.dart';
 import 'package:core/flavor/flavor_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:notification/presentation/controller/notification_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:setting/presentation/controller/setting_controller.dart';
 import 'package:timezone/data/latest.dart' as tz_latest;
 import 'package:timezone/timezone.dart' as tz;
-import 'package:notification/presentation/controller/notification_controller.dart';
-import 'package:blog/presentation/controller/blog_controller.dart';
 
 part 'start_up_provider.g.dart';
 
@@ -31,6 +32,10 @@ Future<void> startUp(Ref ref, {required Flavor flavor}) async {
   // Setup Logger
   // ignore: avoid_manual_providers_as_generated_provider_dependency
   ref.read(appLoggerProvider);
+
+  // initialize Google Mobile Ads SDK
+  // ignore: avoid_manual_providers_as_generated_provider_dependency
+  await ref.read(adMobServiceProvider).initialize();
 
   // get access token
   final accessToken = await ref

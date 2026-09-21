@@ -618,6 +618,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_dev.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
@@ -734,6 +735,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_dev.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
@@ -850,6 +852,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_qa.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
@@ -966,6 +969,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_qa.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
@@ -1082,6 +1086,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_qa.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
@@ -1198,6 +1203,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_prod.dart;
+				ADMOB_APP_ID = "ca-app-pub-7317993351535057~9193017168";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = "AIzaSyBqVqNKMElTqS3uLd7CrQPpccmhE-Df6sM";
@@ -1314,6 +1320,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_prod.dart;
+				ADMOB_APP_ID = "ca-app-pub-7317993351535057~9193017168";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = "AIzaSyBqVqNKMElTqS3uLd7CrQPpccmhE-Df6sM";
@@ -1430,6 +1437,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_prod.dart;
+				ADMOB_APP_ID = "ca-app-pub-7317993351535057~9193017168";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = "AIzaSyBqVqNKMElTqS3uLd7CrQPpccmhE-Df6sM";
@@ -1566,6 +1574,7 @@
 				ENABLE_BITCODE = NO;
 				FIREBASE_URL_TYPE = "";
 				FLUTTER_TARGET = lib/main_dev.dart;
+				ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
 				GOOGLE_INFO_URL = "";
 				GOOGLE_MAPS_API_KEY = "";
 				"GOOGLE_MAPS_API_KEY[arch=*]" = AIzaSyCxIfcFDEY8TP1FRNxPEeDDeCJg1bkMpP4;
