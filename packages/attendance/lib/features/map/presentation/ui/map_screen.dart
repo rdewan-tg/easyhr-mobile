@@ -69,7 +69,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
 
   Future<void> getAddressFromLatLng(LatLng position) async {
     try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
+      List<Placemark> placemarks = await Geocoding().placemarkFromCoordinates(
         position.latitude,
         position.longitude,
       );
@@ -150,7 +150,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(kLarge),
-              margin: const EdgeInsets.only(bottom: kLarge),
+              margin: const EdgeInsets.only(bottom: kSmall),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -226,6 +226,8 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                       ],
                     ],
                   ],
+                  const SizedBox(height: kSmall),
+                  Center(child: BannerAdWidget()),
                 ],
               ),
             ),
