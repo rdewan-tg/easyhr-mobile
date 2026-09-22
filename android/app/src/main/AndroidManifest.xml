@@ -42,6 +42,10 @@
         <meta-data 
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
+        <!-- Google AdMob App ID (per flavor, see src/<flavor>/res/values/strings.xml) -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
         <!-- Setup for local notification / Scheduled Notification -->
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
         <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">

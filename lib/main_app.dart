@@ -1,15 +1,18 @@
 import 'dart:async';
 import 'dart:io';
+
+import 'package:ads/ads.dart';
 import 'package:common/common.dart';
 import 'package:core/core.dart';
+import 'package:easy_hr/extensions/flavour_ad_ids.dart';
 import 'package:easy_hr/main_widget.dart';
 import 'package:easy_hr/start_up/start_up_screen.dart';
+import 'package:edge_to_edge/edge_to_edge.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:edge_to_edge/edge_to_edge.dart';
 
 FutureOr<void> mainApp(Flavor flavor) async {
   runZonedGuarded<Future<void>>(
@@ -57,6 +60,11 @@ FutureOr<void> mainApp(Flavor flavor) async {
 
       runApp(
         ProviderScope(
+          overrides: [
+            adUnitIdsProvider.overrideWithValue(
+              flavor.adUnitIds(Platform.isAndroid),
+            ),
+          ],
           child: RootRestorationScope(
             restorationId: 'root',
             child: StartUpScreen(

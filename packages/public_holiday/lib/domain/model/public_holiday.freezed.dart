@@ -14,11 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PublicHoliday {
 
- int get id; String get name; String? get description; String get date; String get day;// Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
- String get month;// January, February, March, April, May, June, July, August, September, October, November, December
- int get year; bool get isRecurring; bool get isPast;// true if the public holiday is in the past
- bool get isInCurrentMonth;// true if the public holiday is in the current month
- List<String> get states;
+ int get id; String get name; String? get description; String get date; String get day; String get month; int get year; bool get isRecurring; bool get isPast; bool get isInCurrentMonth; List<String> get states;
 /// Create a copy of PublicHoliday
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -228,17 +224,12 @@ class _PublicHoliday implements PublicHoliday {
 @override final  String? description;
 @override final  String date;
 @override final  String day;
-// Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 @override final  String month;
-// January, February, March, April, May, June, July, August, September, October, November, December
 @override final  int year;
 @override final  bool isRecurring;
 @override final  bool isPast;
-// true if the public holiday is in the past
 @override final  bool isInCurrentMonth;
-// true if the public holiday is in the current month
  final  List<String> _states;
-// true if the public holiday is in the current month
 @override@JsonKey() List<String> get states {
   if (_states is EqualUnmodifiableListView) return _states;
   // ignore: implicit_dynamic_type

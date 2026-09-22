@@ -10,11 +10,11 @@ part of 'flavor_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(FlavorNotifier)
-const flavorProvider = FlavorNotifierProvider._();
+final flavorProvider = FlavorNotifierProvider._();
 
 final class FlavorNotifierProvider
     extends $NotifierProvider<FlavorNotifier, Flavor> {
-  const FlavorNotifierProvider._()
+  FlavorNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -47,8 +47,7 @@ abstract class _$FlavorNotifier extends $Notifier<Flavor> {
   Flavor build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<Flavor, Flavor>;
     final element =
         ref.element
@@ -58,6 +57,6 @@ abstract class _$FlavorNotifier extends $Notifier<Flavor> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }
