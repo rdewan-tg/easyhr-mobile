@@ -32,15 +32,15 @@ HR App
 
 ### Setup Flutter Version Management
 - Run below command to setup flutter version
-- Current version for this project is 3.22.5
+- Current version for this project is 3.44.6
 - Docs : https://fvm.app/docs/getting_started/overview
 
 ```
 # install the flutter version using fvm
-fvm install 3.35.5
+fvm install 3.44.6
 
 # select the flutter version for current project
-fvm use 3.35.5
+fvm use 3.44.6
 
 # use fvm command to proxy your flutter command
 fvm flutter pub get
