@@ -73,4 +73,27 @@ platform :ios do
       sleep(sleep_duration)
     end
   end
+
+  desc "Submit build for App Store review"
+  lane :submit_to_app_store do |options|
+    app_store_connect_api_key(
+      key_id: options[:key_id],
+      issuer_id: options[:issuer_id],
+      key_content: options[:key_content],
+      duration: 1200,
+      in_house: false
+    )
+
+    upload_to_app_store(
+      app_identifier: "com.tonggarden.easyhr",
+      build_number: options[:build_number],
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
 end
