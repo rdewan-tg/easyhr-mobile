@@ -41,14 +41,20 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<!-- Privacy purpose strings -->
 	<key>NSCameraUsageDescription</key>
-	<string>Used to capture a photo from camera</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to your location.</string>
+	<string>TG EasyHR uses the camera to take photos for attendance, your profile picture, and documents you attach to requests.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Used to capture audio</string>
+	<string>TG EasyHR uses the microphone to record audio when you capture a video to attach to a request.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Used to selct image from gallery</string>
+	<string>TG EasyHR accesses your photo library so you can choose images for your profile picture or attach them to requests.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TG EasyHR uses your location when you mark attendance to calculate the distance between you and your office.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>TG EasyHR uses your location when you mark attendance to calculate the distance between you and your office.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to show you more relevant ads.</string>
+
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -90,10 +96,5 @@
 			<string>cstr6suwn9.skadnetwork</string>
 		</dict>
 	</array>
-	<key>NSUserNotificationUsageDescription</key>
-	<string>This app requires notification permissions to send alerts and reminders.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to location when using a attendance feature to calculate the distance between your current location and the office location.</string>
-	
 </dict>
 </plist>
