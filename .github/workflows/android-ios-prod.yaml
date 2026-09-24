@@ -372,5 +372,6 @@ jobs:
             key_id:"$APP_STORE_CONNECT_KEY_ID" \
             issuer_id:"$APP_STORE_CONNECT_ISSUER_ID" \
             key_content:"$APP_STORE_CONNECT_API_KEY_CONTENT" \
+            app_version:"2.0.${{ steps.fetch_version_info.outputs.version_code }}" \
             build_number:"${{ steps.fetch_version_info.outputs.version_code }}"
   

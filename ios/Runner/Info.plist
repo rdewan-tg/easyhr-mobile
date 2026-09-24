@@ -52,8 +52,6 @@
 	<string>TG EasyHR uses your location when you mark attendance to calculate the distance between you and your office.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>TG EasyHR uses your location when you mark attendance to calculate the distance between you and your office.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This identifier will be used to show you more relevant ads.</string>
 
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
