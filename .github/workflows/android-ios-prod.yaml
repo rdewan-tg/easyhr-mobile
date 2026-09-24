@@ -356,4 +356,21 @@ jobs:
             app_id:"$APP_APPLE_ID" \
             build_number:"${{ steps.fetch_version_info.outputs.version_code }}" \
             groups:"$TESTFLIGHT_GROUPS" 
+
+      # Stage release notes for App Store review submission
+      # (deliver reads fastlane/metadata/<locale>/release_notes.txt)
+      - name: Stage App Store release notes
+        run: |
+          mkdir -p fastlane/metadata/en-US
+          cp "distribution/whatsnew/whatsnew-en-US" fastlane/metadata/en-US/release_notes.txt
+
+      # Build is VALID by now (submit_to_testflight waits for it) so it can be
+      # submitted for App Store review immediately
+      - name: Submit build for App Store review
+        run: |
+          bundle exec fastlane submit_to_app_store \
+            key_id:"$APP_STORE_CONNECT_KEY_ID" \
+            issuer_id:"$APP_STORE_CONNECT_ISSUER_ID" \
+            key_content:"$APP_STORE_CONNECT_API_KEY_CONTENT" \
+            build_number:"${{ steps.fetch_version_info.outputs.version_code }}"
   
