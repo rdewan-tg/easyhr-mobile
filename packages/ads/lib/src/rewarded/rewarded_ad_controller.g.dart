@@ -48,7 +48,7 @@ final class RewardedAdControllerProvider
 }
 
 String _$rewardedAdControllerHash() =>
-    r'42a64f943711991a62cf17312e61c743370b5997';
+    r'33b6519a70f7528b29f6c34507e22312033459bd';
 
 /// Loads and shows a rewarded ad. [show] resolves with `true` only if the
 /// user actually earned the reward, so callers can gate the reward on it.

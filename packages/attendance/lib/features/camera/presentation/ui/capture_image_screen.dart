@@ -39,17 +39,8 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
               _showSnackBar(event.toString());
           }
         },
-        saveConfig: SaveConfig.photoAndVideo(
-          initialCaptureMode: CaptureMode.photo,
-          photoPathBuilder: _photoPathBuilder,
-          videoOptions: VideoOptions(
-            enableAudio: true,
-            ios: CupertinoVideoOptions(fps: 10),
-            android: AndroidVideoOptions(
-              bitrate: 6000000,
-              fallbackStrategy: QualityFallbackStrategy.lower,
-            ),
-          ),
+        saveConfig: SaveConfig.photo(
+          pathBuilder: _photoPathBuilder,
           exifPreferences: ExifPreferences(saveGPSLocation: true),
         ),
         sensorConfig: SensorConfig.single(
