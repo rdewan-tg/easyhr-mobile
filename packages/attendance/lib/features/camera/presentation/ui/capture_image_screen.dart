@@ -20,86 +20,114 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
   Widget build(BuildContext context) {
     _listener();
 
+    // The dashboard Scaffold has a bottom navigation bar slot, so it strips the
+    // system bottom inset from padding and viewPadding for this screen even
+    // while the bar is hidden. Read the real insets from the window and
+    // restore them, so SafeArea (including the camera's own) keeps the
+    // controls clear of the system navigation bar.
+    final systemInsets = MediaQueryData.fromView(View.of(context));
+
     return PopScope(
       canPop: true,
       onPopInvokedWithResult: (didPop, result) async {},
-      child: CameraAwesomeBuilder.awesome(
-        onMediaCaptureEvent: (event) {
-          switch ((event.status, event.isPicture, event.isVideo)) {
-            case (MediaCaptureStatus.capturing, true, false):
-              debugPrint('Capturing picture...');
-            case (MediaCaptureStatus.success, true, false):
-              event.captureRequest.when(
-                single: _saveSingleImage,
-                multiple: _saveMultipleImages,
-              );
-            case (MediaCaptureStatus.failure, true, false):
-              _showSnackBar('Failed to capture picture: ${event.exception}');
-            default:
-              _showSnackBar(event.toString());
-          }
-        },
-        saveConfig: SaveConfig.photo(
-          pathBuilder: _photoPathBuilder,
-          exifPreferences: ExifPreferences(saveGPSLocation: true),
+      child: MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          padding: systemInsets.padding,
+          viewPadding: systemInsets.viewPadding,
         ),
-        sensorConfig: SensorConfig.single(
-          sensor: Sensor.position(SensorPosition.front),
-          flashMode: FlashMode.auto,
-          aspectRatio: CameraAspectRatios.ratio_4_3,
-          zoom: 0.0,
-        ),
-        enablePhysicalButton: true,
-        // filter: AwesomeFilter.AddictiveRed,
-        previewAlignment: Alignment.center,
-        previewFit: CameraPreviewFit.contain,
-        onMediaTap: (mediaCapture) {
-          mediaCapture.captureRequest.when(
-            single: (single) async {
-              await OpenFile.open(single.file?.path); // Open the modified image
-            },
-            multiple: (multiple) {
-              multiple.fileBySensor.forEach((key, value) async {
-                await OpenFile.open(value?.path);
-              });
-            },
-          );
-        },
-        availableFilters: awesomePresetFiltersList,
-        topActionsBuilder: (state) => AwesomeTopActions(
-          state: state,
-          children: [
-            IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            ),
-          ],
-        ),
-        bottomActionsBuilder: (state) => AwesomeBottomActions(
-          state: state,
-          left: const SizedBox(),
-          right: StreamBuilder<MediaCapture?>(
-            stream: state.captureState$,
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const SizedBox(width: 72, height: 72);
+        child: SafeArea(
+          child: CameraAwesomeBuilder.awesome(
+            onMediaCaptureEvent: (event) {
+              switch ((event.status, event.isPicture, event.isVideo)) {
+                case (MediaCaptureStatus.capturing, true, false):
+                  debugPrint('Capturing picture...');
+                case (MediaCaptureStatus.success, true, false):
+                  event.captureRequest.when(
+                    single: _saveSingleImage,
+                    multiple: _saveMultipleImages,
+                  );
+                case (MediaCaptureStatus.failure, true, false):
+                  _showSnackBar(
+                    'Failed to capture picture: ${event.exception}',
+                  );
+                default:
+                  _showSnackBar(event.toString());
               }
-              return SizedBox(
-                width: 72,
-                child: AwesomeMediaPreview(
-                  mediaCapture: snapshot.requireData,
-                  onMediaTap: (capture) {
-                    capture.captureRequest.when(
-                      single: (single) async {
-                        await OpenFile.open(single.file?.path);
-                      },
-                    );
-                  },
+            },
+            saveConfig: SaveConfig.photoAndVideo(
+              initialCaptureMode: CaptureMode.photo,
+              photoPathBuilder: _photoPathBuilder,
+              videoOptions: VideoOptions(
+                enableAudio: true,
+                ios: CupertinoVideoOptions(fps: 10),
+                android: AndroidVideoOptions(
+                  bitrate: 6000000,
+                  fallbackStrategy: QualityFallbackStrategy.lower,
                 ),
+              ),
+              exifPreferences: ExifPreferences(saveGPSLocation: true),
+            ),
+            sensorConfig: SensorConfig.single(
+              sensor: Sensor.position(SensorPosition.front),
+              flashMode: FlashMode.auto,
+              aspectRatio: CameraAspectRatios.ratio_4_3,
+              zoom: 0.0,
+            ),
+            enablePhysicalButton: true,
+            // filter: AwesomeFilter.AddictiveRed,
+            previewAlignment: Alignment.center,
+            previewFit: CameraPreviewFit.contain,
+            onMediaTap: (mediaCapture) {
+              mediaCapture.captureRequest.when(
+                single: (single) async {
+                  await OpenFile.open(
+                    single.file?.path,
+                  ); // Open the modified image
+                },
+                multiple: (multiple) {
+                  multiple.fileBySensor.forEach((key, value) async {
+                    await OpenFile.open(value?.path);
+                  });
+                },
               );
             },
+            availableFilters: awesomePresetFiltersList,
+            topActionsBuilder: (state) => AwesomeTopActions(
+              state: state,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    context.pop();
+                  },
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+                ),
+              ],
+            ),
+            bottomActionsBuilder: (state) => AwesomeBottomActions(
+              state: state,
+              left: const SizedBox(),
+              right: StreamBuilder<MediaCapture?>(
+                stream: state.captureState$,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const SizedBox(width: 72, height: 72);
+                  }
+                  return SizedBox(
+                    width: 72,
+                    child: AwesomeMediaPreview(
+                      mediaCapture: snapshot.requireData,
+                      onMediaTap: (capture) {
+                        capture.captureRequest.when(
+                          single: (single) async {
+                            await OpenFile.open(single.file?.path);
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ),
       ),
