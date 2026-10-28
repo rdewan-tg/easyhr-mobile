@@ -58,7 +58,7 @@ final class StartUpProvider
   }
 }
 
-String _$startUpHash() => r'746ba08f05a64202c2f7328f8c8c8a0f4a56ae84';
+String _$startUpHash() => r'479c64db88a2de7194c846697360928e76ac989f';
 
 final class StartUpFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<void>, Flavor> {
