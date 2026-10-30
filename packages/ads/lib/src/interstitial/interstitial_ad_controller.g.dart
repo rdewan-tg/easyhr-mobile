@@ -51,7 +51,7 @@ final class InterstitialAdControllerProvider
 }
 
 String _$interstitialAdControllerHash() =>
-    r'6bace7de1956dc0caf35bacd1e1f58a3eba206a7';
+    r'2888efefa04826c36adbca7f4860b88d51447dab';
 
 /// Loads and shows a full-screen interstitial ad. A new ad is preloaded
 /// right after the previous one is shown/dismissed/failed so the next call
